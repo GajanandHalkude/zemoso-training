@@ -18,3 +18,4 @@ let result = (firstname,lastname) =>
     return firstname[0].toUpperCase() + lastname[0].toUpperCase()
 }
 console.log(result("gajanand","halkude"))
+console.log(new Date())
