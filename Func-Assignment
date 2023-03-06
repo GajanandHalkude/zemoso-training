@@ -1,5 +1,4 @@
-
-//Q1	Ex1
+//Q1
 function sum(a,b)
 { 
     return a + b
@@ -19,5 +18,3 @@ let result = (firstname,lastname) =>
     return firstname[0].toUpperCase() + lastname[0].toUpperCase()
 }
 console.log(result("gajanand","halkude"))
-
-
