@@ -2,6 +2,9 @@
   "name": "my-app",
   "version": "0.0.1",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -10,6 +13,7 @@
     "build": "webpack --config webpack.dev.config.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "test": "jest -c jest.config.js --passWithNoTests --coverage --forceExit",
     "mock-server": "json-server --watch src/data/db.json --port 3001"
   },
   "devDependencies": {
@@ -26,6 +30,7 @@
     "@storybook/react": "^7.0.20",
     "@storybook/react-webpack5": "^7.0.20",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "@testing-library/react": "^14.0.0",
     "@types/fork-ts-checker-webpack-plugin": "^0.4.5",
     "@types/react": "^18.2.11",
     "@types/react-dom": "^18.2.4",
