@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ImageComponent from './index';
-import holdingcard from "../../../../public/images/holdingcard.svg"
-import success from "../../../../public/images/success.svg"
+import holdingcard from "../../../../public/assets/images/holdingcard.svg"
+import success from "../../../../public/assets/images/success.svg"
 import '@testing-library/jest-dom/extend-expect';
 
 

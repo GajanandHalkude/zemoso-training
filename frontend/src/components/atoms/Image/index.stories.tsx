@@ -1,9 +1,9 @@
 import React from "react";
 import ImageComponent  from "./index";
 import {ComponentStory} from "@storybook/react"
-import Bitcoin from '../../../../public/images/bitcoin.svg'
-import Ethereum from '../../../../public/images/ethreum.svg';
-import Dodge from '../../../../public/images/DodgeCoin.svg';
+import Bitcoin from '../../../../public/assets/images/bitcoin.svg'
+import Ethereum from '../../../../public/assets/images/ethreum.svg';
+import Dodge from '../../../../public/assets/images/DodgeCoin.svg';
 
 export default{
     title: 'atoms/Image',
