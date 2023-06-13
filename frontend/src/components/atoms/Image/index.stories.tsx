@@ -29,12 +29,6 @@ EthereumCoin.args = {
   width: '60px',
 };
 
-// export const RippleCoin = Template.bind({});
-// RippleCoin.args = {
-//   src: Dodge,
-//   height: '60px',
-//   width: '60px',
-// };
 
 export const DodgeCoin = Template.bind({});
 DodgeCoin.args = {
