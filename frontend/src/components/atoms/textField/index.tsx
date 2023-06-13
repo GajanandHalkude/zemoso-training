@@ -9,7 +9,8 @@ interface TextFieldProps {
   isPassword: boolean;
   width?: string;
   height?: string | number;
-  size?: 'small' | 'medium'
+  size?: "small" | "medium";
+  borderRadius?: string | number;
 }
 
 const CustomTextField: React.FC<TextFieldProps> = ({
@@ -20,6 +21,7 @@ const CustomTextField: React.FC<TextFieldProps> = ({
   width,
   height,
   size,
+  borderRadius,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -32,8 +34,9 @@ const CustomTextField: React.FC<TextFieldProps> = ({
   };
 
   const textFieldStyle = {
-    width: width ? width : "100%", // Use provided width or default to 100% width
-    height: height ? height : 40, // Use provided height or default to 40px height
+    width: width ? width : "100%",
+    height: height ? height : 40,
+    borderRadius: borderRadius?borderRadius:"8px"
   };
 
   return (
@@ -45,23 +48,16 @@ const CustomTextField: React.FC<TextFieldProps> = ({
       fullWidth
       margin="normal"
       size={size}
-      sx={textFieldStyle}
-      InputProps={
-        isPassword
-          ? {
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    onClick={handleTogglePasswordVisibility}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }
-          : undefined
-      }
+      InputProps={{
+        sx: textFieldStyle,
+        endAdornment: isPassword && (
+          <InputAdornment position="end">
+            <IconButton onClick={handleTogglePasswordVisibility} edge="end">
+              {showPassword ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
     />
   );
 };

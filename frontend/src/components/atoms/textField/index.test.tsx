@@ -38,6 +38,7 @@ describe("CustomTextField", () => {
         width="100%"
         height={40}
         size="medium"
+        borderRadius="8px"
       />
     );
 
@@ -63,6 +64,7 @@ describe("CustomTextField", () => {
         width="100%"
         height={40}
         size="medium"
+        borderRadius="8px"
       />
     );
 

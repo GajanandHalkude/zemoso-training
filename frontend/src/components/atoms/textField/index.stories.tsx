@@ -20,6 +20,7 @@ Default.args = {
   width: "20%",
   height: 40,
   size: "medium",
+  borderRadius: "8px",
 };
 
 export const Password = Template.bind({});
@@ -31,6 +32,7 @@ Password.args = {
   width: "20%",
   height: 40,
   size: "medium",
+  borderRadius: "8px"
 };
 
 export const SmallSize = Template.bind({});
@@ -42,4 +44,5 @@ SmallSize.args = {
   width: "20%",
   height: 40,
   size: "small",
+  borderRadius:"8px"
 };
