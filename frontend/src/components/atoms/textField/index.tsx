@@ -6,7 +6,7 @@ interface TextFieldProps {
   placeholder?: string;
   value: string;
   onChange: (value: string) => void;
-  password: boolean;
+  isPassword: boolean;
   width?: string;
   height?: string | number;
   size?: 'small' | 'medium'
@@ -16,10 +16,10 @@ const CustomTextField: React.FC<TextFieldProps> = ({
   placeholder,
   value,
   onChange,
-  password,
+  isPassword,
   width,
   height,
- size
+  size,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -33,13 +33,13 @@ const CustomTextField: React.FC<TextFieldProps> = ({
 
   const textFieldStyle = {
     width: width ? width : "100%", // Use provided width or default to 100% width
-    height: height ? height : 40 , // Use provided height or default to 40px height
+    height: height ? height : 40, // Use provided height or default to 40px height
   };
 
   return (
     <TextField
       placeholder={placeholder}
-      type={password && !showPassword ? "password" : "text"}
+      type={isPassword && !showPassword ? "password" : "text"}
       value={value}
       onChange={handleChange}
       fullWidth
@@ -47,7 +47,7 @@ const CustomTextField: React.FC<TextFieldProps> = ({
       size={size}
       sx={textFieldStyle}
       InputProps={
-        password
+        isPassword
           ? {
               endAdornment: (
                 <InputAdornment position="end">

@@ -11,7 +11,7 @@ describe("CustomTextField", () => {
             placeholder="Enter text"
             value="Initial value"
             onChange={handleChange}
-            password={false}
+            isPassword={false}
           />
         );
 
@@ -34,7 +34,7 @@ describe("CustomTextField", () => {
         placeholder="Enter your text"
         value={value}
         onChange={handleChange}
-        password={false}
+        isPassword={false}
         width="100%"
         height={40}
         size="medium"
@@ -59,7 +59,7 @@ describe("CustomTextField", () => {
         placeholder="Enter your password"
         value={value}
         onChange={handleChange}
-        password={true}
+        isPassword
         width="100%"
         height={40}
         size="medium"
