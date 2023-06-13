@@ -1,8 +1,8 @@
 import IconComponent from "./index";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
-import LogOut from '../../../../public/images/logout.svg'
-import DashBoard from '../../../../public/images/dashboard.svg'
+import LogOut from '../../../../public/assets/images/logout.svg'
+import DashBoard from '../../../../public/assets/images/dashboard.svg'
 
 export default {
   title: "atoms/IconComponent",

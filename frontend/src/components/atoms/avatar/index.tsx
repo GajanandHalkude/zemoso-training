@@ -1,6 +1,6 @@
 import Avatar from "@mui/material/Avatar"
 import React from "react"
-import Logo from  "../../../../public/images/avatar.svg"
+import Logo from  "../../../../public/assets/images/avatar.svg"
 
 interface AvatarComponentProps{
     height: string,

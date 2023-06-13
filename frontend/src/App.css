@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Graphik';
+    src: url('../public/assets/fonts/Graphik-Regular-Trial.otf');
+}
+
+* {
+    font-family: 'Graphik', sans-serif;
+    padding: 0px;
+    margin:0px;
+  }
+  

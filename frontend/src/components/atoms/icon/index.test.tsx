@@ -1,7 +1,7 @@
 import React from "react"
 import { render,screen } from "@testing-library/react"
 import IconComponent from "./index"
-import Logout from '../../../../public/images/logout.svg'
+import Logout from '../../../../public/assets/images/logout.svg'
 import '@testing-library/jest-dom/extend-expect';
 
 it('render icon',()=>{
