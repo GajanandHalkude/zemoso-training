@@ -16,23 +16,23 @@ export const ChipItemRoundedLight = Template.bind({})
 
 ChipItemRoundedLight.args = {
   label: '24 h',
-  chipvariant: 'light',
-  chiptype: 'rounded'
+  chipVariant: 'light',
+  chipType: 'rounded'
 }
 
 export const ChipItemRoundedDark = Template.bind({})
 
 ChipItemRoundedDark.args = {
   label: 'Purchased',
-  chipvariant: 'dark',
-  chiptype: 'rounded'
+  chipVariant: 'dark',
+  chipType: 'rounded'
 }
 
 export const ChipItemSquaredSelected = Template.bind({})
 
 ChipItemSquaredSelected.args = {
-  chiptype: 'squared',
-  chipcolor: theme.palette.chipColors.main,
+  chipType: 'squared',
+  chipColor: theme.palette.chipColors.main,
   label: 'Bitcoin',
   selected: true
 }
@@ -40,8 +40,8 @@ ChipItemSquaredSelected.args = {
 export const ChipItemSquaredUnselected = Template.bind({})
 
 ChipItemSquaredUnselected.args = {
-  chiptype: 'squared',
-  chipcolor: theme.palette.chipColors.main,
+  chipType: 'squared',
+  chipColor: theme.palette.chipColors.main,
   label: 'Bitcoin',
   selected: false
 }

@@ -6,22 +6,22 @@ import React from 'react';
 
 describe('Atoms/ChipItem', () => {
     test('Renders rounded light chip', () => {
-        render(<ChipItem chipvariant='light' label='24 h' chiptype='rounded'/>)
+        render(<ChipItem chipVariant='light' label='24 h' chipType='rounded'/>)
         expect(screen.getByTestId('chip')).toBeInTheDocument();
     });
 
     test('Renders rounded dark chip', () => {
-        render(<ChipItem chipvariant='dark' label='Purchased' chiptype='rounded'/>)
+        render(<ChipItem chipVariant='dark' label='Purchased' chipType='rounded'/>)
         expect(screen.getByTestId('chip')).toBeInTheDocument();
     })
 
     test('Renders square chip unselected', () => {
-        render(<ChipItem chiptype='squared' selected={false} label={'Bitcoin'} chipcolor={theme.palette.chipColors.main}/>)
+        render(<ChipItem chipType='squared' selected={false} label={'Bitcoin'} chipColor={theme.palette.chipColors.main}/>)
         expect(screen.getByTestId("chip")).toBeInTheDocument();
     })
 
     test('Renders square chip selected', () => {
-        render(<ChipItem chiptype='squared' selected={true} label={'Bitcoin'} chipcolor={theme.palette.chipColors.main}/>)
+        render(<ChipItem chipType='squared' selected={true} label={'Bitcoin'} chipColor={theme.palette.chipColors.main}/>)
         expect(screen.getByTestId('chip')).toBeInTheDocument();
     })
 })
