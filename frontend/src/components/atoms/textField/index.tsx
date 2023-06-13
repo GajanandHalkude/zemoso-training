@@ -32,8 +32,8 @@ const CustomTextField: React.FC<TextFieldProps> = ({
   };
 
   const textFieldStyle = {
-    width: width || "100%", // Use provided width or default to 100% width
-    height: height || 40 , // Use provided height or default to 40px height
+    width: width ? width : "100%", // Use provided width or default to 100% width
+    height: height ? height : 40 , // Use provided height or default to 40px height
   };
 
   return (
