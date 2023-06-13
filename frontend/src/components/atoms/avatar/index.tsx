@@ -9,14 +9,14 @@ interface AvatarComponentProps{
 
 const AvatarComponent = (props:AvatarComponentProps) => {
     return(
-        <div>
+        
             <Avatar 
               alt="Avatar"
               src={Logo}
               sx={{width: props.width,height: props.height}}
               data-testid = "avatar"
               />
-        </div>
+        
     )
 }
 
