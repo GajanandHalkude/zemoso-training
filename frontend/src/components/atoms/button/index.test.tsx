@@ -6,9 +6,8 @@ import '@testing-library/jest-dom'
 it('should renders the button', async () => {
     const fn = jest.fn()
     render(
-      <Button onClick={fn} backgroundColor="primary">
-        Buy
-      </Button>
+      <Button onClick={fn} backgroundColor="primary" text="Buy" />
+       
     )
     const ReactElement = await screen.getByText('Buy')
     fireEvent.click(ReactElement)
