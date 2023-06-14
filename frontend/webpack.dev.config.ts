@@ -31,6 +31,38 @@ const config: Configuration = {
           },
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)(\?[a-z0-9=.]+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: { limit: 100000 },
+          },
+        ],
+      },
+      {
+        test: /\.(yaml)$/,
+        use: ['raw-loader'],
+      },
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|)$/,
+        type: 'asset/inline',
+      },
     ],
   },
   resolve: {
