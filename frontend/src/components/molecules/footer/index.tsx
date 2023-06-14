@@ -52,19 +52,39 @@ const StyledButton = styled(ButtonComponent)({
 const RightContainer = styled(Grid)({
   alignItems: "flex-end",
   margin: "0px",
- 
 });
+const menuItems = [
+  { text: "Dashboard" },
+  { text: "Careers" },
+  { text: "Legal & Privacy" },
+  { text: "© 2021 Minet", isBlack: true },
+];
 
 const Footer = () => {
+  const dropdownSrc = Dropdown;
+  const buttonLabel = "NEED HELP";
+  const buttonVariant = "outlined";
+  const buttonBackgroundColor = "none";
   return (
     <StyledBox data-testid="footer">
       <MainContainer container>
         <Grid item xs={6}>
           <Stack direction="row" spacing={3}>
-            <StyledTypographyBlue variant="body2" text={"Dashboard"} />
-            <StyledTypographyBlue variant="body2" text={"Careers"} />
-            <StyledTypographyBlue variant="body2" text={"Legal & Privacy"} />
-            <StyledTypographyBlack variant="body2" text={"© 2021 Minet"} />
+            {menuItems.map((item, index) =>
+              item.isBlack ? (
+                <StyledTypographyBlack
+                  key={index}
+                  variant="body2"
+                  text={item.text}
+                />
+              ) : (
+                <StyledTypographyBlue
+                  key={index}
+                  variant="body2"
+                  text={item.text}
+                />
+              )
+            )}
           </Stack>
         </Grid>
         <RightContainer item xs={6} justifyContent="flex-end">
@@ -75,8 +95,8 @@ const Footer = () => {
             alignItems="center"
           >
             <ImageComponent src={Dropdown} width="150px" height="150px" />
-            <StyledButton variant="outlined" backgroundColor={"none"}>
-              NEED HELP
+            <StyledButton variant={buttonVariant} backgroundColor={buttonBackgroundColor}>
+            {buttonLabel}
             </StyledButton>
           </Stack>
         </RightContainer>
