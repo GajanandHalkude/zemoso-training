@@ -12,7 +12,7 @@ interface IconWithTypographyProps extends TypographyProps {
   text: string;
   textVariant: any;
   textColor: string | undefined;
-  subText?: string | JSX.Element;
+  subText?: string | React.JSX.Element;
   subTextVariant?: any;
   subTextColor?: string;
   textHeight?: string;
