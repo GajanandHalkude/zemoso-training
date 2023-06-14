@@ -8,3 +8,5 @@ export const menuItems = [
   ];
 
   export const buttonLabel = "NEED HELP";
+   export const  buy="BUY";
+   export const sell="SELL";
