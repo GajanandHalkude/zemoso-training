@@ -57,6 +57,7 @@ declare module '@mui/material/styles' {
   }
 
   interface PaletteColor {
+    success100?:string
     success600?: string
     success500?: string
     warning300?: string
@@ -81,6 +82,7 @@ declare module '@mui/material/styles' {
   }
 
   interface SimplePaletteColorOptions {
+    success100?:string
     success600?: string
     success500?: string
     warning300?: string
@@ -191,10 +193,12 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#0052FF',
+      success100:'#FAFCFF',
       success600: '#20B03F',
       success500: '#20B03F',
       warning300: '#FFA74F',
       primary500: '#0052FF',
+    
     },
     text: {
       primary: '#373C38',
