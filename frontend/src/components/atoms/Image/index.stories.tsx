@@ -10,7 +10,7 @@ export default{
     component: ImageComponent,
 }
 
-const Template: ComponentStory<typeof ImageComponent> = (args:any) =>(
+const Template: ComponentStory<typeof ImageComponent> = (args) =>(
     <ImageComponent {...args}/>
 )
 
