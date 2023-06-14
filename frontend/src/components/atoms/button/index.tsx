@@ -4,11 +4,12 @@ import {
   ButtonProps as MuiButtonProps,
 } from '@mui/material'
 interface IButtonProps extends MuiButtonProps {
-  backgroundColor?: string | React.CSSProperties
+  backgroundColor?: string | React.CSSProperties,
+  text?:React.ReactNode;
 }
 const ButtonComponent: React.FC<IButtonProps> = ({
   variant,
-  children,
+  text,
   backgroundColor,
   ...props
 }) => {
@@ -25,7 +26,7 @@ const ButtonComponent: React.FC<IButtonProps> = ({
         },
       }}
     >
-      {children}
+      {text}
     </MuiButton>
   )
 }
