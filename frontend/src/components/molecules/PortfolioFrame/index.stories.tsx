@@ -12,5 +12,9 @@ const Template: ComponentStory<typeof PortfolioFrame> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  mainText: "10 coins (3 active)",
+  subText: "Click on the currency name below to display it on the graph",
+};
+
 

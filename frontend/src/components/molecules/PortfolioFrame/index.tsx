@@ -5,19 +5,23 @@ import IconWithTypography from "../../molecules/IconWithTypography";
 import TypographyComponent from "../../atoms/typography";
 import InfoIcon from "../../../../public/assets/icons/info.svg";
 
+interface PortfolioFrameProps {
+  mainText: string;
+  subText: string;
+}
 
-const PortfolioFrame: React.FC = () => {
+const PortfolioFrame: React.FC<PortfolioFrameProps> = ({mainText,subText}) => {
   return (
     <Grid container>
       <Grid item xs={5}>
-        <TypographyComponent variant="body1" text={"10 coins (3 active)"} />
+        <TypographyComponent variant="body1" text={mainText} />
       </Grid>
       <Grid item xs={7} display="flex" justifyContent="end">
         <IconWithTypography
           image={InfoIcon}
           imageHeight={"20px"}
           imageWidth={"20px"}
-          text={"Click on the currency name below to display it on the graph"}
+          text={subText}
           iconandtextgap={"10px"}
           textVariant={"caption2"}
           textColor={theme.palette.textColor.highEmphasis}

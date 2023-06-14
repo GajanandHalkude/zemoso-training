@@ -40,8 +40,7 @@ const FlexColumnBox = styled(Box)({
   alignContent: "center",
 });
 
-const IconWithTypography = (props: IconWithTypographyProps) => {
-  const {
+const IconWithTypography = ({
     image,
     text,
     textVariant,
@@ -56,9 +55,10 @@ const IconWithTypography = (props: IconWithTypographyProps) => {
     textHeight,
     margin,
     gapBetweenText,
-  } = props;
+  }: IconWithTypographyProps) => {
+    
   return (
-    <div>
+    <React.Fragment>
       <FlexRowBox
         iconandtextgap={iconandtextgap}
         margin={margin}
@@ -81,7 +81,7 @@ const IconWithTypography = (props: IconWithTypographyProps) => {
           )}
         </FlexColumnBox>
       </FlexRowBox>
-    </div>
+    </React.Fragment>
   );
 };
 
