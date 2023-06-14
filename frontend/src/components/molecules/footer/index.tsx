@@ -71,9 +71,6 @@ const RightContainer = styled(Grid)({
 
 
 const Footer = ({ menuItems , buttonLabel}: FooterProps) => {
-  const dropdownSrc = Dropdown;
-  const buttonLabelText = buttonLabel;
-  const buttonVariant = "outlined";
   const buttonBackgroundColor = "none";
   return (
     <StyledBox data-testid="footer">
@@ -105,9 +102,7 @@ const Footer = ({ menuItems , buttonLabel}: FooterProps) => {
             alignItems="center"
           >
             <ImageComponent src={Dropdown} width="150px" height="150px" />
-            <StyledButton variant={buttonVariant} backgroundColor={buttonBackgroundColor}>
-            {buttonLabelText}
-            </StyledButton>
+            <StyledButton variant="outlined" backgroundColor="none" text={buttonLabel} />
           </Stack>
         </RightContainer>
       </MainContainer>
