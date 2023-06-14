@@ -1,27 +1,25 @@
 import { render, screen } from "@testing-library/react";
 import Footer from "./index";
-import '@testing-library/jest-dom/extend-expect';
+import "@testing-library/jest-dom/extend-expect";
 import React from "react";
+import { menuItems } from "../../../../src/constants";
 
 describe("Footer", () => {
   test("renders correctly", () => {
-    render(<Footer />);
-    
+    render(<Footer menuItems={menuItems} />);
     expect(screen.getByTestId("footer")).toBeInTheDocument();
   });
 
   test("displays the correct text in the Typography components", () => {
-    render(<Footer />);
-
-    expect(screen.getByText("Dashboard")).toBeInTheDocument();
-    expect(screen.getByText("Careers")).toBeInTheDocument();
-    expect(screen.getByText("Legal & Privacy")).toBeInTheDocument();
-    expect(screen.getByText("© 2021 Minet")).toBeInTheDocument();
+    render(<Footer menuItems={menuItems} />);
+    menuItems.forEach((item) => {
+      const element = screen.getByText(item.text);
+      expect(element).toBeInTheDocument();
+    });
   });
 
   test("displays the ImageComponent and ButtonComponent with correct props", () => {
-    render(<Footer />);
+    render(<Footer menuItems={menuItems} />);
     expect(screen.getByRole("button")).toHaveTextContent("NEED HELP");
   });
-
 });

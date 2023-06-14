@@ -5,6 +5,18 @@ import ButtonComponent from "../../atoms/button";
 import MuiTypography from "../../atoms/typography";
 import Dropdown from "../../../../public/assets/images/Dropdown.svg";
 import ImageComponent from "../../atoms/Image";
+import { menuItems } from "../../../../src/constants";
+
+
+interface MenuItem {
+  text: string;
+  isBlack?: boolean;
+}
+
+
+interface FooterProps {
+  menuItems: MenuItem[];
+}
 
 const StyledBox = styled(Box)({
   [theme.breakpoints.up("lg")]: {
@@ -53,14 +65,9 @@ const RightContainer = styled(Grid)({
   alignItems: "flex-end",
   margin: "0px",
 });
-const menuItems = [
-  { text: "Dashboard" },
-  { text: "Careers" },
-  { text: "Legal & Privacy" },
-  { text: "© 2021 Minet", isBlack: true },
-];
 
-const Footer = () => {
+
+const Footer = ({ menuItems }: FooterProps) => {
   const dropdownSrc = Dropdown;
   const buttonLabel = "NEED HELP";
   const buttonVariant = "outlined";
