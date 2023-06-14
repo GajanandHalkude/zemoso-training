@@ -1,6 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
 import Footer from './index'
+import { menuItems } from "../../../../src/constants";
+
 
 export default {
 title: 'Molecules/Footer',
@@ -13,10 +15,5 @@ const Template: ComponentStory<typeof Footer> = (args) => (
 )
 export const SimpleFooter = Template.bind({})
 SimpleFooter.args = {
-menuItems: [
-{ text: 'Dashboard' },
-{ text: 'Careers' },
-{ text: 'Legal & Privacy' },
-{ text: '© 2021 Minet', isBlack: true },
-],
+  menuItems: menuItems,
 }

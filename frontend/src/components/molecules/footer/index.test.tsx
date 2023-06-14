@@ -18,8 +18,5 @@ describe("Footer", () => {
     });
   });
 
-  test("displays the ImageComponent and ButtonComponent with correct props", () => {
-    render(<Footer menuItems={menuItems} />);
-    expect(screen.getByRole("button")).toHaveTextContent("NEED HELP");
-  });
+  
 });

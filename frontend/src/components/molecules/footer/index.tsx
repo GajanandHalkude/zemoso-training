@@ -6,6 +6,8 @@ import MuiTypography from "../../atoms/typography";
 import Dropdown from "../../../../public/assets/images/Dropdown.svg";
 import ImageComponent from "../../atoms/Image";
 import { menuItems } from "../../../../src/constants";
+import { buttonLabel } from "../../../../src/constants";
+
 
 
 interface MenuItem {
@@ -16,6 +18,7 @@ interface MenuItem {
 
 interface FooterProps {
   menuItems: MenuItem[];
+  buttonLabel?: string;
 }
 
 const StyledBox = styled(Box)({
@@ -67,9 +70,9 @@ const RightContainer = styled(Grid)({
 });
 
 
-const Footer = ({ menuItems }: FooterProps) => {
+const Footer = ({ menuItems , buttonLabel}: FooterProps) => {
   const dropdownSrc = Dropdown;
-  const buttonLabel = "NEED HELP";
+  const buttonLabelText = buttonLabel;
   const buttonVariant = "outlined";
   const buttonBackgroundColor = "none";
   return (
@@ -103,7 +106,7 @@ const Footer = ({ menuItems }: FooterProps) => {
           >
             <ImageComponent src={Dropdown} width="150px" height="150px" />
             <StyledButton variant={buttonVariant} backgroundColor={buttonBackgroundColor}>
-            {buttonLabel}
+            {buttonLabelText}
             </StyledButton>
           </Stack>
         </RightContainer>
