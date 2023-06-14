@@ -57,53 +57,55 @@ declare module '@mui/material/styles' {
   }
 
   interface PaletteColor {
-    success100?:string
-    success600?: string
-    success500?: string
-    warning300?: string
-    primary500?: string
-    highEmphasis?: string
-    mediumEmphasis?: string
-    grey50?: string
-    grey500?: string
-    grey400?: string
-    grey200?: string
-    grey100?: string
-    grey300?: string
-    white?: string
-    linear1?: string
-    linear2?: string
-    color1?: string
-    color2?: string
-    color3?: string
-    color4?: string
-    color5?: string
-    color6?: string
+    success100?: string;
+    success600?: string;
+    success500?: string;
+    warning300?: string;
+    primary500?: string;
+    highEmphasis?: string;
+    mediumEmphasis?: string;
+    grey50?: string;
+    grey500?: string;
+    grey400?: string;
+    grey200?: string;
+    grey100?: string;
+    grey300?: string;
+    grey700?: string;
+    white?: string;
+    linear1?: string;
+    linear2?: string;
+    color1?: string;
+    color2?: string;
+    color3?: string;
+    color4?: string;
+    color5?: string;
+    color6?: string;
   }
 
   interface SimplePaletteColorOptions {
-    success100?:string
-    success600?: string
-    success500?: string
-    warning300?: string
-    primary500?: string
-    highEmphasis?: string
-    mediumEmphasis?: string
-    grey50?: string
-    grey500?: string
-    grey400?: string
-    grey200?: string
-    grey100?: string
-    grey300?: string
-    white?: string
-    linear1?: string
-    linear2?: string
-    color1?: string
-    color2?: string
-    color3?: string
-    color4?: string
-    color5?: string
-    color6?: string
+    success100?: string;
+    success600?: string;
+    success500?: string;
+    warning300?: string;
+    primary500?: string;
+    highEmphasis?: string;
+    mediumEmphasis?: string;
+    grey50?: string;
+    grey500?: string;
+    grey400?: string;
+    grey200?: string;
+    grey100?: string;
+    grey300?: string;
+    grey700?: string;
+    white?: string;
+    linear1?: string;
+    linear2?: string;
+    color1?: string;
+    color2?: string;
+    color3?: string;
+    color4?: string;
+    color5?: string;
+    color6?: string;
   }
 }
 
@@ -217,7 +219,8 @@ const theme = createTheme({
       grey200: '#E9EBE9',
       grey100: '#E8E8F7',
       grey300: '#B4B4CF',
-      grey400: '#FAFAFA'
+      grey400: '#FAFAFA',
+      grey700: '#344054'
     },
     profit: {
       fillColor: '#E9F7EC',
