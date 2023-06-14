@@ -30,7 +30,7 @@ const TypographyWithTextField: React.FC<TypographyWithTextFieldProps> = ({
   variant
 }) => {
   return (
-    <div>
+    <React.Fragment>
       <MuiTypography
         variant={variant}
         text={label}
@@ -47,7 +47,7 @@ const TypographyWithTextField: React.FC<TypographyWithTextFieldProps> = ({
           size={size}
           borderRadius={borderRadius}
         />
-    </div>
+  </React.Fragment>
   );
 };
 
