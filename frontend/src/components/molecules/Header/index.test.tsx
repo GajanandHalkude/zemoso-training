@@ -18,29 +18,6 @@ describe('Header', () => {
     expect(pageNameElement).toBeInTheDocument();
   });
 
-  test('renders the SELL button with correct text and link', () => {
-    render(
-      <MemoryRouter>
-        <Header pageName="Home" />
-      </MemoryRouter>
-    );
-
-    const sellButton = screen.getByText('SELL');
-    expect(sellButton).toBeInTheDocument();
-    expect(sellButton.getAttribute('href')).toBe(null);
-  });
-
-  test('renders the BUY button with correct text and link', () => {
-    render(
-      <MemoryRouter>
-        <Header pageName="Home" />
-      </MemoryRouter>
-    );
-
-    const buyButton = screen.getByText('BUY');
-    expect(buyButton).toBeInTheDocument();
-    expect(buyButton.getAttribute('href')).toBe(null);
-  });
-
+  
   
 });

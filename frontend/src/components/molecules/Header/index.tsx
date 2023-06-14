@@ -7,6 +7,9 @@ import MuiTypography from '../../atoms/typography'
 import AvatarComponent from '../../atoms/avatar'
 import IconComponent from '../../atoms/icon'
 import chevronDropdown from "../../../../public/assets/images/avatardropdown.svg"
+import {buy} from "../../../../src/constants"
+import {sell} from "../../../../src/constants"
+
 
  export interface IHeaderProps {
     pageName: string;
@@ -63,13 +66,13 @@ return (
         <Grid  display="flex" alignItems="row" gap="12px">
       <Grid item>
         <NavLink to="/sell" style={{ textDecoration: 'none' }}>
-          <CustomButton variant="contained" backgroundColor="#FFA74F" text="SELL" />
+          <CustomButton variant="contained" backgroundColor="#FFA74F" text={sell}/>
         </NavLink>
       </Grid>
 
       <Grid item>
         <NavLink to="/purchase" style={{ textDecoration: 'none' }}>
-          <CustomButton variant="contained" backgroundColor="#0052FF" text="BUY" />
+          <CustomButton variant="contained" backgroundColor="#0052FF" text={buy} />
         </NavLink>
       </Grid>
       </Grid>
