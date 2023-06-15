@@ -59,13 +59,13 @@ const Styled3 = styled(Box)({
 const CurrencyDetailsBanner = ({aboutCurrency,details}:currencyDetailsBannerProps)=>
 {
     return (
-        <StyledBox1 flexDirection={"row"}>
+        <StyledBox1 data-testid='portfolio-tab' flexDirection={"row"}>
                 <Styled3>
                     <Styled2>
                         <MuiTypography text={aboutCurrency}/>
                         <MuiTypography text={currencyBannerContent}/>
                     </Styled2>
-                    <Styled2 >
+                    <Styled2 data-testid='portfolio-tab' >
                         <MuiTypography text={"Resourses"}/>
                         <IconWithTypography image={Globe} imageHeight={""} imageWidth={""} text={"Official Website"} textVariant={undefined} textColor={theme.palette.graphColor.borderColor2}  />
                         <IconWithTypography image={File} imageHeight={""} imageWidth={""} text={"White Paper"} textVariant={undefined} textColor={theme.palette.graphColor.borderColor2}  />
@@ -73,10 +73,10 @@ const CurrencyDetailsBanner = ({aboutCurrency,details}:currencyDetailsBannerProp
                 </Styled3>
 
                 <StyledBox>
-                    <StyledBox2>
+                    <StyledBox2 data-testid='portfolio-tab'>
                         <MuiTypography text={"Price correlation with"}/>
                     </StyledBox2>
-                        <Box>
+                        <Box data-testid='portfolio-tab'>
                                     {currencyBannerData.map((data, index) => (
                                                                         <Box key={index}>
                                                                         <PortfolioTab

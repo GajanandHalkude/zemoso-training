@@ -28,3 +28,5 @@ export const menuItems = [
       icon:Tether,coinName:"Tether" , shortName:"Moves tightly together" , value:74.28 , percentage:2
     },
   ]
+   export const  buy="BUY";
+   export const sell="SELL";
