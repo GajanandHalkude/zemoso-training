@@ -5,11 +5,6 @@ import ButtonComponent from "../../atoms/button";
 import MuiTypography from "../../atoms/typography";
 import Dropdown from "../../../../public/assets/images/Dropdown.svg";
 import ImageComponent from "../../atoms/Image";
-import { menuItems } from "../../../../src/constants";
-import { buttonLabel } from "../../../../src/constants";
-
-
-
 interface MenuItem {
   text: string;
   isBlack?: boolean;
@@ -71,22 +66,22 @@ const RightContainer = styled(Grid)({
 
 
 const Footer = ({ menuItems , buttonLabel}: FooterProps) => {
-  const buttonBackgroundColor = "none";
+  
   return (
     <StyledBox data-testid="footer">
       <MainContainer container>
         <Grid item xs={6}>
           <Stack direction="row" spacing={3}>
-            {menuItems.map((item, index) =>
+            {menuItems.map((item) =>
               item.isBlack ? (
                 <StyledTypographyBlack
-                  key={index}
+                  key={item.text}
                   variant="body2"
                   text={item.text}
                 />
               ) : (
                 <StyledTypographyBlue
-                  key={index}
+                  key={item.text}
                   variant="body2"
                   text={item.text}
                 />
