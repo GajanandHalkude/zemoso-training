@@ -11,6 +11,12 @@ interface PortfolioProps {
   shortNameOfCoin: string;
   value: number;
   totalPercentage: number;
+  width?: string;
+  height?: string | number;
+  size?: "small" | "medium";
+  borderRadius?: string | number;
+  variant?:any
+  sx?:React.CSSProperties,
 }
 
 const StyledBox = styled(Box)({
@@ -20,9 +26,9 @@ const StyledBox = styled(Box)({
   justifyContent: "space-between",
   alignItems: "center",
   padding: "8px 12px 8px 24px",
-  gap: "133px",
-  width: "370px",
-  height: "58px",
+  gap: "80px",
+  width: "400px",
+  height: "55px",
 });
 
 const Style1 = styled(Box)({
@@ -32,6 +38,13 @@ const Style1 = styled(Box)({
   alignItems: "center",
   gap: "10px",
 });
+
+const Styled2 = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-end",
+});
+
 
 const PortfolioTab = ({
   value,
@@ -51,27 +64,26 @@ const PortfolioTab = ({
             sx={{ color: theme.palette.textColor.highEmphasis }}
           />
           <MuiTypography
-            variant="body1"
+            variant="body2"
             text={shortNameOfCoin}
             sx={{ color: theme.palette.textColor.mediumEmphasis }}
           />
         </Box>
       </Style1>
 
-      <Box data-testid="typography-component">
-        <Box>
+      <Styled2 data-testid="typography-component">
           <MuiTypography
             variant="body1"
-            text={`$ ${value}.00`}
+            text={`$${value}.00`}
             sx={{ color: theme.palette.textColor.highEmphasis }}
           />
-          <MuiTypography
-            variant="body1"
+          <MuiTypography alignItems={'flex-end'} justifyContent={'flex-end'}
+            variant="body2"
             text={`${totalPercentage}.%`}
             sx={{ color: theme.palette.primary.success500 }}
-          />
-        </Box>
-      </Box>
+          /> 
+        </Styled2>
+    
     </StyledBox>
   );
 };
