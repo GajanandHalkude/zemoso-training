@@ -39,8 +39,7 @@ const StyledInnerBox = styled(Box)(() => ({
   paddingRight: "10px",
 }));
 
-const PortfolioGraphComponent = (props: PortfolioGraphComponentProps) => {
-  const {
+const PortfolioGraphComponent = ({
     height,
     width,
     categories,
@@ -57,8 +56,7 @@ const PortfolioGraphComponent = (props: PortfolioGraphComponentProps) => {
     percentChange2,
     typeOfInvestment2,
     data2,
-  } = props;
-
+  }: PortfolioGraphComponentProps) => {
   const options = {
     chart: {
       toolbar: {
