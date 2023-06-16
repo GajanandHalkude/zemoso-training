@@ -37,7 +37,7 @@ const StyledBox = styled(Box)(() => ({
 
 const iconsList = [DashboardActive, Analytics, Trades, Notification, LogOut]
 
-const SideNavComponent = () => {
+const SideNavComponentLocation = () => {
   return (
     <StyledGrid data-testid="sideNav">
       <ImageComponent src={Logo} width="32px" height="33px" />
@@ -57,7 +57,7 @@ const SideNavComponent = () => {
     </StyledGrid>
   )
 }
-export default SideNavComponent
+export default SideNavComponentLocation
 
 
 

@@ -1,22 +1,32 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'
-import PortfolioTab from ".";
+import PortfolioTab from '.';
 
-describe("PortfolioTab", () => {
-  const mockProps = {
-    icon: "path/to/icon",
-    cryptoCoinName: "Bitcoin",
-    shortNameOfCoin: "BTC",
-    value: 3285553.375,
-    totalPercentage: 100,
-  };
+const defaultProps = {
+  icon: 'icon-url',
+  cryptoCoinName: 'Bitcoin',
+  shortNameOfCoin: 'BTC',
+  value: 1000,
+  totalPercentage: 10,
+};
 
-  it("renders the component with correct props", () => {
-    render(<PortfolioTab {...mockProps} />);
+describe('PortfolioTab', () => {
+  test('displays the crypto coin name and short name', () => {
+    render(<PortfolioTab {...defaultProps} />);
+    
+    expect(screen.getByText(defaultProps.cryptoCoinName)).toBeInTheDocument();
+    expect(screen.getByText(defaultProps.shortNameOfCoin)).toBeInTheDocument();
   });
 
-  it("renders the icon with correct source", () => {
-    render(<PortfolioTab {...mockProps} />);
-  });
+ test('displays the value and total percentage', () => {
+  render(<PortfolioTab {...defaultProps} />);
+  
+  const formattedValue = `$ ${defaultProps.value}.00`;
+  const formattedPercentage = new RegExp(`${defaultProps.totalPercentage}\\.%`);
+
+  expect(screen.getByText(formattedValue)).toBeInTheDocument();
+  expect(screen.getByText(formattedPercentage)).toBeInTheDocument();
+});
+
 });
