@@ -1,12 +1,11 @@
 import { Grid, styled, Stack, Box } from "@mui/material";
-import React, { Key } from "react";
+import React from "react";
 import theme from "../../../theme/index";
 import ButtonComponent from "../../atoms/button";
 import MuiTypography from "../../atoms/typography";
 import Dropdown from "../../../../public/assets/images/Dropdown.svg";
 import ImageComponent from "../../atoms/Image";
 interface MenuItem {
-  id: Key | null;
   text: string;
   isBlack?: boolean;
 }
@@ -73,16 +72,16 @@ const Footer = ({ menuItems , buttonLabel}: FooterProps) => {
       <MainContainer container>
         <Grid item xs={6}>
           <Stack direction="row" spacing={3}>
-            {menuItems.map((item, index) =>
+            {menuItems.map((item) =>
               item.isBlack ? (
                 <StyledTypographyBlack
-                  key={item.id}
+                  key={item.text}
                   variant="body2"
                   text={item.text}
                 />
               ) : (
                 <StyledTypographyBlue
-                  key={item.id}
+                  key={item.text}
                   variant="body2"
                   text={item.text}
                 />
