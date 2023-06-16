@@ -84,13 +84,8 @@ const renderEndAdornment = (
   filter: boolean,
   handleClick: React.MouseEventHandler<HTMLButtonElement>
 ) => {
-  if (filter) {
-    return (renderStack(handleClick))
-  } else {
-    return (
-      renderSearchIcon(handleClick)
-    )
-  }
+  return filter ? renderStack(handleClick) : renderSearchIcon(handleClick);
+
 }
 
 const SearchField: React.FC<SearchFieldProps> = ({
@@ -105,7 +100,6 @@ const SearchField: React.FC<SearchFieldProps> = ({
     <StyledSearchField
       variant='outlined'
       placeholder={placeholder}
-      onChange={(event) => handleChange(event.target.value)}
       handleChange={handleChange}
       handleClick={handleClick}
       filter={filter}
