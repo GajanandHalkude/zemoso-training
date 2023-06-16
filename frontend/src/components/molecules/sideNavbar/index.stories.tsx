@@ -1,11 +1,11 @@
 import React from "react";
 import SideNavComponent from ".";
-import {ComponentStory} from "@storybook/react"
+import {ComponentMeta, ComponentStory} from "@storybook/react"
 
 export default {
   title: "molecules/SideNav",
   component: SideNavComponent,
-};
+}as ComponentMeta<typeof SideNavComponent>;
 
 const Template: ComponentStory<typeof SideNavComponent> = () => (
   <SideNavComponent />
