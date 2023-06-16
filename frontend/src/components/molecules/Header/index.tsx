@@ -7,9 +7,7 @@ import MuiTypography from '../../atoms/typography'
 import AvatarComponent from '../../atoms/avatar'
 import IconComponent from '../../atoms/icon'
 import chevronDropdown from "../../../../public/assets/images/avatardropdown.svg"
-import {buy} from "../../../../src/constants"
-import {sell} from "../../../../src/constants"
-
+import { buy, sell } from "../../../../src/constants"
 
  export interface IHeaderProps {
     pageName: string;
