@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Key } from "react";
 import MuiTypography from "../../atoms/typography";
 import { Box, styled } from "@mui/material";
 import { currencyBannerContent, currencyBannerData } from "../../../constants";
@@ -8,9 +8,10 @@ import Globe from "../../../../public/assets/images/globe.svg";
 import PortfolioTab from "../portfolioTab";
 import theme from "../../../theme";
 
-interface currencyDetailsBannerProps {
+interface CurrencyDetailsBannerProps {
   aboutCurrency: string;
   details?: string;
+
 }
 
 const StyledBox = styled(Box)({
@@ -21,8 +22,6 @@ const StyledBox = styled(Box)({
   alignItems: "center",
   padding: "16px 0px 16px 2px",
   gap: "16px",
-  //   width: '397px',
-  //   height: '312px',
   background: theme.palette.structural.main,
   border: `1px solid ${theme.palette.greyColors.grey100}`,
   borderRadius: "4px",
@@ -55,7 +54,7 @@ const StyledBoxResourceContainer = styled(Box)({
 const CurrencyDetailsBanner = ({
   aboutCurrency,
   details,
-}: currencyDetailsBannerProps) => {
+}: CurrencyDetailsBannerProps) => {
   return (
     <StyledBoxContainer data-testid="portfolio-tab" flexDirection={"row"}>
       <StyledBoxResourceContainer>
@@ -90,7 +89,7 @@ const CurrencyDetailsBanner = ({
         </StyledBoxCorrelation>
         <Box data-testid="portfolio-tab">
           {currencyBannerData.map((data, index) => (
-            <Box key={index}>
+            <Box key={data.icon}>
               <PortfolioTab
                 icon={data.icon}
                 cryptoCoinName={data.coinName}

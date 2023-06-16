@@ -1,16 +1,12 @@
 import { Grid, styled, Stack, Box } from "@mui/material";
-import React from "react";
+import React, { Key } from "react";
 import theme from "../../../theme/index";
 import ButtonComponent from "../../atoms/button";
 import MuiTypography from "../../atoms/typography";
 import Dropdown from "../../../../public/assets/images/Dropdown.svg";
 import ImageComponent from "../../atoms/Image";
-import { menuItems } from "../../../../src/constants";
-import { buttonLabel } from "../../../../src/constants";
-
-
-
 interface MenuItem {
+  id?: Key | null | undefined;
   text: string;
   isBlack?: boolean;
 }
@@ -71,7 +67,7 @@ const RightContainer = styled(Grid)({
 
 
 const Footer = ({ menuItems , buttonLabel}: FooterProps) => {
-  const buttonBackgroundColor = "none";
+  
   return (
     <StyledBox data-testid="footer">
       <MainContainer container>
@@ -80,13 +76,13 @@ const Footer = ({ menuItems , buttonLabel}: FooterProps) => {
             {menuItems.map((item, index) =>
               item.isBlack ? (
                 <StyledTypographyBlack
-                  key={index}
+                  key={item.id}
                   variant="body2"
                   text={item.text}
                 />
               ) : (
                 <StyledTypographyBlue
-                  key={index}
+                  key={item.id}
                   variant="body2"
                   text={item.text}
                 />
