@@ -6,7 +6,7 @@ import MuiTypography from "../../atoms/typography";
 import Dropdown from "../../../../public/assets/images/Dropdown.svg";
 import ImageComponent from "../../atoms/Image";
 interface MenuItem {
-  id?: Key | null | undefined;
+  id: Key | null;
   text: string;
   isBlack?: boolean;
 }
