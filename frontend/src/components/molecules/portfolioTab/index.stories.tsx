@@ -22,8 +22,8 @@ XRP.args = {
     cryptoCoinName:"XRP",
     shortNameOfCoin:"XRP",
    
-    value:0.00,
-    totalPercentage:0.00,
+    value:123456789.00,
+    totalPercentage:123456789.00,
 }
 export const Bitcoin = Template.bind({});
 Bitcoin.args = {

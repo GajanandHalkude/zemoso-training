@@ -15,13 +15,13 @@ export const Contained = Template.bind({})
 
 Outlined.args = {
   variant: 'outlined',
-  children: 'outlined',
+  text: 'outlined',
 }
 Text.args = {
   variant: 'text',
-  children: 'Text',
+  text: 'Text',
 }
 Contained.args = {
   variant: 'contained',
-  children: 'Contained',
+  text: 'Contained',
 }
