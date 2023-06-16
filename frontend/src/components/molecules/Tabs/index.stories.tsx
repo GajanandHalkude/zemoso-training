@@ -1,4 +1,3 @@
-// 
 import React from "react";
 import TabsComponent from ".";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
@@ -18,6 +17,8 @@ const Template:ComponentStory<typeof TabsComponent> = (args)=>
 export const Tabs = Template.bind({});
 Tabs.args = {
     label1:'Overview',
-    label2:'Wallet'
+    label2:'Wallet',
+    body1:"minet",
+    body2:"seeder"
    
 }

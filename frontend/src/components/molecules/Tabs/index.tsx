@@ -29,11 +29,14 @@ const StyledTabs = styled(Tabs)({
 interface TabsProps {
   label1:string,
   label2:string
+  body1?:React.ReactNode
+  body2?:React.ReactNode
 }
 interface TabPanelProps {
   children?: React.ReactNode
   index: number
   value: number
+  
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -57,7 +60,7 @@ function a11yProps(index: number) {
     'aria-controls': `simple-tabpanel-${index}`,
   }
 }
-const TabsComponent = ({label1, label2}:TabsProps) => {
+const TabsComponent = ({label1, label2,body1,body2}:TabsProps) => {
  
   const [value, setValue] = useState(0)
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -70,12 +73,14 @@ const TabsComponent = ({label1, label2}:TabsProps) => {
         <Tab label={label1} {...a11yProps(0)} defaultChecked={true}  style={{ textTransform: 'none' }}/>
         <Tab label={label2} {...a11yProps(1)} style={{ textTransform: 'none' }}/>
       </StyledTabs>
-      <TabPanel value={value} index={0}>
-        hello
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        welcome
-      </TabPanel>
+
+      <TabPanel value={value} index={0} >
+        {body1}
+        </TabPanel>
+      <TabPanel value={value} index={1} >
+        {body2}
+        </TabPanel>
+      
     </StyledBox>
   )
 }
