@@ -92,6 +92,7 @@ export const currencies = [
     priceChangeIn1month: 2.5,
     priceChangeIn1year: 2.67,
     volume: 56214521562,
+    isSelected: true,
   },
   {
     id: "ethereum",
@@ -108,6 +109,7 @@ export const currencies = [
     priceChangeIn1month: 2.5,
     priceChangeIn1year: 2.67,
     volume: 56214521562,
+    isSelected: false,
   },
   {
     id: "usd-coin",
@@ -124,6 +126,7 @@ export const currencies = [
     priceChangeIn1month: 2.5,
     priceChangeIn1year: 2.67,
     volume: 56214521562,
+    isSelected: false,
   },
   {
     id: "ripple",
@@ -140,6 +143,7 @@ export const currencies = [
     priceChangeIn1month: 2.5,
     priceChangeIn1year: 2.67,
     volume: 56214521562,
+    isSelected: false,
   },
   {
     id: "ethereum2",
@@ -156,6 +160,7 @@ export const currencies = [
     priceChangeIn1month: 2.5,
     priceChangeIn1year: 2.67,
     volume: 56214521562,
+    isSelected: false,
   },
   {
     id: "cardano",
@@ -172,6 +177,7 @@ export const currencies = [
     priceChangeIn1month: 2.5,
     priceChangeIn1year: 2.67,
     volume: 56214521562,
+    isSelected: false,
   },
   {
     id: "dodge",
@@ -188,6 +194,7 @@ export const currencies = [
     priceChangeIn1month: 2.5,
     priceChangeIn1year: 2.67,
     volume: 56214521562,
+    isSelected: false,
   },
   {
     id: "tether",
@@ -204,5 +211,6 @@ export const currencies = [
     priceChangeIn1month: 2.5,
     priceChangeIn1year: 2.67,
     volume: 56214521562,
+    isSelected: false,
   },
 ];

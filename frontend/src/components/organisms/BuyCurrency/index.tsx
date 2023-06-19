@@ -20,6 +20,7 @@ interface CryptoCurrency {
   priceChangeIn1month: number;
   priceChangeIn1year: number;
   volume: number;
+  isSelected:boolean;
 }
 
 const CustomBox = styled(Box)({
@@ -46,10 +47,8 @@ interface ChooseCurrencyProps {
   currenciesData: CryptoCurrency[]
 }
 
-const BuyCurrency: React.FC<ChooseCurrencyProps> = (
-  props: ChooseCurrencyProps
-) => {
-  const { currenciesData } = props;
+const BuyCurrency: React.FC<ChooseCurrencyProps> = ({currenciesData}: ChooseCurrencyProps) => {
+
   return (
     <CustomBox data-testid="chooseCurrency">
       <Grid container direction={"column"} gap={2} height="100%">
@@ -76,7 +75,7 @@ const BuyCurrency: React.FC<ChooseCurrencyProps> = (
                     image={pictures[currency.icon]}
                     name={currency.name}
                     value={currency.price}
-                    selected={currency.id === "bitcoin" ? true : false}
+                    selected={currency.isSelected}
                   />
                 </Grid>
               );
