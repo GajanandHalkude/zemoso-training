@@ -67,8 +67,7 @@ const BuyCurrency: React.FC<ChooseCurrencyProps> = ({currenciesData}: ChooseCurr
           rowSpacing={2}
           columnSpacing={0.5}
         >
-          {currenciesData &&
-            currenciesData.map((currency) => {
+          { currenciesData.map((currency) => {
               return (
                 <Grid item md={3} key={currency.id}>
                   <ChooseCrypto
