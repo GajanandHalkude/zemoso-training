@@ -51,3 +51,7 @@ export const MyPortfolioData = [
     icon:Xrp,coinName:"XRP" , shortName:"XRP" , value:4.00 , percentage:0.00
   }
 ]
+export const compactFormat = new Intl.NumberFormat('en-US', {
+  notation: 'compact',
+  maximumFractionDigits: 1,
+})
