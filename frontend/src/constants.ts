@@ -2,6 +2,22 @@ import  Bitcoin  from "../public/assets/images/bitcoin.svg";
 import Ethreum  from "../public/assets/images/ethreum.svg";
 import  Xrp  from "../public/assets/images/Rectangle 4.svg";
 import  Tether  from "../public/assets/images/Tether.svg";
+import Google from "../public/assets/icons/google.svg";
+import Facebook from "../public/assets/icons/facebook.svg";
+import Microsoft from "../public/assets/icons/microsoft.svg";
+import ButtonComponent from "../src/components/atoms/button";
+import CustomTextField from "../src/components/atoms/textField";
+import MuiTypography from "../src/components/atoms/typography";
+import SocialLogin from "../src/components/molecules/socialLogin";
+
+
+export { ButtonComponent, CustomTextField, MuiTypography, SocialLogin };
+
+ export const socialLoginOptions = [
+  { src: Google, text: "Google" },
+  { src: Facebook, text: "Facebook" },
+  { src: Microsoft, text: "Microsoft" },
+];
 
 export const menuItems = [
     { text: "Dashboard" },
@@ -37,6 +53,8 @@ export const formatCurrency = new Intl.NumberFormat('en-US', {
 
 export const timeLineValues = ["1H", "24H", "1W", "1M", "1Y", "ALL"];   
 
+export const passwordspecification = "A min of 8 character with atleast 1 special character and number included"
+
 export const MyPortfolioData = [
   {
       icon:Bitcoin,coinName:"Bitcoin" , shortName:"BTC" , value:1.00 , percentage:0.00
@@ -51,3 +69,7 @@ export const MyPortfolioData = [
     icon:Xrp,coinName:"XRP" , shortName:"XRP" , value:4.00 , percentage:0.00
   }
 ]
+export const compactFormat = new Intl.NumberFormat('en-US', {
+  notation: 'compact',
+  maximumFractionDigits: 1,
+})
