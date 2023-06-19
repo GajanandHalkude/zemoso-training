@@ -213,3 +213,7 @@ export const currencies = [
     isSelected: false,
   },
 ];
+export const compactFormat = new Intl.NumberFormat('en-US', {
+  notation: 'compact',
+  maximumFractionDigits: 1,
+})
