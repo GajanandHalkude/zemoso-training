@@ -36,3 +36,18 @@ export const formatCurrency = new Intl.NumberFormat('en-US', {
 })
 
 export const timeLineValues = ["1H", "24H", "1W", "1M", "1Y", "ALL"];   
+
+export const MyPortfolioData = [
+  {
+      icon:Bitcoin,coinName:"Bitcoin" , shortName:"BTC" , value:1.00 , percentage:0.00
+  },
+  {
+    icon:Ethreum,coinName:"Ethreum" , shortName:"ETH" , value:2.00 , percentage:0.00
+  },
+  {
+    icon:Tether,coinName:"Tether" , shortName:"USDT" , value:3.00 , percentage:0.00
+  },
+  {
+    icon:Xrp,coinName:"XRP" , shortName:"XRP" , value:4.00 , percentage:0.00
+  }
+]
