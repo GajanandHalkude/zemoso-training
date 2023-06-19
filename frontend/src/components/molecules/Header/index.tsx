@@ -14,8 +14,6 @@ import { buy, sell } from "../../../../src/constants"
     displayButtons?:boolean;
   }
 
-
-
 const CustomBox = styled(Box)({
 padding: '20px 24px 20px 24px',
 [theme.breakpoints.up('lg')]: {

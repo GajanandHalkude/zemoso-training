@@ -8,7 +8,7 @@ import Globe from "../../../../public/assets/images/globe.svg";
 import PortfolioTab from "../portfolioTab";
 import theme from "../../../theme";
 
-interface currencyDetailsBannerProps {
+interface CurrencyDetailsBannerProps {
   aboutCurrency: string;
   details?: string;
 }
@@ -53,9 +53,8 @@ const StyledBoxResourceContainer = styled(Box)({
 });
 
 const CurrencyDetailsBanner = ({
-  aboutCurrency,
-  details,
-}: currencyDetailsBannerProps) => {
+  aboutCurrency
+}: CurrencyDetailsBannerProps) => {
   return (
     <StyledBoxContainer data-testid="portfolio-tab" flexDirection={"row"}>
       <StyledBoxResourceContainer>
@@ -89,8 +88,8 @@ const CurrencyDetailsBanner = ({
           <MuiTypography text={"Price correlation with"} />
         </StyledBoxCorrelation>
         <Box data-testid="portfolio-tab">
-          {currencyBannerData.map((data, index) => (
-            <Box key={index}>
+          {currencyBannerData.map((data) => (
+            <Box key={data.icon}>
               <PortfolioTab
                 icon={data.icon}
                 cryptoCoinName={data.coinName}
