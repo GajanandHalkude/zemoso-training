@@ -9,8 +9,8 @@ interface PortfolioProps {
   icon: string;
   cryptoCoinName: string;
   shortNameOfCoin: string;
-  value: number;
-  totalPercentage: number;
+  value?: number;
+  totalPercentage?: number ;
   width?: string;
   height?: string | number;
   size?: "small" | "medium";

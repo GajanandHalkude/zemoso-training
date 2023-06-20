@@ -5,6 +5,7 @@ interface IconComponentProps {
   height?: string;
   padding?: string;
   src: string;
+  sx?:React.CSSProperties,
 }
 
 const IconComponent = (props: IconComponentProps) => {

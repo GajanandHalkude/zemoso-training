@@ -8,6 +8,7 @@ interface ChipProps {
   chipType: "rounded" | "squared";
   chipColor?: string;
   selected?: boolean;
+  sx?:React.CSSProperties
 }
 
 const StyledRoundedChip = styled(Chip)((props: ChipProps) => ({

@@ -109,6 +109,16 @@ export const MyPortfolioData = [
     icon:Xrp,coinName:"XRP" , shortName:"XRP" , value:4.00 , percentage:0.00
   }
 ]
+
+export const WalletBodyData = [
+  {
+    date:new Date("2023-06-15") ,coinName:"Bitcoin" , TraderName:"Saiprabhu" , Trade:"Purchased" , QuantityOfCoin:0.001, Amount:9000
+  },
+  {
+    date:new Date("2023-06-15") ,coinName:"Ethereum" , TraderName:"Gajanand" , Trade:"Sold" , QuantityOfCoin:0.002, Amount:7000
+  }
+
+]
 interface HashmapProps {
   [key: string]: string;
 }
