@@ -110,6 +110,12 @@ export const MyPortfolioData = [
   }
 ]
 
+
+ export const ProfitData = [30, 40, 45, 80, 49, 60, 30, 91];
+export const LossData = [50, 30, 40, 60, 40, 30, 90, 30];
+
+
+
 export const WalletBodyData = [
   {
     date:new Date("2023-06-15") ,coinName:"Bitcoin" , TraderName:"Saiprabhu" , Trade:"Purchased" , QuantityOfCoin:0.001, Amount:9000
@@ -273,7 +279,9 @@ export const currencies = [
     isSelected: false,
   },
 ];
+
 export const compactFormat = new Intl.NumberFormat('en-US', {
   notation: 'compact',
   maximumFractionDigits: 1,
 })
+
