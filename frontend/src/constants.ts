@@ -8,6 +8,7 @@ import DodgeCoin from "../public/assets/images/Dodge Coin.svg";
 import Ethereum2 from "../public/assets/images/ethereum 2.svg";
 import xrp from "../public/assets/images/XRP.svg";
 import USDCoin from "../public/assets/images/USD Coin.svg"
+import theme from '../src/theme'
 import Google from "../public/assets/icons/google.svg";
 import Facebook from "../public/assets/icons/facebook.svg";
 import Microsoft from "../public/assets/icons/microsoft.svg";
@@ -24,6 +25,7 @@ export { ButtonComponent, CustomTextField, MuiTypography, SocialLogin };
   { src: Facebook, text: "Facebook" },
   { src: Microsoft, text: "Microsoft" },
 ];
+
 
 export const menuItems = [
     { text: "Dashboard" },
@@ -61,6 +63,36 @@ export const formatCurrency = new Intl.NumberFormat('en-US', {
 
 export const timeLineValues = ["1H", "24H", "1W", "1M", "1Y", "ALL"];   
 
+export const cryptoCoins = [
+  {
+    name: 'Bitcoin',
+    color: theme.palette.chipColors.main,
+  },
+  {
+    name: 'XRP',
+    color: theme.palette.chipColors.color1,
+  },
+  {
+    name: 'Polkadot',
+    color: theme.palette.chipColors.color2,
+  },
+  {
+    name: 'Ethereum',
+    color: theme.palette.chipColors.color3,
+  },
+  {
+    name: 'Tether',
+    color: theme.palette.chipColors.color4,
+  },
+  {
+    name: 'Ethereum 2',
+    color: theme.palette.chipColors.color5,
+  },
+  {
+    name: 'Dodge coin',
+    color: theme.palette.chipColors.color6,
+  },
+]
 export const passwordspecification = "A min of 8 character with atleast 1 special character and number included"
 
 export const MyPortfolioData = [
