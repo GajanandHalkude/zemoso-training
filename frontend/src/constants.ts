@@ -61,6 +61,14 @@ export const formatCurrency = new Intl.NumberFormat('en-US', {
   currency: 'USD',
 })
 
+export const paymentSummaryStepper = {
+  step1: ["Payment method", "Visa credit ...8845"],
+  step2: ["Delivery fees", "0.001 BTC"],
+  step3: ["Deposit to", "Bitcoin wallet"],
+};
+
+export const dollarValue = 3406069.54;
+
 export const timeLineValues = ["1H", "24H", "1W", "1M", "1Y", "ALL"];   
 
 export const cryptoCoins = [
