@@ -13,6 +13,8 @@ import { Box, Grid, styled, MenuItem, Select, } from "@mui/material";
 export interface WalletBodyProps {
     TotalBalance: number,
     placeholderText:string,
+    handleSearchFilter?: () => void;
+  handleDropdownChange?: (value: any) => void;
 }
 const StyledBoxUSDCoin = styled(Box)({
 
