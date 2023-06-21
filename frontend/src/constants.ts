@@ -357,3 +357,8 @@ export const isPasswordValid = (password: string): boolean => {
   return regex.test(password);
 };
 
+export const isValidCode = (code: string): boolean => {
+   const codeRegex = /^\d{8}$/;
+   return codeRegex.test(code);
+ };
+
