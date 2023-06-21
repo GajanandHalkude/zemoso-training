@@ -293,6 +293,54 @@ export const compactFormat = new Intl.NumberFormat('en-US', {
   notation: 'compact',
   maximumFractionDigits: 1,
 })
+export const BitcoinTransactionValues = [
+  {
+    id:1,
+    name: 'Bitcoin',
+    from: 'Badgley',
+    date: new Date("2023-06-15"),
+    btcPrice: 0.001,
+    dollarPrice: 900,
+    status: 'pending',
+    label:'Purchased'
+  },
+  {
+    id:2,
+    name: 'Bitcoin',
+    from: 'Jane Cooper',
+    date: new Date("2023-04-16"),
+    btcPrice: 0.023,
+    dollarPrice: 1800,
+    status: 'fail',
+    label:'Purchased'
+  },
+  {
+    id:3,
+    name: 'Bitcoin',
+    from: 'Leslie Alexander',
+    date: new Date("2023-06-20"),
+    btcPrice: 0.003,
+    dollarPrice: 1200,
+    status: 'success',
+    label:'Purchased'
+  },
+]
+export const BitcoinWatchListBar = [
+  {
+    id:1,
+    coinIcon: BitcoinCoin,
+    coinName: 'Bitcoin',
+    coinSymbol: 'BTC',
+    percentageChange: +2.09,
+    isAddedtoWishList: true,
+    marketCap: 5862471259.356,
+    volumeIn24H: 751428635.90,
+    circulatingSupply : 7142539.89
+  }
+]
+export const Graphcategories = ['Jun 8', 'Jun 15', 'Jun 22', 'Jun 30', 'Jul 7', 'Jul 13']
+export const GraphData = [40, 43, 45, 42, 44, 46]
+export const GraphData1 = [34, 54, 23, 90, 12, 34]
 export const formatDate = (date: string) => {
   return moment(date, 'YYYY-MM-DD').format('LL').split(',')[0]
 }
