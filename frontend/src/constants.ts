@@ -16,6 +16,7 @@ import ButtonComponent from "../src/components/atoms/button";
 import CustomTextField from "../src/components/atoms/textField";
 import MuiTypography from "../src/components/atoms/typography";
 import SocialLogin from "../src/components/molecules/socialLogin";
+import moment from 'moment'
 
 
 export { ButtonComponent, CustomTextField, MuiTypography, SocialLogin };
@@ -292,4 +293,9 @@ export const compactFormat = new Intl.NumberFormat('en-US', {
   notation: 'compact',
   maximumFractionDigits: 1,
 })
+export const formatDate = (date: string) => {
+  return moment(date, 'YYYY-MM-DD').format('LL').split(',')[0]
+}
+export const RECENT_TRANSACTIONS = "Recent Transactions"
+export const VIEW_ALL = "View All"
 
