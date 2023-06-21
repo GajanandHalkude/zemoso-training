@@ -1,10 +1,21 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
-import { Box, Grid } from "@mui/material";
-import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin } from "../../../constants";
-import { socialLoginOptions,passwordspecification } from "../../../../src/constants";
+import { Box, Grid, styled } from "@mui/material";
+import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin ,isEmailValid, isPasswordValid ,socialLoginOptions, passwordspecification } from "../../../constants";
 
 
+const SyledButtonComponent = styled(ButtonComponent)(() => ({
+  borderRadius: "4px",
+  padding: "0px 16px 0px 16px",
+  width: "512px",
+  height: "42px",
+  textTransform: "none",
+  fontSize: "14px",
+  "&.Mui-disabled": {
+    backgroundColor: "#CCE3FF",
+    color: "#FFFFFF",
+  },
+}));
 
 const SignUp = () => {
 
@@ -21,7 +32,7 @@ const SignUp = () => {
     }));
   };
 
-  const isSignUpEnabled = formData.signuppassword.length > 0;
+  const isSignUpEnabled = isPasswordValid(formData.signuppassword) && isEmailValid(formData.signupemail);
 
   return (
     <Box display="flex" flexDirection="column" paddingTop="50px" gap="30px">
@@ -77,16 +88,16 @@ const SignUp = () => {
         />
       </Box>
       <Box display="flex">
-        <ButtonComponent
+        <SyledButtonComponent
           data-testid="password-toggle-button"
           size="large"
-          sx={{ width: "520px", textTransform: "lowercase" }}
           text="Sign up"
           disabled={!isSignUpEnabled}
           variant="contained"
         />
       </Box>
-      <Box display="flex">{passwordspecification}</Box>
+      <Box display="flex" sx={{color:"#667085"}}>{passwordspecification}</Box>
+
       <Box display="flex" alignItems="center">
         <Box flex="0.16" borderBottom="1px solid #E8E8F7" />
         <Box mx={1} >
@@ -105,7 +116,7 @@ const SignUp = () => {
       </Box>
       <Box display="flex">
         <MuiTypography variant="body2" text="Already have an account?" />
-        <a href="#" style={{ marginLeft: "10px" }}>
+        <a href="#" style={{ marginLeft: "10px", textDecoration: "none" }}>
           Login
         </a>
       </Box>

@@ -1,0 +1,139 @@
+import { Box, Grid, styled } from '@mui/material'
+import Success from '../../../../public/assets/images/t-success.svg'
+import Failed from '../../../../public/assets/images/t-fail.svg'
+import TransactionEmpty from '../../../../public/assets/images/transactionempty.svg'
+import MuiTypography from '../../atoms/typography'
+import React from 'react'
+import IconWithTypography from '../../molecules/IconWithTypography'
+import ChipItem from '../../atoms/chip'
+import theme from '../../../theme'
+import { RECENT_TRANSACTIONS, VIEW_ALL, formatCurrency, formatDate } from '../../../constants'
+import IconComponent from '../../atoms/icon'
+
+interface RecentTransactionsProps {
+    id: number
+    cryptoId: string
+    transactionDateTime: string
+    quantity: string
+    symbol: string
+    transactionType: string
+    price: number
+    status: string
+    remarks: string
+}
+
+const StyledGrid = styled(Grid)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  padding: '0px',
+  gap: '12px',
+  width: '398px',
+}))
+
+const StyledInnerBox = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: '0px 24px 0px 0px',
+  gap: '10px',
+  width: '350px',
+}))
+
+const StyledTransactionBox = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+  padding: '0px 24px 24px 0px',
+  gap: '8px',
+  width: '398px',
+}))
+const StyledEmptyTransactionBox = styled(Box)(() => ({
+    paddingTop:'58px',
+  }))
+const RightPart = styled(Box)({
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'flex-end',
+    justifyContent:'flex-end'
+    })
+const TransactionStyle =styled(Box)({
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between',
+    gap:'48px',
+    width: '350px'
+})
+interface RecentTransactionsComponentProps {
+    recentTransactions: RecentTransactionsProps[]
+    }
+
+const RecentTransactionsComponent = ({recentTransactions}: RecentTransactionsComponentProps) => {
+  
+  return (
+    <StyledGrid data-testid='recentTransacions'>
+      <StyledInnerBox>
+        <MuiTypography variant="body1" color={theme.palette.textColor.highEmphasis} text={RECENT_TRANSACTIONS}/>
+        <MuiTypography variant="caption2" color={theme.palette.primary.main} text={VIEW_ALL} />
+      </StyledInnerBox>
+      {recentTransactions.length === 0 ? (
+        <StyledEmptyTransactionBox data-testid='emptyTransacions'>
+            <IconComponent src={TransactionEmpty} width='350px' height='105px'  />
+        </StyledEmptyTransactionBox>
+      ) : (
+      recentTransactions.map((transaction,index) => (
+        <StyledTransactionBox data-testid={`transaction-${index}`} key={transaction.cryptoId+transaction.transactionDateTime}>
+          <MuiTypography
+            variant="caption2"
+            color={theme.palette.textColor.highEmphasis}
+            text={formatDate(transaction.transactionDateTime.split('T')[0])}
+          />
+          <TransactionStyle>
+            <IconWithTypography
+                image={transaction.status === 'success' ? Success: Failed}
+                imageHeight="44px"
+                imageWidth="44px"
+                textVariant="body1"
+                textColor={theme.palette.textColor.highEmphasis}
+                text={transaction.cryptoId}
+                subText={
+                  <ChipItem
+                    label={
+                      transaction.transactionType === 'buy'
+                        ? 'Purchased'
+                        : 'sold'
+                    }
+                    chipType="rounded"
+                    chipVariant='dark'
+                  />
+                }
+              />
+            <RightPart>
+                <MuiTypography
+                variant="body1"
+                text={`${
+                    transaction.transactionType === 'buy' ? '+' : '-'
+                  }${transaction.quantity} ${
+                    transaction.symbol
+                  }`}
+                sx={{ color: theme.palette.textColor.highEmphasis}}
+                />
+                <MuiTypography
+                variant="caption2"
+                text={`${
+                    transaction.transactionType === 'buy' ? '-' : '+'
+                  }${formatCurrency.format(transaction.price)}`}
+                sx={{ color: theme.palette.textColor.mediumEmphasis}}
+                />
+            </RightPart>
+        </TransactionStyle>
+        </StyledTransactionBox>
+      ))
+    )}
+    </StyledGrid>
+  )
+}
+
+export default RecentTransactionsComponent

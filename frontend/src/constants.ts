@@ -16,6 +16,7 @@ import ButtonComponent from "../src/components/atoms/button";
 import CustomTextField from "../src/components/atoms/textField";
 import MuiTypography from "../src/components/atoms/typography";
 import SocialLogin from "../src/components/molecules/socialLogin";
+import moment from 'moment'
 
 
 export { ButtonComponent, CustomTextField, MuiTypography, SocialLogin };
@@ -60,6 +61,14 @@ export const formatCurrency = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
 })
+
+export const paymentSummaryStepper = {
+  step1: ["Payment method", "Visa credit ...8845"],
+  step2: ["Delivery fees", "0.001 BTC"],
+  step3: ["Deposit to", "Bitcoin wallet"],
+};
+
+export const dollarValue = 3406069.54;
 
 export const timeLineValues = ["1H", "24H", "1W", "1M", "1Y", "ALL"];   
 
@@ -108,6 +117,22 @@ export const MyPortfolioData = [
   {
     icon:Xrp,coinName:"XRP" , shortName:"XRP" , value:4.00 , percentage:0.00
   }
+]
+
+
+ export const ProfitData = [30, 40, 45, 80, 49, 60, 30, 91];
+export const LossData = [50, 30, 40, 60, 40, 30, 90, 30];
+
+
+
+export const WalletBodyData = [
+  {
+    date:new Date("2023-06-15") ,coinName:"Bitcoin" , TraderName:"Saiprabhu" , Trade:"Purchased" , QuantityOfCoin:0.001, Amount:9000
+  },
+  {
+    date:new Date("2023-06-15") ,coinName:"Ethereum" , TraderName:"Gajanand" , Trade:"Sold" , QuantityOfCoin:0.002, Amount:7000
+  }
+
 ]
 interface HashmapProps {
   [key: string]: string;
@@ -263,7 +288,72 @@ export const currencies = [
     isSelected: false,
   },
 ];
+
 export const compactFormat = new Intl.NumberFormat('en-US', {
   notation: 'compact',
   maximumFractionDigits: 1,
 })
+export const BitcoinTransactionValues = [
+  {
+    id:1,
+    name: 'Bitcoin',
+    from: 'Badgley',
+    date: new Date("2023-06-15"),
+    btcPrice: 0.001,
+    dollarPrice: 900,
+    status: 'pending',
+    label:'Purchased'
+  },
+  {
+    id:2,
+    name: 'Bitcoin',
+    from: 'Jane Cooper',
+    date: new Date("2023-04-16"),
+    btcPrice: 0.023,
+    dollarPrice: 1800,
+    status: 'fail',
+    label:'Purchased'
+  },
+  {
+    id:3,
+    name: 'Bitcoin',
+    from: 'Leslie Alexander',
+    date: new Date("2023-06-20"),
+    btcPrice: 0.003,
+    dollarPrice: 1200,
+    status: 'success',
+    label:'Purchased'
+  },
+]
+export const BitcoinWatchListBar = [
+  {
+    id:1,
+    coinIcon: BitcoinCoin,
+    coinName: 'Bitcoin',
+    coinSymbol: 'BTC',
+    percentageChange: +2.09,
+    isAddedtoWishList: true,
+    marketCap: 5862471259.356,
+    volumeIn24H: 751428635.90,
+    circulatingSupply : 7142539.89
+  }
+]
+export const Graphcategories = ['Jun 8', 'Jun 15', 'Jun 22', 'Jun 30', 'Jul 7', 'Jul 13']
+export const GraphData = [40, 43, 45, 42, 44, 46]
+export const GraphData1 = [34, 54, 23, 90, 12, 34]
+export const formatDate = (date: string) => {
+  return moment(date, 'YYYY-MM-DD').format('LL').split(',')[0]
+}
+export const RECENT_TRANSACTIONS = "Recent Transactions"
+export const VIEW_ALL = "View All"
+
+export const isEmailValid = (email: string): boolean => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  return emailRegex.test(email);
+};
+
+export const isPasswordValid = (password: string): boolean => {
+  const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+  return regex.test(password);
+};
+

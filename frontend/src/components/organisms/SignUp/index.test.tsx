@@ -61,4 +61,16 @@ describe("SignUp component", () => {
   
 });
 
+it("should disable the button when passwords do not match", () => {
+  render(<SignUp />);
+  const passwordInput = screen.getByPlaceholderText(
+    "Password"
+  ) as HTMLInputElement;
+
+  const signInButton = screen.getByTestId("password-toggle-button");
+  fireEvent.change(passwordInput, { target: { value: "Abcdefg1@" } });
+ 
+  expect(signInButton).toBeDisabled();
+});
+
 

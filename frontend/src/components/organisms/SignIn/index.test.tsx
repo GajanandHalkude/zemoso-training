@@ -3,6 +3,7 @@ import React  from "react";
 import { render, screen, fireEvent, getByText } from '@testing-library/react';
 import SignInCard from './';
 import '@testing-library/jest-dom/extend-expect';
+import { isEmailValid, isPasswordValid } from '../../../constants';
 
 
 describe('SignInCard', () => {
@@ -68,4 +69,91 @@ describe('SignInCard', () => {
 
     expect(emailInput.value).toBe("test@example.com");
   });
+
+  it('should enable sign-in when email and password are valid', () => {
+    const formData = {
+      email: 'test@example.com',
+      password: 'Password123!',
+    };
+
+    const isEmailValidMock = jest.fn().mockReturnValue(true);
+    const isPasswordValidMock = jest.fn().mockReturnValue(true);
+
+    const isSignInEnabled = isPasswordValidMock(formData.password) && isEmailValidMock(formData.email);
+
+    expect(isSignInEnabled).toBe(true);
+    expect(isEmailValidMock).toHaveBeenCalledWith(formData.email);
+    expect(isPasswordValidMock).toHaveBeenCalledWith(formData.password);
+  });
+  
+});
+
+describe('Email Validation', () => {
+  it('should return true for valid email', () => {
+    const validEmail = 'test@example.com';
+    expect(isEmailValid(validEmail)).toBe(true);
+  });
+
+  it('should return false for invalid email', () => {
+    const invalidEmail = 'invalidemail';
+    expect(isEmailValid(invalidEmail)).toBe(false);
+  });
+
+});
+
+describe('Password Validation', () => {
+  it('should return true for valid password', () => {
+    const validPassword = 'Password123!';
+    expect(isPasswordValid(validPassword)).toBe(true);
+  });
+
+  it('should return false for invalid password', () => {
+    const invalidPassword = 'weakpassword';
+    expect(isPasswordValid(invalidPassword)).toBe(false);
+  });
+
+
+});
+
+describe('Sign-in Enabled', () => {
+  it('should enable sign-in when email and password are valid', () => {
+    const formData = {
+      email: 'test@example.com',
+      password: 'Password123!',
+    };
+
+    const isSignInEnabled = isPasswordValid(formData.password) && isEmailValid(formData.email);
+    expect(isSignInEnabled).toBe(true);
+  });
+
+  it('should disable sign-in when email or password is invalid', () => {
+    const formData1 = {
+      email: 'test@example.com',
+      password: 'weakpassword',
+    };
+
+    const formData2 = {
+      email: 'invalidemail',
+      password: 'Password123!',
+    };
+
+    const isSignInEnabled1 = isPasswordValid(formData1.password) && isEmailValid(formData1.email);
+    const isSignInEnabled2 = isPasswordValid(formData2.password) && isEmailValid(formData2.email);
+
+    expect(isSignInEnabled1).toBe(false);
+    expect(isSignInEnabled2).toBe(false);
+  });
+
+});
+
+it("should disable the button when passwords do not match", () => {
+  render(<SignInCard />);
+  const passwordInput = screen.getByPlaceholderText(
+    "Password"
+  ) as HTMLInputElement;
+
+  const signInButton = screen.getByTestId("password-toggle-button");
+  fireEvent.change(passwordInput, { target: { value: "Abcdefg1@" } });
+ 
+  expect(signInButton).toBeDisabled();
 });

@@ -1,0 +1,706 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders buy summary card correctly 1`] = `
+<div
+  className="MuiBox-root css-ufn7cb"
+  data-testid="summary-card"
+>
+  <div
+    className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column css-tc7jh2-MuiGrid-root"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <span
+        className="MuiTypography-root MuiTypography-caption1 css-37jdci-MuiTypography-root"
+        data-testid="typography-component"
+        style={
+          {
+            "color": "#7D7D89",
+          }
+        }
+      >
+        You are buying
+      </span>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <h6
+        className="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        0.023451 BTC
+      </h6>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <span
+        className="MuiTypography-root MuiTypography-caption1 css-37jdci-MuiTypography-root"
+        data-testid="typography-component"
+        style={
+          {
+            "color": "#7D7D89",
+          }
+        }
+      >
+        1BTC = $3,406,069.54
+      </span>
+    </div>
+  </div>
+  <div
+    className="MuiBox-root css-iwz9lp"
+  >
+    <div>
+      <div
+        className="MuiBox-root css-15budcu"
+        data-testid="summary-stepper"
+      >
+        <div
+          className="MuiBox-root css-1oyjow8"
+        >
+          <div
+            className="MuiBox-root css-1j5om8t"
+          >
+            <div>
+              <img
+                alt="icon"
+                data-testid="iconComponent"
+                height="32px"
+                src=""
+                style={
+                  {
+                    "padding": "5px 6px",
+                  }
+                }
+                width="32px"
+              />
+            </div>
+          </div>
+          <div
+            className="MuiBox-root css-15budcu"
+          >
+            <span
+              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#7D7D89",
+                }
+              }
+            >
+              Payment method
+            </span>
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#343446",
+                }
+              }
+            >
+              Visa credit ...8845
+            </p>
+          </div>
+        </div>
+        <div>
+          <img
+            alt="icon"
+            data-testid="iconComponent"
+            height="40px"
+            src=""
+            style={
+              {
+                "padding": undefined,
+              }
+            }
+            width="40px"
+          />
+        </div>
+        <div
+          className="MuiBox-root css-1oyjow8"
+        >
+          <div
+            className="MuiBox-root css-1j5om8t"
+          >
+            <div>
+              <img
+                alt="icon"
+                data-testid="iconComponent"
+                height="32px"
+                src=""
+                style={
+                  {
+                    "padding": "5px 6px",
+                  }
+                }
+                width="32px"
+              />
+            </div>
+          </div>
+          <div
+            className="MuiBox-root css-15budcu"
+          >
+            <span
+              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#7D7D89",
+                }
+              }
+            >
+              Delivery fees
+            </span>
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#343446",
+                }
+              }
+            >
+              0.001 BTC
+            </p>
+          </div>
+        </div>
+        <div>
+          <img
+            alt="icon"
+            data-testid="iconComponent"
+            height="40px"
+            src=""
+            style={
+              {
+                "padding": undefined,
+              }
+            }
+            width="40px"
+          />
+        </div>
+        <div
+          className="MuiBox-root css-1oyjow8"
+        >
+          <div
+            className="MuiBox-root css-1j5om8t"
+          >
+            <div>
+              <img
+                alt="icon"
+                data-testid="iconComponent"
+                height="32px"
+                src=""
+                style={
+                  {
+                    "padding": "5px 6px",
+                  }
+                }
+                width="32px"
+              />
+            </div>
+          </div>
+          <div
+            className="MuiBox-root css-15budcu"
+          >
+            <span
+              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#7D7D89",
+                }
+              }
+            >
+              Deposit to
+            </span>
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#343446",
+                }
+              }
+            >
+              Bitcoin wallet
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiStack-root css-dlxwab-MuiStack-root"
+  >
+    <div
+      className="MuiStack-root css-6hgg78-MuiStack-root"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-1bk6p3s-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        0.023451 BTC
+      </p>
+      <div>
+        <img
+          alt="icon"
+          data-testid="iconComponent"
+          height="4px"
+          src=""
+          style={
+            {
+              "padding": "0 0 0px 0",
+            }
+          }
+          width="330px"
+        />
+      </div>
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-11aqalo-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        $79,875.74
+      </p>
+    </div>
+    <div
+      className="MuiStack-root css-6hgg78-MuiStack-root"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-1bk6p3s-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        transaction fee
+      </p>
+      <div>
+        <img
+          alt="icon"
+          data-testid="iconComponent"
+          height="4px"
+          src=""
+          style={
+            {
+              "padding": "0 0 0px 0",
+            }
+          }
+          width="333px"
+        />
+      </div>
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-11aqalo-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        $1,000.00
+      </p>
+    </div>
+    <div
+      className="MuiStack-root css-6hgg78-MuiStack-root"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-d1cxfq-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        Total
+      </p>
+      <div>
+        <img
+          alt="icon"
+          data-testid="iconComponent"
+          height="4px"
+          src=""
+          style={
+            {
+              "padding": "0 0 -4px 0",
+            }
+          }
+          width="330px"
+        />
+      </div>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-179i82-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        $80,875.74
+      </p>
+    </div>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1nno463-MuiButtonBase-root-MuiButton-root"
+      data-testid="button"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      BUY NOW
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders sell summary card correctly 1`] = `
+<div
+  className="MuiBox-root css-ufn7cb"
+  data-testid="summary-card"
+>
+  <div
+    className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column css-tc7jh2-MuiGrid-root"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <span
+        className="MuiTypography-root MuiTypography-caption1 css-37jdci-MuiTypography-root"
+        data-testid="typography-component"
+        style={
+          {
+            "color": "#7D7D89",
+          }
+        }
+      >
+        You are selling
+      </span>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <h6
+        className="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        0.023451 BTC
+      </h6>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+    >
+      <span
+        className="MuiTypography-root MuiTypography-caption1 css-37jdci-MuiTypography-root"
+        data-testid="typography-component"
+        style={
+          {
+            "color": "#7D7D89",
+          }
+        }
+      >
+        1BTC = $3,406,069.54
+      </span>
+    </div>
+  </div>
+  <div
+    className="MuiBox-root css-iwz9lp"
+  >
+    <div>
+      <div
+        className="MuiBox-root css-15budcu"
+        data-testid="summary-stepper"
+      >
+        <div
+          className="MuiBox-root css-1oyjow8"
+        >
+          <div
+            className="MuiBox-root css-1j5om8t"
+          >
+            <div>
+              <img
+                alt="icon"
+                data-testid="iconComponent"
+                height="32px"
+                src=""
+                style={
+                  {
+                    "padding": "5px 6px",
+                  }
+                }
+                width="32px"
+              />
+            </div>
+          </div>
+          <div
+            className="MuiBox-root css-15budcu"
+          >
+            <span
+              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#7D7D89",
+                }
+              }
+            >
+              Payment method
+            </span>
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#343446",
+                }
+              }
+            >
+              Visa credit ...8845
+            </p>
+          </div>
+        </div>
+        <div>
+          <img
+            alt="icon"
+            data-testid="iconComponent"
+            height="40px"
+            src=""
+            style={
+              {
+                "padding": undefined,
+              }
+            }
+            width="40px"
+          />
+        </div>
+        <div
+          className="MuiBox-root css-1oyjow8"
+        >
+          <div
+            className="MuiBox-root css-1j5om8t"
+          >
+            <div>
+              <img
+                alt="icon"
+                data-testid="iconComponent"
+                height="32px"
+                src=""
+                style={
+                  {
+                    "padding": "5px 6px",
+                  }
+                }
+                width="32px"
+              />
+            </div>
+          </div>
+          <div
+            className="MuiBox-root css-15budcu"
+          >
+            <span
+              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#7D7D89",
+                }
+              }
+            >
+              Delivery fees
+            </span>
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#343446",
+                }
+              }
+            >
+              0.001 BTC
+            </p>
+          </div>
+        </div>
+        <div>
+          <img
+            alt="icon"
+            data-testid="iconComponent"
+            height="40px"
+            src=""
+            style={
+              {
+                "padding": undefined,
+              }
+            }
+            width="40px"
+          />
+        </div>
+        <div
+          className="MuiBox-root css-1oyjow8"
+        >
+          <div
+            className="MuiBox-root css-1j5om8t"
+          >
+            <div>
+              <img
+                alt="icon"
+                data-testid="iconComponent"
+                height="32px"
+                src=""
+                style={
+                  {
+                    "padding": "5px 6px",
+                  }
+                }
+                width="32px"
+              />
+            </div>
+          </div>
+          <div
+            className="MuiBox-root css-15budcu"
+          >
+            <span
+              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#7D7D89",
+                }
+              }
+            >
+              Deposit to
+            </span>
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+              data-testid="typography-component"
+              style={
+                {
+                  "color": "#343446",
+                }
+              }
+            >
+              Bitcoin wallet
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiStack-root css-dlxwab-MuiStack-root"
+  >
+    <div
+      className="MuiStack-root css-6hgg78-MuiStack-root"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-1bk6p3s-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        0.023451 BTC
+      </p>
+      <div>
+        <img
+          alt="icon"
+          data-testid="iconComponent"
+          height="4px"
+          src=""
+          style={
+            {
+              "padding": "0 0 0px 0",
+            }
+          }
+          width="330px"
+        />
+      </div>
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-11aqalo-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        $79,875.74
+      </p>
+    </div>
+    <div
+      className="MuiStack-root css-6hgg78-MuiStack-root"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-1bk6p3s-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        transaction fee
+      </p>
+      <div>
+        <img
+          alt="icon"
+          data-testid="iconComponent"
+          height="4px"
+          src=""
+          style={
+            {
+              "padding": "0 0 0px 0",
+            }
+          }
+          width="333px"
+        />
+      </div>
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-11aqalo-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        $1,000.00
+      </p>
+    </div>
+    <div
+      className="MuiStack-root css-6hgg78-MuiStack-root"
+    >
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-d1cxfq-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        Total
+      </p>
+      <div>
+        <img
+          alt="icon"
+          data-testid="iconComponent"
+          height="4px"
+          src=""
+          style={
+            {
+              "padding": "0 0 -4px 0",
+            }
+          }
+          width="330px"
+        />
+      </div>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-179i82-MuiTypography-root"
+        data-testid="typography-component"
+      >
+        $78,875.74
+      </p>
+    </div>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-xf7ls1-MuiButtonBase-root-MuiButton-root"
+      data-testid="button"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      SELL NOW
+      <span
+        className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</div>
+`;
