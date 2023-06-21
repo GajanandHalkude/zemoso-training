@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Grid, styled } from "@mui/material";
-import { ButtonComponent, CustomTextField, MuiTypography } from "../../../constants";
+import { ButtonComponent, CustomTextField, MuiTypography, isEmailValid, isValidCode } from "../../../constants";
 import theme from "../../../theme";
 
 interface ForgetPasswordProps {
@@ -24,16 +24,6 @@ const SyledButtonComponent = styled(ButtonComponent)(() => ({
 
 const ForgetPassword: React.FC<ForgetPasswordProps> = ({label,buttonText,isSendLink }) => {
   const [value, setValue] = useState("");
-
-  const isEmailValid = (email: string): boolean => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
-  };
-
-  const isValidCode = (code:string):boolean=>{
-  const codeRegex = /^\d{8}$/;
-  return codeRegex.test(code);
-  }
 
   const handleChange = (value: string) => {
     setValue(value);
