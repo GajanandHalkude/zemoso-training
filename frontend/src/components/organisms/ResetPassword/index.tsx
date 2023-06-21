@@ -17,7 +17,7 @@ const SyledButtonComponent = styled(ButtonComponent)(() => ({
   },
 }));
 
-const ResetPassword: React.FC = ({ }) => {
+const ResetPassword: React.FC = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
