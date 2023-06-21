@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import ForgetPassword from "./index";
 
 const meta: ComponentMeta<typeof ForgetPassword> = {
-  title: "Components/ForgetPassword",
+  title: "organisms/ForgetPassword",
   component: ForgetPassword,
 };
 

@@ -31,7 +31,7 @@ const ForgetPassword: React.FC<ForgetPasswordProps> = ({label,buttonText,isSendL
   };
 
   const isValidCode = (code:string):boolean=>{
-   const codeRegex = /^[0-9]{8}$/;
+  const codeRegex = /^\d{8}$/;
   return codeRegex.test(code);
   }
 
