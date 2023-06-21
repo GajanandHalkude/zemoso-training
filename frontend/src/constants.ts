@@ -299,3 +299,13 @@ export const formatDate = (date: string) => {
 export const RECENT_TRANSACTIONS = "Recent Transactions"
 export const VIEW_ALL = "View All"
 
+export const isEmailValid = (email: string): boolean => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  return emailRegex.test(email);
+};
+
+export const isPasswordValid = (password: string): boolean => {
+  const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+  return regex.test(password);
+};
+

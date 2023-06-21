@@ -1,10 +1,20 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
-import { Box, Grid } from "@mui/material";
-import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin } from "../../../constants";
-import { socialLoginOptions } from "../../../../src/constants";
+import { Box, Grid ,styled} from "@mui/material";
+import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin ,isEmailValid, isPasswordValid ,socialLoginOptions } from "../../../constants";
 
-
+const SyledButtonComponent = styled(ButtonComponent)(() => ({
+  borderRadius: "4px",
+  padding: "0px 16px 0px 16px",
+  width: "512px",
+  height: "42px",
+  textTransform: "none",
+  fontSize: "14px",
+  "&.Mui-disabled": {
+    backgroundColor: "#CCE3FF",
+    color: "#FFFFFF",
+  },
+}));
 const SignInCard = () => {
 
   const [formData, setFormData] = useState({
@@ -19,7 +29,10 @@ const SignInCard = () => {
     }));
   };
 
-  const isSignInEnabled = formData.password.length > 0;
+
+
+  const isSignInEnabled = isPasswordValid(formData.password) && isEmailValid(formData.email);
+
   return (
     <Box display="flex" flexDirection="column" paddingTop="50px" gap="30px">
       <Box display="flex">
@@ -59,10 +72,10 @@ const SignInCard = () => {
         />
       </Box>
       <Box display="flex">
-        <a href="#">Forgot Password</a>
+        <a href="#"  style={{ textDecoration: "none" }}>Forgot Password</a>
       </Box>
       <Box display="flex">
-        <ButtonComponent
+        <SyledButtonComponent
           sx={{ width: "520px", textTransform: "lowercase" }}
           data-testid="password-toggle-button"
           size="large"
@@ -91,7 +104,7 @@ const SignInCard = () => {
       </Box>
       <Box display="flex">
         <MuiTypography variant="body2" text="Doesn't have an account?" />
-        <a href="#" style={{ marginLeft: "10px" }}>
+        <a href="#" style={{ marginLeft: "10px", textDecoration: "none"}}>
           Signup
         </a>
       </Box>
