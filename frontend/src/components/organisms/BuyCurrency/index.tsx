@@ -27,7 +27,7 @@ const CustomBox = styled(Box)({
   border: `1px solid ${theme.palette.greyColors.grey100}`,
   borderRadius: '4px',
   padding: '20px',
-  height: '372px',
+  height: 'auto',
   background: theme.palette.structural.main,
 })
 
@@ -63,7 +63,7 @@ const BuyCurrency: React.FC<ChooseCurrencyProps> = ({currenciesData}: ChooseCurr
         <StyledGrid
           item
           container
-          maxHeight={"328px"}
+          maxHeight={"340px"}
           rowSpacing={2}
           columnSpacing={0.5}
         >
