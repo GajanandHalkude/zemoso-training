@@ -2,7 +2,7 @@ import { Grid, Box, styled } from "@mui/material";
 import React from "react";
 import theme from "../../../theme";
 
-interface HomeTemplateProps {
+interface DashBoardTemplateProps {
   header: React.ReactNode;
   sideNav: React.ReactNode;
   footer: React.ReactNode;
@@ -28,7 +28,7 @@ const StyledSideNav = styled(Box)({
   borderRight: `1px solid ${theme.palette.greyColors.grey100}`,
 });
 
-const HomeTemplate: React.FC<HomeTemplateProps> = ({
+const DashBoardTemplate: React.FC<DashBoardTemplateProps> = ({
   header,
   sideNav,
   footer,
@@ -49,4 +49,4 @@ const HomeTemplate: React.FC<HomeTemplateProps> = ({
   );
 };
 
-export default HomeTemplate;
+export default DashBoardTemplate;

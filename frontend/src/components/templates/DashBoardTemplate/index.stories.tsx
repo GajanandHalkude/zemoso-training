@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import HomeTemplate from './index'
+import DashBoardTemplate from "./index";
 import Header from '../../molecules/Header'
 import Footer from '../../molecules/footer'
 import SideNavCompnent from '../../molecules/sideNavbar'
@@ -9,13 +9,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 
 export default {
-  title: 'Templates/HomeTemplate',
-  component: HomeTemplate,
-} as ComponentMeta<typeof HomeTemplate>
+  title: "Templates/DashBoardTemplate",
+  component: DashBoardTemplate,
+} as ComponentMeta<typeof DashBoardTemplate>;
 
-const Template: ComponentStory<typeof HomeTemplate> = (args) => (
+const Template: ComponentStory<typeof DashBoardTemplate> = (args) => (
   <Router>
-    <HomeTemplate {...args} />
+    <DashBoardTemplate {...args} />
   </Router>
 );
 

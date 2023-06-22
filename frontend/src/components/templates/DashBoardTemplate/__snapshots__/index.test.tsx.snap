@@ -9,7 +9,7 @@ exports[`renders home template correctly 1`] = `
     className="MuiBox-root css-waw6ev"
   >
     <div
-      className="MuiBox-root css-1u6u88l"
+      className="MuiBox-root css-1ggoh19"
       data-testid="sideNav"
     >
       <img
@@ -265,7 +265,7 @@ exports[`renders home template correctly 1`] = `
       className="MuiGrid-root MuiGrid-item css-4rmxrd-MuiGrid-root"
     >
       <div
-        className="MuiBox-root css-138dc1c"
+        className="MuiBox-root css-914xdy"
         data-testid="Header"
       >
         <div
@@ -420,11 +420,11 @@ exports[`renders home template correctly 1`] = `
       </div>
     </div>
     <div
-      className="MuiBox-root css-vhpt6z"
+      className="MuiBox-root css-0"
       data-testid="footer"
     >
       <div
-        className="MuiGrid-root MuiGrid-container css-1xut4gs-MuiGrid-root"
+        className="MuiGrid-root MuiGrid-container css-vc2gs6-MuiGrid-root"
       >
         <div
           className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
