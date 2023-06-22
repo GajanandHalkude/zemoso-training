@@ -76,6 +76,7 @@ const WatchListBar = ({coinIcon,
         variant="body1"
         color={theme.palette.textColor.highEmphasis}
         text={`$${compactFormat.format(value)}`}
+        sx={{fontSize:"16px"}}
         />
     </StyledBoxForInfo>
   )

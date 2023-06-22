@@ -21,7 +21,8 @@ export type WatchlistCardProps = {
 
 const StyledGrid = styled(Grid)({
   cursor: "pointer",
-  width:"500px",
+  width:"408px",
+  height:"130px",
   borderRadius:'4px',
   border:`1px solid ${theme.palette.greyColors.grey100}`
 });
@@ -44,7 +45,7 @@ const StyledGridItem = styled(Grid)({
 const StyleGraph = styled(Grid)({
   display: "flex",
   alignItems: "flex-end",
-  flexDirection: "column",
+  flexDirection: "column"
 });
 
 const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handleClick, profit }) => {
@@ -113,6 +114,7 @@ const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handl
             display="flex"
             alignItems={"flex-start"}
             gap={2}
+            marginBottom={"20px"}
           >
             <Grid item>
               <IconComponent src={image} width="52px" height="52px" />
@@ -136,7 +138,7 @@ const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handl
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid paddingTop={'10px'}>
+              <Grid paddingTop={'12px'}>
                 <ChipItem label="24 h" chipType="rounded" chipVariant="light" />
               </Grid>
             </StyledContainer>
@@ -167,7 +169,7 @@ const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handl
                 options={options}
                 series={series}
                 height="80"
-                width="100%"
+                width="80%"
                 data-testid="graph-component"
               />
             </Grid>

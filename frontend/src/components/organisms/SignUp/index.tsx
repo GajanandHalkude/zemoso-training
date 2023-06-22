@@ -98,12 +98,12 @@ const SignUp = () => {
       </Box>
       <Box display="flex" sx={{color:"#667085"}}>{passwordspecification}</Box>
 
-      <Box display="flex" alignItems="center">
-        <Box flex="0.16" borderBottom="1px solid #E8E8F7" />
+      <Box display="flex" alignItems="center" width={"512px"}>
+        <Box flex="1" borderBottom="1px solid #E8E8F7" />
         <Box mx={1} >
           <MuiTypography variant="body2" text="Or" color="#7D7D89" />
         </Box>
-        <Box flex="0.16" borderBottom="1px solid #E8E8F7"  />
+        <Box flex="1" borderBottom="1px solid #E8E8F7"  />
       </Box>
       <Box display="flex" gap="30px" width="512px">
         {socialLoginOptions.map((socialLogin) => (

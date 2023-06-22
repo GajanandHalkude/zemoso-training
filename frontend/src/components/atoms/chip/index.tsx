@@ -37,7 +37,7 @@ const StyledSquaredChip = styled(Chip)((props: ChipProps) => ({
   borderRadius: "4px",
   backgroundColor: props.chipColor,
   padding: "8px 8px",
-  border: props.selected ? `2px solid ${props.chipColor}` : "",
+  border: props.selected ? `2px solid #F7931A` : "",
   "& .MuiChip-label": {
     fontSize: "16px",
     fontWeight: "400",
