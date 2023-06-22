@@ -138,11 +138,11 @@ const handleDropdownChange = (value: any) => {
                     <ButtonComponent variant='outlined' text='CASH DEPOSIT'
                     sx={{background: theme.palette.structural.main,
                         border: `1px solid ${theme.palette.primary.main}`,
-                        borderRadius: '4px',}}/>
+                        borderRadius: '4px',color:theme.palette.primary.main}}/>
                     <ButtonComponent variant='outlined' text='WITHDRAWAL' 
                     sx={{background: theme.palette.structural.main,
                         border: `1px solid ${theme.palette.primary.main}`,
-                        borderRadius: '4px',}}/>
+                        borderRadius: '4px',color:theme.palette.primary.main}}/>
                 </Box>
             </StyledGridHeader>
             <Grid> 

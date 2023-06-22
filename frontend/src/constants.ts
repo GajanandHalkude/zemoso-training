@@ -293,6 +293,18 @@ export const compactFormat = new Intl.NumberFormat('en-US', {
   notation: 'compact',
   maximumFractionDigits: 1,
 })
+
+export const TradeFrameData = [
+  {
+    icon:Bitcoin,coinName:"Bitcoin" , shortName:"BTC" , price:3285553.73 , change:1.06 , marketcap:60.1 , star:true
+  },
+  {
+    icon:Ethreum,coinName:"Ethreum" , shortName:"ETH" , price:216678.10 , change:-4.59 , marketcap:25.4 ,star:true
+  },
+  {
+    icon:Xrp,coinName:"XRP" , shortName:"XRP" , price:57.21 , change:1.11 , marketcap:2.7,star:false
+  }
+]
 export const BitcoinTransactionValues = [
   {
     id:1,

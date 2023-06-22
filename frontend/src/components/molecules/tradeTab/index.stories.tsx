@@ -22,4 +22,5 @@ Bitcoin.args = {
     price:"3,253,553.73",
     change:'+1.06',
     marketCap:'60.1',
+    isStarFilled:false
 }
