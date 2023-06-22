@@ -13,6 +13,8 @@ import { Box, Grid, styled, MenuItem, Select, } from "@mui/material";
 export interface WalletBodyProps {
     TotalBalance: number,
     placeholderText:string,
+    handleSearchFilter?: () => void;
+  handleDropdownChange?: (value: any) => void;
 }
 const StyledBoxUSDCoin = styled(Box)({
 
@@ -36,10 +38,8 @@ const StyledGridTransactons = styled(Grid)({
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start',
     padding: '24px 0px 24px 24px',
     gap: '12px',
-    width: '1238px',
     height: '566px',
     background: '#FFFFFF',
     border: '1px solid #E8E8F7',
@@ -74,7 +74,7 @@ const StyledGridHeader = styled(Grid)({
 });
 
 const StyledMuiTypographyWallet = styled(MuiTypography)({
-    width: '91px',
+   
     height: '28px',
     color: theme.palette.textColor.highEmphasis,
 })
@@ -110,7 +110,7 @@ const handleDropdownChange = (value: any) => {
     console.log(value)
   };
     return (
-        <Box width={'1238px'}>
+        <Box>
             <StyledGridHeader >
                 <StyledBoxUSDCoin>
                     <IconComponent src={Doller}  />
@@ -128,7 +128,6 @@ const handleDropdownChange = (value: any) => {
                             sx={{
                                 color: theme.palette.textColor.mediumEmphasis,
                             }}
-
                         />
                     </Box>
                 </StyledBoxUSDCoin>
@@ -136,14 +135,14 @@ const handleDropdownChange = (value: any) => {
                     <ButtonComponent variant='outlined' text='CASH DEPOSIT'
                     sx={{background: theme.palette.structural.main,
                         border: `1px solid ${theme.palette.primary.main}`,
-                        borderRadius: '4px',}}/>
+                        borderRadius: '4px',color:theme.palette.primary.main}}/>
                     <ButtonComponent variant='outlined' text='WITHDRAWAL' 
                     sx={{background: theme.palette.structural.main,
                         border: `1px solid ${theme.palette.primary.main}`,
-                        borderRadius: '4px',}}/>
+                        borderRadius: '4px',color:theme.palette.primary.main}}/>
                 </Box>
             </StyledGridHeader>
-            <Grid> 
+            <Grid display={'flex'} flexDirection={'column'} paddingTop={'24px'}> 
                 <StyledMuiTypographyWallet data-testid="typography-component" variant='subtitle2' text='Wallet'/>
                 <StyledBoxTotalBalance>
                     <MuiTypography data-testid="typography-component" text='Total balance'
@@ -156,7 +155,7 @@ const handleDropdownChange = (value: any) => {
                     variant='subtitle1' />
                 </StyledBoxTotalBalance>
 
-                <Box display={'flex'} flexDirection={'row'} justifyContent={'flex-end'} alignItems={'center'}>
+                <Box display={'flex'} flexDirection={'row'} justifyContent={'flex-end'} alignItems={'center'} padding='24px'>
                     <SearchField placeholder={placeholderText} filter={true} handleChange={handleSearchFilter}/>
                 <StyledDropDown
                     data-testid="dropDown"

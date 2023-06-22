@@ -131,14 +131,12 @@ const theme = createTheme({
       fontWeight: 500,
       lineHeight: '54px',
       textTransform: 'none',
-      fontFamily: "Graphik-semi-bold",
     },
     heading6: {
       fontSize: '24px',
       fontWeight: 400,
       lineHeight: '34px',
       textTransform: 'none',
-      fontFamily: "Graphik-semi-bold",
     },
 
     subtitle1: {
@@ -146,7 +144,6 @@ const theme = createTheme({
       fontWeight: 500,
       lineHeight: '28px',
       textTransform: 'none',
-      fontFamily: "Graphik-semi-bold",
     },
 
     subtitle2: {
@@ -154,7 +151,6 @@ const theme = createTheme({
       fontWeight: 400,
       lineHeight: '28px',
       textTransform: 'none',
-      fontFamily: "Graphik-regular",
     },
 
     body1: {
@@ -162,7 +158,6 @@ const theme = createTheme({
       fontWeight: 500,
       lineHeight: '22px',
       textTransform: 'none',
-      fontFamily: "Graphik-semi-bold",
     },
 
     body2: {
@@ -170,21 +165,18 @@ const theme = createTheme({
       fontWeight: 400,
       lineHeight: '22px',
       textTransform: 'none',
-      fontFamily: "Graphik-regular",
     },
     button: {
       fontSize: '14px',
       fontWeight: 500,
       lineHeight: '42px',
       textTransform: 'none',
-      fontFamily: "Graphik-semi-bold",
     },
     caption1: {
       fontSize: '14px',
       fontWeight: 500,
       lineHeight: '16px',
       textTransform: 'none',
-      fontFamily: "Graphik-medium",
     },
 
     caption2: {
@@ -192,14 +184,12 @@ const theme = createTheme({
       fontWeight: 400,
       lineHeight: '16px',
       textTransform: 'none',
-      fontFamily: "Graphik-regular",
     },
     overline: {
       fontSize: '12px',
       fontWeight: 400,
       lineHeight: '14px',
       textTransform: 'none',
-      fontFamily: "Graphik-regular",
     },
   },
 

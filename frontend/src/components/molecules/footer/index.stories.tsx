@@ -16,4 +16,5 @@ const Template: ComponentStory<typeof Footer> = (args) => (
 export const SimpleFooter = Template.bind({})
 SimpleFooter.args = {
   menuItems: menuItems,
+  buttonLabel:'NEED HELP'
 }

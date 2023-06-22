@@ -51,18 +51,19 @@ const renderOrderSummary = (
   return (
     <Stack direction="row" spacing={-0.5}>
       <TypographyComponent
-        variant={bold ? "body1" : "body2"}
+        variant={bold ? "body1" : 'overline'}
         text={leftValue}
         color={theme.palette.textColor.highEmphasis}
+        sx={{textTransform:'none'}}
       />
       <IconComponent
         src={dottedLine}
         width={width}
         height={"4px"}
-        padding={bold ? "0 0 -4px 0" : "0 0 0px 0"}
+        padding={bold ? '0 0 1px 0' : '0 0 4px 0'}
       />
       <TypographyComponent
-        variant={bold ? "body1" : "body2"}
+        variant={bold ? "body1" : 'overline'}
         text={`${rightValue}`}
         color={theme.palette.textColor.highEmphasis}
         display="flex"

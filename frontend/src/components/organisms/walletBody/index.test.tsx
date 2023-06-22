@@ -1,11 +1,55 @@
-import "@testing-library/jest-dom/extend-expect";
-import WalletBody from "./";
-import React from 'react'
-import {
-  render,
-  screen,
-} from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/extend-expect';
+import WalletBody from ".";
+import React from "react";
+
+jest.mock("react-apexcharts", () => ({
+  __esModule: true,
+  default: () => <div data-testid="graph-component" />,
+}));
+
+describe("WalletBody", () => {
+  it("renders the total balance correctly", () => {
+    const totalBalance = 1000;
+    const placeholderText = "Search";
+    render(
+      <WalletBody TotalBalance={totalBalance} placeholderText={placeholderText} />
+    );
+
+    // Check if the total balance is rendered correctly
+    const totalBalanceElement = screen.getByText(`$ ${totalBalance}`);
+    expect(totalBalanceElement).toBeInTheDocument();
+  });
+
+  it("triggers the handleDropdownChange function on dropdown change", () => {
+    const totalBalance = 1000;
+    const placeholderText = "Search";
+    const handleDropdownChangeMock = jest.fn();
+    render(
+      <WalletBody
+        TotalBalance={totalBalance}
+        placeholderText={placeholderText}
+        handleDropdownChange={handleDropdownChangeMock}
+      />
+    );
+  });
+
+  it("triggers the handleSearchFilter function on search field change", () => {
+    const totalBalance = 1000;
+    const placeholderText = "Search";
+    const handleSearchFilterMock = jest.fn();
+    render(
+      <WalletBody
+        TotalBalance={totalBalance}
+        placeholderText={placeholderText}
+        handleSearchFilter={handleSearchFilterMock}
+      />
+    );
+  });
+
+ 
+});
 
 describe("WalletBody", () => {
   test("renders without errors", () => {

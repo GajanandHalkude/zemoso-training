@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import MuiTypography from "../../atoms/typography";
 import IconComponent from "../../atoms/icon";
 import theme from "../../../theme";
@@ -15,6 +15,8 @@ interface PortfolioProps {
   change:string | number;
   price: string | number;
   marketCap: string | number;
+  isStarFilled: boolean;
+  handleStart?:React.MouseEventHandler<HTMLButtonElement>
 }
 
 const StyledBox = styled(Box)({
@@ -33,7 +35,7 @@ const StyledBox = styled(Box)({
 const StyledCurrencyLogo = styled(Box)({
   display: "flex",
   flexDirection: "row",
-  justifyContent: "center",
+  justifyContent: "left",
   alignItems: "center",
   gap: "10px",
   minWidth: "150px",
@@ -52,12 +54,10 @@ const TradeTab = ({
   price,
   change,
   marketCap,
+  isStarFilled,
+  handleStart,
 }: PortfolioProps) => {
-  const [isStarFilled, setIsStarFilled] = useState(false);
-
-  const handleStarClick = () => {
-    setIsStarFilled((prevState) => !prevState);
-  };
+  const isPositiveChange = Number(change) > 0;
 
   return (
     <StyledBox>
@@ -84,7 +84,7 @@ const TradeTab = ({
       <MuiTypography
         variant="body2"
         text={`${change}.%`}
-        sx={{ color: theme.palette.primary.success500, minWidth: "150px" }}
+        sx={{ color: isPositiveChange ? theme.palette.primary.success500 : theme.palette.loss.borderColor ,}}
       />
       <MuiTypography
         variant="body1"
@@ -92,7 +92,7 @@ const TradeTab = ({
         sx={{ color: theme.palette.textColor.highEmphasis, minWidth: "150px" }}
       />
       <StyledButtonComponent
-        onClick={handleStarClick}
+        onClick={handleStart}
         text={<IconComponent src={isStarFilled ? Filledstar : Emptystar} />}
       />
     </StyledBox>
