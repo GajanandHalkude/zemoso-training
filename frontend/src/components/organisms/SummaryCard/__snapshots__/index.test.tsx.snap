@@ -238,12 +238,12 @@ exports[`renders buy summary card correctly 1`] = `
     <div
       className="MuiStack-root css-6hgg78-MuiStack-root"
     >
-      <p
-        className="MuiTypography-root MuiTypography-body2 css-1bk6p3s-MuiTypography-root"
+      <span
+        className="MuiTypography-root MuiTypography-overline css-1wrpxv1-MuiTypography-root"
         data-testid="typography-component"
       >
         0.023451 BTC
-      </p>
+      </span>
       <div>
         <img
           alt="icon"
@@ -252,28 +252,28 @@ exports[`renders buy summary card correctly 1`] = `
           src=""
           style={
             {
-              "padding": "0 0 0px 0",
+              "padding": "0 0 4px 0",
             }
           }
           width="330px"
         />
       </div>
-      <p
-        className="MuiTypography-root MuiTypography-body2 css-11aqalo-MuiTypography-root"
+      <span
+        className="MuiTypography-root MuiTypography-overline css-34k6ax-MuiTypography-root"
         data-testid="typography-component"
       >
         $79,875.74
-      </p>
+      </span>
     </div>
     <div
       className="MuiStack-root css-6hgg78-MuiStack-root"
     >
-      <p
-        className="MuiTypography-root MuiTypography-body2 css-1bk6p3s-MuiTypography-root"
+      <span
+        className="MuiTypography-root MuiTypography-overline css-1wrpxv1-MuiTypography-root"
         data-testid="typography-component"
       >
         transaction fee
-      </p>
+      </span>
       <div>
         <img
           alt="icon"
@@ -282,24 +282,24 @@ exports[`renders buy summary card correctly 1`] = `
           src=""
           style={
             {
-              "padding": "0 0 0px 0",
+              "padding": "0 0 4px 0",
             }
           }
           width="333px"
         />
       </div>
-      <p
-        className="MuiTypography-root MuiTypography-body2 css-11aqalo-MuiTypography-root"
+      <span
+        className="MuiTypography-root MuiTypography-overline css-34k6ax-MuiTypography-root"
         data-testid="typography-component"
       >
         $1,000.00
-      </p>
+      </span>
     </div>
     <div
       className="MuiStack-root css-6hgg78-MuiStack-root"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 css-d1cxfq-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-1sjk0ek-MuiTypography-root"
         data-testid="typography-component"
       >
         Total
@@ -312,7 +312,7 @@ exports[`renders buy summary card correctly 1`] = `
           src=""
           style={
             {
-              "padding": "0 0 -4px 0",
+              "padding": "0 0 1px 0",
             }
           }
           width="330px"
@@ -589,12 +589,12 @@ exports[`renders sell summary card correctly 1`] = `
     <div
       className="MuiStack-root css-6hgg78-MuiStack-root"
     >
-      <p
-        className="MuiTypography-root MuiTypography-body2 css-1bk6p3s-MuiTypography-root"
+      <span
+        className="MuiTypography-root MuiTypography-overline css-1wrpxv1-MuiTypography-root"
         data-testid="typography-component"
       >
         0.023451 BTC
-      </p>
+      </span>
       <div>
         <img
           alt="icon"
@@ -603,28 +603,28 @@ exports[`renders sell summary card correctly 1`] = `
           src=""
           style={
             {
-              "padding": "0 0 0px 0",
+              "padding": "0 0 4px 0",
             }
           }
           width="330px"
         />
       </div>
-      <p
-        className="MuiTypography-root MuiTypography-body2 css-11aqalo-MuiTypography-root"
+      <span
+        className="MuiTypography-root MuiTypography-overline css-34k6ax-MuiTypography-root"
         data-testid="typography-component"
       >
         $79,875.74
-      </p>
+      </span>
     </div>
     <div
       className="MuiStack-root css-6hgg78-MuiStack-root"
     >
-      <p
-        className="MuiTypography-root MuiTypography-body2 css-1bk6p3s-MuiTypography-root"
+      <span
+        className="MuiTypography-root MuiTypography-overline css-1wrpxv1-MuiTypography-root"
         data-testid="typography-component"
       >
         transaction fee
-      </p>
+      </span>
       <div>
         <img
           alt="icon"
@@ -633,24 +633,24 @@ exports[`renders sell summary card correctly 1`] = `
           src=""
           style={
             {
-              "padding": "0 0 0px 0",
+              "padding": "0 0 4px 0",
             }
           }
           width="333px"
         />
       </div>
-      <p
-        className="MuiTypography-root MuiTypography-body2 css-11aqalo-MuiTypography-root"
+      <span
+        className="MuiTypography-root MuiTypography-overline css-34k6ax-MuiTypography-root"
         data-testid="typography-component"
       >
         $1,000.00
-      </p>
+      </span>
     </div>
     <div
       className="MuiStack-root css-6hgg78-MuiStack-root"
     >
       <p
-        className="MuiTypography-root MuiTypography-body1 css-d1cxfq-MuiTypography-root"
+        className="MuiTypography-root MuiTypography-body1 css-1sjk0ek-MuiTypography-root"
         data-testid="typography-component"
       >
         Total
@@ -663,7 +663,7 @@ exports[`renders sell summary card correctly 1`] = `
           src=""
           style={
             {
-              "padding": "0 0 -4px 0",
+              "padding": "0 0 1px 0",
             }
           }
           width="330px"

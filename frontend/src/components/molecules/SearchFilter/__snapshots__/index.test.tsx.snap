@@ -2,7 +2,7 @@
 
 exports[`renders search bar correctly 1`] = `
 <div
-  className="MuiFormControl-root MuiTextField-root css-3eyjvg-MuiFormControl-root-MuiTextField-root"
+  className="MuiFormControl-root MuiTextField-root css-jr539y-MuiFormControl-root-MuiTextField-root"
   data-testid="search-bar"
   filter={false}
   handleChange={[Function]}
@@ -80,7 +80,7 @@ exports[`renders search bar correctly 1`] = `
 
 exports[`renders search bar with filter correctly 1`] = `
 <div
-  className="MuiFormControl-root MuiTextField-root css-fwqz9n-MuiFormControl-root-MuiTextField-root"
+  className="MuiFormControl-root MuiTextField-root css-jbv63a-MuiFormControl-root-MuiTextField-root"
   data-testid="search-bar"
   filter={true}
   handleChange={[Function]}

@@ -24,7 +24,7 @@ const StyledBox = styled(Box)({
   justifyContent: "space-between",
   padding: "16px 24px",
   background: theme.palette.structural.main,
-  maxWidth: "1239x",
+  
 });
 
 const CurrencyStyle = styled(Box)({
@@ -50,7 +50,6 @@ const RightPart = styled(Box)({
     justifyContent:'flex-end'
     })
 const Divider = styled.hr`
-    Width: 1164px;
     border: 1px solid ${theme.palette.grey[100]};
     order: 1;
   `;

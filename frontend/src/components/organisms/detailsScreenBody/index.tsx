@@ -73,7 +73,6 @@ const StyledGridTransactions = styled(Box)({
   boxSizing: 'border-box',
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
   padding: '18px 0px ',
   gap: '12px',
   height: '566px',
@@ -92,7 +91,6 @@ const getCurrencyLogo = (status: string) => {
 };
 
 const DetailsScrennBody = ({ coinBalance, currentValue }: TabsProps) => {
-
   return (
     <Tab1Styles data-testid="detailsScreen">
       {BitcoinWatchListBar.map((data) => (

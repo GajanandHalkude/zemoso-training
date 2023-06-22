@@ -1,4 +1,7 @@
 import React from 'react';
+import { ThemeProvider } from '@emotion/react'
+import theme from '../src/theme/index'
+import "./style.css"
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -8,3 +11,6 @@ export const parameters = {
     },
   },
 }
+export const decorators =[
+  (Story) => <ThemeProvider theme={theme}>{Story()}</ThemeProvider>,
+];

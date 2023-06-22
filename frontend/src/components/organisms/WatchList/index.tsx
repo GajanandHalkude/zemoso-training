@@ -20,9 +20,10 @@ export type WatchlistCardProps = {
 };
 
 const StyledGrid = styled(Grid)({
-  height: "130px",
-  width: "100%",
   cursor: "pointer",
+  width:"500px",
+  borderRadius:'4px',
+  border:`1px solid ${theme.palette.greyColors.grey100}`
 });
 
 const StyledContainer = styled("div")({
@@ -30,16 +31,14 @@ const StyledContainer = styled("div")({
   flexDirection: "column",
   justifyContent: "space-between",
   alignItems: "flex-start",
-  gap: "12px",
 });
 
 const StyledGridItem = styled(Grid)({
-  padding: "24px",
+  padding: "18px",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
-  gap: "0px",
 });
 
 const StyleGraph = styled(Grid)({
@@ -48,10 +47,8 @@ const StyleGraph = styled(Grid)({
   flexDirection: "column",
 });
 
-const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handleClick, profit, change=0 }) => {
- 
-  const formattedchange =change >= 0 ? `+${change}` : `${change}`;
- 
+const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handleClick, profit }) => {
+  
   const options = {
     chart: {
       toolbar: {
@@ -108,7 +105,7 @@ const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handl
   ];
   return (
     <StyledGrid container onClick={handleClick} data-testid="watchlist-card" >
-      <StyledGridItem item container xs={4}  display="flex" flexDirection="row" alignItems="center">
+      <StyledGridItem item container  display="flex" flexDirection="row" alignItems="center" >
         <Grid item>
           <Grid
             container
@@ -139,14 +136,14 @@ const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handl
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid>
+              <Grid paddingTop={'10px'}>
                 <ChipItem label="24 h" chipType="rounded" chipVariant="light" />
               </Grid>
             </StyledContainer>
           </Grid>
         </Grid>
 
-        <Grid item display="flex" flexDirection="column" alignItems="flex-start">
+        <Grid item display="flex" flexDirection="column" >
           <StyleGraph>
             <Grid item>
               <IconWithTypography

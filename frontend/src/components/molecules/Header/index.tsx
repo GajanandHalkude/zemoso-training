@@ -16,18 +16,6 @@ import { buy, sell } from "../../../../src/constants"
 
 const CustomBox = styled(Box)({
 padding: '20px 24px 20px 24px',
-[theme.breakpoints.up('lg')]: {
-maxWidth: '1500px'
-},
-[theme.breakpoints.up('xl')]: {
-maxWidth: '98vw'
-},
-[theme.breakpoints.down('lg')]: {
-minWidth: '1366px'
-},
-[theme.breakpoints.between('lg', 'xl')]: {
-width: '97vw',
-},
 borderBottom: `1px solid ${theme.palette.greyColors.grey100}`,
 })
 
@@ -56,7 +44,6 @@ return (
          text={pageName}
        />
 </Grid>
-
     <Grid item container wrap="nowrap" xs={6} justifyContent="flex-end" columnGap={2}>
         {displayButtons && 
         <Grid  display="flex" alignItems="row" gap="12px">

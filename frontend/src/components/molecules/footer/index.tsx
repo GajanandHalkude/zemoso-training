@@ -10,35 +10,18 @@ interface MenuItem {
   isBlack?: boolean;
 }
 
-
 interface FooterProps {
   menuItems: MenuItem[];
   buttonLabel?: string;
 }
 
-const StyledBox = styled(Box)({
-  [theme.breakpoints.up("lg")]: {
-    maxWidth: "1500px",
-  },
-  [theme.breakpoints.up("xl")]: {
-    maxWidth: "98vw",
-  },
-  [theme.breakpoints.down("lg")]: {
-    minWidth: "1366px",
-  },
-  [theme.breakpoints.between("lg", "xl")]: {
-    width: "97vw",
-  },
-  paddingLeft: "104px",
-});
-
 const MainContainer = styled(Grid)({
-  height: "90px",
-  borderTop: `1px solid ${theme.palette.greyColors.grey100}`,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  paddingRight: "22px",
+  padding: "0px 24px 24px 24px",
+  marginTop:'-20px',
+  marginBottom:'-40px'
 });
 
 const StyledTypographyBlue = styled(MuiTypography)({
@@ -68,7 +51,7 @@ const RightContainer = styled(Grid)({
 const Footer = ({ menuItems , buttonLabel}: FooterProps) => {
   
   return (
-    <StyledBox data-testid="footer">
+    <Box data-testid="footer">
       <MainContainer container>
         <Grid item xs={6}>
           <Stack direction="row" spacing={3}>
@@ -101,7 +84,7 @@ const Footer = ({ menuItems , buttonLabel}: FooterProps) => {
           </Stack>
         </RightContainer>
       </MainContainer>
-    </StyledBox>
+    </Box>
   );
 };
 

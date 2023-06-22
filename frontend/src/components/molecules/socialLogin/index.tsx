@@ -14,7 +14,7 @@ const StylesBox = styled(Box)({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '20px 40px',
+    padding: '20px 40px 20px 40px',
     gap: '8px',
     background: '#FAFCFF',
     border: '1px solid #E8E8F7',
