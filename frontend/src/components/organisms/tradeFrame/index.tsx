@@ -19,7 +19,7 @@ const StyledBox = styled(Box)({
   background: theme.palette.structural.main,
   border: `1px solid ${theme.palette.greyColors.grey100}`,
   borderRadius: '4px',
-  maxWidth: '1239x',
+  // Width: '1400px',
 });
 
 const StyledTextField = styled(TextField)({
