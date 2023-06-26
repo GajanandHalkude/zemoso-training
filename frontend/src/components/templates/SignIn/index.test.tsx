@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import SignInTemplate  from './';
+import SignInTemplate  from '.';
 import ImageComponent from '../../../../public/assets/images/SignInImage.svg';
 import SignInCard from '../../organisms/SignIn';
 import '@testing-library/jest-dom/extend-expect';

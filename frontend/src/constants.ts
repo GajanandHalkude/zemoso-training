@@ -294,6 +294,19 @@ export const compactFormat = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 1,
 })
 
+
+export const DELIVERY_TYPES = [
+  { type: 'Instant : ', time: '2-5 minutes', fees: '0.001', values: 10 },
+  { type: 'Faster : ', time: '4 hours', fees: '0.001', values: 20 },
+  { type: 'Fast : ', time: '120 hours', fees: '0.001', values: 30 },
+  { type: 'None', time: '', values: 40 },
+]
+
+
+export const roundValue = (number: number) => {
+  return Math.round(number * 100000000) / 100000000
+}
+
 export const TradeFrameData = [
   {
     icon:Bitcoin,coinName:"Bitcoin" , shortName:"BTC" , price:3285553.73 , change:1.06 , marketcap:60.1 , star:true
@@ -340,7 +353,7 @@ export const BitcoinTransactionValues = [
 export const BitcoinWatchListBar = [
   {
     id:1,
-    coinIcon: BitcoinCoin,
+    coinIcon: Bitcoin,
     coinName: 'Bitcoin',
     coinSymbol: 'BTC',
     percentageChange: +2.09,

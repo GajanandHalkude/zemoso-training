@@ -18,7 +18,7 @@ interface PaymentAndDetailsProps {
 const StyledGrid = styled(Grid)({
   border: `1px solid ${theme.palette.greyColors.grey100}`,
   borderRadius: '4px',
-  background: theme.palette.structural.main,
+  background: theme.palette.structural.main,  
 })
 
 const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSymbol,wallet,walletName}: PaymentAndDetailsProps) => {
@@ -50,11 +50,12 @@ const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSym
                 display="flex"
                 alignItems={'center'}
                 gap={2}
+                
               >
                 <Grid item>
                   <IconComponent src={icon} />
                 </Grid>
-                <Grid item>
+                <Grid item sx={{width:"350px"}}>
                   {variant === 'payment' && (
                     <Grid container direction={'column'} gap={0.5}>
                       <Grid item>
@@ -71,7 +72,7 @@ const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSym
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item>
+            <Grid item >
               {(variant === 'deposit' || variant === 'payment') && (
                 <MuiTypography variant="caption1" color={theme.palette.textColor.mediumEmphasis} text="Default"/>
               )}

@@ -25,9 +25,9 @@ const StyledIconBox = styled(Box)({
 
 const CurrencySelection = () => {
   const renderChips = () => {
-    return cryptoCoins.map((data, index) => {
+    return cryptoCoins.map((data,index) => {
       return (
-        <Grid item key={index}>
+        <Grid item key={data.name}>
           <ChipItem
             label={data.name}
             chipType="squared"

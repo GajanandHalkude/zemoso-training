@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import SignInTemplate, { AuthTemplateProp } from './';
+import SignInTemplate, { AuthTemplateProp } from '.';
 import signInImage from '../../../../public/assets/images/SignInImage.svg'
 import SignInCard from '../../organisms/SignIn';
 

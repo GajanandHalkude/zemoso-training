@@ -122,3 +122,36 @@ describe('WatchlistCard', () => {
 
 });
 
+describe('WatchlistCard', () => {
+  const mockProps = {
+    image: 'image-url',
+    name: 'Card Name',
+    price: 100,
+    handleClick: jest.fn(),
+    profit: true,
+    change: 2.2,
+  };
+
+  test('renders card with profit correctly', () => {
+    render(<WatchlistCard {...mockProps} />);
+
+    expect(screen.getByText('Card Name')).toBeInTheDocument();
+    expect(screen.getByText('$100')).toBeInTheDocument();
+    expect(screen.getByText('+2.2%')).toBeInTheDocument();
+  });
+
+  test('renders card with loss correctly', () => {
+    render(<WatchlistCard {...mockProps} profit={false} change={-1.5} />);
+
+    expect(screen.getByText('Card Name')).toBeInTheDocument();
+    expect(screen.getByText('$100')).toBeInTheDocument();
+   
+  });
+
+  test('calls handleClick function on click', () => {
+    render(<WatchlistCard {...mockProps} />);
+    const card = screen.getByTestId('watchlist-card');
+    card.click();
+    expect(mockProps.handleClick).toHaveBeenCalledTimes(1);
+  });
+});
