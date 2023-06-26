@@ -118,7 +118,7 @@ const WatchListBar = ({coinIcon,
               sx={{ height: '42px' }}
               startIcon={
                 <IconComponent
-                  src={isAddedtoWishList ? FilledStar : EmptyStar}
+                  src={isAddedtoWishList ? FilledStar : EmptyStar} sx={{color:"#0052FF"}}
                 />}
               variant="outlined"
               text={isAddedtoWishList ? 'ADDED TO WATCHLIST' : 'ADD TO WATCHLIST'}

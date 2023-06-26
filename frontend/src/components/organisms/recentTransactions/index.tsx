@@ -103,7 +103,7 @@ const RecentTransactionsComponent = ({recentTransactions}: RecentTransactionsCom
                     label={
                       transaction.transactionType === 'buy'
                         ? 'Purchased'
-                        : 'sold'
+                        : 'Sold'
                     }
                     chipType="rounded"
                     chipVariant='dark'

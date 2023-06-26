@@ -315,7 +315,7 @@ exports[`renders buy summary card correctly 1`] = `
               "padding": "0 0 1px 0",
             }
           }
-          width="330px"
+          width="370px"
         />
       </div>
       <p
@@ -666,7 +666,7 @@ exports[`renders sell summary card correctly 1`] = `
               "padding": "0 0 1px 0",
             }
           }
-          width="330px"
+          width="370px"
         />
       </div>
       <p

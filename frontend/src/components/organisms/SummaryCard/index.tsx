@@ -129,7 +129,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
         {renderOrderSummary(
           "Total",
           formatCurrency.format(total),
-          "330px",
+          "370px",
           true
         )}
         <StyledButtonComponent
