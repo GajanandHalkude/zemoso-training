@@ -1,10 +1,12 @@
 import { Box, Card, CardContent, Divider, styled, Stack } from "@mui/material";
 import React from "react";
 import PortfolioValueTypographyComponent from "../../molecules/totalInvestment";
+import mangraph from "../../../../public/assets/images/mangraph.svg";
 import TimeLineTabs from "../../molecules/Timeline";
 import { ThemeProvider } from "@emotion/react";
 import theme from "../../../theme";
 import GraphComponent from "../../atoms/graph";
+import ImageComponent from "../../atoms/Image";
 
 interface PortfolioGraphComponentProps {
   height: string;
@@ -23,6 +25,7 @@ interface PortfolioGraphComponentProps {
   investmentValue2?: number;
   typeOfInvestment2?: string;
   percentChange2?: number;
+  isEmptyState:boolean
 }
 
 const FlexRowBox = styled(Box)(() => ({
@@ -40,23 +43,24 @@ const StyledInnerBox = styled(Box)(() => ({
 }));
 
 const PortfolioGraphComponent = ({
-    height,
-    width,
-    categories,
-    borderColor,
-    data,
-    fillColor,
-    investmentValue,
-    percentChange,
-    typeOfInvestment,
-    borderColor2,
-    fillColor2,
-    dashboardPage,
-    investmentValue2,
-    percentChange2,
-    typeOfInvestment2,
-    data2,
-  }: PortfolioGraphComponentProps) => {
+  height,
+  width,
+  categories,
+  borderColor,
+  data,
+  fillColor,
+  investmentValue,
+  percentChange,
+  typeOfInvestment,
+  borderColor2,
+  fillColor2,
+  dashboardPage,
+  investmentValue2,
+  percentChange2,
+  typeOfInvestment2,
+  data2,
+  isEmptyState,
+}: PortfolioGraphComponentProps) => {
   const options = {
     chart: {
       toolbar: {
@@ -138,34 +142,9 @@ const PortfolioGraphComponent = ({
       ];
 
   const renderDetails = () => {
-    return dashboardPage ?
-       (
-        <FlexRowBox>
-          <Stack direction="row" spacing={3}>
-            <PortfolioValueTypographyComponent
-              isInDashBoardPage={dashboardPage}
-              investmentValue={investmentValue}
-              typeOfInvestment={typeOfInvestment}
-              percentChange={percentChange}
-              width="186px"
-            />
-            <StyledInnerBox height={"45px"}>
-              <Divider orientation="vertical" color="#E8E8F7" />
-            </StyledInnerBox>
-            <PortfolioValueTypographyComponent
-              isInDashBoardPage={dashboardPage}
-              investmentValue={investmentValue2 ? investmentValue2 : 0.0}
-              typeOfInvestment={typeOfInvestment2 ? typeOfInvestment2 : ""}
-              percentChange={percentChange2 ? percentChange2 : 0.0}
-              width="186px"
-            />
-          </Stack>
-          <TimeLineTabs typevariant="Dashboard" />
-        </FlexRowBox>
-      )
-      :
-      (
-        <FlexRowBox>
+    return dashboardPage ? (
+      <FlexRowBox>
+        <Stack direction="row" spacing={3}>
           <PortfolioValueTypographyComponent
             isInDashBoardPage={dashboardPage}
             investmentValue={investmentValue}
@@ -173,9 +152,35 @@ const PortfolioGraphComponent = ({
             percentChange={percentChange}
             width="186px"
           />
-          <TimeLineTabs typevariant="Detail" />
-        </FlexRowBox>
-      );
+          {!isEmptyState && (
+            <React.Fragment>
+              <StyledInnerBox height={"45px"}>
+                <Divider orientation="vertical" color="#E8E8F7" />
+              </StyledInnerBox>
+              <PortfolioValueTypographyComponent
+                isInDashBoardPage={dashboardPage}
+                investmentValue={investmentValue2 ? investmentValue2 : 0.0}
+                typeOfInvestment={typeOfInvestment2 ? typeOfInvestment2 : ""}
+                percentChange={percentChange2 ? percentChange2 : 0.0}
+                width="186px"
+              />
+            </React.Fragment>
+          )}
+        </Stack>
+        <TimeLineTabs typevariant="Dashboard" />
+      </FlexRowBox>
+    ) : (
+      <FlexRowBox>
+        <PortfolioValueTypographyComponent
+          isInDashBoardPage={dashboardPage}
+          investmentValue={investmentValue}
+          typeOfInvestment={typeOfInvestment}
+          percentChange={percentChange}
+          width="186px"
+        />
+        <TimeLineTabs typevariant="Detail" />
+      </FlexRowBox>
+    );
   };
 
   return (
@@ -202,15 +207,31 @@ const PortfolioGraphComponent = ({
           }}
         >
           {renderDetails()}
-          <Box width="100%">
-            <GraphComponent
-              options={options}
-              series={series}
-              type="area"
-              height={height}
-              width={width}
-            />
-          </Box>
+          {isEmptyState ? (
+            <Box
+              width="100%"
+              marginTop={"25px"}
+              marginLeft={"480px"}
+              marginBottom={"5px"}
+            >
+              <ImageComponent
+                data-testid="empty-state-img"
+                src={mangraph}
+                height={"223px"}
+                width={"297px"}
+              />
+            </Box>
+          ) : (
+            <Box width="100%">
+              <GraphComponent
+                options={options}
+                series={series}
+                type="area"
+                height={height}
+                width={width}
+              />
+            </Box>
+          )}
         </CardContent>
       </Card>
     </ThemeProvider>

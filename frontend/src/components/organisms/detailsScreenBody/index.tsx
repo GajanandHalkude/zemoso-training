@@ -129,6 +129,7 @@ const DetailsScrennBody = ({ coinBalance, currentValue }: TabsProps) => {
               investmentValue2={34000}
               percentChange2={-1.2}
               typeOfInvestment2="Bitcoin"
+              isEmptyState={false}
             />
             <CurrencyDetailsBanner aboutCurrency="About Bitcoin" />
           </Tab1Styles>
