@@ -150,6 +150,25 @@ export const pictures: HashmapProps = {
   tether: Tether,
 };
 
+export interface Wallet {
+  id: string;
+  name: string;
+  balance: number;
+  avg_value: number;
+  invested_amount: number;
+}
+export interface Transaction {
+  id: number;
+  cryptoId: string;
+  transactionDateTime: string;
+  quantity: number;
+  symbol: string;
+  transactionType: string;
+  price: number;
+  status: string;
+  from: string;
+}
+
 export const currencies = [
   {
     id: "bitcoin",

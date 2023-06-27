@@ -1,6 +1,192 @@
 {
+  "cryptocurrency": [
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "symbol": "btc",
+      "icon": "bitcoin",
+      "price": 3285553.7365,
+      "marketCap": 61,
+      "totalSupply": 21000000,
+      "availableSupply": 19177900,
+      "priceChange": 1.06,
+      "volume": 52614783.23
+    },
+    {
+      "id": "ethereum",
+      "name": "Ethereum",
+      "symbol": "eth",
+      "icon": "ethereum",
+      "price": 216678.1927,
+      "marketCap": 25.4,
+      "totalSupply": 120928102.91,
+      "availableSupply": 120927294.91,
+      "priceChange": -5.49,
+      "volume": 52614783.23
+    },
+    {
+      "id": "usd-coin",
+      "name": "USD Coin",
+      "symbol": "usdc",
+      "icon": "usdCoin",
+      "price": 216678.1147,
+      "marketCap": 25.4,
+      "totalSupply": 21000000,
+      "availableSupply": 19177118,
+      "priceChange": -5.49,
+      "volume": 52614783.23
+    },
+    {
+      "id": "ripple",
+      "name": "XRP",
+      "symbol": "xrp",
+      "icon": "xrp",
+      "price": 74.31,
+      "marketCap": 4.6,
+      "totalSupply": 99989267435,
+      "availableSupply": 49964184162,
+      "priceChange": 0.11,
+      "volume": 52614783.23
+    },
+    {
+      "id": "binance-usd",
+      "name": "Binance USD",
+      "symbol": "busd",
+      "icon": "binanceUsd",
+      "price": 24942.5448,
+      "marketCap": 4.2,
+      "totalSupply": 21214058190.47,
+      "availableSupply": 21214058190.47,
+      "priceChange": -6.69,
+      "volume": 52614783.23
+    },
+    {
+      "id": "solana",
+      "name": "Solana",
+      "symbol": "sol",
+      "icon": "ethereum2",
+      "price": 104.5287,
+      "marketCap": 3.4,
+      "totalSupply": 508180963.57,
+      "availableSupply": 357867511.45,
+      "priceChange": -1.82,
+      "volume": 52614783.23
+    },
+    {
+      "id": "dogecoin",
+      "name": "Dogecoin",
+      "symbol": "doge",
+      "icon": "dogecoin",
+      "price": 57.21,
+      "marketCap": 2.7,
+      "totalSupply": null,
+      "availableSupply": 136464456383.7,
+      "priceChange": 1.11,
+      "volume": 52614783.23
+    },
+    {
+      "id": "polkadot",
+      "name": "Polkadot",
+      "symbol": "dot",
+      "icon": "cardano",
+      "price": 17.649,
+      "marketCap": 2.3,
+      "totalSupply": 1241402071.84,
+      "availableSupply": 1160452934.68,
+      "priceChange": -6.96,
+      "volume": 52614783.23
+    },
+    {
+      "id": "matic-network",
+      "name": "Polygon",
+      "symbol": "matic",
+      "icon": "tether",
+      "price": 74.2698,
+      "marketCap": 2.1,
+      "totalSupply": 10000000000,
+      "availableSupply": 7441499126.62,
+      "priceChange": 1.01,
+      "volume": 52614783.23
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "matic-network"
+    },
+    {
+      "id": "ethereum"
+    },
+    {
+      "id": "bitcoin"
+    },
+    {
+      "id": "dogecoin"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "cryptoId": "bitcoin",
+      "transactionDateTime": "2022-06-14",
+      "quantity": 0.248,
+      "symbol": "BTC",
+      "transactionType": "sell",
+      "price": 18707.31,
+      "status": "success",
+      "from": "Sai"
+    },
+    {
+      "id": 2,
+      "cryptoId": "bitcoin",
+      "transactionDateTime": "2022-08-24",
+      "quantity": 1.2547,
+      "symbol": "BTC",
+      "transactionType": "buy",
+      "price": 1300000,
+      "status": "fail",
+      "from": "Sai"
+    }
+  ],
+  "wallet": [
+    {
+      "id": "cash",
+      "name": "Cash",
+      "balance": 50000,
+      "avg_value": 1,
+      "invested_amount": 50000
+    },
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "balance": 1,
+      "avg_value": 16000,
+      "invested_amount": 16000
+    }
+  ],
   "users": [
-    { "id": 1, "name": "John Doe" },
-    { "id": 2, "name": "Jane Smith" }
+    {
+      "id": 1,
+      "name": "sai prabhu",
+      "email": "sai123@gmail.com",
+      "password": "dogecoin"
+    },
+    {
+      "id": 2,
+      "name": "gajanand",
+      "email": "gajanand123@gmail.com",
+      "password": "Testing123!"
+    },
+    {
+      "id": 3,
+      "name": "lakshmi",
+      "email": "lakshmi123@gmail.com",
+      "password": "Testing123!"
+    },
+    {
+      "id": 4,
+      "name": "shubham",
+      "email": "shubham123@gmail.com",
+      "password": "Testing123!"
+    }
   ]
 }
