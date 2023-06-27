@@ -1,16 +1,16 @@
 
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import AvatarComponent from './index'
 import '@testing-library/jest-dom/extend-expect'
-
-
+import Logo from  "../../../../public/assets/images/avatar.svg"
 
 describe('AvatarComponent', () => {
   it('renders the Avatar with the provided props', () => {
     const props = {
       height: '100px',
       width: '100px',
+      src:Logo
     };
 
     const { getByTestId } = render(<AvatarComponent {...props} />);
@@ -21,12 +21,11 @@ describe('AvatarComponent', () => {
     expect(avatar).toHaveStyle('height: 100px');
   });
 
-
- 
   it('renders the Avatar with updated props', () => {
     const props = {
       height: '50px',
       width: '50px',
+      src:Logo
     };
 
     const { getByTestId } = render(<AvatarComponent {...props} />);

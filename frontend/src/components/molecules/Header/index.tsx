@@ -7,6 +7,7 @@ import MuiTypography from '../../atoms/typography'
 import AvatarComponent from '../../atoms/avatar'
 import IconComponent from '../../atoms/icon'
 import chevronDropdown from "../../../../public/assets/images/avatardropdown.svg"
+import Logo from "../../../../public/assets/images/avatar.svg"
 import { buy, sell } from "../../../../src/constants"
 
  export interface IHeaderProps {
@@ -62,7 +63,7 @@ return (
 }
       <Divider orientation="vertical" variant="middle" flexItem />
       <Grid item display="flex" alignItems="center"  gap="10px">
-        <AvatarComponent height="30px" width="30px" />
+        <AvatarComponent height="30px" width="30px" src={Logo} />
         <StyledIconContainer item>
                 <IconComponent width='13px' height='13px' src={chevronDropdown}/>
             </StyledIconContainer>

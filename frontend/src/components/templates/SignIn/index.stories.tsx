@@ -5,7 +5,7 @@ import signInImage from '../../../../public/assets/images/SignInImage.svg'
 import SignInCard from '../../organisms/SignIn';
 
 export default {
-  title: 'Template/SignInTemplate',
+  title: 'Templates/SignInTemplate',
   component: SignInTemplate,
 } as Meta;
 

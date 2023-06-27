@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { KeyboardArrowDown, WidthFull } from "@mui/icons-material";
+import { KeyboardArrowDown } from "@mui/icons-material";
 import theme from "../../../theme/index";
 import { DELIVERY_TYPES } from "../../../constants";
 
@@ -113,6 +113,7 @@ const DeliveryDropdown = (props: DeliveryProps) => {
 
             {DELIVERY_TYPES.map(({ type, time, fees, values }) => (
               <MenuItem
+                key={values}
                 value={values}
                 sx={{
                   height: 54,

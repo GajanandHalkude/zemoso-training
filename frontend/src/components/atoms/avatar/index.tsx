@@ -1,10 +1,10 @@
 import Avatar from "@mui/material/Avatar"
 import React from "react"
-import Logo from  "../../../../public/assets/images/avatar.svg"
 
 interface AvatarComponentProps{
     height: string,
     width: string,
+    src:string,
 }
 
 const AvatarComponent = (props:AvatarComponentProps) => {
@@ -12,7 +12,7 @@ const AvatarComponent = (props:AvatarComponentProps) => {
         
             <Avatar 
               alt="Avatar"
-              src={Logo}
+              src={props.src}
               sx={{width: props.width,height: props.height}}
               data-testid = "avatar"
               />
