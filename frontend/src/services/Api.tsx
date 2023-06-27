@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Wallet, Transaction} from './../constants'
+import { Wallet, Transaction} from '../constants'
 export const fetchAllCrtptoCurrenices = async () => {
   return await axios
     .get("http://localhost:3001/cryptocurrency")

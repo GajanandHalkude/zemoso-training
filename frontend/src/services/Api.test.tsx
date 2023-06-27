@@ -12,7 +12,7 @@ import {
   addUser,
   resetUserPassword,
   getUserByEmail,
-} from "./library";
+} from "./Api";
 
 describe("API Test", () => {
   let mockAxios: MockAdapter;
