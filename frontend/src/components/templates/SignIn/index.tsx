@@ -17,7 +17,7 @@ const SignInTemplate = ({body,img}:AuthTemplateProp) => {
       data-testid="signin-card"
     >
       <Box sx={{marginTop:"40px"}}>
-        <ImageComponent src={img} height="660px"  data-testid="image" />
+        <ImageComponent src={img} height="768px"  data-testid="image" />
       </Box>
        {body}
     </Box>

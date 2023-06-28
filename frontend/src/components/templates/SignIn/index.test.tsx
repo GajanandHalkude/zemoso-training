@@ -19,7 +19,7 @@ describe('SignInTemplate', () => {
     const imageElement = screen.getByTestId('image');
     expect(imageElement).toBeInTheDocument();
     expect(imageElement).toHaveAttribute('src', testImg);
-    expect(imageElement).toHaveAttribute('height', '660px');
+    expect(imageElement).toHaveAttribute('height', '768px');
 
     
   });
