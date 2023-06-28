@@ -113,7 +113,7 @@ const DeliveryDropdown = (props: DeliveryProps) => {
 
             {DELIVERY_TYPES.map(({ type, time, fees, values }) => (
               <MenuItem
-                key={values}
+              key={type}
                 value={values}
                 sx={{
                   height: 54,
