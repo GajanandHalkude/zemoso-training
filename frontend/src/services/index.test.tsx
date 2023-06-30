@@ -133,7 +133,7 @@ describe("API Test", () => {
 
   it("resets a user password", async () => {
     const password = "newpassword";
-    mockAxios.onPatch("https://bc92-ms.zebc61.ml/users/").reply(200);
+    mockAxios.onPatch("https://bc92-ms.zebc61.ml/users/1").reply(200);
 
     await resetUserPassword(password);
     expect(JSON.parse(mockAxios.history.patch[0].data)).toEqual({ password });
@@ -258,7 +258,7 @@ describe("API Test", () => {
   it("handles an error when resetting a user password", async () => {
     const password = "newPassword";
     mockAxios
-      .onPatch("https://bc92-ms.zebc61.ml/users/")
+      .onPatch("https://bc92-ms.zebc61.ml/users/1")
       .reply(400, "Request failed with status code 400");
 
     await expect(resetUserPassword(password)).rejects.toThrowError(
