@@ -12,7 +12,7 @@ import {
   addUser,
   resetUserPassword,
   getUserByEmail,
-} from "./Api";
+} from ".";
 
 describe("API Test", () => {
   let mockAxios: MockAdapter;
@@ -31,7 +31,7 @@ describe("API Test", () => {
       { id: 2, name: "Ethereum" },
     ];
     mockAxios
-      .onGet("http://localhost:3001/cryptocurrency")
+      .onGet("https://bc92-ms.zebc61.ml/cryptocurrency")
       .reply(200, mockData);
 
     const response = await fetchAllCrtptoCurrenices();
@@ -43,7 +43,7 @@ describe("API Test", () => {
     const id = "1";
     const mockData = { id: 1, name: "Bitcoin" };
     mockAxios
-      .onGet(`http://localhost:3001/cryptocurrency/${id}`)
+      .onGet(`https://bc92-ms.zebc61.ml/cryptocurrency/${id}`)
       .reply(200, mockData);
 
     const response = await fetchCrtptoCurrenicyById(id);
@@ -54,7 +54,7 @@ describe("API Test", () => {
   it("fetches a wallet by ID", async () => {
     const id = "1";
     const mockData = { id: 1, balance: 100 };
-    mockAxios.onGet(`http://localhost:3001/wallet/${id}`).reply(200, mockData);
+    mockAxios.onGet(`https://bc92-ms.zebc61.ml/wallet/${id}`).reply(200, mockData);
 
     const response = await fetchWallet(id);
 
@@ -70,7 +70,7 @@ describe("API Test", () => {
       avg_value: 1,
       invested_amount: 67707.31
     };
-    mockAxios.onPatch(`http://localhost:3001/wallet/${id}`).reply(200);
+    mockAxios.onPatch(`https://bc92-ms.zebc61.ml/wallet/${id}`).reply(200);
 
     await updateWallet(id, wallet);
     expect(JSON.parse(mockAxios.history.patch[0].data)).toEqual(wallet);
@@ -88,7 +88,7 @@ describe("API Test", () => {
      status: "success",
      from: "Sai",
    };
-    mockAxios.onPost("http://localhost:3001/transactions/").reply(201);
+    mockAxios.onPost("https://bc92-ms.zebc61.ml/transactions/").reply(201);
 
     await addTransaction(transaction);
     expect(JSON.parse(mockAxios.history.post[0].data)).toEqual(transaction);
@@ -96,7 +96,7 @@ describe("API Test", () => {
 
   it("fetches the watchlist", async () => {
     const mockData = [{ id: "BTC" }, { id: "ETH" }];
-    mockAxios.onGet("http://localhost:3001/watchlist/").reply(200, mockData);
+    mockAxios.onGet("https://bc92-ms.zebc61.ml/watchlist/").reply(200, mockData);
 
     const response = await fetchWatchList();
 
@@ -105,17 +105,17 @@ describe("API Test", () => {
 
   it("removes a coin from the watchlist", async () => {
     const coin_id = "BTC";
-    mockAxios.onDelete(`http://localhost:3001/watchlist/${coin_id}`).reply(204);
+    mockAxios.onDelete(`https://bc92-ms.zebc61.ml/watchlist/${coin_id}`).reply(204);
 
     await removeWatchList(coin_id);
     expect(mockAxios.history.delete[0].url).toEqual(
-      `http://localhost:3001/watchlist/${coin_id}`
+      `https://bc92-ms.zebc61.ml/watchlist/${coin_id}`
     );
   });
 
   it("adds a coin to the watchlist", async () => {
     const coin = "BTC";
-    mockAxios.onPost("http://localhost:3001/watchlist/").reply(201);
+    mockAxios.onPost("https://bc92-ms.zebc61.ml/watchlist/").reply(201);
 
     await addWatchList(coin);
     expect(JSON.parse(mockAxios.history.post[0].data)).toEqual({ id: coin });
@@ -125,7 +125,7 @@ describe("API Test", () => {
     const email = "test@example.com";
     const name = "Test User";
     const password = "password";
-    mockAxios.onPost("http://localhost:3001/users/").reply(201);
+    mockAxios.onPost("https://bc92-ms.zebc61.ml/users/").reply(201);
 
     await addUser(email, name, password);
     expect(JSON.parse(mockAxios.history.post[0].data)).toEqual({ email, name, password });
@@ -133,7 +133,7 @@ describe("API Test", () => {
 
   it("resets a user password", async () => {
     const password = "newpassword";
-    mockAxios.onPatch("http://localhost:3001/users/").reply(200);
+    mockAxios.onPatch("https://bc92-ms.zebc61.ml/users/").reply(200);
 
     await resetUserPassword(password);
     expect(JSON.parse(mockAxios.history.patch[0].data)).toEqual({ password });
@@ -141,7 +141,7 @@ describe("API Test", () => {
 
   it("handles an error when fetching all cryptocurrencies", async () => {
     mockAxios
-      .onGet("http://localhost:3001/cryptocurrency")
+      .onGet("https://bc92-ms.zebc61.ml/cryptocurrency")
       .reply(500, "Request failed with status code 500");
 
     await expect(fetchAllCrtptoCurrenices()).rejects.toThrowError(
@@ -152,7 +152,7 @@ describe("API Test", () => {
   it("handles an error when fetching a cryptocurrency by ID", async () => {
     const id = "123";
     mockAxios
-      .onGet(`http://localhost:3001/cryptocurrency/${id}`)
+      .onGet(`https://bc92-ms.zebc61.ml/cryptocurrency/${id}`)
       .reply(404, "Request failed with status code 404");
 
     await expect(fetchCrtptoCurrenicyById(id)).rejects.toThrowError(
@@ -163,7 +163,7 @@ describe("API Test", () => {
   it("handles an error when fetching a wallet by ID", async () => {
     const id = "456";
     mockAxios
-      .onGet(`http://localhost:3001/wallet/${id}`)
+      .onGet(`https://bc92-ms.zebc61.ml/wallet/${id}`)
       .reply(400, "Request failed with status code 400");
 
     await expect(fetchWallet(id)).rejects.toThrowError(
@@ -181,7 +181,7 @@ describe("API Test", () => {
       invested_amount: 67707.31,
     };
     mockAxios
-      .onPatch(`http://localhost:3001/wallet/${id}`)
+      .onPatch(`https://bc92-ms.zebc61.ml/wallet/${id}`)
       .reply(500, "Request failed with status code 500");
 
     await expect(updateWallet(id, wallet)).rejects.toThrowError(
@@ -202,7 +202,7 @@ describe("API Test", () => {
       from: "Sai",
     };
     mockAxios
-      .onPost("http://localhost:3001/transactions/")
+      .onPost("https://bc92-ms.zebc61.ml/transactions/")
       .reply(400, "Request failed with status code 400");
 
     await expect(addTransaction(transaction)).rejects.toThrowError(
@@ -212,7 +212,7 @@ describe("API Test", () => {
 
   it("handles an error when fetching the watchlist", async () => {
     mockAxios
-      .onGet("http://localhost:3001/watchlist/")
+      .onGet("https://bc92-ms.zebc61.ml/watchlist/")
       .reply(404, "Request failed with status code 404");
 
     await expect(fetchWatchList()).rejects.toThrowError(
@@ -223,7 +223,7 @@ describe("API Test", () => {
   it("handles an error when removing an item from the watchlist", async () => {
     const coinId = "789";
     mockAxios
-      .onDelete(`http://localhost:3001/watchlist/${coinId}`)
+      .onDelete(`https://bc92-ms.zebc61.ml/watchlist/${coinId}`)
       .reply(500, "Request failed with status code 500");
 
     await expect(removeWatchList(coinId)).rejects.toThrowError(
@@ -234,7 +234,7 @@ describe("API Test", () => {
   it("handles an error when adding an item to the watchlist", async () => {
     const coin = "BTC";
     mockAxios
-      .onPost("http://localhost:3001/watchlist/")
+      .onPost("https://bc92-ms.zebc61.ml/watchlist/")
       .reply(400, "Request failed with status code 400");
 
     await expect(addWatchList(coin)).rejects.toThrowError(
@@ -247,7 +247,7 @@ describe("API Test", () => {
     const name = "John Doe";
     const password = "password";
     mockAxios
-      .onPost("http://localhost:3001/users/")
+      .onPost("https://bc92-ms.zebc61.ml/users/")
       .reply(500, "Request failed with status code 500");
 
     await expect(addUser(email, name, password)).rejects.toThrowError(
@@ -258,7 +258,7 @@ describe("API Test", () => {
   it("handles an error when resetting a user password", async () => {
     const password = "newPassword";
     mockAxios
-      .onPatch("http://localhost:3001/users/")
+      .onPatch("https://bc92-ms.zebc61.ml/users/")
       .reply(400, "Request failed with status code 400");
 
     await expect(resetUserPassword(password)).rejects.toThrowError(
@@ -269,7 +269,7 @@ describe("API Test", () => {
   it("handles an error when fetching a user by email", async () => {
     const email = "test@example.com";
     mockAxios
-      .onGet(`http://localhost:3001/users`, { params: { email } })
+      .onGet(`https://bc92-ms.zebc61.ml/users`, { params: { email } })
       .reply(404, "Request failed with status code 404");
 
     await expect(getUserByEmail(email)).rejects.toThrowError(

@@ -1,84 +1,128 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import TradeFrame from '.';
 import '@testing-library/jest-dom/extend-expect';
+import {
+  addWatchList,
+  fetchAllCrtptoCurrenices,
+  fetchWatchList,
+  removeWatchList,
+} from '../../../services';
+
+jest.mock('../../../services/index', () => ({
+  fetchAllCrtptoCurrenices: jest.fn(),
+  fetchWatchList: jest.fn(),
+  addWatchList: jest.fn(),
+  removeWatchList: jest.fn(),
+}));
 describe('TradeFrame', () => {
-  const mockTradeFrameData = [
+  const currencyData = [
     {
-      icon: 'icon1',
-      coinName: 'Bitcoin',
-      shortName: 'BTC',
-      change: 0.05,
+      id: '1',
+      name: 'Bitcoin',
+      symbol: 'BTC',
+      priceChange: 0.05,
       price: 50000,
-      marketcap: 1000000,
-      star: true,
+      marketCap: 1000000000,
+      icon: 'bitcoin-icon',
     },
-    // Add more mock data objects here
+    {
+      id: '2',
+      name: 'Ethereum',
+      symbol: 'ETH',
+      priceChange: -0.1,
+      price: 2000,
+      marketCap: 500000000,
+      icon: 'ethereum-icon',
+    },
   ];
 
-  test('renders the trade frame component', () => {
+  const watchListData = [
+    {
+      id: '1',
+      name: 'Bitcoin',
+      symbol: 'BTC',
+      priceChange: 0.05,
+      price: 50000,
+      marketCap: 1000000000,
+      icon: 'bitcoin-icon',
+    },
+  ];
+
+  beforeEach(() => {
+    (fetchAllCrtptoCurrenices as jest.Mock).mockResolvedValue(currencyData);
+    (fetchWatchList as jest.Mock).mockResolvedValue(watchListData);
+  });
+  test('renders TradeFrame component', () => {
     render(<TradeFrame />);
-    const tradeFrameElement = screen.getByTestId('trade-frame');
-    expect(tradeFrameElement).toBeInTheDocument();
+    expect(screen.getByTestId('trade-frame')).toBeInTheDocument();
   });
-
-  test('displays filtered data in the All Assets tab', () => {
+  test('updates search data when input value changes', () => {
     render(<TradeFrame />);
-    // Mock the filteredData prop
-    jest.spyOn(React, 'useState').mockImplementationOnce(() => ['Bitcoin', jest.fn()]);
-    jest.spyOn(React, 'useState').mockImplementationOnce(() => [mockTradeFrameData, jest.fn()]);
-
-    const bitcoinElement = screen.getByText('Bitcoin');
-    expect(bitcoinElement).toBeInTheDocument();
+    const searchInput = screen.getByPlaceholderText('Search all assets')  as HTMLInputElement;
+    fireEvent.change(searchInput, { target: { value: 'bitcoin' } });
+    expect(searchInput.value).toBe('bitcoin');
   });
 
-  test('updates search filter on input change', () => {
+  test('calls addWatchList function when star button is clicked', async () => {
     render(<TradeFrame />);
-    const searchInput = screen.getByPlaceholderText('Search all assets') as HTMLInputElement;
-    fireEvent.change(searchInput, { target: { value: 'Bitcoin' } });
-
-    expect(searchInput.value).toBe('Bitcoin');
+    const starButton = screen.getAllByRole('button', { name: "icon" })[0];
+    fireEvent.click(starButton);
   });
+  test('Change descending order to ascending order in trade table', async () => {
+    render(<TradeFrame />);
+    await waitFor(() => {
+      const marketCapButton = screen.getByTestId('market-cap-button')
+      fireEvent.click(marketCapButton)
+    })
+    render(<TradeFrame />);
+  })
+  test('Select and unselect watch', async () => {
+    await render(<TradeFrame />);
 
-  // Add more test cases as needed
-});
+    setTimeout(async () => {
+      await waitFor(async () => {
+        const watchListSelectedButton =
+          screen.getAllByTestId('selected-watch')[0]
+        fireEvent.click(watchListSelectedButton)
+        await waitFor(() => {
+          expect(addWatchList).toHaveBeenCalled();
+        });
+      })
+    }, 2000)
 
-describe('TradeFrame', () => {
-    test('renders TradeFrame component', () => {
-      render(<TradeFrame />);
-  
-      // Assert that the TradeFrame component is rendered
-      expect(screen.getByTestId('trade-frame')).toBeInTheDocument();
-    });
-  
-    test('renders AllAssets component', () => {
-      render(<TradeFrame />);
-  
-      // Assert that the AllAssets component is rendered
-      expect(screen.getByTestId('assests')).toBeInTheDocument();
-    });
-  
-    test('renders search input field', () => {
-      render(<TradeFrame />);
-  
-      // Assert that the search input field is rendered
-      expect(screen.getByPlaceholderText('Search all assets')).toBeInTheDocument();
+    await render(<TradeFrame />);
+
+    setTimeout(async () => {
+      await waitFor(async () => {
+        const watchListSelectedButton =
+          screen.getAllByTestId('unselected-watch')[0]
+        fireEvent.click(watchListSelectedButton)
+        await waitFor(() => {
+          expect(removeWatchList).toHaveBeenCalled();
+        });
+      })
+    }, 2000)
+  });
+ 
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+  test('calls addWatchList function when star button is clicked', async () => {
+    (fetchWatchList as jest.Mock).mockResolvedValue([]);
+    render(<TradeFrame />);
+
+    await waitFor(() => {
+      const watchListSelectedButton = screen.getAllByTestId('selected-watch')[0]
+    fireEvent.click(watchListSelectedButton);
     });
   });
   
-  describe('TradeFrame search', () => {
-    test('filters assets based on search input', () => {
-      render(<TradeFrame />);
-  
-      // Get the search input field
-      const searchInput = screen.getByPlaceholderText('Search all assets');
-  
-      // Type 'bitcoin' into the search input field
-      fireEvent.change(searchInput, { target: { value: 'bitcoin' } });
-  
-      // Assert that the filtered assets are displayed
-      expect(screen.getByText('Bitcoin')).toBeInTheDocument();
-      expect(screen.queryByText('Ethereum')).not.toBeInTheDocument();
-    });
-  });
+})
+
+
+
+
+
+
   

@@ -4,9 +4,6 @@ import MuiTypography from "../../atoms/typography";
 import IconComponent from "../../atoms/icon";
 import theme from "../../../theme";
 import styled from "@emotion/styled";
-import ButtonComponent from "../../atoms/button";
-import Filledstar from "../../../../public/assets/images/filled-star.svg";
-import Emptystar from "../../../../public/assets/images/empty-star.svg";
 
 interface PortfolioProps {
   icon: string;
@@ -15,8 +12,8 @@ interface PortfolioProps {
   change:string | number;
   price: string | number;
   marketCap: string | number;
-  isStarFilled: boolean;
-  handleStart?:React.MouseEventHandler<HTMLButtonElement>
+  button?:React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLDivElement>
 }
 
 const StyledBox = styled(Box)({
@@ -25,7 +22,7 @@ const StyledBox = styled(Box)({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: "16px 24px",
+  padding: "12px 18px",
   background: theme.palette.structural.main,
   border: `1px solid ${theme.palette.greyColors.grey100}`,
   borderRadius: "4px",
@@ -38,14 +35,9 @@ const StyledCurrencyLogo = styled(Box)({
   justifyContent: "left",
   alignItems: "center",
   gap: "10px",
-  minWidth: "150px",
+  minWidth: "130px",
 });
 
-const StyledButtonComponent = styled(ButtonComponent)({
-  "&:hover": {
-    backgroundColor: "transparent",
-  },
-});
 
 const TradeTab = ({
   icon,
@@ -54,13 +46,13 @@ const TradeTab = ({
   price,
   change,
   marketCap,
-  isStarFilled,
-  handleStart,
+  button,
+  onClick
 }: PortfolioProps) => {
   const isPositiveChange = Number(change) > 0;
 
   return (
-    <StyledBox>
+    <StyledBox onClick={onClick}>
       <StyledCurrencyLogo>
         <IconComponent src={icon} />
         <Box>
@@ -78,23 +70,21 @@ const TradeTab = ({
       </StyledCurrencyLogo>
       <MuiTypography
         variant="body2"
-        text={`$${price}.00`}
-        sx={{ color: theme.palette.textColor.highEmphasis, minWidth: "150px" }}
+        text={`$${price?.toLocaleString('en-US', {maximumFractionDigits:2})}`}
+        sx={{ color: theme.palette.textColor.highEmphasis, minWidth: "130px" }}
       />
       <MuiTypography
         variant="body2"
-        text={`${change}.%`}
-        sx={{ color: isPositiveChange ? theme.palette.primary.success500 : theme.palette.loss.borderColor ,}}
+        text={isPositiveChange ? `+${change}.%` : `${change}.%`}
+        sx={{ color: isPositiveChange ? theme.palette.primary.success500 : theme.palette.loss.borderColor }}
+        data-testid="change-text"
       />
       <MuiTypography
         variant="body1"
         text={`$${marketCap}T`}
-        sx={{ color: theme.palette.textColor.highEmphasis, minWidth: "150px" }}
+        sx={{ color: theme.palette.textColor.highEmphasis, minWidth: "120px" }}
       />
-      <StyledButtonComponent
-        onClick={handleStart}
-        text={<IconComponent src={isStarFilled ? Filledstar : Emptystar} />}
-      />
+      {button}
     </StyledBox>
   );
 };

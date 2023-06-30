@@ -22,7 +22,7 @@ const StyledTabs = styled(Tabs)({
     padding: '0px',
   },
   minHeight: '37px !important',
-  width: '59%',
+  width: '66%',
   borderBottom: `1px solid ${theme.palette.greyColors.grey100}`,
 })
 
