@@ -12,8 +12,10 @@ describe("ForgetPassword", () => {
       <ForgetPassword
         label={label}
         buttonText={buttonText}
-        isSendLink={isSendLink}
-      />
+        isSendLink={isSendLink} 
+        handleSendResetLink={function (): void {
+          throw new Error("Function not implemented.");
+        } }      />
     );
     expect(screen.getByText(label)).toBeInTheDocument();
     expect(screen.getByText(buttonText)).toBeInTheDocument();
@@ -27,8 +29,10 @@ describe("ForgetPassword", () => {
       <ForgetPassword
         label={label}
         buttonText={buttonText}
-        isSendLink={isSendLink}
-      />
+        isSendLink={isSendLink} 
+        handleSendResetLink={function (): void {
+          throw new Error("Function not implemented.");
+        } }      />
     );
     const inputElement = screen.getByPlaceholderText("abc@gmail.com");
     const buttonElement = screen.getByTestId("link-button");
@@ -45,8 +49,10 @@ describe("ForgetPassword", () => {
       <ForgetPassword
         label={label}
         buttonText={buttonText}
-        isSendLink={isSendLink}
-      />
+        isSendLink={isSendLink} 
+        handleSendResetLink={function (): void {
+          throw new Error("Function not implemented.");
+        } }      />
     );
     const inputElement = screen.getByPlaceholderText("abc@gmail.com");
     const buttonElement = screen.getByTestId("link-button");
@@ -64,8 +70,10 @@ describe("ForgetPassword", () => {
        <ForgetPassword
          label={label}
          buttonText={buttonText}
-         isSendLink={isSendLink}
-       />
+         isSendLink={isSendLink} 
+         handleSendResetLink={function (): void {
+           throw new Error("Function not implemented.");
+         } }       />
      );
      const inputElement = screen.getByPlaceholderText("8 digit code");
      const buttonElement = screen.getByTestId("link-button");

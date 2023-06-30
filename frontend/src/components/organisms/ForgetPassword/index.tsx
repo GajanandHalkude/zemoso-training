@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Grid, styled } from "@mui/material";
 import { ButtonComponent, CustomTextField, MuiTypography, isEmailValid, isValidCode } from "../../../constants";
 import theme from "../../../theme";
 
 interface ForgetPasswordProps {
-  label:string;
-  buttonText:string;
-  isSendLink:boolean
+  label: string;
+  buttonText: string;
+  isSendLink: boolean;
+  handleSendResetLink: () => void;
 }
 
 const SyledButtonComponent = styled(ButtonComponent)(() => ({
@@ -22,16 +23,25 @@ const SyledButtonComponent = styled(ButtonComponent)(() => ({
   },
 }));
 
-const ForgetPassword: React.FC<ForgetPasswordProps> = ({label,buttonText,isSendLink }) => {
+const ForgetPassword: React.FC<ForgetPasswordProps> = ({
+  label,
+  buttonText,
+  isSendLink,
+  handleSendResetLink,
+}) => {
   const [value, setValue] = useState("");
 
   const handleChange = (value: string) => {
     setValue(value);
   };
 
-  const handleSendResetLink = () => {return};
+  useEffect(() => {
+    setValue("");
+  }, [isSendLink]);
 
-  const isButtonDisabled = isSendLink? !isEmailValid(value): !isValidCode(value)
+  const isButtonDisabled = isSendLink
+    ? !isEmailValid(value)
+    : !isValidCode(value);
   return (
     <Box display="flex" flexDirection="column" paddingTop="50px" gap="30px">
       <Box display="flex">
