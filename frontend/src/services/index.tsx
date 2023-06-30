@@ -88,6 +88,7 @@ export const resetUserPassword = async (password:string) => {
 export const getUserByEmail = async (email: string) => {
   await axios
     .get(`https://bc92-ms.zebc61.ml/users?email=${email}`)
+    .then((response) => response.data)
     .catch((error) => {
       throw error;
     });
