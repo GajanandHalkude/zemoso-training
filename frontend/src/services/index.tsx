@@ -79,7 +79,7 @@ export const addUser = async (email: string, name:string,password:string) => {
 
 export const resetUserPassword = async (password:string) => {
   await axios
-    .patch(`https://bc92-ms.zebc61.ml/users/`, {password:password })
+    .patch(`https://bc92-ms.zebc61.ml/users/1`, { password: password })
     .catch((error) => {
       throw error;
     });

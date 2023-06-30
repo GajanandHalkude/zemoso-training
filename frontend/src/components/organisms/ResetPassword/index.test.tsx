@@ -35,4 +35,19 @@ describe("ResetPassword", () => {
     fireEvent.change(confirmPasswordInput, { target: { value: "12345678" } });
     expect(resetButton).toBeDisabled();
   });
+
+  it("should handle the password reset click'", () => {
+    const mockResetUserPassword = jest.fn();
+    render(<ResetPassword />);
+    const passwordInput = screen.getByPlaceholderText(
+      "Enter Password"
+    ) as HTMLInputElement;
+    const confirmPasswordInput = screen.getByPlaceholderText(
+      "Re-Enter Password"
+    ) as HTMLInputElement;
+    const resetButton = screen.getByTestId("link-button");
+    fireEvent.change(passwordInput, { target: { value: "Abcdefg1@" } });
+    fireEvent.change(confirmPasswordInput, { target: { value: "Abcdefg1@" } });
+    fireEvent.click(resetButton);
+  });
 });

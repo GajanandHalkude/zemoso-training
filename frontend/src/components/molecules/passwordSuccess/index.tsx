@@ -17,7 +17,6 @@ const StyledGrid1 = styled(Box)({
     alignItems: 'flex-start',
     padding: '24px',
     gap: '12px',
-    width: '500px',
     left: '0px',
     top: '0px',
     borderRadius: '12px',
