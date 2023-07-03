@@ -32,7 +32,6 @@ const TypographyGrid = styled(Grid)({
   width: "100%",
   borderBottom: `1px solid ${theme.palette.greyColors.grey100}`,
 });
-
 const StepperBox = styled(Box)({
   padding: "24px 0 24px 24px",
   borderBottom: `1px solid ${theme.palette.greyColors.grey100}`,

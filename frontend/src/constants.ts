@@ -179,7 +179,9 @@ export const currencies = [
     marketCap: 366730983,
     totalSupply: 210000,
     availableSupply: 1917711,
-    priceChange:1,
+
+    priceChange:2.5,
+
     volume: 56214521561,
     isSelected: true,
   },
@@ -192,7 +194,9 @@ export const currencies = [
     marketCap: 366730983872,
     totalSupply: 210000002,
     availableSupply: 19177112,
-    priceChange:1,
+
+    priceChange:2.5,
+
     volume: 562145215,
     isSelected: false,
   },
@@ -205,7 +209,9 @@ export const currencies = [
     marketCap: 6730983878,
     totalSupply: 31000000,
     availableSupply: 18177118,
-    priceChange:1,
+
+    priceChange:2.5,
+
     volume: 564521562,
     isSelected: false,
   },
@@ -218,7 +224,9 @@ export const currencies = [
     marketCap: 376730983878,
     totalSupply: 29000000,
     availableSupply: 24177118,
-    priceChange:1,
+
+    priceChange:2.5,
+
     volume: 56214531562,
     isSelected: false,
   },
@@ -231,7 +239,9 @@ export const currencies = [
     marketCap: 366730983878,
     totalSupply: 21000000,
     availableSupply: 19177118,
-    priceChange:1,
+
+    priceChange:2.5,
+
     volume: 56214521562,
     isSelected: false,
   },
@@ -244,7 +254,9 @@ export const currencies = [
     marketCap: 466930183878,
     totalSupply: 410000,
     availableSupply: 191937118,
-    priceChange:1,
+
+    priceChange:2.5,
+
     volume: 56214575462,
     isSelected: false,
   },
@@ -257,7 +269,9 @@ export const currencies = [
     marketCap: 3789630983878,
     totalSupply:14592000,
     availableSupply: 1975410118,
-    priceChange:1,
+
+    priceChange:2.5,
+
     volume: 56263821562,
     isSelected: false,
   },
@@ -270,7 +284,9 @@ export const currencies = [
     marketCap: 743690983878,
     totalSupply: 76150000,
     availableSupply: 95417118,
-    priceChange:1,
+
+    priceChange:2.5,
+
     volume: 5621457429,
     isSelected: false,
   },
