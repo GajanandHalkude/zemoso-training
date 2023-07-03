@@ -14,11 +14,13 @@ const Template: ComponentStory<typeof PaymentBody> = (args) => (
 export const BuyCrypto = Template.bind({});
 BuyCrypto.args = {
     TradeType:'BUY CRYPTO',
-    TotalBitcoin:0.0234510
+    TotalBitcoin:0.0234510,
+    cointype:"BTC"
 }
 
 export const SellCrypto = Template.bind({});
 SellCrypto.args = {
     TradeType:'SELL CRYPTO',
-    TotalBitcoin:0.0456778
+    TotalBitcoin:0.0456778,
+    cointype:"ETH"
 }

@@ -20,9 +20,10 @@ const StyledBox = styled(Box)({
 interface PaymentBodyProps {
   TotalBitcoin: number;
   TradeType: "BUY CRYPTO" | "SELL CRYPTO";
+  cointype:string;
 }
 
-const PaymentBody = ({ TotalBitcoin, TradeType }: PaymentBodyProps) => {
+const PaymentBody = ({ TotalBitcoin, TradeType, cointype }: PaymentBodyProps) => {
   return (
     <StyledBox>
       <IconComponent src={Correct} height="64px" width="64px"></IconComponent>
@@ -39,7 +40,7 @@ const PaymentBody = ({ TotalBitcoin, TradeType }: PaymentBodyProps) => {
         <MuiTypography
           variant="h4"
           sx={{ color: theme.palette.textColor.highEmphasis }}
-          text={`${TotalBitcoin} BTC`}
+          text={`${TotalBitcoin} ${cointype}`}
         ></MuiTypography>
         <MuiTypography
           variant="body2" textAlign={'center'}
