@@ -43,6 +43,15 @@ export const addTransaction = async (transaction: Transaction) => {
         })
 }
 
+export const fetchTransactions = async () => {
+  return await axios
+    .get(`http://localhost:3001/transactions/`)
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
+};
+
 export const fetchWatchList = async () => {
   return await axios
     .get(`https://bc92-ms.zebc61.ml/watchlist/`)
@@ -93,13 +102,10 @@ export const getUserByEmail = async (email: string) => {
       throw error;
     });
 };
-export const graphData = async (id:string) => {
-    await axios
-      .get(
-        `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=5&interval=daily`
-      )
-      .catch((error) => {
-        throw error;
-      })
+export const getGraphData = async (id:string) => {
+  return await axios
+    .get(
+      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=5&interval=daily`
+    ).then((response) => response.data)
+    .catch((error) => {throw error })
 }
-

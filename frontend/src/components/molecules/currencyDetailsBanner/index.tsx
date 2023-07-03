@@ -62,7 +62,7 @@ const CurrencyDetailsBanner = ({
           <MuiTypography text={aboutCurrency} />
           <MuiTypography text={currencyBannerContent} />
         </StyledBoxResource>
-        <StyledBoxResource data-testid="portfolio-tab">
+        <StyledBoxResource >
           <MuiTypography text={"Resourses"} />
           <IconWithTypography
             image={Globe}
@@ -84,10 +84,10 @@ const CurrencyDetailsBanner = ({
       </StyledBoxResourceContainer>
 
       <StyledBox>
-        <StyledBoxCorrelation data-testid="portfolio-tab">
+        <StyledBoxCorrelation >
           <MuiTypography text={"Price correlation with"} />
         </StyledBoxCorrelation>
-        <Box data-testid="portfolio-tab">
+        <Box>
           {currencyBannerData.map((data) => (
             <Box key={data.icon}>
               <PortfolioTab

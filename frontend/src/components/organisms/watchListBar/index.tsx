@@ -114,8 +114,8 @@ const WatchListBar = ({coinIcon,
             </StyledInnerBox>
           </StyledBox>
           <StyledBox>
-            <ButtonComponent
-              sx={{ height: '42px' }}
+            <ButtonComponent data-testid="addToWatchListButton"
+              sx={{ height: '42px',letterSpacing:"0px" }}
               startIcon={
                 <IconComponent
                   src={isAddedtoWishList ? FilledStar : EmptyStar} sx={{color:"#0052FF"}}

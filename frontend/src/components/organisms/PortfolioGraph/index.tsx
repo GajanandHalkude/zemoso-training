@@ -225,7 +225,7 @@ const PortfolioGraphComponent = ({
             </Box>
           ) : (
             <Box width="100%">
-              <GraphComponent
+              <GraphComponent data-testid="portfolioGraph"
                 options={options}
                 series={series}
                 type="area"

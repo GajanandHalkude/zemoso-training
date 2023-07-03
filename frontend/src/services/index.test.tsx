@@ -12,7 +12,7 @@ import {
   addUser,
   resetUserPassword,
   getUserByEmail,
-  graphData
+  getGraphData
 } from ".";
 
 describe("API Test", () => {
@@ -283,7 +283,7 @@ describe("API Test", () => {
       .onGet(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=5&interval=daily`)
       .reply(400, "Request failed with status code 400");
 
-    await expect(graphData(id)).rejects.toThrowError(
+    await expect(getGraphData(id)).rejects.toThrowError(
       "Request failed with status code 400"
     );
   });

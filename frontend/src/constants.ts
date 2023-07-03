@@ -332,6 +332,7 @@ export const BitcoinTransactionValues = [
     status: 'pending',
     label:'Purchased'
   },
+ 
   {
     id:2,
     name: 'Bitcoin',
