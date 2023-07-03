@@ -1,7 +1,8 @@
 import React from "react";
+import Sell from "./components/pages/Sell";
 const App = () => (
-    <h1>My React and TypeScript App!!{" "}
-    {new Date().toLocaleDateString()}</h1>
+   <>
+   Hello</>
   );
 
   export default App;

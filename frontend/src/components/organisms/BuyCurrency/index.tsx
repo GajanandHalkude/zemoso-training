@@ -14,13 +14,9 @@ interface CryptoCurrency {
   marketCap: number;
   totalSupply: number;
   availableSupply: number;
-  priceChangeIn1hr: number;
-  priceChangeIn24hrs: number;
-  priceChangeIn1week: number;
-  priceChangeIn1month: number;
-  priceChangeIn1year: number;
+  priceChange:number,
   volume: number;
-  isSelected:boolean;
+  isSelected?:boolean;
 }
 
 const CustomBox = styled(Box)({
@@ -74,7 +70,7 @@ const BuyCurrency: React.FC<ChooseCurrencyProps> = ({currenciesData}: ChooseCurr
                     image={pictures[currency.icon]}
                     name={currency.name}
                     value={currency.price}
-                    selected={currency.isSelected}
+                    selected={currency.name==="Bitcoin"?true:false}
                   />
                 </Grid>
               );
