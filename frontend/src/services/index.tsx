@@ -93,4 +93,13 @@ export const getUserByEmail = async (email: string) => {
       throw error;
     });
 };
+export const graphData = async (id:string) => {
+    await axios
+      .get(
+        `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=5&interval=daily`
+      )
+      .catch((error) => {
+        throw error;
+      })
+}
 

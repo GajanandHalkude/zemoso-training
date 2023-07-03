@@ -5,53 +5,52 @@ import MuiTypography from "../../atoms/typography";
 import IconComponent from "../../atoms/icon";
 import Chart from "../../../../public/assets/icons/chart.svg"
 import List from "../../../../public/assets/icons/list.svg"
-import { MyPortfolioData } from "../../../constants";
+import { pictures } from "../../../constants";
 import theme from "../../../theme";
+import { usePortfolioCoinsandWalletHook } from "../../pages/dashBoard/hooks";
 
-    const StyledGrid = styled(Grid)({
-        overflowY: 'scroll',
-        '&::-webkit-scrollbar': { width: '0.3rem' },
-        '&::-webkit-scrollbar-track': {
-        backgroundColor: theme.palette.structural.main,
-        },
-        '&::-webkit-scrollbar-thumb': {
-        backgroundColor: theme.palette.greyColors.grey300,
-        borderRadius: '10px',
-        },
-        paddingRight: '0.6rem',
-    })
 
-    const StyledDivider = styled(Divider)({
-        color: theme.palette.greyColors.grey100,
-        borderWidth: '1px',
-    })
+const StyledGrid = styled(Grid)({
+    overflowY: 'scroll',
+    '&::-webkit-scrollbar': { width: '0.3rem' },
+    '&::-webkit-scrollbar-track': {
+    backgroundColor: theme.palette.structural.main,
+    },
+    '&::-webkit-scrollbar-thumb': {
+    backgroundColor: theme.palette.greyColors.grey300,
+    borderRadius: '10px',
+    },
+    paddingRight: '0.6rem',
+})
 
-    const StyledGridHeader = styled(Grid)({
-        display:'flex' ,
-        flexDirection:'row', 
-       justifyContent:'space-between',
-        alignItems:'center',
-        gap:'265px',
-        paddingLeft:'24px'
+const StyledDivider = styled(Divider)({
+    color: theme.palette.greyColors.grey100,
+    borderWidth: '1px',
+})
 
-    })
+const StyledGridHeader = styled(Grid)({
+    display:'flex' ,
+    flexDirection:'row', 
+    justifyContent:'space-between',
+    alignItems:'center',
+})
 
 const MyPortfolioOrg = ()=>
 {
-    
+    const { portfolioCoins } = usePortfolioCoinsandWalletHook();
       let sum = 0
-      MyPortfolioData.forEach((coin) => {
-        sum = sum + coin.value
+      portfolioCoins.forEach((coin) => {
+        sum = sum + coin.investedAmount
       })
 
     return (
         <Grid container
                 direction={'column'}
                 width={'inherit'}
-                padding="0.6rem"
+                padding="0.1rem"
                 display="flex"
                 gap={0}
-                sx={{paddingLeft:'0.6rem', width:'398px'}}> 
+                sx={{paddingLeft:'0.1rem'}}> 
             <Grid item>
                 <StyledGridHeader data-testid="styled-grid-header">
                     <Grid item>
@@ -68,39 +67,39 @@ const MyPortfolioOrg = ()=>
                 </StyledGridHeader>
             </Grid>
 
-            <StyledGrid gap={3} data-testid="styled-grid"
-          maxHeight="9rem" item>
-                {MyPortfolioData.map((data)=>(
-                    <Grid key={data.icon}>
-                        <PortfolioTab
-                                icon={data.icon}
-                                cryptoCoinName={data.coinName}
-                                shortNameOfCoin={data.shortName}
-                                value={data.value}
-                                totalPercentage={data.percentage}
-                            />
+            <StyledGrid gap={3} data-testid="styled-grid" maxHeight="12rem" item>
+                {portfolioCoins.map((data) => {
+                const symbol = data.symbol ? data.symbol.toUpperCase() : '';
+                return (
+                    <Grid key={data.id}>
+                    <PortfolioTab
+                        icon={pictures[data.image]}
+                        cryptoCoinName={data.name}
+                        shortNameOfCoin={symbol}
+                        value={data.investedAmount}
+                        totalPercentage={data.change}
+                    />
                     </Grid>
-                ) ) }
+                );
+                })}
             </StyledGrid>
-            
+            <Grid item paddingTop={'12px'}> 
+            <StyledDivider data-testid="styled-divider"/>
+                <Grid container display={'flex'}
+                        justifyContent="space-between"
+                        paddingTop={3}
+                        paddingBottom={3}
+                        paddingLeft={3}
+                        >
                     <Grid item>
-                        <StyledDivider data-testid="styled-divider"/>
-
-                        <Grid container display={'flex'}
-                                justifyContent="space-between"
-                                paddingTop={3}
-                                paddingBottom={3}
-                                paddingLeft={3}>
-                            <Grid item>
-                                <MuiTypography variant="body1" fontWeight={'bold'} color={theme.palette.textColor.mediumEmphasis} text="Total Balance" ></MuiTypography>
-                            </Grid>
-                            <StyledGrid>
-                                <Typography variant="body1"> $ {sum}</Typography>
-                            </StyledGrid>
-                        </Grid>
-
-                        <StyledDivider data-testid="styled-divider"/>
+                        <MuiTypography variant="body1" fontWeight={'bold'} color={theme.palette.textColor.mediumEmphasis} text="Total Balance" ></MuiTypography>
                     </Grid>
+                    <StyledGrid>
+                        <Typography variant="body1"> $ {sum}</Typography>
+                    </StyledGrid>
+                </Grid>
+                <StyledDivider data-testid="styled-divider"/>
+            </Grid>
         </Grid>
     )
 

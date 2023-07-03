@@ -10,13 +10,14 @@ export default {
 
 const Template: Story<WatchlistCardProps> = (args) => <WatchlistCard {...args} />;
 
-export const profit = Template.bind({});
-profit.args = {
+export const Profit = Template.bind({});
+Profit.args = {
   image:Bitcoin,
   name: 'BitCoins',
   price: '74.41',
   change: 2.5,
-  profit:true
+  profit:true,
+  width:"63%"
 };
 
 export const Loss = Template.bind({});
@@ -25,10 +26,11 @@ Loss.args = {
   name: 'BitCoins',
   price: '74.41',
   change: 2.5,
+  width:"63%"
 };
 export const WithClickHandler = Template.bind({});
 WithClickHandler.args = {
-  ...profit.args,
+  ...Profit.args,
   handleClick: () => {
     console.log('Card clicked!');
   },

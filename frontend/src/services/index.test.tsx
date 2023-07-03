@@ -12,6 +12,7 @@ import {
   addUser,
   resetUserPassword,
   getUserByEmail,
+  graphData
 } from ".";
 
 describe("API Test", () => {
@@ -274,6 +275,16 @@ describe("API Test", () => {
 
     await expect(getUserByEmail(email)).rejects.toThrowError(
       "Request failed with status code 404"
+    );
+  });
+  it("handles an error when fetching a graphData by ID", async () => {
+    const id = "bitcoin";
+    mockAxios
+      .onGet(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=5&interval=daily`)
+      .reply(400, "Request failed with status code 400");
+
+    await expect(graphData(id)).rejects.toThrowError(
+      "Request failed with status code 400"
     );
   });
 

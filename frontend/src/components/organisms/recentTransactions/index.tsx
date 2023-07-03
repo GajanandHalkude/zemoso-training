@@ -28,7 +28,7 @@ const StyledGrid = styled(Grid)(() => ({
   alignItems: 'flex-start',
   padding: '0px',
   gap: '12px',
-  width: '398px',
+  minWidth: '418px',
 }))
 
 const StyledInnerBox = styled(Box)(() => ({
@@ -36,19 +36,16 @@ const StyledInnerBox = styled(Box)(() => ({
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
-  padding: '0px 24px 0px 0px',
-  gap: '10px',
-  width: '350px',
+  minWidth: '418px',
 }))
 
 const StyledTransactionBox = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   alignItems: 'flex-start',
-  padding: '0px 24px 24px 0px',
-  gap: '8px',
-  width: '398px',
+  width:'100%',
+  minWidth: '428px',
 }))
 const StyledEmptyTransactionBox = styled(Box)(() => ({
     paddingTop:'58px',
@@ -63,8 +60,8 @@ const TransactionStyle =styled(Box)({
     display:'flex',
     flexDirection:'row',
     justifyContent:'space-between',
-    gap:'48px',
-    width: '350px'
+    width:'100%',
+    minWidth: '418px'
 })
 interface RecentTransactionsComponentProps {
     recentTransactions: RecentTransactionsProps[]
@@ -88,7 +85,7 @@ const RecentTransactionsComponent = ({recentTransactions}: RecentTransactionsCom
           <MuiTypography
             variant="caption2"
             color={theme.palette.textColor.highEmphasis}
-            text={formatDate(transaction.transactionDateTime.split('T')[0])}
+            text={formatDate(transaction.transactionDateTime?.split('T')[0] ?? '')}
           />
           <TransactionStyle>
             <IconWithTypography

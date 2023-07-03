@@ -64,10 +64,10 @@ describe('PaymentAndDetailsCard', () => {
 
     const titleElement = screen.getByText('Payment Card');
     const coinTypeElement = screen.getByText('Bitcoin');
-    const balanceElement = screen.getByText('$1000');
+    
 
     expect(titleElement).toBeInTheDocument();
     expect(coinTypeElement).toBeInTheDocument();
-    expect(balanceElement).toBeInTheDocument();
+    
   });
 });

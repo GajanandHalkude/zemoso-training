@@ -9,7 +9,7 @@ interface PaymentAndDetailsProps {
   title: string
   icon: string
   coinType?: string
-  balance?: number
+  balance?: number | string
   coinSymbol?: string
   wallet:boolean,
   walletName?:string
@@ -96,7 +96,8 @@ const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSym
             display={'flex'}
             direction={'row'}
             alignItems={'center'}
-            gap={'133px'}>
+            justifyContent={'space-between'}
+            >
                 <Grid item>
                     <Grid
                     container
@@ -121,7 +122,7 @@ const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSym
                 </Grid>
                 </Grid>
                 <Grid item>
-                <MuiTypography variant="body1" text={`$${balance}`} color={theme.palette.textColor.highEmphasis}/>
+                <MuiTypography variant="body1" text={`${balance}`} color={theme.palette.textColor.highEmphasis}/>
                 </Grid>
             </Grid>
         </Grid>)

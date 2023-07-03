@@ -210,8 +210,10 @@ const PortfolioGraphComponent = ({
           {isEmptyState ? (
             <Box
               width="100%"
+              display={'flex'}
+              alignItems={'center'}
+              justifyContent={'center'}
               marginTop={"25px"}
-              marginLeft={"480px"}
               marginBottom={"5px"}
             >
               <ImageComponent

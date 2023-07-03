@@ -14,15 +14,16 @@ export type WatchlistCardProps = {
   image: string;
   name: string;
   price: number | string;
-  change: number;
+  change: number ;
   handleClick?: () => void;
   profit: boolean;
+  width:string;
 };
 
 const StyledGrid = styled(Grid)({
   cursor: "pointer",
-  width:"408px",
-  height:"130px",
+  minWidth:"418px",
+  height:"115px",
   borderRadius:'4px',
   border:`1px solid ${theme.palette.greyColors.grey100}`
 });
@@ -35,7 +36,7 @@ const StyledContainer = styled("div")({
 });
 
 const StyledGridItem = styled(Grid)({
-  padding: "18px",
+  padding: "8px",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
@@ -48,7 +49,9 @@ const StyleGraph = styled(Grid)({
   flexDirection: "column"
 });
 
-const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handleClick, profit }) => {
+const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handleClick, profit, change, width }) => {
+
+  const isPositiveChange = Number(change) > 0;
   
   const options = {
     chart: {
@@ -152,7 +155,7 @@ const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handl
                 image={profit ? GreenIncresingTrend : DecreasingTrend}
                 imageHeight={"9px"}
                 imageWidth={"9px"}
-                text={"+2.2%"}
+                text={isPositiveChange ? `+${change}.%` : `${change}.%`}
                 textVariant="overline"
                 textColor={
                   profit
@@ -169,7 +172,7 @@ const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handl
                 options={options}
                 series={series}
                 height="80"
-                width="80%"
+                width={width}
                 data-testid="graph-component"
               />
             </Grid>

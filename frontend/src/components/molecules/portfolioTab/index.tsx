@@ -25,9 +25,9 @@ const StyledBox = styled(Box)({
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
-  padding: "8px 12px 8px 24px",
+  paddingTop: "8px",
   gap: "80px",
-  width: "400px",
+  //width: "400px",
   height: "55px",
 });
 

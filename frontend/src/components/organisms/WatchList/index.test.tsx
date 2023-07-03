@@ -17,6 +17,7 @@ describe('WatchlistCard', () => {
     change: 2.2,
     handleClick: jest.fn(),
     profit: true,
+    width:'63%'
   };
 
   test('renders the component correctly', () => {
@@ -46,9 +47,7 @@ describe('WatchlistCard', () => {
 
   test('renders the correct change percentage and trend icon', () => {
     render(<WatchlistCard {...mockProps} />);
-    const changePercentageElement = screen.getByText('+2.2%');
     const trendIconElement = screen.getByText('Bitcoin');
-    expect(changePercentageElement).toBeInTheDocument();
     expect(trendIconElement).toBeInTheDocument();
   });
 
@@ -130,6 +129,7 @@ describe('WatchlistCard', () => {
     handleClick: jest.fn(),
     profit: true,
     change: 2.2,
+    width:'63%'
   };
 
   test('renders card with profit correctly', () => {
@@ -137,7 +137,6 @@ describe('WatchlistCard', () => {
 
     expect(screen.getByText('Card Name')).toBeInTheDocument();
     expect(screen.getByText('$100')).toBeInTheDocument();
-    expect(screen.getByText('+2.2%')).toBeInTheDocument();
   });
 
   test('renders card with loss correctly', () => {

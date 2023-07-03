@@ -9,7 +9,7 @@ interface IconWithTypographyProps extends TypographyProps {
   imageHeight: string;
   imageWidth: string;
   iconandtextgap?: string;
-  text: string;
+  text: string | number;
   textVariant: any;
   textColor: string | undefined;
   subText?: string | React.JSX.Element;
