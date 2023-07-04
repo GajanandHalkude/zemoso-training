@@ -35,14 +35,6 @@ export const updateWallet = async (id: string, wallet: Wallet) => {
     });
 };
 
-export const addTransaction = async (transaction: Transaction) => {
-      await axios
-        .post(`https://bc92-ms.zebc61.ml/transactions/`, { ...transaction })
-        .catch((error) => {
-          throw error
-        })
-}
-
 export const fetchTransactions = async () => {
   return await axios
     .get(`http://localhost:3001/transactions/`)
@@ -50,8 +42,15 @@ export const fetchTransactions = async () => {
     .catch((error) => {
       throw error;
     });
-};
+}
 
+export const addTransaction = async (transaction: Transaction) => {
+      await axios
+        .post(`https://bc92-ms.zebc61.ml/transactions/`, { ...transaction })
+        .catch((error) => {
+          throw error
+        })
+}
 export const fetchWatchList = async () => {
   return await axios
     .get(`https://bc92-ms.zebc61.ml/watchlist/`)

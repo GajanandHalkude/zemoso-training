@@ -12,6 +12,7 @@ import {
   addUser,
   resetUserPassword,
   getUserByEmail,
+  fetchTransactions,
   getGraphData
 } from ".";
 
@@ -170,6 +171,24 @@ describe("API Test", () => {
     await expect(fetchWallet(id)).rejects.toThrowError(
       "Request failed with status code 400"
     );
+  });
+
+  it('should return the data from the API', async () => {
+    const mockData = [{ id: 1, name: 'Transaction 1' }, { id: 2, name: 'Transaction 2' }];
+    jest.spyOn(axios, 'get').mockResolvedValueOnce({ data: mockData });
+
+    const result = await fetchTransactions();
+
+    expect(result).toEqual(mockData);
+    expect(axios.get).toHaveBeenCalledWith('http://localhost:3001/transactions/');
+  });
+
+  it('should throw an error if the API request fails', async () => {
+    const errorMessage = 'Failed to fetch transactions.';
+    jest.spyOn(axios, 'get').mockRejectedValueOnce(new Error(errorMessage));
+
+    await expect(fetchTransactions()).rejects.toThrow(errorMessage);
+    expect(axios.get).toHaveBeenCalledWith('http://localhost:3001/transactions/');
   });
 
   it("handles an error when updating a wallet", async () => {

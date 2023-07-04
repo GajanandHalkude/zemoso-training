@@ -72,7 +72,7 @@ const WalletTransactionTab = ({
   const day = formattedDate.split(" ")[1].replace(",", "");
 
   return (
-    <Box>
+    <Box data-testid="transaction-tab"> 
     <StyledBox>
       <LeftPart>
         <Box>
