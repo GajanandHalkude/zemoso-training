@@ -27,7 +27,7 @@ jobs:
         with:
           java-version: 11
           distribution: "zulu"                            # Alternative distribution options are available.
- - name: Cache SonarCloud packages
+      - name: Cache SonarCloud packages
         uses: actions/cache@v3
         with:
           path: ~/.sonar/cache
@@ -63,7 +63,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-        java-version: 11
+          java-version: 11
           distribution: "zulu"                             # Alternative distribution options are available.
 
       - name: Cache SonarCloud packages
@@ -104,7 +104,7 @@ jobs:
         with:
           java-version: 11
           distribution: "zulu"                            # Alternative distribution options are available.
- - name: Cache SonarCloud packages
+      - name: Cache SonarCloud packages
         uses: actions/cache@v3
         with:
           path: ~/.sonar/cache
