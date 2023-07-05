@@ -5,18 +5,18 @@ import Header from "../../molecules/Header";
 import Footer from "../../molecules/footer";
 import SideNavComponent from "../../molecules/sideNavbar";
 import { menuItems } from '../../../constants'
+import { useLocation } from "react-router-dom";
 
 export interface PaymentSuccessProps {
-  totalBitcoin: number;
+  totalBalance: number;
   tradeType: "BUY CRYPTO" | "SELL CRYPTO";
   cointype: "BTC" | "ETH"
 }
 
-const PaymentSuccess = ({
-  totalBitcoin,
-  tradeType,
-  cointype
-}:PaymentSuccessProps) => {
+const PaymentSuccess = () => {
+  const location = useLocation();
+  const {   totalBalance, tradeType, cointype } = location.state as PaymentSuccessProps ;
+  
   const header = (
     <Header pageName={"Checkout"} displayButtons={true} />
   );
@@ -33,7 +33,7 @@ const PaymentSuccess = ({
         footer={footer}
         paddingTop="24px"
       >
-        <PaymentBody TotalBitcoin={totalBitcoin} TradeType={tradeType} cointype={cointype} />
+        <PaymentBody TotalBitcoin={totalBalance} TradeType={tradeType} cointype={cointype} />
       </DashBoardTemplate>
   );
 };

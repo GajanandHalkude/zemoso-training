@@ -1,14 +1,16 @@
-import { Box } from '@mui/material'
-import { styled } from '@mui/system'
-import React from 'react'
-import ImageComponent from '../../atoms/Image'
-import Logo from '../../../../public/assets/images/logo.svg'
-import DashboardActive from '../../../../public/assets/images/dashactive.svg'
-import Analytics from '../../../../public/assets/images/portfolio.svg'
-import Trades from '../../../../public/assets/images/trade.svg'
-import Notification from '../../../../public/assets/images/notification.svg'
-import LogOut from '../../../../public/assets/images/logout.svg'
-import IconComponent from '../../atoms/icon'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Box } from '@mui/material';
+import { styled } from '@mui/system';
+import ImageComponent from '../../atoms/Image';
+import Logo from '../../../../public/assets/images/logo.svg';
+import DashboardActive from '../../../../public/assets/images/dashactive.svg';
+import Dashboard from '../../../../public/assets/images/dashboard.svg';
+import Analytics from '../../../../public/assets/images/portfolio.svg';
+import Trades from '../../../../public/assets/images/trade.svg';
+import Notification from '../../../../public/assets/images/notification.svg';
+import LogOut from '../../../../public/assets/images/logout.svg';
+import IconComponent from '../../atoms/icon';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -21,8 +23,8 @@ const StyledGrid = styled(Box)(() => ({
   alignItems: 'flex-start',
   gap: '174px',
   padding: '24px',
-  position:'absolute'
-}))
+  position: 'absolute',
+}));
 
 const StyledBox = styled(Box)(() => ({
   display: 'flex',
@@ -33,33 +35,64 @@ const StyledBox = styled(Box)(() => ({
   '.list-item-button:hover': {
     backgroundColor: 'transparent',
   },
-  
-}))
+}));
 
-const iconsList = [DashboardActive, Analytics, Trades, Notification, LogOut]
+const iconsList = [Dashboard, Analytics, Trades, Notification, LogOut];
 
 const SideNavComponent = () => {
+  const location = useLocation();
+  const isActive = location.pathname === '/dashboard';
+
   return (
     <StyledGrid data-testid="sideNav">
       <ImageComponent src={Logo} width="32px" height="33px" />
       <StyledBox>
-      <List>
-        {iconsList.map((icon) => (
-          <ListItem key={icon} disablePadding style={{ margin: '14px' }}>
-            <ListItemButton className="list-item-button">
+        <List>
+          {iconsList.map((icon, index) => {
+            if (index === 0) {
+              const iconComponent = isActive ? (
                 <ListItemIcon>
-                    <IconComponent src={icon} width="32px" height="32px" />
+                  <IconComponent src={DashboardActive} width="32px" height="32px" />
                 </ListItemIcon>
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+              ) : (
+                <ListItemIcon>
+                  <IconComponent src={icon} width="32px" height="32px" />
+                </ListItemIcon>
+              );
+
+              return (
+                <ListItem key={icon} disablePadding style={{ margin: '14px' }}>
+                  <ListItemButton className="list-item-button" component={Link} to="/dashboard">
+                    {iconComponent}
+                  </ListItemButton>
+                </ListItem>
+              );
+            } else if (index === iconsList.length - 1) {
+              return (
+                <ListItem key={icon} disablePadding style={{ margin: '14px' }}>
+                  <ListItemButton className="list-item-button" component={Link} to="/signin">
+                    <ListItemIcon>
+                      <IconComponent src={icon} width="32px" height="32px" />
+                    </ListItemIcon>
+                  </ListItemButton>
+                </ListItem>
+              );
+            } else {
+              return (
+                <ListItem key={icon} disablePadding style={{ margin: '14px' }}>
+                  <ListItemButton className="list-item-button">
+                    <ListItemIcon>
+                      <IconComponent src={icon} width="32px" height="32px" />
+                    </ListItemIcon>
+                  </ListItemButton>
+                </ListItem>
+              );
+            }
+          })}
+        </List>
       </StyledBox>
     </StyledGrid>
-  )
-}
-export default SideNavComponent
+  );
+};
 
-
-
-
+export default SideNavComponent;

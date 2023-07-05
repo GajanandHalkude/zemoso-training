@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Box, Grid ,styled} from "@mui/material";
 import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin ,isEmailValid, isPasswordValid ,socialLoginOptions } from "../../../constants";
+import { useNavigate } from 'react-router-dom';
 
 const SyledButtonComponent = styled(ButtonComponent)(() => ({
   borderRadius: "4px",
@@ -29,7 +30,7 @@ const SignInCard = () => {
     }));
   };
 
-
+  const navigate = useNavigate();
 
   const isSignInEnabled = isPasswordValid(formData.password) && isEmailValid(formData.email);
 
@@ -71,8 +72,8 @@ const SignInCard = () => {
           placeholder="Password"
         />
       </Box>
-      <Box display="flex">
-        <a href="#"  style={{ textDecoration: "none" }}>Forgot Password</a>
+      <Box display="flex" >
+        <a href="#"  style={{ textDecoration: "none" }} onClick={() => navigate("/forgetpassword")}>Forgot Password</a>
       </Box>
       <Box display="flex">
         <SyledButtonComponent
@@ -82,6 +83,7 @@ const SignInCard = () => {
           text="Sign In"
           disabled={!isSignInEnabled}
           variant="contained"
+          onClick={() => navigate("/dashboard")}
         />
       </Box>
 
@@ -104,7 +106,7 @@ const SignInCard = () => {
       </Box>
       <Box display="flex">
         <MuiTypography variant="body2" text="Doesn't have an account?" />
-        <a href="#" style={{ marginLeft: "10px", textDecoration: "none"}}>
+        <a href="#" style={{ marginLeft: "10px", textDecoration: "none"}} onClick={() => navigate("/signup")}>
           Signup
         </a>
       </Box>

@@ -12,6 +12,5 @@ const Template:ComponentStory<typeof WalletBody> = (args)=>(
 )
 export const Primary = Template.bind({});
 Primary.args = {
-TotalBalance:34000,
 placeholderText:"Search all assets",
 }

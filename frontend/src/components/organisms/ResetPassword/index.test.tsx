@@ -2,14 +2,15 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ResetPassword from "./index";
+import { BrowserRouter } from "react-router-dom";
 
 describe("ResetPassword", () => {
   it("should render the component", () => {
-    render(<ResetPassword />);
+    render(<BrowserRouter><ResetPassword /></BrowserRouter>);
   });
 
   it("should enable the button when passwords match and are valid", () => {
-    render(<ResetPassword />);
+    render(<BrowserRouter><ResetPassword /></BrowserRouter>);
     const passwordInput = screen.getByPlaceholderText(
       "Enter Password"
     ) as HTMLInputElement;
@@ -23,7 +24,7 @@ describe("ResetPassword", () => {
   });
 
   it("should disable the button when passwords do not match", () => {
-    render(<ResetPassword />);
+    render(<BrowserRouter><ResetPassword /></BrowserRouter>);
     const passwordInput = screen.getByPlaceholderText(
       "Enter Password"
     ) as HTMLInputElement;
@@ -38,7 +39,7 @@ describe("ResetPassword", () => {
 
   it("should handle the password reset click'", () => {
     const mockResetUserPassword = jest.fn();
-    render(<ResetPassword />);
+    render(<BrowserRouter><ResetPassword /></BrowserRouter>);
     const passwordInput = screen.getByPlaceholderText(
       "Enter Password"
     ) as HTMLInputElement;

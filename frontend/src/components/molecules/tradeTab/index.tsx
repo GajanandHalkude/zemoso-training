@@ -36,6 +36,7 @@ const StyledCurrencyLogo = styled(Box)({
   alignItems: "center",
   gap: "10px",
   minWidth: "130px",
+  cursor:'pointer'
 });
 
 
@@ -52,8 +53,8 @@ const TradeTab = ({
   const isPositiveChange = Number(change) > 0;
 
   return (
-    <StyledBox onClick={onClick}>
-      <StyledCurrencyLogo>
+    <StyledBox>
+      <StyledCurrencyLogo onClick={onClick}>
         <IconComponent src={icon} />
         <Box>
           <MuiTypography

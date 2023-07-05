@@ -15,6 +15,7 @@ interface SummaryCardProps {
   price?: number;
   onClick: (arg: any) => void;
   amount?: number;
+  setTotal?: (total: number) => void;
 }
 const StyledBox = styled(Box)({
   width: "527px",
@@ -87,10 +88,15 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
   price,
   onClick,
   amount,
+  setTotal
+
 }) => {
   price = price ? price : dollarValue;
   amount = amount ? amount : btcValue * price;
   const total = type === "buy" ? amount + 1000 : amount - 1000;
+  if (setTotal) {
+    setTotal(total);
+  }
   return (
     <StyledBox data-testid="summary-card">
       <TypographyGrid container spacing="12px" direction={"column"}>

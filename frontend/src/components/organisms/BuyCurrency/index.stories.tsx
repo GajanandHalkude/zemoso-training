@@ -17,4 +17,5 @@ const Template: ComponentStory<typeof BuyCurrency> = (args) => (
 export const Primary = Template.bind({})
 Primary.args = {
   currenciesData: currencies,
+  coin:'bitcoin'
 }

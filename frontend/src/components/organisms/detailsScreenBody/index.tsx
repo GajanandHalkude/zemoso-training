@@ -27,6 +27,7 @@ import {
   getGraphData,
   removeWatchList,
 } from "../../../services/index";
+import { useLocation } from "react-router-dom";
 
 const TotalBalanceBox = styled(Box)(() => ({
   backgroundColor: theme.palette.greyColors.grey50,
@@ -110,8 +111,13 @@ export interface CryptoCurrency {
   priceChange: number;
   volume: number;
 }
+interface CurrencylocationState {
+  coindId: string
+}
 
 const DetailsScrennBody = () => {
+  const location = useLocation();
+  const { coindId } = location.state as CurrencylocationState ;
   const [watchListId, setWatchListId] = useState<string>("");
   const [isAddedToWatchList, setIsAddedToWatchList] = useState(false);
   const [cryptoCurrency, setCryptoCurrency] = useState<CryptoCurrency>({
@@ -129,12 +135,12 @@ const DetailsScrennBody = () => {
   const [graphData, setGraphData] = useState<number[]>([])
   const [transaction, setTransaction] = useState<Transaction[]>([]);
   useEffect(() => {
-    fetchCrtptoCurrenicyById("bitcoin")
+    fetchCrtptoCurrenicyById(coindId)
       .then((res) => {
         setCryptoCurrency(res);
         fetchWatchList()
           .then(async (data) => {
-            data.includes(res.id) ? setWatchListId(res.id) : setWatchListId("");
+            isthereInWatchlist(data,res.id) ? setWatchListId(res.id) : setWatchListId("");
           })
           .catch((error) => console.log(error));
       })
@@ -167,6 +173,18 @@ const DetailsScrennBody = () => {
     setIsAddedToWatchList(watchListId ? true : false);
   }, [watchListId]);
 
+  const isthereInWatchlist = (data:any,id:any) =>{
+    let isthere = false;
+
+    data.map((d:any)=>{
+      if(d.id === id){
+        isthere = true
+      }
+    })
+
+    return isthere
+ }
+
   const handleClick = async () => {
     setIsAddedToWatchList((prevstate) => !prevstate);
     if (isAddedToWatchList) {
@@ -196,7 +214,7 @@ const DetailsScrennBody = () => {
         key={cryptoCurrency.id}
         coinIcon={pictures[cryptoCurrency?.icon]}
         coinName={cryptoCurrency.name}
-        coinSymbol={cryptoCurrency.symbol}
+        coinSymbol={cryptoCurrency.symbol.toUpperCase()}
         percentageChange={cryptoCurrency.priceChange}
         isAddedtoWishList={isAddedToWatchList}
         marketCap={cryptoCurrency.marketCap}

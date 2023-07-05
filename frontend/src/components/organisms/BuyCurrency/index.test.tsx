@@ -6,7 +6,7 @@ import BuyCurrency from "./index";
 
 describe('Choose crypto tests', () => {
   test('Whether the cards are rendering', () => {
-    render(<BuyCurrency currenciesData={currencies} />);
+    render(<BuyCurrency currenciesData={currencies} coin={'bitcoin'} />);
     const chooseCrypto = screen.getByTestId('chooseCurrency')
     expect(chooseCrypto).toBeInTheDocument
   })

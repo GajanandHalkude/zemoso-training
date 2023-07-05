@@ -14,7 +14,7 @@ test('fetches the watchlist', async () => {
 
   let component:any;
   act(() => {
-    component = render(<DashboardPage />);
+    component = render(<BrowserRouter><DashboardPage /></BrowserRouter>);
   });
 
 });

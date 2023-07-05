@@ -270,7 +270,7 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
       <StyledGridTransactons container>
         {filteredTransactions.map((data) => (
           <WalletTransactionTab
-            key={data.id}
+            key={data.cryptoId}
             currencyLogo={getCurrencyLogo(data.status)}
             currencyName={`Received ${data.symbol}`}
             userDescription={`from ${data.from}`}

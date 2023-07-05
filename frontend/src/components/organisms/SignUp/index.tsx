@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Box, Grid, styled } from "@mui/material";
 import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin ,isEmailValid, isPasswordValid ,socialLoginOptions, passwordspecification } from "../../../constants";
+import { useNavigate } from "react-router-dom";
 
 
 const SyledButtonComponent = styled(ButtonComponent)(() => ({
@@ -31,11 +32,12 @@ const SignUp = () => {
       [fieldName]: value
     }));
   };
+  const navigate = useNavigate();
 
   const isSignUpEnabled = isPasswordValid(formData.signuppassword) && isEmailValid(formData.signupemail);
 
   return (
-    <Box display="flex" flexDirection="column" paddingTop="50px" gap="30px">
+    <Box display="flex" flexDirection="column" paddingTop="50px" gap="20px">
       <Box display="flex">
         <MuiTypography variant="h4" text="Signup with Minet" />
       </Box>
@@ -87,6 +89,7 @@ const SignUp = () => {
           value={formData.signuppassword}
         />
       </Box>
+      <Box display="flex" sx={{color:"#667085"}}>{passwordspecification}</Box>
       <Box display="flex">
         <SyledButtonComponent
           data-testid="password-toggle-button"
@@ -96,8 +99,7 @@ const SignUp = () => {
           variant="contained"
         />
       </Box>
-      <Box display="flex" sx={{color:"#667085"}}>{passwordspecification}</Box>
-
+     
       <Box display="flex" alignItems="center" width={"512px"}>
         <Box flex="1" borderBottom="1px solid #E8E8F7" />
         <Box mx={1} >
@@ -114,9 +116,9 @@ const SignUp = () => {
           />
         ))}
       </Box>
-      <Box display="flex">
+      <Box display="flex" alignItems={'center'}>
         <MuiTypography variant="body2" text="Already have an account?" />
-        <a href="#" style={{ marginLeft: "10px", textDecoration: "none" }}>
+        <a href="#" style={{ marginLeft: "10px", textDecoration: "none" }}  onClick={() => navigate("/signin")}>
           Login
         </a>
       </Box>

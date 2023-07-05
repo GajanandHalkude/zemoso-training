@@ -40,10 +40,11 @@ const StyledGrid = styled(Grid)({
 })
 
 interface ChooseCurrencyProps {
-  currenciesData: CryptoCurrency[]
+  currenciesData: CryptoCurrency[],
+  coin:string
 }
 
-const BuyCurrency: React.FC<ChooseCurrencyProps> = ({currenciesData}: ChooseCurrencyProps) => {
+const BuyCurrency: React.FC<ChooseCurrencyProps> = ({currenciesData,coin}: ChooseCurrencyProps) => {
 
   return (
     <CustomBox data-testid="chooseCurrency">
@@ -70,7 +71,7 @@ const BuyCurrency: React.FC<ChooseCurrencyProps> = ({currenciesData}: ChooseCurr
                     image={pictures[currency.icon]}
                     name={currency.name}
                     value={currency.price}
-                    selected={currency.name==="Bitcoin"?true:false}
+                    selected={currency.id===coin?true:false}
                   />
                 </Grid>
               );

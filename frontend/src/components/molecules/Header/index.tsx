@@ -1,6 +1,6 @@
 import { Box, Divider, Grid, styled } from '@mui/material'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import theme from '../../../theme'
 import ButtonComponent from '../../atoms/button'
 import MuiTypography from '../../atoms/typography'
@@ -31,8 +31,13 @@ const StyledIconContainer = styled(Grid)({
     paddingTop: '7px',
 })
 
-const Header: React.FC<IHeaderProps> = ({pageName, displayButtons}:IHeaderProps) => {
 
+const Header: React.FC<IHeaderProps> = ({pageName, displayButtons}:IHeaderProps) => {
+  const location = useLocation();
+  const { state } = location as {state?:any} ;
+  
+ 
+  const navigate = useNavigate()
 return (
 <CustomBox data-testid="Header">
 <Grid container>
@@ -49,15 +54,18 @@ return (
         {displayButtons && 
         <Grid  display="flex" alignItems="row" gap="12px">
       <Grid item>
-        <NavLink to="/sell" style={{ textDecoration: 'none' }}>
-          <CustomButton variant="contained" backgroundColor="#FFA74F" text={sell}/>
-        </NavLink>
+          <CustomButton variant="contained" backgroundColor="#FFA74F" 
+          onClick={() => navigate("/sell",{
+            state: {coindId : state.coindId || ''}
+          } )} 
+          text={sell}/>
       </Grid>
-
       <Grid item>
-        <NavLink to="/purchase" style={{ textDecoration: 'none' }}>
-          <CustomButton variant="contained" backgroundColor="#0052FF" text={buy} />
-        </NavLink>
+          <CustomButton variant="contained" backgroundColor="#0052FF" 
+          onClick={() => navigate("/purchase",{
+            state: {coindId : state.coindId || ''}
+          } )} 
+          text={buy}  />
       </Grid>
       </Grid>
 }

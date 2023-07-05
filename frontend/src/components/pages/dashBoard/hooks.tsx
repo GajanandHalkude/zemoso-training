@@ -35,30 +35,39 @@ export const useWatchlistHook = () => {
 
   const setData = async () => {
     try {
-      await axios
-        .get('https://bc92-ms.zebc61.ml/watchlist')
-        .then(async (response: any) => {
-          const data = response.data
-          const newCoins: WatchlistDataProps[] = [...watchlistData]
-          for (const coinData of data) {
-            await axios
-              .get(`https://bc92-ms.zebc61.ml/cryptocurrency/${coinData.id}`)
-              .then((response: any) => {
-                const cryptoData = response.data
-                const tempWatchData = {
-                  id: cryptoData.id,
-                  image: cryptoData.icon,
-                  name: cryptoData.name,
-                  symbol: cryptoData.price,
-                  change: cryptoData.priceChange,
-                }
-                newCoins.push(tempWatchData)
-              })
-          }
-          setWatchlistData(newCoins)
-        })
-    } catch {}
-  }
+  const watchlistResponse = await axios.get('https://bc92-ms.zebc61.ml/watchlist');
+  const watchlistData = watchlistResponse.data;
+  const newCoins: WatchlistDataProps[] = [];
+  console.log(newCoins)
+
+  const coinDataPromises = watchlistData.map(async (coinData: any) => {
+    try {
+      const response = await axios.get(`https://bc92-ms.zebc61.ml/cryptocurrency/${coinData.id}`);
+      const cryptoData = response.data;
+      const tempWatchData = {
+        id: cryptoData.id,
+        image: cryptoData.icon,
+        name: cryptoData.name,
+        symbol: cryptoData.price,
+        change: cryptoData.priceChange,
+      };
+      return tempWatchData;
+    }catch (error) {
+      return null; 
+    }
+   
+  });
+  
+
+  const coinDataArray = await Promise.all(coinDataPromises);
+  const filteredCoinDataArray = coinDataArray.filter((coinData) => coinData !== null);
+  newCoins.push(...filteredCoinDataArray);
+  // console.log(filteredCoinDataArray)
+  // console.log(newCoins)
+  setWatchlistData(newCoins);
+  
+} catch{}
+}
 
   useEffect(() => {
     setData()
@@ -89,7 +98,7 @@ export const usePortfolioGraphHook = (coin: string) => {
         .then(async (response: any) => {
           const data = response.data
           let tempInvestment = 0
-          console.log(data)
+          //console.log(data)
             tempInvestment += data.invested_amount
               await axios
                 .get(`https://bc92-ms.zebc61.ml/cryptocurrency/${coin}`)

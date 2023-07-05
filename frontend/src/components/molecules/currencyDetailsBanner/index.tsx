@@ -21,8 +21,8 @@ const StyledBox = styled(Box)({
   alignItems: "center",
   padding: "16px 0px 16px 2px",
   gap: "16px",
-  //   width: '397px',
-  //   height: '312px',
+    // width: '397px',
+    // height: '312px',
   background: theme.palette.structural.main,
   border: `1px solid ${theme.palette.greyColors.grey100}`,
   borderRadius: "4px",
@@ -33,7 +33,7 @@ const StyledBoxContainer = styled(Box)({
   flexDirection: "row",
   justifyContent: "space-evenly",
   alignItems: "flex-start",
-  gap: "30px",
+  gap: "30px"
 });
 
 const StyledBoxCorrelation = styled(Box)({
@@ -87,14 +87,14 @@ const CurrencyDetailsBanner = ({
         <StyledBoxCorrelation >
           <MuiTypography text={"Price correlation with"} />
         </StyledBoxCorrelation>
-        <Box>
+        <Box paddingLeft={'12px'} paddingRight={'12px'}>
           {currencyBannerData.map((data) => (
             <Box key={data.icon}>
               <PortfolioTab
                 icon={data.icon}
                 cryptoCoinName={data.coinName}
                 shortNameOfCoin={data.shortName}
-                value={data.value}
+                value={`${data.value?.toLocaleString('en-US', {maximumFractionDigits:2})}`}
                 totalPercentage={data.percentage}
               />
             </Box>

@@ -2,17 +2,18 @@ import React,{useState} from "react";
 import SignInTemplate, { AuthTemplateProp } from "../../templates/SignIn";
 import ForgetPasswordComponent from "../../organisms/ForgetPassword";
 import Image from "../../../../public/assets/images/SignInImage.svg";
+import { useNavigate } from "react-router-dom";
 
 const ForgetPasswordpage = () => {
 
   const [isCodeSent, setIsCodeSent] = useState(false);
-
+  const navigate = useNavigate();
    const handleSendResetCode = () => {
       setIsCodeSent(true);
    };
 
     const handleVerifyCode = () => {
-      return;
+      return navigate("/resetpassword");
     };
 
   const authTemplateProps: AuthTemplateProp = {

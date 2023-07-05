@@ -5,6 +5,7 @@ import IconComponent from "../../atoms/icon";
 import MuiTypography from "../../atoms/typography";
 import ButtonComponent from "../../atoms/button";
 import theme from "../../../theme";
+import { useNavigate } from "react-router-dom";
 
 const StyledBox = styled(Box)({
   display: "flex",
@@ -24,6 +25,7 @@ interface PaymentBodyProps {
 }
 
 const PaymentBody = ({ TotalBitcoin, TradeType, cointype }: PaymentBodyProps) => {
+  const navigate = useNavigate();
   return (
     <StyledBox>
       <IconComponent src={Correct} height="64px" width="64px"></IconComponent>
@@ -71,6 +73,7 @@ const PaymentBody = ({ TotalBitcoin, TradeType, cointype }: PaymentBodyProps) =>
             height: "42px",
           }}
           text="GO TO USD COIN"
+          onClick={() => navigate("/wallet")}
         ></ButtonComponent>
       </Box>
     </StyledBox>

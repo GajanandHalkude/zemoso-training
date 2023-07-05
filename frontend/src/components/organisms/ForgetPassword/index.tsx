@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Grid, styled } from "@mui/material";
 import { ButtonComponent, CustomTextField, MuiTypography, isEmailValid, isValidCode } from "../../../constants";
 import theme from "../../../theme";
+import { useNavigate } from "react-router-dom";
 
 interface ForgetPasswordProps {
   label: string;
@@ -42,6 +43,8 @@ const ForgetPassword: React.FC<ForgetPasswordProps> = ({
   const isButtonDisabled = isSendLink
     ? !isEmailValid(value)
     : !isValidCode(value);
+
+    const navigate = useNavigate();
   return (
     <Box display="flex" flexDirection="column" paddingTop="50px" gap="30px">
       <Box display="flex">
@@ -83,7 +86,7 @@ const ForgetPassword: React.FC<ForgetPasswordProps> = ({
           variant="contained"
         />
       </Box>
-      <Box display="flex">
+      <Box display="flex" >
         <MuiTypography
           variant="body2"
           text="Back to"
@@ -98,6 +101,7 @@ const ForgetPassword: React.FC<ForgetPasswordProps> = ({
             fontSize: "16px",
             textDecoration: "none",
           }}
+          onClick={()=> navigate("/signin")}
         >
           Login
         </a>

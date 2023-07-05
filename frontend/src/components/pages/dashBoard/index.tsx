@@ -26,6 +26,7 @@ import RecentTransactionsComponent from '../../organisms/recentTransactions'
 import ImageComponent from '../../atoms/Image'
 import WatchlistCard from '../../organisms/WatchList'
 import PaymentAndDetailsCard from '../../organisms/myWallet'
+import { useNavigate } from 'react-router-dom'
 
 const PortfolioTypographyBox = styled(Grid)({
   paddingBottom: '14px',
@@ -70,6 +71,7 @@ const DashboardPage = () => {
   const {graphData} = useGraphDataHook('bitcoin')
   const len = watchlistData.length
   const lastIndex = len % 2 === 0 ? len : len - 1
+  const navigate = useNavigate();
 
   return (
     <DashBoardTemplate
@@ -88,7 +90,8 @@ const DashboardPage = () => {
                     <StyledBox>
                         <MuiTypography text='Watchlist' variant="subtitle1" />
                         <ImageComponent src={Partition} height="auto" width="auto" />
-                        <StyledBox gap="9px" cursor={true} data-testid='discover-assets-button'>
+                        <StyledBox gap="9px" cursor={true} data-testid='discover-assets-button'
+                            onClick={() => {navigate("/trade")}}>
                             <MuiTypography
                             variant="caption1"
                             style={{
@@ -110,9 +113,9 @@ const DashboardPage = () => {
                     </Grid>
                     <Grid item xs={6} display="flex" justifyContent={'end'}>
                     <StyledBox>
-                        <StyledBox gap="7px" cursor={true}>
+                        <StyledBox gap="7px" cursor={true} onClick={() => {navigate("/trade")}}>
                         <MuiTypography
-                            text='EDIT'
+                            text='View Watchlist'
                             variant="caption1"
                             style={{
                             color: theme.palette.primary
@@ -174,7 +177,7 @@ const DashboardPage = () => {
             </Grid>
         </OuterBox>
         <Box marginTop={'-25px'}>
-          <PortfolioTypographyBox container direction="row">
+          <PortfolioTypographyBox container direction="row" marginTop={'20px'}>
             <Grid item xs={6}>
               <MuiTypography
                 variant="subtitle1"
@@ -237,10 +240,10 @@ const DashboardPage = () => {
         </Grid>
         <Grid item xs={4} display={'flex'} justifyContent={'end'}>
         <Box
+        display={'flex'} flexDirection={'column'} gap={'24px'}
         sx={{
           backgroundColor: theme.palette.structural.main,
-          paddingLeft: '24px',
-
+          paddingLeft: '24px', 
         }}
       >
         <MyPortfolioOrg />

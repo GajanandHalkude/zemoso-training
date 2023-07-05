@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { MemoryRouter, BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
-import Sell from '.';
+import Sell, { CurrencylocationState } from '.';
 import React from 'react';
 import { waitFor } from '@testing-library/react';
 import { fetchWallet } from '../../../services/index';
@@ -15,20 +15,23 @@ describe('Sell component', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
+  const mockProps: CurrencylocationState  = {
+    coindId: 'bitcoin'
+  };
 
   it('renders without error', () => {
     render(
-      <Router>
-        <Sell />
-      </Router>
+      <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
+      <Sell />
+    </MemoryRouter>
     );
   });
 
   it('fetches currency data and wallet data on component mount', async () => {
     render(
-      <Router>
-        <Sell />
-      </Router>
+      <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
+      <Sell />
+    </MemoryRouter>
     );
 
     await waitFor(() => {
@@ -38,9 +41,9 @@ describe('Sell component', () => {
 
   it('updates quantity state on input change', () => {
     const { getByTestId } = render(
-      <Router>
-        <Sell />
-      </Router>
+      <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
+      <Sell />
+    </MemoryRouter>
     );
     const quantityInput = getByTestId('quantity-input') as HTMLInputElement;
 

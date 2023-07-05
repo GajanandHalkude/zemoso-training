@@ -180,7 +180,7 @@ describe("API Test", () => {
     const result = await fetchTransactions();
 
     expect(result).toEqual(mockData);
-    expect(axios.get).toHaveBeenCalledWith('http://localhost:3001/transactions/');
+    expect(axios.get).toHaveBeenCalledWith('https://bc92-ms.zebc61.ml/transactions/');
   });
 
   it('should throw an error if the API request fails', async () => {
@@ -188,7 +188,7 @@ describe("API Test", () => {
     jest.spyOn(axios, 'get').mockRejectedValueOnce(new Error(errorMessage));
 
     await expect(fetchTransactions()).rejects.toThrow(errorMessage);
-    expect(axios.get).toHaveBeenCalledWith('http://localhost:3001/transactions/');
+    expect(axios.get).toHaveBeenCalledWith('https://bc92-ms.zebc61.ml/transactions/');
   });
 
   it("handles an error when updating a wallet", async () => {

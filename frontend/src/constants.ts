@@ -18,7 +18,7 @@ import MuiTypography from "../src/components/atoms/typography";
 import SocialLogin from "../src/components/molecules/socialLogin";
 import moment from 'moment'
 
-
+export const url = "https://bc92-ms.zebc61.ml"
 export { ButtonComponent, CustomTextField, MuiTypography, SocialLogin };
 
  export const socialLoginOptions = [
@@ -158,7 +158,7 @@ export interface Wallet {
   invested_amount: number;
 }
 export interface Transaction {
-  id: number;
+  // id: number;
   cryptoId: string;
   transactionDateTime: string;
   quantity: number;
@@ -390,4 +390,3 @@ export const isValidCode = (code: string): boolean => {
    const codeRegex = /^\d{8}$/;
    return codeRegex.test(code);
  };
-

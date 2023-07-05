@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ForgetPassword from "./index";
+import { BrowserRouter } from "react-router-dom";
 
 describe("ForgetPassword", () => {
   it("renders the component with the provided label and button text", () => {
@@ -9,6 +10,7 @@ describe("ForgetPassword", () => {
     const buttonText = "Send Reset Link";
     const isSendLink = true;
     render(
+      <BrowserRouter>
       <ForgetPassword
         label={label}
         buttonText={buttonText}
@@ -16,6 +18,7 @@ describe("ForgetPassword", () => {
         handleSendResetLink={function (): void {
           throw new Error("Function not implemented.");
         } }      />
+      </BrowserRouter>
     );
     expect(screen.getByText(label)).toBeInTheDocument();
     expect(screen.getByText(buttonText)).toBeInTheDocument();
@@ -26,6 +29,7 @@ describe("ForgetPassword", () => {
     const buttonText = "Send Reset Link";
     const isSendLink = true;
     render(
+      <BrowserRouter>
       <ForgetPassword
         label={label}
         buttonText={buttonText}
@@ -33,6 +37,7 @@ describe("ForgetPassword", () => {
         handleSendResetLink={function (): void {
           throw new Error("Function not implemented.");
         } }      />
+      </BrowserRouter>
     );
     const inputElement = screen.getByPlaceholderText("abc@gmail.com");
     const buttonElement = screen.getByTestId("link-button");
@@ -46,6 +51,7 @@ describe("ForgetPassword", () => {
     const buttonText = "Send Reset Link";
     const isSendLink = true;
     render(
+      <BrowserRouter>
       <ForgetPassword
         label={label}
         buttonText={buttonText}
@@ -53,6 +59,7 @@ describe("ForgetPassword", () => {
         handleSendResetLink={function (): void {
           throw new Error("Function not implemented.");
         } }      />
+      </BrowserRouter>
     );
     const inputElement = screen.getByPlaceholderText("abc@gmail.com");
     const buttonElement = screen.getByTestId("link-button");
@@ -67,6 +74,7 @@ describe("ForgetPassword", () => {
      const buttonText = "Reset Password";
      const isSendLink = false;
      render(
+      <BrowserRouter>
        <ForgetPassword
          label={label}
          buttonText={buttonText}
@@ -74,6 +82,7 @@ describe("ForgetPassword", () => {
          handleSendResetLink={function (): void {
            throw new Error("Function not implemented.");
          } }       />
+      </BrowserRouter>
      );
      const inputElement = screen.getByPlaceholderText("8 digit code");
      const buttonElement = screen.getByTestId("link-button");

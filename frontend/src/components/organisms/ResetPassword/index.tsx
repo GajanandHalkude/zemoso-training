@@ -6,6 +6,7 @@ import tick from "../../../../public/assets/images/tick-circle.svg";
 import theme from "../../../theme";
 import PasswordSuccesful from "../../molecules/passwordSuccess";
 import { resetUserPassword } from "../../../services/index";
+import { useNavigate } from "react-router-dom";
 
 const SyledButtonComponent = styled(ButtonComponent)(() => ({
   borderRadius: "4px",
@@ -49,6 +50,7 @@ const ResetPassword: React.FC = () => {
     isPasswordValid(confirmPassword) &&
     password === confirmPassword
   );
+  const navigate = useNavigate();
    
   return (
     <Box display="flex" flexDirection="column" gap="30px">
@@ -114,6 +116,7 @@ const ResetPassword: React.FC = () => {
             variant="body2"
             text={passwordspecification}
             color={theme.palette.greyColors.grey500}
+            sx={{fontSize:"14px"}}
           />
         </Grid>
       </Box>}
@@ -123,7 +126,7 @@ const ResetPassword: React.FC = () => {
           size="small"
           text={ !isPasswordSet ? "Reset Password" : "Login"}
           disabled={disableButton && !isPasswordSet}
-          onClick={handleResetClick}
+          onClick={isPasswordSet ? () => navigate("/signin") : handleResetClick}
           variant="contained"
         />
       </Box>

@@ -9,7 +9,7 @@ import TradeFrame from "../../organisms/tradeFrame"
 const TradePage = () => { 
     return (
         <DashBoardTemplate 
-        header={<Header pageName="Dashboard" displayButtons />} 
+        header={<Header pageName="Trade" displayButtons />} 
         sideNav={<SideNavComponent/>} 
         footer={<Footer menuItems={menuItems} buttonLabel='Need Help' />}
         >

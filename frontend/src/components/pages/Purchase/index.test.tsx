@@ -1,8 +1,9 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
-import Purchase from '.';
+import Purchase, { CurrencylocationState } from '.';
 import { fetchAllCrtptoCurrenices, fetchWallet } from '../../../services/index';
 import '@testing-library/jest-dom/extend-expect'
+import { MemoryRouter, useLocation } from 'react-router-dom';
 jest.mock('../../../services/index', () => ({
   fetchAllCrtptoCurrenices: jest.fn(() =>
     Promise.resolve([
@@ -32,13 +33,21 @@ jest.mock('../../../services/index', () => ({
   addTransaction: jest.fn(),
 }));
 
+
 describe('Purchase', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
+  const mockProps: CurrencylocationState  = {
+    coindId: 'bitcoin'
+  };
 
   it('fetches currency data and wallet data on component mount', async () => {
-    render(<Purchase />);
+    render(
+      <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
+        <Purchase />
+      </MemoryRouter>
+        );
 
     await waitFor(() => {
       expect(fetchAllCrtptoCurrenices).toHaveBeenCalledTimes(1);
@@ -47,7 +56,11 @@ describe('Purchase', () => {
   });
   describe('Purchase', () => {
     it('renders Purchase component with quantity input', () => {
-      const { getByTestId } = render(<Purchase />);
+      const { getByTestId } = render(
+        <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
+        <Purchase />
+      </MemoryRouter>
+      );
       const quantityInput = getByTestId('quantity-input');
   
       expect(quantityInput).toBeInTheDocument();
@@ -61,11 +74,19 @@ describe('Purchase', () => {
   });
 
   it('renders without error', async () => {
-    render(<Purchase />);
+    render(
+      <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
+      <Purchase />
+    </MemoryRouter>
+    );
   });
 
   it('fetches currency data and wallet information', async () => {
-    render(<Purchase />);
+    render(
+      <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
+        <Purchase />
+      </MemoryRouter> 
+    );
     
     expect(fetchAllCrtptoCurrenices).toHaveBeenCalledTimes(1);
     expect(fetchWallet).toHaveBeenCalledTimes(0);

@@ -1,21 +1,22 @@
 /* eslint-disable react/react-in-jsx-scope */
 import React  from "react";
-import { render, screen, fireEvent, getByText } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import SignInCard from './';
 import '@testing-library/jest-dom/extend-expect';
 import { isEmailValid, isPasswordValid } from '../../../constants';
+import { BrowserRouter } from "react-router-dom";
 
 
 describe('SignInCard', () => {
   test('renders email input field correctly', () => {
-    render(<SignInCard />);
+    render(<BrowserRouter><SignInCard /></BrowserRouter>);
     const emailInput = screen.getByPlaceholderText('saiprabhu.dandanayak@zemosolabs.com');
     expect(emailInput).toBeInTheDocument();
   
   });
 
   test('renders password input field correctly', () => {
-    render(<SignInCard />);
+    render(<BrowserRouter><SignInCard /></BrowserRouter>);
     const passwordInput = screen.getByPlaceholderText('Password');
     expect(passwordInput).toBeInTheDocument();
    
@@ -24,7 +25,7 @@ describe('SignInCard', () => {
   });
 
   test('renders "Forgot Password" link correctly', () => {
-    render(<SignInCard />);
+    render(<BrowserRouter><SignInCard /></BrowserRouter>);
     const forgotPasswordLink = screen.getByText('Forgot Password');
     expect(forgotPasswordLink).toBeInTheDocument();
   
@@ -41,7 +42,7 @@ describe('SignInCard', () => {
   });
   
   test("should update the password state", () => {
-    const { getByPlaceholderText } = render(<SignInCard />);
+    const { getByPlaceholderText } = render(<BrowserRouter><SignInCard /></BrowserRouter>);
 
     const passwordInput = getByPlaceholderText("Password") as HTMLInputElement;
     fireEvent.change(passwordInput, { target: { value: "password123" } });
@@ -50,7 +51,7 @@ describe('SignInCard', () => {
   });
 
   test("should toggle password visibility", () => {
-    const { getByPlaceholderText, getByTestId } = render(<SignInCard />);
+    const { getByPlaceholderText, getByTestId } = render(<BrowserRouter><SignInCard /></BrowserRouter>);
 
     const passwordInput = getByPlaceholderText("Password") as HTMLInputElement;
     const toggleButton = getByTestId("password-toggle-button");
@@ -62,7 +63,7 @@ describe('SignInCard', () => {
   });
 
   test("should update the email state", () => {
-    const { getByPlaceholderText } = render(<SignInCard />);
+    const { getByPlaceholderText } = render(<BrowserRouter><SignInCard /></BrowserRouter>);
 
     const emailInput = getByPlaceholderText("saiprabhu.dandanayak@zemosolabs.com") as HTMLInputElement;
     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
@@ -147,7 +148,7 @@ describe('Sign-in Enabled', () => {
 });
 
 it("should disable the button when passwords do not match", () => {
-  render(<SignInCard />);
+  render(<BrowserRouter><SignInCard /></BrowserRouter>);
   const passwordInput = screen.getByPlaceholderText(
     "Password"
   ) as HTMLInputElement;

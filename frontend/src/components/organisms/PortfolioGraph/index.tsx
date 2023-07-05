@@ -3,8 +3,6 @@ import React from "react";
 import PortfolioValueTypographyComponent from "../../molecules/totalInvestment";
 import mangraph from "../../../../public/assets/images/mangraph.svg";
 import TimeLineTabs from "../../molecules/Timeline";
-import { ThemeProvider } from "@emotion/react";
-import theme from "../../../theme";
 import GraphComponent from "../../atoms/graph";
 import ImageComponent from "../../atoms/Image";
 
@@ -184,7 +182,6 @@ const PortfolioGraphComponent = ({
   };
 
   return (
-    <ThemeProvider theme={theme}>
       <Card
         sx={{
           border: "1px solid #ddd",
@@ -236,7 +233,6 @@ const PortfolioGraphComponent = ({
           )}
         </CardContent>
       </Card>
-    </ThemeProvider>
   );
 };
 

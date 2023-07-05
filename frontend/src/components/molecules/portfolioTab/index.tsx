@@ -9,7 +9,7 @@ interface PortfolioProps {
   icon: string;
   cryptoCoinName: string;
   shortNameOfCoin: string;
-  value?: number;
+  value?: number | string;
   totalPercentage?: number ;
   width?: string;
   height?: string | number;
@@ -27,7 +27,7 @@ const StyledBox = styled(Box)({
   alignItems: "center",
   paddingTop: "8px",
   gap: "80px",
-  //width: "400px",
+  minWidth: "400px",
   height: "55px",
 });
 
@@ -66,7 +66,7 @@ const PortfolioTab = ({
           <MuiTypography
             variant="body2"
             text={shortNameOfCoin}
-            sx={{ color: theme.palette.textColor.mediumEmphasis }}
+            sx={{ color: theme.palette.textColor.mediumEmphasis, fontSize:'14px', overflow:'hidden', textOverflow:'clip' }}
           />
         </Box>
       </Style1>
@@ -74,7 +74,7 @@ const PortfolioTab = ({
       <Styled2 data-testid="typography-component">
           <MuiTypography
             variant="body1"
-            text={`$${value}.00`}
+            text={`$${value}`}
             sx={{ color: theme.palette.textColor.highEmphasis }}
           />
           <MuiTypography alignItems={'flex-end'} justifyContent={'flex-end'}

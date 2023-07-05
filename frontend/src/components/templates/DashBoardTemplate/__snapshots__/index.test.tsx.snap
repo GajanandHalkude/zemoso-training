@@ -33,9 +33,11 @@ exports[`renders home template correctly 1`] = `
               }
             }
           >
-            <div
+            <a
               className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+              href="/dashboard"
               onBlur={[Function]}
+              onClick={[Function]}
               onContextMenu={[Function]}
               onDragLeave={[Function]}
               onFocus={[Function]}
@@ -47,7 +49,6 @@ exports[`renders home template correctly 1`] = `
               onTouchEnd={[Function]}
               onTouchMove={[Function]}
               onTouchStart={[Function]}
-              role="button"
               tabIndex={0}
             >
               <div
@@ -68,7 +69,7 @@ exports[`renders home template correctly 1`] = `
                   />
                 </div>
               </div>
-            </div>
+            </a>
           </li>
           <li
             className="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
@@ -217,9 +218,11 @@ exports[`renders home template correctly 1`] = `
               }
             }
           >
-            <div
+            <a
               className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+              href="/signin"
               onBlur={[Function]}
+              onClick={[Function]}
               onContextMenu={[Function]}
               onDragLeave={[Function]}
               onFocus={[Function]}
@@ -231,7 +234,6 @@ exports[`renders home template correctly 1`] = `
               onTouchEnd={[Function]}
               onTouchMove={[Function]}
               onTouchStart={[Function]}
-              role="button"
               tabIndex={0}
             >
               <div
@@ -252,7 +254,7 @@ exports[`renders home template correctly 1`] = `
                   />
                 </div>
               </div>
-            </div>
+            </a>
           </li>
         </ul>
       </div>
@@ -290,74 +292,54 @@ exports[`renders home template correctly 1`] = `
               <div
                 className="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <a
-                  className=""
-                  href="/sell"
+                <button
+                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1iafqko-MuiButtonBase-root-MuiButton-root"
+                  data-testid="button"
+                  disabled={false}
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  style={
-                    {
-                      "textDecoration": "none",
-                    }
-                  }
+                  onContextMenu={[Function]}
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="button"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1iafqko-MuiButtonBase-root-MuiButton-root"
-                    data-testid="button"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onContextMenu={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
-                  >
-                    SELL
-                  </button>
-                </a>
+                  SELL
+                </button>
               </div>
               <div
                 className="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
-                <a
-                  className=""
-                  href="/purchase"
+                <button
+                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-at012a-MuiButtonBase-root-MuiButton-root"
+                  data-testid="button"
+                  disabled={false}
+                  onBlur={[Function]}
                   onClick={[Function]}
-                  style={
-                    {
-                      "textDecoration": "none",
-                    }
-                  }
+                  onContextMenu={[Function]}
+                  onDragLeave={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="button"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-at012a-MuiButtonBase-root-MuiButton-root"
-                    data-testid="button"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onContextMenu={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
-                  >
-                    BUY
-                  </button>
-                </a>
+                  BUY
+                </button>
               </div>
             </div>
             <hr

@@ -13,6 +13,7 @@ import Filledstar from "../../../../public/assets/images/filled-star.svg";
 import Emptystar from "../../../../public/assets/images/watchlistEmptystar.svg";
 import Switch from "../../../../public/assets/icons/switch.svg";
 import { addWatchList, fetchAllCrtptoCurrenices, fetchWatchList, removeWatchList } from '../../../services';
+import { useNavigate } from 'react-router-dom';
 
 const StyledBox = styled(Box)({
   color: theme.palette.structural.main,
@@ -108,6 +109,7 @@ const TradeFrame = () => {
   function handleMarketCapClick(): void {
     setSortOrder((prevSortOrder) => prevSortOrder === 'ascending' ? 'descending' : 'ascending');
   }
+  const navigate = useNavigate();
 
   return (
     <Box data-testid="trade-frame" sx={{ width: '95vw' }} paddingTop={'12px'}>
@@ -140,10 +142,13 @@ const TradeFrame = () => {
                         key={data.id}
                         icon={pictures[data.icon]}
                         cryptoCoinName={data.name}
-                        shortNameOfCoin={data.symbol}
+                        shortNameOfCoin={data.symbol.toUpperCase()}
                         change={data.priceChange}
                         price={data.price}
                         marketCap={data.marketCap}
+                        onClick={() => navigate("/currencydetails", {
+                          state: { coindId: data.id }
+                        })}
                         button={
                           <Button data-testid="selected-watch" key={data.id} onClick={() => handleStarClick(data.id)}>
                             <IconComponent src={isStarFilled ? Filledstar : Emptystar} />
@@ -167,10 +172,11 @@ const TradeFrame = () => {
                     key={data.id}
                     icon={pictures[data.icon]}
                     cryptoCoinName={data.name}
-                    shortNameOfCoin={data.symbol}
+                    shortNameOfCoin={data.symbol.toUpperCase()}
                     change={data.priceChange}
                     price={data.price}
                     marketCap={data.marketCap} 
+                    onClick={() => navigate("/currencydetails")}
                     button={<Button data-testid="unselected-watch" key={data.id} onClick={() => handleStarClick(data.id)}>
                             <IconComponent src={Filledstar} />
                           </Button>}        
