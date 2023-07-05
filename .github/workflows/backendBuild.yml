@@ -2,7 +2,7 @@ name: SonarCloud Backend
 on:
   push:
     branches:
-      - dev                                               # change it to your main branch.
+      - main                                            # change it to your main branch.
     paths:
       - "backend/**"                                      # give the backend folder name.
   pull_request:
