@@ -7,6 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   sonarcloud:
+    if: ( startsWith(github.head_ref, 'FE_') && github.event.pull_request.merged == false ) || ( github.event_name == 'push' )
     name: SonarCloud
     runs-on: ubuntu-latest 
     timeout-minutes: 10
@@ -16,7 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0     # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules                  
+        with:
+          path: ${{ github.workspace }}/frontend/node_modules         # Change the path to the node_modules folder.
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
+  
       - name: Install dependencies
         run: npm install  
       - name: Test and coverage
