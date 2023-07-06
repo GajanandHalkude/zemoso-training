@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import {render, screen } from '@testing-library/react';
 import SideNavComponent from '.';
 import React from 'react';
 import '@testing-library/jest-dom';
@@ -18,4 +18,5 @@ test('list item buttons have the correct class', () => {
     listItemButtons.forEach((button) => {
       expect(button).toHaveClass('list-item-button');
     });
-});
+  });
+

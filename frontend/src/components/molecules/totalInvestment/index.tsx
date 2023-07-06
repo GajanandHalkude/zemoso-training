@@ -48,7 +48,7 @@ const PortfolioValueComponent = ({investmentValue,
           variant="body1"
           color={'textColor.mediumEmphasis'}
           className="investment"
-          text={typeOfInvestment}
+          text={typeOfInvestment} 
           sx={{fontSize:"14px"}}
         />
         {isInDashBoardPage && 

@@ -77,8 +77,6 @@ return (
                 <IconComponent width='13px' height='13px' src={chevronDropdown}/>
             </StyledIconContainer>
       </Grid>
-
-
     </Grid>
   </Grid>
 </CustomBox>

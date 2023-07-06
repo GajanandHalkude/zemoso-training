@@ -15,6 +15,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const StyledGrid = styled(Box)(() => ({
   width: '80px',
@@ -40,6 +41,12 @@ const StyledBox = styled(Box)(() => ({
 const iconsList = [Dashboard, Analytics, Trades, Notification, LogOut];
 
 const SideNavComponent = () => {
+  const { logout } = useAuth0();
+
+  const handleLogout = () => {
+    logout({ logoutParams: { returnTo: window.location.origin } })
+  };
+  
   const location = useLocation();
   const isActive = location.pathname === '/dashboard';
 

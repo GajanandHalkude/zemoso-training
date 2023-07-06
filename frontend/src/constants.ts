@@ -390,3 +390,6 @@ export const isValidCode = (code: string): boolean => {
    const codeRegex = /^\d{8}$/;
    return codeRegex.test(code);
  };
+
+ export const domain="dev-wtwtjeqfyy6zdodd.us.auth0.com"
+ export const clientId="3xE7Ul3Wh7ShYJae0o433cHmIwHPKGCg"

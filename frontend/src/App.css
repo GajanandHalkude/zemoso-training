@@ -12,10 +12,3 @@
     font-family: 'Graphik-medium';
     src: url('../public/assets/fonts/GraphikMedium.otf');
 }
-
-* {
-    font-family: 'Graphik', sans-serif;
-    padding: 0px;
-    margin:0px;
-  }
-  

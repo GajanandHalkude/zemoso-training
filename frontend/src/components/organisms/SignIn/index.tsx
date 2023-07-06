@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
-import { Box, Grid ,styled} from "@mui/material";
-import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin ,isEmailValid, isPasswordValid ,socialLoginOptions } from "../../../constants";
+import { Box, Grid, styled } from "@mui/material";
+import { getUserByEmail } from "../../../services";
+import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin ,isEmailValid, isPasswordValid ,socialLoginOptions} from "../../../constants";
 import { useNavigate } from 'react-router-dom';
 
 const SyledButtonComponent = styled(ButtonComponent)(() => ({
@@ -17,12 +18,12 @@ const SyledButtonComponent = styled(ButtonComponent)(() => ({
   },
 }));
 const SignInCard = () => {
-
   const [formData, setFormData] = useState({
     password: "",
     email: "",
   });
 
+  const [signInMessage, setSignInMessage] = useState("");
   const handleInputChange = (fieldName: string, value: string) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -30,6 +31,27 @@ const SignInCard = () => {
     }));
   };
 
+   const handleSignIn = async () => {
+    const { email, password } = formData;
+     getUserByEmail(email).then((response) => {
+      const dataArray = response;  
+       if(dataArray.length===0){
+        setSignInMessage("user doesnot exists")
+       }
+       else if(dataArray[0].password!==password){
+        setSignInMessage("password doesnot match")
+       }
+       else{
+        setSignInMessage("");
+    navigate("/dashboard");
+       }
+       setFormData({
+        password: "",
+        email:""
+      });
+      });
+  };
+  
   const navigate = useNavigate();
 
   const isSignInEnabled = isPasswordValid(formData.password) && isEmailValid(formData.email);
@@ -48,12 +70,13 @@ const SignInCard = () => {
           <MuiTypography variant="body1" text="Email" />
         </Grid>
         <CustomTextField
+        data-testid="email-input"
           onChange={(value) => handleInputChange("email", value)}
           width="512px"
           value={formData.email}
           placeholder="saiprabhu.dandanayak@zemosolabs.com"
           isPassword={false}
-          />
+        />
       </Box>
       <Box
         sx={{ "& > :not(style) + :not(style)": { marginTop: "5px" } }}
@@ -73,7 +96,7 @@ const SignInCard = () => {
         />
       </Box>
       <Box display="flex" >
-        <a href="#"  style={{ textDecoration: "none" }} onClick={() => navigate("/forgetpassword")}>Forgot Password</a>
+        <a href="#"  style={{ textDecoration: "none" }} onClick={() => navigate("/forgetpassword")}> <MuiTypography variant="body2" text="Forget Password" /></a>
       </Box>
       <Box display="flex">
         <SyledButtonComponent
@@ -83,26 +106,39 @@ const SignInCard = () => {
           text="Sign In"
           disabled={!isSignInEnabled}
           variant="contained"
-          onClick={() => navigate("/dashboard")}
+         onClick={ () => {handleSignIn();
+        }}
         />
       </Box>
+      {signInMessage && (
+        <Box display="flex" justifyContent="space-between" marginLeft="180px">
+          <p
+            style={{
+              color: signInMessage.includes("Password does not match") || signInMessage.includes("User does not exist")
+                ? "green"
+                : "red",
+            }}
+          >
+            {signInMessage}
+          </p>
+        </Box>
+      )}
 
-      <Box display="flex" alignItems="center" width={'512px'}>
+      <Box display="flex" alignItems="center" width={"512px"}>
         <Box flex="1" borderBottom="2px solid #E8E8F7" />
-        <Box mx={1} >
+        <Box mx={1}>
           <MuiTypography variant="body2" text="Or" color="#7D7D89" />
         </Box>
-        <Box flex="1" borderBottom="2px solid #E8E8F7"  />
+        <Box flex="1" borderBottom="2px solid #E8E8F7" />
       </Box>
       <Box display="flex" gap="30px" width="512px">
         {socialLoginOptions.map((socialLogin) => (
           <SocialLogin
-          src={socialLogin.src}
-          key={socialLogin.text}
-          text={socialLogin.text}
+            src={socialLogin.src}
+            key={socialLogin.text}
+            text={socialLogin.text}
           />
         ))}
-  
       </Box>
       <Box display="flex">
         <MuiTypography variant="body2" text="Doesn't have an account?" />

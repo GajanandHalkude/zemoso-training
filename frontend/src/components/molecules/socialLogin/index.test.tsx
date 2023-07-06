@@ -1,21 +1,43 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen , fireEvent } from "@testing-library/react";
 import SocialLogin from "./index";
-import GoogleLogo from '../../../../public/assets/images/google.svg';
+import { useAuth0 } from "@auth0/auth0-react";
 import '@testing-library/jest-dom';
 
+jest.mock("@auth0/auth0-react", () => ({
+  useAuth0: jest.fn(),
+}));
 
 describe("SocialLogin", () => {
-  it("renders the social login component with text and icon", () => {
-    const text = "Facebook";
-    const src = GoogleLogo;
+  it("should display the provided text and icon", () => {
+    const loginWithRedirect = jest.fn();
+    (useAuth0 as jest.Mock).mockReturnValue({
+      loginWithRedirect,
+    });
 
+    const text = "Login";
+    const src = "icon.png";
     render(<SocialLogin text={text} src={src} />);
-
+    const socialLoginElement = screen.getByTestId("socialIconComponent");
     const textElement = screen.getByText(text);
-    expect(textElement).toBeInTheDocument();
+    const iconElement = screen.getByText(text);
 
-    const iconElement = screen.getByTestId("socialIconComponent");
+    expect(textElement).toBeInTheDocument();
     expect(iconElement).toBeInTheDocument();
+    expect(socialLoginElement).toHaveStyle("cursor: pointer");
+  });
+
+  it("should call loginWithRedirect when clicked", () => {
+    const loginWithRedirect = jest.fn();
+    (useAuth0 as jest.Mock).mockReturnValue({
+      loginWithRedirect,
+    });
+
+    render(<SocialLogin text="Login" src="icon.png" />);
+    const socialLoginElement = screen.getByTestId("socialIconComponent");
+
+    fireEvent.click(socialLoginElement);
+
+    expect(loginWithRedirect).toHaveBeenCalledTimes(1);
   });
 });

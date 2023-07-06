@@ -3,6 +3,7 @@ import MuiTypography from "../../atoms/typography";
 import { Box } from "@mui/material"
 import IconComponent from "../../atoms/icon";
 import { styled } from "@mui/system";
+import { useAuth0 } from "@auth0/auth0-react";
 import theme from "../../../theme";
 
 interface SocialLoginProps {
@@ -21,11 +22,18 @@ const StylesBox = styled(Box)({
     borderRadius: '12px',
     width: '90px',
     height: '60px',
+    cursor:"pointer"
 })
 
 const SocialLogin = ({text,src}:SocialLoginProps) => {
+    const { loginWithRedirect } = useAuth0();
+
+  const handleLogin = () => {
+    loginWithRedirect();
+  };
+  
     return(
-        <StylesBox data-testid="socialIconComponent">
+        <StylesBox data-testid="socialIconComponent"onClick={handleLogin}  >
             <IconComponent src={src}/>
             <MuiTypography text={text} sx={{color:theme.palette.textColor.mediumEmphasis}} />
         </StylesBox>

@@ -77,13 +77,20 @@ export const addWatchList = async (coin: string) => {
     });
 }
 
-export const addUser = async (email: string, name:string,password:string) => {
-  await axios
-    .post(`${url}/users/`, { email: email, name:name,password:password })
-    .catch((error) => {
-      throw error;
+export const addUser = async (email: string, name: string, password: string) => {
+  try {
+    const response = await axios.post(`${url}/user`, {
+      email: email,
+      name: name,
+      password: password,
     });
+
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 };
+
 
 export const resetUserPassword = async (password:string) => {
   await axios
@@ -94,7 +101,7 @@ export const resetUserPassword = async (password:string) => {
 };
 
 export const getUserByEmail = async (email: string) => {
-  await axios
+  return await axios
     .get(`${url}/users?email=${email}`)
     .then((response) => response.data)
     .catch((error) => {

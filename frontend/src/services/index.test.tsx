@@ -15,6 +15,7 @@ import {
   fetchTransactions,
   getGraphData
 } from ".";
+import { url } from "../constants";
 
 describe("API Test", () => {
   let mockAxios: MockAdapter;
@@ -127,10 +128,12 @@ describe("API Test", () => {
     const email = "test@example.com";
     const name = "Test User";
     const password = "password";
-    mockAxios.onPost("https://bc92-ms.zebc61.ml/users/").reply(201);
-
+    const userData = { email, name, password };
+  
+    jest.spyOn(axios, 'post').mockResolvedValueOnce({ data: userData });
+  
     await addUser(email, name, password);
-    expect(JSON.parse(mockAxios.history.post[0].data)).toEqual({ email, name, password });
+    expect(axios.post).toHaveBeenCalledWith(`${url}/user`, userData);
   });
 
   it("resets a user password", async () => {
@@ -266,13 +269,11 @@ describe("API Test", () => {
     const email = "test@example.com";
     const name = "John Doe";
     const password = "password";
-    mockAxios
-      .onPost("https://bc92-ms.zebc61.ml/users/")
-      .reply(500, "Request failed with status code 500");
-
-    await expect(addUser(email, name, password)).rejects.toThrowError(
-      "Request failed with status code 500"
-    );
+    const mockError = new Error("Request failed with status code 500");
+  
+    jest.spyOn(axios, 'post').mockRejectedValueOnce(mockError);
+  
+    await expect(addUser(email, name, password)).rejects.toThrowError(mockError);
   });
 
   it("handles an error when resetting a user password", async () => {
