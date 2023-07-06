@@ -33,6 +33,7 @@ const StyledGridHeader = styled(Grid)({
     flexDirection:'row', 
     justifyContent:'space-between',
     alignItems:'center',
+    marginTop:'20px'
 })
 
 const MyPortfolioOrg = ()=>
@@ -54,7 +55,7 @@ const MyPortfolioOrg = ()=>
             <Grid item>
                 <StyledGridHeader data-testid="styled-grid-header">
                     <Grid item>
-                        <MuiTypography  variant="body1" fontWeight='bold' text="My portfolio"></MuiTypography>
+                        <MuiTypography  variant="body1" fontWeight='bold' text="My portfolio" sx={{fontSize:'16px'}}></MuiTypography>
                     </Grid>
                     <Grid display={'flex'} alignItems={'center'} gap={1}>
                         <Grid item>
@@ -70,13 +71,14 @@ const MyPortfolioOrg = ()=>
             <StyledGrid gap={3} data-testid="styled-grid" maxHeight="12rem" item>
                 {portfolioCoins.map((data) => {
                 const symbol = data.symbol ? data.symbol.toUpperCase() : '';
+                console.log(data.investedAmount)
                 return (
                     <Grid key={data.id}>
                     <PortfolioTab
                         icon={pictures[data.image]}
                         cryptoCoinName={data.name}
                         shortNameOfCoin={symbol}
-                        value={data.investedAmount}
+                        value={data.investedAmount.toFixed(2)}
                         totalPercentage={data.change}
                     />
                     </Grid>
@@ -95,7 +97,7 @@ const MyPortfolioOrg = ()=>
                         <MuiTypography variant="body1" fontWeight={'bold'} color={theme.palette.textColor.mediumEmphasis} text="Total Balance" ></MuiTypography>
                     </Grid>
                     <StyledGrid>
-                        <Typography variant="body1"> $ {sum}</Typography>
+                        <Typography variant="body1"> ${sum.toFixed(2)}</Typography>
                     </StyledGrid>
                 </Grid>
                 <StyledDivider data-testid="styled-divider"/>

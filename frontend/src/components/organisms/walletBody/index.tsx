@@ -191,6 +191,7 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
               border: `1px solid ${theme.palette.primary.main}`,
               borderRadius: "4px",
               color: theme.palette.primary.main,
+              height:'42px'
             }}
           />
           <ButtonComponent
@@ -201,6 +202,7 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
               border: `1px solid ${theme.palette.primary.main}`,
               borderRadius: "4px",
               color: theme.palette.primary.main,
+              height:'42px'
             }}
           />
         </Box>
@@ -236,6 +238,7 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
           <SearchField
             placeholder={placeholderText}
             filter={true} 
+            backgroundColor={theme.palette.structural.main}
             handleChange={()=> {
             return 
             } }  

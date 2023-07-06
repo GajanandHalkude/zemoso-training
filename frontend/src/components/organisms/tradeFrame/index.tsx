@@ -26,12 +26,28 @@ const StyledBox = styled(Box)({
 });
 
 const StyledTextField = styled(TextField)({
-  variant: 'outlined',
-  width: '230px',
-  height: '40px',
+  "& .MuiOutlinedInput-root": {
+    height: "40px",
+    paddingRight: "5px",
+    borderRadius: "4px",
+    "&:hover fieldset": {
+      border: `1px solid ${theme.palette.greyColors.grey100}`,
+    },
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    border: `1px solid ${theme.palette.greyColors.grey100} !important`,
+    padding: "0px",
+  },
+  input: {
+    "&::placeholder": {
+      color: theme.palette.textColor.main,
+      fontFace: theme.typography.body2,
+    },
+  },
+  variant: "outlined",
+  width: "230px",
+  height: "40px",
   background: theme.palette.structural.main,
-  border: '1px solid #E8E8F7',
-  borderRadius: '4px',
 });
 const StyledIconButton = styled(IconButton)({
   padding: '0px 0px 6px 0px',
@@ -63,7 +79,7 @@ const TradeFrame = () => {
   useEffect(() => {
     getCurrency();
     getWatchlist();
-  })
+  },[])
   const filteredCurrency = currency
   .filter((data) =>
     data.name.toLowerCase().includes(searchData.toLowerCase())
@@ -112,13 +128,14 @@ const TradeFrame = () => {
   const navigate = useNavigate();
 
   return (
-    <Box data-testid="trade-frame" sx={{ width: '95vw' }} paddingTop={'12px'}>
-      <Box display='flex' justifyContent={'space-between'}>
-        <Box data-testid="tabs-component">
+    <Box data-testid="trade-frame" paddingTop={'12px'}>
+      <Box display='flex' justifyContent={'space-between'} sx={{ width: '91vw' }}>
+        <Box data-testid="tabs-component" sx={{ width: '91vw' }} >
           <TabsComponent
             label1={'All Assets'}
             label2={'Watchlists'}
-            body1={<Box id='1' data-testid="assests" sx={{ width: '95vw' }} minHeight={'600px'}>
+            width='66%'
+            body1={<Box id='1' data-testid="assests" sx={{ width: '91vw' }} minHeight={'600px'}>
                 <StyledBox>
                   <MuiTypography sx={{ minWidth: '120px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Name' />
                   <MuiTypography sx={{ minWidth: '115px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Price' />
@@ -159,7 +176,7 @@ const TradeFrame = () => {
                   })}
                 </Box>
               </Box>}
-            body2={<Box id='2' data-testid="watchlist" sx={{ width: '95vw' }} minHeight={'600px'}>
+            body2={<Box id='2' data-testid="watchlist" sx={{ width: '91vw' }} minHeight={'600px'}>
                 <StyledBox>
                   <MuiTypography sx={{ minWidth: '150px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Name' />
                   <MuiTypography sx={{ minWidth: '125px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Price' />

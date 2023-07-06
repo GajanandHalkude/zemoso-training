@@ -293,7 +293,7 @@ exports[`renders home template correctly 1`] = `
                 className="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
                 <button
-                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1iafqko-MuiButtonBase-root-MuiButton-root"
+                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-ropxi6-MuiButtonBase-root-MuiButton-root"
                   data-testid="button"
                   disabled={false}
                   onBlur={[Function]}
@@ -319,7 +319,7 @@ exports[`renders home template correctly 1`] = `
                 className="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
                 <button
-                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-at012a-MuiButtonBase-root-MuiButton-root"
+                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-4v2cgg-MuiButtonBase-root-MuiButton-root"
                   data-testid="button"
                   disabled={false}
                   onBlur={[Function]}
@@ -388,7 +388,7 @@ exports[`renders home template correctly 1`] = `
       </div>
     </div>
     <div
-      className="MuiGrid-root MuiGrid-item css-1ef5zgp-MuiGrid-root"
+      className="MuiGrid-root MuiGrid-item css-b6d1k6-MuiGrid-root"
     >
       <div
         style={
@@ -453,7 +453,7 @@ exports[`renders home template correctly 1`] = `
               width="150px"
             />
             <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1jo413h-MuiButtonBase-root-MuiButton-root"
+              className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-o9t3yf-MuiButtonBase-root-MuiButton-root"
               data-testid="button"
               disabled={false}
               onBlur={[Function]}

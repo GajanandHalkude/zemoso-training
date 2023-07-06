@@ -23,6 +23,7 @@ const ButtonComponent: React.FC<IButtonProps> = ({
         backgroundColor: backgroundColor,
         '&:hover': {
           backgroundColor: backgroundColor,
+          boxShadow:'none'
         },
       }}
     >

@@ -9,28 +9,12 @@ const StyledBox = styled(Box)({
   gap: '24px',
 })
 
-
-const StyledTabs = styled(Tabs)({
-  '& .MuiButtonBase-root': {
-    padding: '0px',
-    minHeight: '28px',
-  },
-  '& .MuiTabs-indicator': {
-    top: '35px',
-  },
-  '& .MuiTabs-root': {
-    padding: '0px',
-  },
-  minHeight: '37px !important',
-  width: '66%',
-  borderBottom: `1px solid ${theme.palette.greyColors.grey100}`,
-})
-
 interface TabsProps {
   label1:string,
   label2:string
   body1?:React.ReactNode
   body2?:React.ReactNode
+  width?:string
 }
 interface TabPanelProps {
   children?: React.ReactNode
@@ -60,12 +44,28 @@ function a11yProps(index: number) {
     'aria-controls': `simple-tabpanel-${index}`,
   }
 }
-const TabsComponent = ({label1, label2,body1,body2}:TabsProps) => {
+const TabsComponent = ({label1, label2,body1,body2, width}:TabsProps) => {
  
   const [value, setValue] = useState(0)
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue)
   }
+
+    const StyledTabs = styled(Tabs)({
+      '& .MuiButtonBase-root': {
+        padding: '0px',
+        minHeight: '28px',
+      },
+      '& .MuiTabs-indicator': {
+        top: '35px',
+      },
+      '& .MuiTabs-root': {
+        padding: '0px',
+      },
+      minHeight: '37px !important',
+      width: width,
+      borderBottom: `1px solid ${theme.palette.greyColors.grey100}`,
+    })
   
   return (
     <StyledBox data-testid="tabs" id="tabs">

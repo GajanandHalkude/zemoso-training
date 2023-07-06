@@ -226,6 +226,7 @@ const DetailsScrennBody = () => {
       <TabsComponent
         label1="Overview"
         label2="Wallet"
+        width="100%"
         body1={
           <Tab1Styles data-testid="body1">
             <PortfolioGraphComponent
@@ -282,6 +283,7 @@ const DetailsScrennBody = () => {
                 placeholder="Search all assets"
                 filter={true}
                 handleChange={() => {}}
+                backgroundColor={theme.palette.structural.main}
               />
               <StyledDropDown
                 data-testid="dropDown"

@@ -89,7 +89,7 @@ const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSym
             gap={1.5}
             padding="8px">
             <Grid item>
-                <MuiTypography variant="subtitle1" text={title} color={theme.palette.textColor.highEmphasis} />
+                <MuiTypography variant="subtitle1" text={title} sx={{marginBottom:'20px', fontSize:'20px'}} color={theme.palette.textColor.highEmphasis} />
             </Grid>
             <Grid  
             container

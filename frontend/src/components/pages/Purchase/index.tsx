@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { addTransaction, fetchAllCrtptoCurrenices, fetchWallet } from "../../../services/index";
+import { addTransaction, fetchAllCrtptoCurrenices, fetchWallet, updateWallet } from "../../../services/index";
 import DashBoardTemplate from "../../templates/DashBoardTemplate";
 import Header from "../../molecules/Header";
 import SideNavComponent from "../../molecules/sideNavbar";
 import Footer from "../../molecules/footer";
-import { menuItems,Wallet } from "../../../constants";
+import { menuItems,MuiTypography,Wallet } from "../../../constants";
 import { Stack } from "@mui/material";
 import BuyCurrency from "../../organisms/BuyCurrency";
 import AccountDetails from "../../organisms/AccountDetails";
 import SummaryCard from "../../organisms/SummaryCard";
 import rupee from "../../../../public/assets/icons/rupee.svg"
 import { useLocation, useNavigate } from "react-router-dom";
+import theme from "../../../theme";
 
 export interface CryptoCurrency {
   id: string
@@ -36,6 +37,7 @@ const Purchase = () => {
   const [quantity, setQuantity] = useState(0);
   const [currenciesData, setCurrenciesData] = useState<CryptoCurrency[]>([])
   const [total, setTotal] = useState(0)
+  const [cryptoWallet, setCryptoWallet] = useState<Wallet>()
   const [wallet, setWallet] = useState<Wallet>({
       id: coindId,
       name: "Bitcoin",
@@ -51,6 +53,8 @@ const Purchase = () => {
         setCurrenciesData(currenciesData);
         const walletData = await fetchWallet("cash");
         setWallet(walletData);
+        const cryptoWalletData = await fetchWallet(coindId)
+        setCryptoWallet(cryptoWalletData)
       } catch (error) {
         console.error("Error fetching currency data:", error);
       }
@@ -77,14 +81,41 @@ const Purchase = () => {
     "status": "success",
     "from": "SaiPrabhu"
   }
+  const handleCashWallet = (price: number, quantity: number) => {
+    const updatedWallet = wallet
+    if (updatedWallet) {
+      const amount = parseFloat((price * quantity + 1000).toFixed(2))
+      updatedWallet.balance = updatedWallet.balance - amount
+      updatedWallet.invested_amount = updatedWallet.invested_amount - amount
+      updateWallet(wallet?.id,updatedWallet)
+    }
+  }
+  const handleCryptoWallet = (price: number, quantity: number) => {
+    const updatedCryptoWallet = cryptoWallet
+    if (updatedCryptoWallet) {
+      const amount = parseFloat((price * quantity + 1000).toFixed(2))
+      updatedCryptoWallet.balance = updatedCryptoWallet.balance + quantity
+      updatedCryptoWallet.invested_amount =
+        updatedCryptoWallet.invested_amount + amount
+      if (updatedCryptoWallet.balance) {
+        updatedCryptoWallet.avg_value =
+          updatedCryptoWallet.invested_amount / updatedCryptoWallet.balance
+      }
+      updateWallet(cryptoWallet?.id,updatedCryptoWallet)
+    }
+  }
   const handleClick = () => {
-    const balance = wallet.balance - quantity * currenciesData[0].price;
+    const balance = wallet.balance - quantity * bitcoindetails.price;
     const updatedWallet = { ...wallet, balance: balance };
+    if (balance - 1000 >= bitcoindetails.price * quantity) {
     setWallet(updatedWallet);
+    handleCashWallet(bitcoindetails.price, quantity)
+    handleCryptoWallet(bitcoindetails.price, quantity)
     addTransaction(Transaction)
     navigate('/paymentsuccess', {
       state: { totalBalance:quantity, tradeType: 'BUY CRYPTO', cointype:'BTC'  },
     })
+    }
   };
 
   return (
@@ -94,8 +125,9 @@ const Purchase = () => {
         sideNav={<SideNavComponent />}
         footer={<Footer menuItems={menuItems} buttonLabel="Need Help" />}
       >
-        <Stack direction="row" gap={4} justifyContent="space-between">
+        <Stack direction="row" justifyContent="space-between" marginBottom={'30px'}>
           <Stack gap={2} width="60vw">
+            <MuiTypography variant='subtitle1' text={'Buy Crypto'} sx={{fontSize:'20px', color:theme.palette.textColor.highEmphasis}} />
             <BuyCurrency currenciesData={currenciesData} coin={coindId} />
             <AccountDetails
               variant="payment"

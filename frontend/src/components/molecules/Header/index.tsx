@@ -25,6 +25,7 @@ borderRadius: '4px',
 padding: '0px 16px 0px 16px',
 width: '120px',
 height: '42px',
+boxShadow:'none'
 })
 
 const StyledIconContainer = styled(Grid)({

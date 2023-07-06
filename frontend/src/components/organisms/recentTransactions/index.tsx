@@ -7,7 +7,7 @@ import React from 'react'
 import IconWithTypography from '../../molecules/IconWithTypography'
 import ChipItem from '../../atoms/chip'
 import theme from '../../../theme'
-import { RECENT_TRANSACTIONS, VIEW_ALL, formatCurrency, formatDate } from '../../../constants'
+import { RECENT_TRANSACTIONS, VIEW_ALL, formatCurrency } from '../../../constants'
 import IconComponent from '../../atoms/icon'
 
 interface RecentTransactionsProps {
@@ -45,7 +45,7 @@ const StyledTransactionBox = styled(Box)(() => ({
   justifyContent: 'space-between',
   alignItems: 'flex-start',
   width:'100%',
-  minWidth: '428px',
+  minWidth: '398px',
 }))
 const StyledEmptyTransactionBox = styled(Box)(() => ({
     paddingTop:'58px',
@@ -60,15 +60,29 @@ const TransactionStyle =styled(Box)({
     display:'flex',
     flexDirection:'row',
     justifyContent:'space-between',
+    alignItems:'center',
     width:'100%',
-    minWidth: '418px'
+    minWidth: '398px'
 })
 interface RecentTransactionsComponentProps {
     recentTransactions: RecentTransactionsProps[]
     }
 
 const RecentTransactionsComponent = ({recentTransactions}: RecentTransactionsComponentProps) => {
+
+
+const getDate=(date: string | number | Date)=>{    
+  const formattedDate = new Date(date).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+  const month = formattedDate.split(" ")[0];
+  const day = formattedDate.split(" ")[1].replace(",", "");
   
+  return `${month} ${day}`
+
+} 
   return (
     <StyledGrid data-testid='recentTransacions'>
       <StyledInnerBox>
@@ -85,7 +99,8 @@ const RecentTransactionsComponent = ({recentTransactions}: RecentTransactionsCom
           <MuiTypography
             variant="caption2"
             color={theme.palette.textColor.highEmphasis}
-            text={formatDate(transaction.transactionDateTime?.split('T')[0] ?? '')}
+            text={getDate(transaction.transactionDateTime)}
+            sx={{marginBottom:'8px'}}
           />
           <TransactionStyle>
             <IconWithTypography
@@ -113,7 +128,7 @@ const RecentTransactionsComponent = ({recentTransactions}: RecentTransactionsCom
                 text={`${
                     transaction.transactionType === 'buy' ? '+' : '-'
                   }${transaction.quantity} ${
-                    transaction.symbol
+                    transaction.symbol.toUpperCase()
                   }`}
                 sx={{ color: theme.palette.textColor.highEmphasis}}
                 />

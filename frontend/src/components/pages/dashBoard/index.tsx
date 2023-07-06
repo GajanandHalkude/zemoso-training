@@ -75,7 +75,7 @@ const DashboardPage = () => {
 
   return (
     <DashBoardTemplate
-      header={<Header pageName="Dashboard" />}
+      header={<Header pageName="Dashboard" displayButtons={true} />}
       footer={<Footer menuItems={menuItems} buttonLabel='Need Help' />}
       sideNav={<SideNavComponent />}
     >
@@ -244,6 +244,7 @@ const DashboardPage = () => {
         sx={{
           backgroundColor: theme.palette.structural.main,
           paddingLeft: '24px', 
+          borderLeft: `1px solid ${theme.palette.greyColors.grey100}`,
         }}
       >
         <MyPortfolioOrg />

@@ -14,6 +14,7 @@ const StyledChildren = styled(Grid)({
   paddingLeft: "24px",
   borderLeft: `1px solid ${theme.palette.greyColors.grey100}`,
   backgroundColor: theme.palette.greyColors.grey400,
+  borderBottom: `1px solid ${theme.palette.greyColors.grey100}`,
 });
 
 const StyledHeader = styled(Grid)({

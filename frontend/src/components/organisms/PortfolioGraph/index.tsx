@@ -77,6 +77,14 @@ const PortfolioGraphComponent = ({
     legend: {
       position: "top" as const,
       horizontalAlign: "right" as const,
+      fontSize: "14px",
+      markers: {
+        width: 8,
+        height: 8,
+      },
+      itemMargin: {
+        horizontal: 15
+      },
     },
     xaxis: {
       textAnchor: "start",

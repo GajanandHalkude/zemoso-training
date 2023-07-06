@@ -150,20 +150,18 @@ export const usePortfolioCoinsandWalletHook = () => {
             .get('https://bc92-ms.zebc61.ml/wallet/bitcoin')
             .then(async (response: any) => {
               let coinData = response.data
+              console.log(coinData)
               await axios
               .get(`https://bc92-ms.zebc61.ml/cryptocurrency/${coinData.id}`)
               .then((response: any) => {
                 const tempData = response.data
-                let tempChange = coinData.investedAmount!==0 ? 
-                  (tempData.price - coinData.investedAmount) /
-                  coinData.investedAmount : 0
                 const tempCoin: PortfolioCoinProps = {
                   id: tempData.id,
                   image: tempData.icon,
                   name: tempData.name,
                   symbol: tempData.symbol,
-                  investedAmount: coinData.investedAmount || 0,
-                  change: isNaN(tempChange) ? 0 : tempChange,
+                  investedAmount: coinData.invested_amount || 0,
+                  change: isNaN(tempData.priceChange) ? 0 : tempData.priceChange,
                 }
                 newCoins.push(tempCoin)
               })
@@ -197,7 +195,7 @@ export const useRecentTransactionsHook = () => {
             tempTransactions.push(transactionData)
           }
           if (tempTransactions.length > 4) {
-            tempTransactions = tempTransactions.slice(-4).reverse();
+            tempTransactions = tempTransactions.slice(-2).reverse();
           }
           setRecentTransactions(tempTransactions)
         })

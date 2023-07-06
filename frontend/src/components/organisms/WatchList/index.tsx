@@ -25,7 +25,8 @@ const StyledGrid = styled(Grid)({
   minWidth:"418px",
   height:"115px",
   borderRadius:'4px',
-  border:`1px solid ${theme.palette.greyColors.grey100}`
+  border:`1px solid ${theme.palette.greyColors.grey100}`,
+  background:theme.palette.structural.main
 });
 
 const StyledContainer = styled("div")({
