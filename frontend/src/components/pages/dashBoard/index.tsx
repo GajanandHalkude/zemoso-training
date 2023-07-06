@@ -93,12 +93,13 @@ const DashboardPage = () => {
                         <StyledBox gap="9px" cursor={true} data-testid='discover-assets-button'
                             onClick={() => {navigate("/trade")}}>
                             <MuiTypography
-                            variant="caption1"
+                            variant="body1"
                             style={{
                                 color: theme.palette.primary
                                 ? theme.palette.primary.primary500
                                 : 'red',
                                 fontWeight: 500,
+                                fontSize:"14px"
                             }}
                             text='Discover assets'
                             />
@@ -116,12 +117,13 @@ const DashboardPage = () => {
                         <StyledBox gap="7px" cursor={true} onClick={() => {navigate("/trade")}}>
                         <MuiTypography
                             text='View Watchlist'
-                            variant="caption1"
+                            variant="body1"
                             style={{
                             color: theme.palette.primary
                                 ? theme.palette.primary.primary500
                                 : 'red',
                             fontWeight: 500,
+                            fontSize:"14px"
                             }}
                         />
                         <IconComponent src={Edit} height="11px" width="11px" />

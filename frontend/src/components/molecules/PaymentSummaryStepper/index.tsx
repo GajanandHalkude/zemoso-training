@@ -46,9 +46,10 @@ const PaymentSummaryStepper = () => {
           </ImageBox>
           <OuterBox>
             <TypographyComponent
-              variant="caption2"
+              variant="body1"
               style={{ color: theme.palette.textColor.mediumEmphasis }}
               text={paymentSummaryStepper.step1[0]}
+              sx={{fontSize:"14px"}}
             />
             <TypographyComponent
               variant="body1"
@@ -69,9 +70,10 @@ const PaymentSummaryStepper = () => {
           </ImageBox>
           <OuterBox>
             <TypographyComponent
-              variant="caption2"
+              variant="body1"
               style={{ color: theme.palette.textColor.mediumEmphasis }}
               text={paymentSummaryStepper.step2[0]}
+              sx={{fontSize:"14px"}}
             ></TypographyComponent>
             <TypographyComponent
               variant="body1"
@@ -92,9 +94,10 @@ const PaymentSummaryStepper = () => {
           </ImageBox>
           <OuterBox>
             <TypographyComponent
-              variant="caption2"
+              variant="body1"
               style={{ color: theme.palette.textColor.mediumEmphasis }}
               text={paymentSummaryStepper.step3[0]}
+              sx={{fontSize:"14px"}}
             />
             <TypographyComponent
               variant="body1"

@@ -58,9 +58,10 @@ const ChooseCrypto: React.FC<Props> = (props) => {
           </Grid>
           <Grid item>
             <TypographyComponent
-              variant="caption1"
+              variant="body1"
               color={theme.palette.textColor.mediumEmphasis}
               text={`$${value}`}
+              sx={{fontSize:"14px"}}
             />
           </Grid>
         </GridComponent>

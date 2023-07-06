@@ -125,7 +125,7 @@ const Purchase = () => {
         sideNav={<SideNavComponent />}
         footer={<Footer menuItems={menuItems} buttonLabel="Need Help" />}
       >
-        <Stack direction="row" justifyContent="space-between" marginBottom={'30px'}>
+        <Stack direction="row" justifyContent="space-between" marginBottom={'30px'} gap={'15px'}>
           <Stack gap={2} width="60vw">
             <MuiTypography variant='subtitle1' text={'Buy Crypto'} sx={{fontSize:'20px', color:theme.palette.textColor.highEmphasis}} />
             <BuyCurrency currenciesData={currenciesData} coin={coindId} />

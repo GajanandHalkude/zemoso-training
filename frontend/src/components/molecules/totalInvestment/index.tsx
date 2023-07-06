@@ -45,10 +45,11 @@ const PortfolioValueComponent = ({investmentValue,
     >
       <Box display={'flex'} alignItems="center" gap={'4px'}>
         <MuiTypography
-          variant="caption1"
+          variant="body1"
           color={'textColor.mediumEmphasis'}
           className="investment"
           text={typeOfInvestment}
+          sx={{fontSize:"14px"}}
         />
         {isInDashBoardPage && 
         (<StyledInnerBox>
@@ -74,8 +75,9 @@ const PortfolioValueComponent = ({investmentValue,
         imageHeight="9px" 
         imageWidth="9px" 
         text={`${percentageForamttedString}%`} 
-        textVariant='caption2'
+        textVariant='body1'
         textColor={percentChange >= 0 ? theme.palette.primary.success500 : theme.palette.loss.borderColor} 
+        sx={{fontSize:"14px"}}
       />}
     </StyledGrid>
   )

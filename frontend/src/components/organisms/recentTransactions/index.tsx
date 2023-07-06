@@ -87,7 +87,7 @@ const getDate=(date: string | number | Date)=>{
     <StyledGrid data-testid='recentTransacions'>
       <StyledInnerBox>
         <MuiTypography variant="body1" color={theme.palette.textColor.highEmphasis} text={RECENT_TRANSACTIONS}/>
-        <MuiTypography variant="caption2" color={theme.palette.primary.main} text={VIEW_ALL} />
+        <MuiTypography variant="body2" color={theme.palette.primary.main} text={VIEW_ALL}  sx={{fontSize:"14px"}}/>
       </StyledInnerBox>
       {recentTransactions.length === 0 ? (
         <StyledEmptyTransactionBox data-testid='emptyTransacions'>
@@ -97,10 +97,10 @@ const getDate=(date: string | number | Date)=>{
       recentTransactions.map((transaction,index) => (
         <StyledTransactionBox data-testid={`transaction-${index}`} key={transaction.cryptoId+transaction.transactionDateTime}>
           <MuiTypography
-            variant="caption2"
+            variant="body1"
             color={theme.palette.textColor.highEmphasis}
             text={getDate(transaction.transactionDateTime)}
-            sx={{marginBottom:'8px'}}
+            sx={{marginBottom:'8px',fontSize:"14px"}}
           />
           <TransactionStyle>
             <IconWithTypography
@@ -133,11 +133,11 @@ const getDate=(date: string | number | Date)=>{
                 sx={{ color: theme.palette.textColor.highEmphasis}}
                 />
                 <MuiTypography
-                variant="caption2"
+                variant="body2"
                 text={`${
                     transaction.transactionType === 'buy' ? '-' : '+'
                   }${formatCurrency.format(transaction.price)}`}
-                sx={{ color: theme.palette.textColor.mediumEmphasis}}
+                sx={{ color: theme.palette.textColor.mediumEmphasis,fontSize:"14px"}}
                 />
             </RightPart>
         </TransactionStyle>

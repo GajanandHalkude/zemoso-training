@@ -76,6 +76,7 @@ const renderOrderSummary = (
 const StyledButtonComponent = styled(ButtonComponent)({
   width: "479px",
   height: "42px",
+  boxShadow:"none"
 });
 
 const typographyStyle = {
@@ -102,9 +103,10 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
       <TypographyGrid container spacing="12px" direction={"column"}>
         <Grid item xs={12}>
           <TypographyComponent
-            variant="caption1"
+            variant="body1"
             text={`You are ${type}ing`}
             style={typographyStyle}
+            sx={{fontSize:"14px"}}
           />
         </Grid>
         <Grid item xs={12}>
@@ -112,9 +114,10 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
         </Grid>
         <Grid item xs={12}>
           <TypographyComponent
-            variant="caption1"
+            variant="body1"
             text={`1BTC = ${formatCurrency.format(price)}`}
             style={typographyStyle}
+            sx={{fontSize:"14px"}}
           />
         </Grid>
       </TypographyGrid>

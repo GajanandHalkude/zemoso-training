@@ -250,6 +250,7 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
             sx={{
               width: "77px",
               backgroundColor: theme.palette.structural.main,
+              marginLeft:"10px"
             }}
             MenuProps={{
               anchorOrigin: {
@@ -270,7 +271,7 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
           </StyledDropDown>
         </Box>
       </Grid>
-      <StyledGridTransactons container>
+      <StyledGridTransactons >
         {filteredTransactions.map((data) => (
           <WalletTransactionTab
             key={data.cryptoId}

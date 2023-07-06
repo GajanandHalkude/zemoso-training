@@ -101,7 +101,8 @@ const DeliveryDropdown = (props: DeliveryProps) => {
                         fontWeight={600}
                         fontSize={14}
                         color={theme.palette.textColor.mediumEmphasis}
-                        variant="caption1"
+                        variant="body1"
+                        sx={{fontSize:"14px"}}
                       >
                         Transaction fees : {fee} BTC
                       </Typography>
@@ -144,7 +145,8 @@ const DeliveryDropdown = (props: DeliveryProps) => {
                       fontWeight={500}
                       fontSize={12}
                       color={theme.palette.textColor.mediumEmphasis}
-                      variant="caption2"
+                      variant="body1"
+                      sx={{fontSize:"14px"}}
                     >
                       {type !== "None" ? `Delivery fees : ${fees} BTC` : ""}
                     </Typography>

@@ -23,7 +23,7 @@ const PortfolioFrame: React.FC<PortfolioFrameProps> = ({mainText,subText}) => {
           imageWidth={"20px"}
           text={subText}
           iconandtextgap={"10px"}
-          textVariant={"caption2"}
+          textVariant={"body2"}
           textColor={theme.palette.textColor.highEmphasis}
         />
       </Grid>

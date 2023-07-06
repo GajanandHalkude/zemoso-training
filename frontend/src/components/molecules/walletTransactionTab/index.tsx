@@ -77,9 +77,10 @@ const WalletTransactionTab = ({
       <LeftPart>
         <Box>
         <MuiTypography
-              variant="caption2"
+              variant="body1"
               text={month}
               color={theme.palette.textColor.mediumEmphasis}
+              sx={{fontSize:"14px"}}
             />
             <MuiTypography
               variant="subtitle2"
@@ -97,9 +98,10 @@ const WalletTransactionTab = ({
                 sx={{ color: theme.palette.textColor.highEmphasis }}
               />
               <MuiTypography
-                variant="caption2"
+                variant="body1"
                 text={userDescription}
-                sx={{ color: theme.palette.textColor.mediumEmphasis }}
+                sx={{ color: theme.palette.textColor.mediumEmphasis ,fontSize:"14px" }}
+              
               />
             </Box>
         </CurrencyStyle>
@@ -114,9 +116,9 @@ const WalletTransactionTab = ({
           sx={{ color: theme.palette.textColor.highEmphasis}}
         />
         <MuiTypography
-          variant="caption2"
+          variant="body1"
           text={`+$${marketCap}`}
-          sx={{ color: theme.palette.textColor.mediumEmphasis}}
+          sx={{ color: theme.palette.textColor.mediumEmphasis, fontSize:"14px"}}
         />
       </RightPart>
     </StyledBox>

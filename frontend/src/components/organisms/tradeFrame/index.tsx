@@ -137,11 +137,11 @@ const TradeFrame = () => {
             width='66%'
             body1={<Box id='1' data-testid="assests" sx={{ width: '91vw' }} minHeight={'600px'}>
                 <StyledBox>
-                  <MuiTypography sx={{ minWidth: '120px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Name' />
-                  <MuiTypography sx={{ minWidth: '115px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Price' />
-                  <MuiTypography color={theme.palette.greyColors.grey500} variant='caption1' text='Change' />
+                  <MuiTypography sx={{ minWidth: '120px' ,fontSize:"14px"}} color={theme.palette.greyColors.grey500} variant='body1' text='Name' />
+                  <MuiTypography sx={{ minWidth: '115px',fontSize:"14px" }} color={theme.palette.greyColors.grey500} variant='body1' text='Price' />
+                  <MuiTypography color={theme.palette.greyColors.grey500} variant='body1' text='Change' sx={{ fontSize:"14px"}}/>
                   <Box display={'flex'} flexDirection={'row'} gap={'12px'} alignItems={'center'} minWidth={'130px'}>
-                  <MuiTypography color={theme.palette.greyColors.grey500} variant='caption1' text='Market Cap' />
+                  <MuiTypography color={theme.palette.greyColors.grey500} variant='body1' text='Market Cap' sx={{ fontSize:"14px"}}/>
                       <StyledIconButton
                       onClick={() => handleMarketCapClick()}
                       data-testid="market-cap-button"
@@ -149,7 +149,7 @@ const TradeFrame = () => {
                       <StyledIconComponent src={Switch} width={'13px'} height={'10px'} />
                     </StyledIconButton>
                   </Box>
-                  <MuiTypography color={theme.palette.greyColors.grey500} variant='caption1' text='Watch' />
+                  <MuiTypography color={theme.palette.greyColors.grey500} variant='body1' text='Watch' sx={{ fontSize:"14px"}}/>
                 </StyledBox>
                 <Box>
                   {filteredData.map((data) => {
@@ -177,12 +177,20 @@ const TradeFrame = () => {
                 </Box>
               </Box>}
             body2={<Box id='2' data-testid="watchlist" sx={{ width: '91vw' }} minHeight={'600px'}>
-                <StyledBox>
-                  <MuiTypography sx={{ minWidth: '150px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Name' />
-                  <MuiTypography sx={{ minWidth: '125px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Price' />
-                  <MuiTypography sx={{ minWidth: '70px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Change' />
-                  <MuiTypography sx={{ minWidth: '170px' }} color={theme.palette.greyColors.grey500} variant='caption1' text='Market Cap' />
-                  <MuiTypography color={theme.palette.greyColors.grey500} variant='caption1' text='Watch' />
+               <StyledBox>
+                  <MuiTypography color={theme.palette.greyColors.grey500} sx={{ minWidth: '120px' ,fontSize:"14px"}} variant='body1' text='Name' />
+                  <MuiTypography sx={{ minWidth: '115px',fontSize:"14px" }} variant='body1' text='Price' color={theme.palette.greyColors.grey500}  />
+                  <MuiTypography color={theme.palette.greyColors.grey500} sx={{ fontSize:"14px"}}  variant='body1' text='Change'/>
+                  <Box display={'flex'}  gap={'12px'} alignItems={'center'} minWidth={'130px'} flexDirection={'row'}>
+                  <MuiTypography sx={{ fontSize:"14px"}} color={theme.palette.greyColors.grey500} variant='body1' text='Market Cap' />
+                      <StyledIconButton
+                      onClick={() => handleMarketCapClick()}
+                      data-testid="market-cap-button"
+                      >
+                      <StyledIconComponent height={'10px'} src={Switch} width={'13px'} />
+                    </StyledIconButton>
+                  </Box>
+                  <MuiTypography variant='body1'   color={theme.palette.greyColors.grey500} text='Watch' sx={{ fontSize:"14px"}} />
                 </StyledBox>
                 {filteredCurrency.map((data) => (
                   <TradeTab

@@ -11,8 +11,8 @@ exports[`renders buy summary card correctly 1`] = `
     <div
       className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
     >
-      <span
-        className="MuiTypography-root MuiTypography-caption1 css-37jdci-MuiTypography-root"
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
         data-testid="typography-component"
         style={
           {
@@ -21,7 +21,7 @@ exports[`renders buy summary card correctly 1`] = `
         }
       >
         You are buying
-      </span>
+      </p>
     </div>
     <div
       className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
@@ -36,8 +36,8 @@ exports[`renders buy summary card correctly 1`] = `
     <div
       className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
     >
-      <span
-        className="MuiTypography-root MuiTypography-caption1 css-37jdci-MuiTypography-root"
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
         data-testid="typography-component"
         style={
           {
@@ -46,7 +46,7 @@ exports[`renders buy summary card correctly 1`] = `
         }
       >
         1BTC = $3,406,069.54
-      </span>
+      </p>
     </div>
   </div>
   <div
@@ -81,8 +81,8 @@ exports[`renders buy summary card correctly 1`] = `
           <div
             className="MuiBox-root css-15budcu"
           >
-            <span
-              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
               data-testid="typography-component"
               style={
                 {
@@ -91,7 +91,7 @@ exports[`renders buy summary card correctly 1`] = `
               }
             >
               Payment method
-            </span>
+            </p>
             <p
               className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
               data-testid="typography-component"
@@ -143,8 +143,8 @@ exports[`renders buy summary card correctly 1`] = `
           <div
             className="MuiBox-root css-15budcu"
           >
-            <span
-              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
               data-testid="typography-component"
               style={
                 {
@@ -153,7 +153,7 @@ exports[`renders buy summary card correctly 1`] = `
               }
             >
               Delivery fees
-            </span>
+            </p>
             <p
               className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
               data-testid="typography-component"
@@ -205,8 +205,8 @@ exports[`renders buy summary card correctly 1`] = `
           <div
             className="MuiBox-root css-15budcu"
           >
-            <span
-              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
               data-testid="typography-component"
               style={
                 {
@@ -215,7 +215,7 @@ exports[`renders buy summary card correctly 1`] = `
               }
             >
               Deposit to
-            </span>
+            </p>
             <p
               className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
               data-testid="typography-component"
@@ -326,7 +326,7 @@ exports[`renders buy summary card correctly 1`] = `
       </p>
     </div>
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-rdx6h5-MuiButtonBase-root-MuiButton-root"
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-ib6dj5-MuiButtonBase-root-MuiButton-root"
       data-testid="button"
       disabled={false}
       onBlur={[Function]}
@@ -362,8 +362,8 @@ exports[`renders sell summary card correctly 1`] = `
     <div
       className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
     >
-      <span
-        className="MuiTypography-root MuiTypography-caption1 css-37jdci-MuiTypography-root"
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
         data-testid="typography-component"
         style={
           {
@@ -372,7 +372,7 @@ exports[`renders sell summary card correctly 1`] = `
         }
       >
         You are selling
-      </span>
+      </p>
     </div>
     <div
       className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
@@ -387,8 +387,8 @@ exports[`renders sell summary card correctly 1`] = `
     <div
       className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
     >
-      <span
-        className="MuiTypography-root MuiTypography-caption1 css-37jdci-MuiTypography-root"
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
         data-testid="typography-component"
         style={
           {
@@ -397,7 +397,7 @@ exports[`renders sell summary card correctly 1`] = `
         }
       >
         1BTC = $3,406,069.54
-      </span>
+      </p>
     </div>
   </div>
   <div
@@ -432,8 +432,8 @@ exports[`renders sell summary card correctly 1`] = `
           <div
             className="MuiBox-root css-15budcu"
           >
-            <span
-              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
               data-testid="typography-component"
               style={
                 {
@@ -442,7 +442,7 @@ exports[`renders sell summary card correctly 1`] = `
               }
             >
               Payment method
-            </span>
+            </p>
             <p
               className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
               data-testid="typography-component"
@@ -494,8 +494,8 @@ exports[`renders sell summary card correctly 1`] = `
           <div
             className="MuiBox-root css-15budcu"
           >
-            <span
-              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
               data-testid="typography-component"
               style={
                 {
@@ -504,7 +504,7 @@ exports[`renders sell summary card correctly 1`] = `
               }
             >
               Delivery fees
-            </span>
+            </p>
             <p
               className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
               data-testid="typography-component"
@@ -556,8 +556,8 @@ exports[`renders sell summary card correctly 1`] = `
           <div
             className="MuiBox-root css-15budcu"
           >
-            <span
-              className="MuiTypography-root MuiTypography-caption2 css-37jdci-MuiTypography-root"
+            <p
+              className="MuiTypography-root MuiTypography-body1 css-1d9ye53-MuiTypography-root"
               data-testid="typography-component"
               style={
                 {
@@ -566,7 +566,7 @@ exports[`renders sell summary card correctly 1`] = `
               }
             >
               Deposit to
-            </span>
+            </p>
             <p
               className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
               data-testid="typography-component"
@@ -677,7 +677,7 @@ exports[`renders sell summary card correctly 1`] = `
       </p>
     </div>
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-16usemd-MuiButtonBase-root-MuiButton-root"
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1k23lp7-MuiButtonBase-root-MuiButton-root"
       data-testid="button"
       disabled={false}
       onBlur={[Function]}

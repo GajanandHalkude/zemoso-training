@@ -71,7 +71,7 @@ const WatchListBar = ({coinIcon,
   
   const renderTypography = (text: string, value: number) => (
     <StyledBoxForInfo>
-      <MuiTypography variant="caption1" color={theme.palette.textColor.mediumEmphasis} text={text} />
+      <MuiTypography variant="body1" color={theme.palette.textColor.mediumEmphasis} text={text} sx={{fontSize:"14px"}}/>
       <MuiTypography
         variant="body1"
         color={theme.palette.textColor.highEmphasis}

@@ -59,7 +59,7 @@ const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSym
                   {variant === 'payment' && (
                     <Grid container direction={'column'} gap={0.5}>
                       <Grid item>
-                        <MuiTypography variant="caption1" text={coinType} />
+                        <MuiTypography variant="body1" text={coinType} />
                       </Grid>
                       <Grid item>
                         <MuiTypography variant="subtitle1" text={`Total balance: $${balance}`} color={theme.palette.textColor.mediumEmphasis}/>
@@ -67,14 +67,14 @@ const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSym
                     </Grid>
                   )}
                   {(variant === 'deposit' || variant === 'balance') && (
-                    <MuiTypography variant="caption1" text={coinType} />
+                    <MuiTypography variant="body1" text={coinType} />
                   )}
                 </Grid>
               </Grid>
             </Grid>
             <Grid item >
               {(variant === 'deposit' || variant === 'payment') && (
-                <MuiTypography variant="caption1" color={theme.palette.textColor.mediumEmphasis} text="Default"/>
+                <MuiTypography variant="body1" color={theme.palette.textColor.mediumEmphasis} text="Default"/>
               )}
               {variant === 'balance' && (
                 <MuiTypography variant="subtitle1" text={`${balance} ${coinSymbol}`}/>
@@ -115,7 +115,7 @@ const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSym
                               <MuiTypography variant="body1" text={coinType} color={theme.palette.textColor.highEmphasis} />
                             </Grid>
                             <Grid item>
-                              <MuiTypography variant="caption2" text={walletName} color={theme.palette.textColor.mediumEmphasis}/>
+                              <MuiTypography variant="body1" text={walletName} color={theme.palette.textColor.mediumEmphasis} sx={{fontSize:"14px"}}/>
                             </Grid>
                         </Grid>
                     </Grid>
