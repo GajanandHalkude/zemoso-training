@@ -4,6 +4,31 @@ server:
 spring:
   application:
     name: PORTFOLIO-SERVICE
+    
+  datasource:
+    url: jdbc:mysql://18.224.180.229:30002/minet
+    username: root
+    password: Bootcamp@92
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    properties:
+      hibernate:
+
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  flyway:
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    validate-on-migrate: false
+    encoding: UTF-8
+    out-of-order: true
+    url: jdbc:mysql://18.224.180.229:30002/minet
+    user: root
+    password: Bootcamp@92
 
 eureka:
   client:
