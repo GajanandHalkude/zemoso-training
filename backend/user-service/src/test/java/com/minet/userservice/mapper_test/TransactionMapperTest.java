@@ -37,7 +37,7 @@ class TransactionMapperTest {
     void setup() {
         firstTransaction = Transaction.builder()
                 .id(1)
-                .currency_Id("bitcoin")
+                .currencyId("bitcoin")
                 .type("sell")
                 .symbol("BTC")
                 .price(2343.98)
@@ -48,7 +48,7 @@ class TransactionMapperTest {
 
         secondTransaction = Transaction.builder()
                 .id(2)
-                .currency_Id("bitcoin")
+                .currencyId("bitcoin")
                 .type("buy")
                 .symbol("BTC")
                 .price(254.98)
@@ -59,7 +59,7 @@ class TransactionMapperTest {
 
         firstTransactionDto = TransactionDto.builder()
                 .id(1)
-                .currency_id("bitcoin")
+                .currencyId("bitcoin")
                 .type("sell")
                 .symbol("BTC")
                 .price(2343.98)
@@ -70,7 +70,7 @@ class TransactionMapperTest {
 
         secondTransactionDto = TransactionDto.builder()
                 .id(2)
-                .currency_id("bitcoin")
+                .currencyId("bitcoin")
                 .type("buy")
                 .symbol("BTC")
                 .price(254.98)

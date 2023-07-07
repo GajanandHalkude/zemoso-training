@@ -51,9 +51,9 @@ class UserWalletServiceTest {
                 .build();
         wallet = Wallet.builder()
                 .id(1)
-                .currency_Id("bitcoin")
-                .avg_value(5000)
-                .invested_amount(5000)
+                .currencyId("bitcoin")
+                .avgValue(5000)
+                .investedAmount(5000)
                 .balance(1)
                 .name("bitcoin")
                 .build();

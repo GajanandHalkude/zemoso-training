@@ -67,7 +67,7 @@ class UserTransactionsControllerTest {
     void setup() {
         firstTransaction = Transaction.builder()
                 .id(1)
-                .currency_Id("bitcoin")
+                .currencyId("bitcoin")
                 .type("sell")
                 .symbol("BTC")
                 .price(2343.98)
@@ -78,7 +78,7 @@ class UserTransactionsControllerTest {
 
         secondTransaction = Transaction.builder()
                 .id(2)
-                .currency_Id("bitcoin")
+                .currencyId("bitcoin")
                 .type("buy")
                 .symbol("BTC")
                 .price(254.98)
@@ -118,7 +118,7 @@ class UserTransactionsControllerTest {
     void addUserTransactions() throws Exception {
         TransactionDto newTransactionDto = TransactionDto.builder()
                 .id(3)
-                .currency_id("ethereum")
+                .currencyId("ethereum")
                 .type("sell")
                 .symbol("ETH")
                 .price(2098.23)

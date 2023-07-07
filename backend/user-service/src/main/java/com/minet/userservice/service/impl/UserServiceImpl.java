@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void resetUserPassword(int userId, String newPassword) {
         User user = getUserById(userId);
-        user.setPassword(newPassword.replaceAll("\"", ""));
+        user.setPassword(newPassword.replace("\"", ""));
         userRepository.save(user);
     }
 

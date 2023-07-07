@@ -12,9 +12,9 @@ public class WalletDto {
     int id;
     String name;
     double balance;
-    double avg_value;
-    double invested_amount;
-    String currency_id;
+    double avgValue;
+    double investedAmount;
+    String currencyId;
 
 }
 

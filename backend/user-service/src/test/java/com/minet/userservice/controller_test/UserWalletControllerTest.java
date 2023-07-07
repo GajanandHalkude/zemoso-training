@@ -66,18 +66,18 @@ class UserWalletControllerTest {
                 .id(1)
                 .name("Cash")
                 .balance(50000)
-                .avg_value(1)
-                .invested_amount(50000)
-                .currency_Id(null)
+                .avgValue(1)
+                .investedAmount(50000)
+                .currencyId(null)
                 .build();
 
         secondWallet = Wallet.builder()
                 .id(2)
                 .name("Bitcoin")
                 .balance(16000)
-                .avg_value(1)
-                .invested_amount(16000)
-                .currency_Id("bitcoin")
+                .avgValue(1)
+                .investedAmount(16000)
+                .currencyId("bitcoin")
                 .build();
 
     }
@@ -114,9 +114,9 @@ class UserWalletControllerTest {
                 .id(3)
                 .name("Ethereum")
                 .balance(50000.7)
-                .avg_value(1.1)
-                .invested_amount(50000.7)
-                .currency_id("ethereum")
+                .avgValue(1.1)
+                .investedAmount(50000.7)
+                .currencyId("ethereum")
                 .build();
 
         Mockito.when(userWalletController.saveUserWallet(1, newWalletDto)).thenReturn(newWalletDto);
@@ -149,18 +149,18 @@ class UserWalletControllerTest {
                 .id(2)
                 .name("Bitcoin")
                 .balance(10000)
-                .avg_value(0.6)
-                .invested_amount(10000)
-                .currency_id("bitcoin")
+                .avgValue(0.6)
+                .investedAmount(10000)
+                .currencyId("bitcoin")
                 .build();
 
         Wallet newWallet = Wallet.builder()
                 .id(2)
                 .name("Bitcoin")
                 .balance(10000)
-                .avg_value(0.6)
-                .invested_amount(10000)
-                .currency_Id("bitcoin")
+                .avgValue(0.6)
+                .investedAmount(10000)
+                .currencyId("bitcoin")
                 .build();
 
         Mockito.when(walletMapper.convertToWallet(Mockito.any())).thenReturn(newWallet);

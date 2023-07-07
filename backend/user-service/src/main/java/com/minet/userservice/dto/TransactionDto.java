@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class TransactionDto {
     private int id;
-    private String currency_id;
+    private String currencyId;
     private String type;
     private String symbol;
     private double price;

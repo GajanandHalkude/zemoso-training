@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class Transaction {
 
     private int id;
-    private String currency_Id;
+    private String currencyId;
     private String type;
     private String symbol;
     private double price;

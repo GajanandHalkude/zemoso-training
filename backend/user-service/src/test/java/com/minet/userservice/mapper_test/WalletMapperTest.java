@@ -35,37 +35,37 @@ class WalletMapperTest {
         firstWallet = Wallet.builder()
                 .id(1)
                 .name("bitcoin")
-                .currency_Id("bitcoin")
+                .currencyId("bitcoin")
                 .balance(1)
-                .avg_value(3000)
-                .invested_amount(3000)
+                .avgValue(3000)
+                .investedAmount(3000)
                 .build();
 
         secondWallet = Wallet.builder()
                 .id(1)
                 .name("xrp")
-                .currency_Id("xrp")
+                .currencyId("xrp")
                 .balance(1)
-                .avg_value(3000)
-                .invested_amount(3000)
+                .avgValue(3000)
+                .investedAmount(3000)
                 .build();
 
         firstWalletDto = WalletDto.builder()
                 .id(1)
                 .name("bitcoin")
-                .currency_id("bitcoin")
+                .currencyId("bitcoin")
                 .balance(1)
-                .avg_value(3000)
-                .invested_amount(3000)
+                .avgValue(3000)
+                .investedAmount(3000)
                 .build();
 
         secondWalletDto = WalletDto.builder()
                 .id(1)
                 .name("xrp")
-                .currency_id("xrp")
+                .currencyId("xrp")
                 .balance(1)
-                .avg_value(3000)
-                .invested_amount(3000)
+                .avgValue(3000)
+                .investedAmount(3000)
                 .build();
     }
 

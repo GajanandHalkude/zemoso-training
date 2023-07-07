@@ -53,7 +53,7 @@ class UserTransactionServiceTest {
                 .build();
         transaction = Transaction.builder()
                 .id(1)
-                .currency_Id("bitcoin")
+                .currencyId("bitcoin")
                 .type("sell")
                 .symbol("BTC")
                 .price(2343.98)

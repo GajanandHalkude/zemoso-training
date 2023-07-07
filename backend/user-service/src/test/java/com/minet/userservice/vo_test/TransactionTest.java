@@ -17,7 +17,7 @@ class TransactionTest {
         LocalDateTime dateTime = LocalDateTime.now();
 
         newTransaction.setId(1);
-        newTransaction.setCurrency_Id("bitcoin");
+        newTransaction.setCurrencyId("bitcoin");
         newTransaction.setType("sell");
         newTransaction.setPrice(3456.54);
         newTransaction.setQuantity(1.2);
@@ -33,7 +33,7 @@ class TransactionTest {
         assertThat(newTransaction.getQuantity()).isEqualTo(1.2);
         assertThat(newTransaction.getSymbol()).isEqualTo("BTC");
         assertThat(newTransaction.getStatus()).isEqualTo("success");
-        assertThat(newTransaction.getCurrency_Id()).isEqualTo("bitcoin");
+        assertThat(newTransaction.getCurrencyId()).isEqualTo("bitcoin");
 
         Transaction transaction = new Transaction(1,"bitcoin","sell","BTC",3456.54,1.2,dateTime,"success");
 
@@ -45,6 +45,6 @@ class TransactionTest {
         assertThat(transaction.getQuantity()).isEqualTo(1.2);
         assertThat(transaction.getSymbol()).isEqualTo("BTC");
         assertThat(transaction.getStatus()).isEqualTo("success");
-        assertThat(transaction.getCurrency_Id()).isEqualTo("bitcoin");
+        assertThat(transaction.getCurrencyId()).isEqualTo("bitcoin");
     }
 }
