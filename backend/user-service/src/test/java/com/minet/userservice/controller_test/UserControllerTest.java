@@ -87,7 +87,7 @@ class UserControllerTest {
         Mockito.when(userController.getAllUsers()).thenReturn(dtoRecords);
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/")
+                        .get("/api/v1/users/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(2)));
@@ -95,7 +95,7 @@ class UserControllerTest {
         Mockito.when(userController.getAllUsers()).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "No users found"));
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/")
+                        .get("/api/v1/users/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -113,7 +113,7 @@ class UserControllerTest {
 
         Mockito.when(userController.saveUser(newUserDto)).thenReturn(newUserDto);
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/users/")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/v1/users/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newUserDto));
@@ -125,7 +125,7 @@ class UserControllerTest {
 
         Mockito.when(userController.saveUser(newUserDto)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to add user"));
 
-        MockMvcRequestBuilders.post("/users/")
+        MockMvcRequestBuilders.post("/api/v1/users/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newUserDto));
@@ -142,14 +142,14 @@ class UserControllerTest {
         Mockito.when(userController.getUserById(2)).thenReturn(secondUserDto);
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/6")
+                        .get("/api/v1/users/6")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
         Mockito.when(userController.getUserById(6)).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "No user found for given id: 6"));
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/6")
+                        .get("/api/v1/users/6")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -163,14 +163,14 @@ class UserControllerTest {
         Mockito.when(userController.getUserByEmail("test2@gmail.com")).thenReturn(secondUserDto);
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/6")
+                        .get("/api/v1/users/6")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
         Mockito.when(userController.getUserByEmail("test6@gmail.com")).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "No user found for given email: test6@gmail.com"));
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/6")
+                        .get("/api/v1/users/6")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -189,7 +189,7 @@ class UserControllerTest {
 
         UserDto userDto2 = UserDto.builder().password("newPassword").build();
         Mockito.doNothing().when(userService).resetUserPassword(newUserDto.getId(),"newPassword");
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.patch("/users/3/reset-password")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.patch("/api/v1/users/3/reset-password")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(userDto2));

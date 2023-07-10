@@ -59,14 +59,14 @@ class UserWatchlistControllerTest {
         Mockito.when(userWatchlistController.getUserWatchlist(1)).thenReturn(userWatchlist);
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/1/watchlist/")
+                        .get("/api/v1/users/1/watchlist/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
         Mockito.when(userWatchlistController.getUserWatchlist(4)).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "No watchlist found"));
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/4/watchlist/")
+                        .get("/api/v1/users/4/watchlist/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -78,7 +78,7 @@ class UserWatchlistControllerTest {
 
         Mockito.when(userWatchlistController.addCryptoIdForUserWatchlist(1, coin)).thenReturn(coin);
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/users/1/watchlist/")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/v1/users/1/watchlist/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(coin);
@@ -88,7 +88,7 @@ class UserWatchlistControllerTest {
 
         Mockito.when(userWatchlistController.addCryptoIdForUserWatchlist(5,coin)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to add crypto to watchlist"));
 
-        MockMvcRequestBuilders.post("/users/5/watchlist/")
+        MockMvcRequestBuilders.post("/api/v1/users/5/watchlist/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(coin);
@@ -104,7 +104,7 @@ class UserWatchlistControllerTest {
 
         Mockito.when(userWatchlistController.deleteCryptoIdForUserWatchlist(1, coin)).thenReturn(coin);
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.delete("/users/1/watchlist/xrp")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.delete("/api/v1/users/1/watchlist/xrp")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(coin);
@@ -114,7 +114,7 @@ class UserWatchlistControllerTest {
 
         Mockito.when(userWatchlistController.deleteCryptoIdForUserWatchlist(1,"ethereum")).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to delete coin from watchlist"));
 
-        MockHttpServletRequestBuilder mockRequestException = MockMvcRequestBuilders.delete("/users/1/watchlist/ethereum")
+        MockHttpServletRequestBuilder mockRequestException = MockMvcRequestBuilders.delete("/api/v1/users/1/watchlist/ethereum")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content("ethereum");

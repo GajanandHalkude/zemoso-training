@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
-@RequestMapping("/users")
+@RequestMapping("/api/v1/users")
 public class UserWalletController {
 
     @Autowired

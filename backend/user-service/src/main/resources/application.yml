@@ -1,8 +1,8 @@
 server:
   port: 9001
 
-wallet.url: http://localhost:9004/wallet/
-transaction.url: http://localhost:9003/transactions/
+wallet.url: http://localhost:9004/api/v1/wallet/
+transaction.url: http://localhost:9003/api/v1/transactions/
 
 spring:
   application:

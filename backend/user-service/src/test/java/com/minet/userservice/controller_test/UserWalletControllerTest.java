@@ -94,7 +94,7 @@ class UserWalletControllerTest {
         Mockito.when(userWalletController.getAllUserWallets(1)).thenReturn(dtoRecords);
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/1/wallets/")
+                        .get("/api/v1/users/1/wallets/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(2)));
@@ -102,7 +102,7 @@ class UserWalletControllerTest {
         Mockito.when(userWalletController.getAllUserWallets(5)).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "No wallets found"));
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/5/wallets/")
+                        .get("/api/v1/users/5/wallets/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -121,7 +121,7 @@ class UserWalletControllerTest {
 
         Mockito.when(userWalletController.saveUserWallet(1, newWalletDto)).thenReturn(newWalletDto);
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/users/1/wallets/")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/v1/users/1/wallets/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newWalletDto));
@@ -133,7 +133,7 @@ class UserWalletControllerTest {
 
        Mockito.when(userWalletController.saveUserWallet(5, newWalletDto)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to add wallet"));
 
-        MockHttpServletRequestBuilder mockRequestException = MockMvcRequestBuilders.post("/users/5/wallets/")
+        MockHttpServletRequestBuilder mockRequestException = MockMvcRequestBuilders.post("/api/v1/users/5/wallets/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newWalletDto));
@@ -167,7 +167,7 @@ class UserWalletControllerTest {
 
         Mockito.when(userWalletController.updateUserWallet(1, 2, Mockito.any())).thenReturn(newWalletDto);
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.patch("/users/1/wallets/2")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.patch("/api/v1/users/1/wallets/2")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newWalletDto));
@@ -179,7 +179,7 @@ class UserWalletControllerTest {
 
         Mockito.when(userWalletController.updateUserWallet(1, 2, newWalletDto)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to update wallet"));
 
-        MockHttpServletRequestBuilder mockExceptionRequest = MockMvcRequestBuilders.patch("/users/1/wallets/2")
+        MockHttpServletRequestBuilder mockExceptionRequest = MockMvcRequestBuilders.patch("/api/v1/users/1/wallets/2")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newWalletDto));
@@ -196,13 +196,13 @@ class UserWalletControllerTest {
 
         Mockito.when(userWalletController.getUserWalletByWalletId(1, 2)).thenReturn(secondWalletDto);
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/1/wallets/2")
+                        .get("/api/v1/users/1/wallets/2")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
         Mockito.when(userWalletController.getUserWalletByWalletId(300, 89)).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "No wallets with the given id found"));
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/300/wallets/89")
+                        .get("/api/v1/users/300/wallets/89")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }

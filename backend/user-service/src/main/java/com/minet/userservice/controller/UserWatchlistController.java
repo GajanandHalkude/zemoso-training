@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping("/users")
+@RequestMapping("/api/v1/users")
 public class UserWatchlistController {
     @Autowired
     UserWatchlistService userWatchlistService;

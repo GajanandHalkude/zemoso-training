@@ -100,7 +100,7 @@ class UserTransactionsControllerTest {
         Mockito.when(userTransactionsController.getAllUserTransactions(1)).thenReturn(dtoRecords);
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/1/transactions/")
+                        .get("/api/v1/users/1/transactions/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(2)));
@@ -108,7 +108,7 @@ class UserTransactionsControllerTest {
         Mockito.when(userTransactionsController.getAllUserTransactions(1)).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "No transactions found"));
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/1/transactions/")
+                        .get("/api/v1/users/1/transactions/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -129,7 +129,7 @@ class UserTransactionsControllerTest {
 
         Mockito.when(userTransactionsController.saveUserTransactions(1, newTransactionDto)).thenReturn(newTransactionDto);
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/users/1/transactions/")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/v1/users/1/transactions/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newTransactionDto));
@@ -141,7 +141,7 @@ class UserTransactionsControllerTest {
 
         Mockito.when(userTransactionsController.saveUserTransactions(1, newTransactionDto)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to add a transaction"));
 
-        MockMvcRequestBuilders.post("/users/1/transactions/")
+        MockMvcRequestBuilders.post("/api/v1/users/1/transactions/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newTransactionDto));
@@ -157,13 +157,13 @@ class UserTransactionsControllerTest {
 
         Mockito.when(userTransactionsController.getUserTransactionsById(1,1)).thenReturn(transactionDto);
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/1/transactions/1")
+                        .get("/api/v1/users/1/transactions/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
         Mockito.when(userTransactionsController.getUserTransactionsById(300, 89)).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "No transactions with the given id found"));
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/users/300/transactions/89")
+                        .get("/api/v1/users/300/transactions/89")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
