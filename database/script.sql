@@ -55,8 +55,7 @@ CREATE TABLE wallet (
     balance DECIMAL(18, 2) DEFAULT 0,
     average_value DECIMAL(18, 2),
     invested_amount DECIMAL(18, 2),
-    currency_id VARCHAR(100),
-    FOREIGN KEY (currency_id) REFERENCES currency(id)
+    currency_id VARCHAR(100)
 );
 CREATE TABLE transaction (
     id INT PRIMARY KEY AUTO_INCREMENT,
