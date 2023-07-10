@@ -14,7 +14,7 @@ CREATE TABLE user (
 );
 INSERT INTO user (id, name, email, password)
 VALUES
-    (1, 'John', 'john123@gmail.com', 'John@12');
+    (1, 'John', 'john123@gmail.com', 'John@1234');
 
 
 CREATE TABLE currency (
@@ -48,12 +48,6 @@ CREATE TABLE watchlist (
     added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
-INSERT INTO watchlist (id,currency_id,user_id)
-VALUES
-    (1,'matic-network',1),
-    (2,'ethereum',1),
-    (3,'bitcoin',2),
-    (4,'dogecoin',2);
 
 CREATE TABLE wallet (
     id INT PRIMARY KEY AUTO_INCREMENT,
