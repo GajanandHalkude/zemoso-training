@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `minet`.`currency` (
-    `id` VARCHAR(100) NOT NULL AUTO_INCREMENT,
+    `id` VARCHAR(100) NOT NULL,
     `name` VARCHAR(100) NOT NULL,
     `symbol` VARCHAR(10) NOT NULL,
     `icon` VARCHAR(100),
