@@ -22,7 +22,9 @@ public class UserWatchlistServiceImpl implements UserWatchlistService {
     @Override
     public String saveWatchlist(User user, String cryptoId) {
         try {
-            UserWatchlist userWatchlist = new UserWatchlist(user, cryptoId);
+            UserWatchlist userWatchlist = new UserWatchlist();
+            userWatchlist.setUser(user);
+            userWatchlist.setCurrencyId(cryptoId);
             UserWatchlist userWatchlist1 = userWatchlistRepository.save(userWatchlist);
             return userWatchlist1.getCurrencyId();
         } catch (WatchlistNotFoundException e) {
