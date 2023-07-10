@@ -10,7 +10,7 @@ spring:
         - id: USER-SERVICE
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user/**
+            - Path=/api/v1/users/**
         - id: CRYPTO-SERVICE
           uri: lb://CRYPTO-SERVICE
           predicates:
