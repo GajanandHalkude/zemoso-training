@@ -18,7 +18,7 @@ spring:
         - id: PORTFOLIO-SERVICE
           uri: lb://PORTFOLIO-SERVICE
           predicates:
-            - Path=/portfolio/**
+            - Path=/api/v1/transactions/**
         - id: WALLET-SERVICE
           uri: lb://WALLET-SERVICE
           predicates:
