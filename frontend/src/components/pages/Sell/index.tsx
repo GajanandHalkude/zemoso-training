@@ -100,7 +100,7 @@ const Sell = () => {
         footer={<Footer menuItems={menuItems} buttonLabel="Need Help" />}
       >
         <Stack direction="row" justifyContent="space-between" marginBottom={'30px'} gap={'15px'}>
-          <Stack gap={2} width="60vw">
+          <Stack width="53vw">
             <MuiTypography variant='subtitle1' text={'Sell Crypto'} sx={{fontSize:'20px', color:theme.palette.textColor.highEmphasis}} />
             <BuyCurrency coin={coindId} currenciesData={currenciesData} />
             <AccountDetails
@@ -120,7 +120,7 @@ const Sell = () => {
               coinSymbol={bitcoindetails?.symbol.toUpperCase()}
             />
           </Stack>
-          <Stack width="38vw">
+          <Stack width="36vw">
             <SummaryCard
               type="sell"
               btcValue={quantity ? quantity : 0}

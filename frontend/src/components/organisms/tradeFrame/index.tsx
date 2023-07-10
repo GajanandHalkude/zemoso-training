@@ -109,17 +109,22 @@ const TradeFrame = () => {
       return b.marketCap - a.marketCap;
     }
   });
-  const handleStarClick = async (id:string) => {
-      fetchWatchList()
-      .then((res) => {
-      const watchList = res;
-      const isIdInWatchList = watchList.some((item:any) => item.id === id);
-      if (isIdInWatchList) {
-        removeWatchList(id)
-      } else {
-        addWatchList(id)
-      }
-      })
+  const handleStarClick = (id: string) => {
+    const updatedWatchList = [...watchList];
+    const coinIndex = updatedWatchList.findIndex((item) => item.id === id);
+    if (coinIndex !== -1) {
+      updatedWatchList.splice(coinIndex, 1);
+      setWatchList(updatedWatchList);
+      removeWatchList(id);
+    } else {
+      addWatchList(id)
+        .then(() => {
+          setWatchList([...updatedWatchList, { id: id }]);
+        })
+        .catch((error) => {
+          console.error("Failed to add coin to watchlist", error);
+        });
+    }
   };
 
   function handleMarketCapClick(): void {
@@ -137,7 +142,7 @@ const TradeFrame = () => {
             width='66%'
             body1={<Box id='1' data-testid="assests" sx={{ width: '91vw' }} minHeight={'600px'}>
                 <StyledBox>
-                  <MuiTypography sx={{ minWidth: '120px' ,fontSize:"14px"}} color={theme.palette.greyColors.grey500} variant='body1' text='Name' />
+                  <MuiTypography sx={{ minWidth: '140px' ,fontSize:"14px"}} color={theme.palette.greyColors.grey500} variant='body1' text='Name' />
                   <MuiTypography sx={{ minWidth: '115px',fontSize:"14px" }} color={theme.palette.greyColors.grey500} variant='body1' text='Price' />
                   <MuiTypography color={theme.palette.greyColors.grey500} variant='body1' text='Change' sx={{ fontSize:"14px"}}/>
                   <Box display={'flex'} flexDirection={'row'} gap={'12px'} alignItems={'center'} minWidth={'130px'}>
@@ -178,7 +183,7 @@ const TradeFrame = () => {
               </Box>}
             body2={<Box id='2' data-testid="watchlist" sx={{ width: '91vw' }} minHeight={'600px'}>
                <StyledBox>
-                  <MuiTypography color={theme.palette.greyColors.grey500} sx={{ minWidth: '120px' ,fontSize:"14px"}} variant='body1' text='Name' />
+                  <MuiTypography color={theme.palette.greyColors.grey500} sx={{ minWidth: '140px' ,fontSize:"14px"}} variant='body1' text='Name' />
                   <MuiTypography sx={{ minWidth: '115px',fontSize:"14px" }} variant='body1' text='Price' color={theme.palette.greyColors.grey500}  />
                   <MuiTypography color={theme.palette.greyColors.grey500} sx={{ fontSize:"14px"}}  variant='body1' text='Change'/>
                   <Box display={'flex'}  gap={'12px'} alignItems={'center'} minWidth={'130px'} flexDirection={'row'}>

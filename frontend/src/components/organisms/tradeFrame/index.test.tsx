@@ -110,7 +110,7 @@ describe('TradeFrame', () => {
     jest.clearAllMocks();
   });
   test('calls addWatchList function when star button is clicked', async () => {
-    (fetchWatchList as jest.Mock).mockResolvedValue([]);
+    (fetchWatchList as jest.Mock).mockResolvedValue(watchListData);
     render(<BrowserRouter><TradeFrame /></BrowserRouter>);
 
     await waitFor(() => {

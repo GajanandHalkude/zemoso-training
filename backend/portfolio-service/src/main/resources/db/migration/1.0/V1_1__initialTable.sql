@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `minet`.`transaction` (
-    `id` INT PRIMARY KEY,
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
     `currency_id` VARCHAR(100),
     `type` VARCHAR(50) NOT NULL,
     `price` DECIMAL(18, 2),
