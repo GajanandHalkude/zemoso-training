@@ -35,7 +35,7 @@ const StyledCurrencyLogo = styled(Box)({
   justifyContent: "left",
   alignItems: "center",
   gap: "10px",
-  minWidth: "130px",
+  minWidth: "150px",
   cursor:'pointer'
 });
 
