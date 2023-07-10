@@ -9,12 +9,12 @@ import lombok.*;
 @AllArgsConstructor
 public class WalletDto {
 
-    int id;
-    String name;
-    double balance;
-    double avgValue;
-    double investedAmount;
-    String currencyId;
+   private int id;
+   private String name;
+   private double balance;
+   private double avgValue;
+   private double investedAmount;
+   private String currencyId;
 
 }
 
