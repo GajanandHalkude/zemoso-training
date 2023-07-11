@@ -20,7 +20,7 @@
 		<sonar.organization>zemoso-int</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.sources>src/main/java</sonar.sources>
-		<sonar.exclusions>./pom.xml</sonar.exclusions>
+		<sonar.exclusions>./pom.xml,**/config/**</sonar.exclusions>
 		<sonar.coverage.jacoco.xmlReportPaths>./target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 	<dependencies>
