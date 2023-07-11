@@ -46,9 +46,9 @@ CREATE TABLE watchlist (
     user_id INT,
     currency_id VARCHAR(100),
     added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES user(id)
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    UNIQUE KEY idx_user_currency (user_id, currency_id)
 );
-
 CREATE TABLE wallet (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
