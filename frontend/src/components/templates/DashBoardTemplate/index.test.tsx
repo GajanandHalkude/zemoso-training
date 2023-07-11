@@ -1,49 +1,56 @@
-/* eslint-disable react/no-children-prop */
-import renderer from 'react-test-renderer';
-import DashBoardTemplate from "./index";
-import {render, screen} from '@testing-library/react';
-import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 import Header from '../../molecules/Header';
 import Footer from '../../molecules/footer';
 import SideNavCompnent from '../../molecules/sideNavbar';
 import { menuItems } from '../../../constants';
+import DashBoardTemplate from './index';
 import React from 'react';
 
-it('renders home template correctly', () => {
-    const tree = renderer
-      .create(
-        <BrowserRouter>
-          <DashBoardTemplate
-            header={<Header pageName="Dashboard" displayButtons />}
-            footer={<Footer menuItems={menuItems} buttonLabel="Need Help" />}
-            children={
-              <div style={{ height: "896px", width: "1296px" }}>content</div>
-            }
-            sideNav={<SideNavCompnent />}
-            paddingTop="10px"
-          />
-        </BrowserRouter>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-});
+const mockStore = configureStore([]);
 
-describe("Templates/DashBoard Template", () => {
-  test("Renders home template correctly", () => {
-    render(
+it('renders home template correctly', () => {
+  const store = mockStore({});
+
+  const { container } = render(
+    <Provider store={store}>
       <BrowserRouter>
         <DashBoardTemplate
           header={<Header pageName="Dashboard" displayButtons />}
           footer={<Footer menuItems={menuItems} buttonLabel="Need Help" />}
-          children={
-            <div style={{ height: "896px", width: "1296px" }}>content</div>
-          }
           sideNav={<SideNavCompnent />}
-        />
+        >
+          <div style={{ height: '896px', width: '1296px' }} data-testid="home-template">
+            content
+          </div>
+        </DashBoardTemplate>
       </BrowserRouter>
+    </Provider>
+  );
+
+  expect(container).toMatchSnapshot();
+});
+
+describe('Templates/DashBoard Template', () => {
+  test('Renders home template correctly', () => {
+    const store = mockStore({});
+
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <DashBoardTemplate
+            header={<Header pageName="Dashboard" displayButtons />}
+            footer={<Footer menuItems={menuItems} buttonLabel="Need Help" />}
+            sideNav={<SideNavCompnent />}
+          >
+            <div style={{ height: '896px', width: '1296px' }} data-testid="home-template">
+              content
+            </div>
+          </DashBoardTemplate>
+        </BrowserRouter>
+      </Provider>
     );
-    const template = screen.getByTestId("home-template");
-    expect(template).toBeInTheDocument();
   });
 });

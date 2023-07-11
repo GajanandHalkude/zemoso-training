@@ -17,6 +17,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { useAuth0 } from '@auth0/auth0-react';
 import { URL_DOMAIN } from '../../../constants';
+import { logout as logoutRedux } from "../../../services/reduxhook";
+import { useDispatch } from "react-redux";
 
 const StyledGrid = styled(Box)(() => ({
   width: '80px',
@@ -42,9 +44,11 @@ const StyledBox = styled(Box)(() => ({
 const iconsList = [Dashboard, Analytics, Trades, Notification, LogOut];
 
 const SideNavComponent = () => {
+  const dispatch = useDispatch();
   const { logout } = useAuth0();
 
   const handleLogout = () => {
+    dispatch(logoutRedux());
     logout({ logoutParams: { returnTo:`${URL_DOMAIN}`} })
   };
   

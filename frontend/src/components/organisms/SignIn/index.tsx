@@ -4,6 +4,8 @@ import { Box, Grid, styled } from "@mui/material";
 import { getUserByEmail } from "../../../services";
 import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin ,isEmailValid, isPasswordValid ,socialLoginOptions} from "../../../constants";
 import { useNavigate } from 'react-router-dom';
+import { login } from "../../../services/reduxhook";
+import { useDispatch } from "react-redux";
 
 const SyledButtonComponent = styled(ButtonComponent)(() => ({
   borderRadius: "4px",
@@ -18,6 +20,7 @@ const SyledButtonComponent = styled(ButtonComponent)(() => ({
   },
 }));
 const SignInCard = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     password: "",
     email: "",
@@ -32,6 +35,7 @@ const SignInCard = () => {
   };
 
    const handleSignIn = async () => {
+   
     const { email, password } = formData;
      getUserByEmail(email).then((response) => {
       const dataArray = response;  
@@ -42,6 +46,7 @@ const SignInCard = () => {
         setSignInMessage("password doesnot match")
        }
        else{
+        dispatch(login());
         setSignInMessage("");
     navigate("/dashboard");
        }

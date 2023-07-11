@@ -1,547 +1,352 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders home template correctly 1`] = `
-<div
-  className="MuiBox-root css-0"
-  data-testid="home-template"
->
+<div>
   <div
-    className="MuiBox-root css-waw6ev"
+    class="MuiBox-root css-0"
+    data-testid="home-template"
   >
     <div
-      className="MuiBox-root css-1ggoh19"
-      data-testid="sideNav"
+      class="MuiBox-root css-waw6ev"
     >
-      <img
-        data-testid="image"
-        height="33px"
-        src=""
-        width="32px"
-      />
       <div
-        className="MuiBox-root css-l9wl2g"
+        class="MuiBox-root css-1ggoh19"
+        data-testid="sideNav"
       >
-        <ul
-          className="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+        <img
+          data-testid="image"
+          height="33px"
+          src=""
+          width="32px"
+        />
+        <div
+          class="MuiBox-root css-l9wl2g"
         >
-          <li
-            className="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
-            disabled={false}
-            style={
-              {
-                "margin": "14px",
-              }
-            }
+          <ul
+            class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
           >
-            <a
-              className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-              href="/dashboard"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onContextMenu={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
+            <li
+              class="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
+              style="margin: 14px;"
+            >
+              <a
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                href="/dashboard"
+                tabindex="0"
+              >
+                <div
+                  aria-label="Dashboard"
+                  class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                  data-mui-internal-clone-element="true"
+                >
+                  <div>
+                    <img
+                      alt="icon"
+                      data-testid="iconComponent"
+                      height="32px"
+                      src=""
+                      width="32px"
+                    />
+                  </div>
+                </div>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
+              style="margin: 14px;"
             >
               <div
-                aria-label="Dashboard"
-                aria-labelledby={null}
-                className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
-                data-mui-internal-clone-element={true}
-                onBlur={[Function]}
-                onFocus={[Function]}
-                onMouseLeave={[Function]}
-                onMouseOver={[Function]}
-                onTouchEnd={[Function]}
-                onTouchStart={[Function]}
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                role="button"
+                tabindex="0"
               >
-                <div>
-                  <img
-                    alt="icon"
-                    data-testid="iconComponent"
-                    height="32px"
-                    src=""
-                    style={
-                      {
-                        "padding": undefined,
-                      }
-                    }
-                    width="32px"
-                  />
+                <div
+                  aria-label="My Portfolio"
+                  class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                  data-mui-internal-clone-element="true"
+                >
+                  <div>
+                    <img
+                      alt="icon"
+                      data-testid="iconComponent"
+                      height="32px"
+                      src=""
+                      width="32px"
+                    />
+                  </div>
                 </div>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
               </div>
-              <span
-                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </a>
-          </li>
-          <li
-            className="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
-            disabled={false}
-            style={
-              {
-                "margin": "14px",
-              }
-            }
-          >
-            <div
-              className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-              onBlur={[Function]}
-              onContextMenu={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              role="button"
-              tabIndex={0}
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
+              style="margin: 14px;"
             >
               <div
-                aria-label="My Portfolio"
-                aria-labelledby={null}
-                className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
-                data-mui-internal-clone-element={true}
-                onBlur={[Function]}
-                onFocus={[Function]}
-                onMouseLeave={[Function]}
-                onMouseOver={[Function]}
-                onTouchEnd={[Function]}
-                onTouchStart={[Function]}
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                role="button"
+                tabindex="0"
               >
-                <div>
-                  <img
-                    alt="icon"
-                    data-testid="iconComponent"
-                    height="32px"
-                    src=""
-                    style={
-                      {
-                        "padding": undefined,
-                      }
-                    }
-                    width="32px"
-                  />
+                <div
+                  aria-label="My Portfolio"
+                  class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                  data-mui-internal-clone-element="true"
+                >
+                  <div>
+                    <img
+                      alt="icon"
+                      data-testid="iconComponent"
+                      height="32px"
+                      src=""
+                      width="32px"
+                    />
+                  </div>
                 </div>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
               </div>
-              <span
-                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </div>
-          </li>
-          <li
-            className="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
-            disabled={false}
-            style={
-              {
-                "margin": "14px",
-              }
-            }
-          >
-            <div
-              className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-              onBlur={[Function]}
-              onContextMenu={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              role="button"
-              tabIndex={0}
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
+              style="margin: 14px;"
             >
               <div
-                aria-label="My Portfolio"
-                aria-labelledby={null}
-                className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
-                data-mui-internal-clone-element={true}
-                onBlur={[Function]}
-                onFocus={[Function]}
-                onMouseLeave={[Function]}
-                onMouseOver={[Function]}
-                onTouchEnd={[Function]}
-                onTouchStart={[Function]}
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                role="button"
+                tabindex="0"
               >
-                <div>
-                  <img
-                    alt="icon"
-                    data-testid="iconComponent"
-                    height="32px"
-                    src=""
-                    style={
-                      {
-                        "padding": undefined,
-                      }
-                    }
-                    width="32px"
-                  />
+                <div
+                  aria-label="My Portfolio"
+                  class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                  data-mui-internal-clone-element="true"
+                >
+                  <div>
+                    <img
+                      alt="icon"
+                      data-testid="iconComponent"
+                      height="32px"
+                      src=""
+                      width="32px"
+                    />
+                  </div>
                 </div>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
               </div>
-              <span
-                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </div>
-          </li>
-          <li
-            className="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
-            disabled={false}
-            style={
-              {
-                "margin": "14px",
-              }
-            }
-          >
-            <div
-              className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-              onBlur={[Function]}
-              onContextMenu={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              role="button"
-              tabIndex={0}
+            </li>
+            <li
+              class="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
+              style="margin: 14px;"
             >
-              <div
-                aria-label="My Portfolio"
-                aria-labelledby={null}
-                className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
-                data-mui-internal-clone-element={true}
-                onBlur={[Function]}
-                onFocus={[Function]}
-                onMouseLeave={[Function]}
-                onMouseOver={[Function]}
-                onTouchEnd={[Function]}
-                onTouchStart={[Function]}
+              <a
+                class="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
+                href="/signin"
+                tabindex="0"
               >
-                <div>
-                  <img
-                    alt="icon"
-                    data-testid="iconComponent"
-                    height="32px"
-                    src=""
-                    style={
-                      {
-                        "padding": undefined,
-                      }
-                    }
-                    width="32px"
-                  />
+                <div
+                  aria-label="LogOut"
+                  class="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                  data-mui-internal-clone-element="true"
+                >
+                  <div>
+                    <img
+                      alt="icon"
+                      data-testid="iconComponent"
+                      height="32px"
+                      src=""
+                      width="32px"
+                    />
+                  </div>
                 </div>
-              </div>
-              <span
-                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </div>
-          </li>
-          <li
-            className="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
-            disabled={false}
-            style={
-              {
-                "margin": "14px",
-              }
-            }
-          >
-            <a
-              className="MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters MuiListItemButton-root MuiListItemButton-gutters list-item-button css-16ac5r2-MuiButtonBase-root-MuiListItemButton-root"
-              href="/signin"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onContextMenu={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-            >
-              <div
-                aria-label="LogOut"
-                aria-labelledby={null}
-                className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
-                data-mui-internal-clone-element={true}
-                onBlur={[Function]}
-                onFocus={[Function]}
-                onMouseLeave={[Function]}
-                onMouseOver={[Function]}
-                onTouchEnd={[Function]}
-                onTouchStart={[Function]}
-              >
-                <div>
-                  <img
-                    alt="icon"
-                    data-testid="iconComponent"
-                    height="32px"
-                    src=""
-                    style={
-                      {
-                        "padding": undefined,
-                      }
-                    }
-                    width="32px"
-                  />
-                </div>
-              </div>
-              <span
-                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </a>
-          </li>
-        </ul>
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column css-6r5xil-MuiGrid-root"
-  >
     <div
-      className="MuiGrid-root MuiGrid-item css-4rmxrd-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column css-6r5xil-MuiGrid-root"
     >
       <div
-        className="MuiBox-root css-914xdy"
-        data-testid="Header"
+        class="MuiGrid-root MuiGrid-item css-4rmxrd-MuiGrid-root"
       >
         <div
-          className="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
+          class="MuiBox-root css-914xdy"
+          data-testid="Header"
         >
           <div
-            className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
-          >
-            <h6
-              className="MuiTypography-root MuiTypography-h6 css-dr70im-MuiTypography-root"
-              data-testid="typography-component"
-            >
-              Dashboard
-            </h6>
-          </div>
-          <div
-            className="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-6 css-19s4pri-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
           >
             <div
-              className="MuiGrid-root css-1995vhn-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
             >
-              <div
-                className="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              <h6
+                class="MuiTypography-root MuiTypography-h6 css-dr70im-MuiTypography-root"
+                data-testid="typography-component"
               >
-                <button
-                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-ropxi6-MuiButtonBase-root-MuiButton-root"
-                  data-testid="button"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onContextMenu={[Function]}
-                  onDragLeave={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                  onTouchEnd={[Function]}
-                  onTouchMove={[Function]}
-                  onTouchStart={[Function]}
-                  tabIndex={0}
-                  type="button"
-                >
-                  SELL
-                  <span
-                    className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
-              <div
-                className="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-              >
-                <button
-                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-4v2cgg-MuiButtonBase-root-MuiButton-root"
-                  data-testid="button"
-                  disabled={false}
-                  onBlur={[Function]}
-                  onClick={[Function]}
-                  onContextMenu={[Function]}
-                  onDragLeave={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onKeyUp={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseLeave={[Function]}
-                  onMouseUp={[Function]}
-                  onTouchEnd={[Function]}
-                  onTouchMove={[Function]}
-                  onTouchStart={[Function]}
-                  tabIndex={0}
-                  type="button"
-                >
-                  BUY
-                  <span
-                    className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
+                Dashboard
+              </h6>
             </div>
-            <hr
-              className="MuiDivider-root MuiDivider-middle MuiDivider-vertical MuiDivider-flexItem css-16bghm4-MuiDivider-root"
-            />
             <div
-              className="MuiGrid-root MuiGrid-item css-19ysiih-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-6 css-19s4pri-MuiGrid-root"
             >
               <div
-                className="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1jl820a-MuiAvatar-root"
-                data-testid="avatar"
+                class="MuiGrid-root css-1995vhn-MuiGrid-root"
               >
-                <svg
-                  aria-hidden={true}
-                  className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
-                  data-testid="PersonIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                <div
+                  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
-                  <path
-                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                  />
-                </svg>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-ropxi6-MuiButtonBase-root-MuiButton-root"
+                    data-testid="button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    SELL
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-4v2cgg-MuiButtonBase-root-MuiButton-root"
+                    data-testid="button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    BUY
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
               </div>
+              <hr
+                class="MuiDivider-root MuiDivider-middle MuiDivider-vertical MuiDivider-flexItem css-16bghm4-MuiDivider-root"
+              />
               <div
-                className="MuiGrid-root MuiGrid-item css-hhlda7-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item css-19ysiih-MuiGrid-root"
               >
-                <div>
-                  <img
-                    alt="icon"
-                    data-testid="iconComponent"
-                    height="13px"
-                    src=""
-                    style={
-                      {
-                        "padding": undefined,
-                      }
-                    }
-                    width="13px"
-                  />
+                <div
+                  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1jl820a-MuiAvatar-root"
+                  data-testid="avatar"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiAvatar-fallback css-10mi8st-MuiSvgIcon-root-MuiAvatar-fallback"
+                    data-testid="PersonIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item css-hhlda7-MuiGrid-root"
+                >
+                  <div>
+                    <img
+                      alt="icon"
+                      data-testid="iconComponent"
+                      height="13px"
+                      src=""
+                      width="13px"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="MuiGrid-root MuiGrid-item css-b6d1k6-MuiGrid-root"
-    >
       <div
-        style={
-          {
-            "height": "896px",
-            "width": "1296px",
-          }
-        }
-      >
-        content
-      </div>
-    </div>
-    <div
-      className="MuiBox-root css-0"
-      data-testid="footer"
-    >
-      <div
-        className="MuiGrid-root MuiGrid-container css-vc2gs6-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item css-16xa8ca-MuiGrid-root"
       >
         <div
-          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
+          data-testid="home-template"
+          style="height: 896px; width: 1296px;"
         >
-          <div
-            className="MuiStack-root css-u10pvi-MuiStack-root"
-          >
-            <p
-              className="MuiTypography-root MuiTypography-body2 css-1eyzb45-MuiTypography-root"
-              data-testid="typography-component"
-            >
-              Dashboard
-            </p>
-            <p
-              className="MuiTypography-root MuiTypography-body2 css-1eyzb45-MuiTypography-root"
-              data-testid="typography-component"
-            >
-              Careers
-            </p>
-            <p
-              className="MuiTypography-root MuiTypography-body2 css-1eyzb45-MuiTypography-root"
-              data-testid="typography-component"
-            >
-              Legal & Privacy
-            </p>
-            <p
-              className="MuiTypography-root MuiTypography-body2 css-12fjmx1-MuiTypography-root"
-              data-testid="typography-component"
-            >
-              © 2021 Minet
-            </p>
-          </div>
+          content
         </div>
+      </div>
+      <div
+        class="MuiBox-root css-0"
+        data-testid="footer"
+      >
         <div
-          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-k97rmi-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-vc2gs6-MuiGrid-root"
         >
           <div
-            className="MuiStack-root css-149yd00-MuiStack-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
           >
-            <img
-              data-testid="image"
-              height="150px"
-              src=""
-              width="150px"
-            />
-            <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-o9t3yf-MuiButtonBase-root-MuiButton-root"
-              data-testid="button"
-              disabled={false}
-              onBlur={[Function]}
-              onContextMenu={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
+            <div
+              class="MuiStack-root css-u10pvi-MuiStack-root"
             >
-              Need Help
-              <span
-                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-1eyzb45-MuiTypography-root"
+                data-testid="typography-component"
+              >
+                Dashboard
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-1eyzb45-MuiTypography-root"
+                data-testid="typography-component"
+              >
+                Careers
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-1eyzb45-MuiTypography-root"
+                data-testid="typography-component"
+              >
+                Legal & Privacy
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body2 css-12fjmx1-MuiTypography-root"
+                data-testid="typography-component"
+              >
+                © 2021 Minet
+              </p>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-k97rmi-MuiGrid-root"
+          >
+            <div
+              class="MuiStack-root css-149yd00-MuiStack-root"
+            >
+              <img
+                data-testid="image"
+                height="150px"
+                src=""
+                width="150px"
               />
-            </button>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-o9t3yf-MuiButtonBase-root-MuiButton-root"
+                data-testid="button"
+                tabindex="0"
+                type="button"
+              >
+                Need Help
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>

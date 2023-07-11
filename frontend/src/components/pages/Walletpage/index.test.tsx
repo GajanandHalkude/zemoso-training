@@ -11,13 +11,17 @@ import Pending from '../../../../public/assets/images/t-pending.svg';
 import WalletBody, { getCurrencyLogo } from '../../organisms/walletBody';
 import WalletTransactionTab from '../../molecules/walletTransactionTab';
 import * as services from "../../../services/index";
+import { Provider } from "react-redux";
+import store from "../../../services/store";
 
 describe('WalletPage', () => {
   it('should render the header, side navigation, footer, and wallet body', () => {
     render(
+      <Provider store={store}>
       <Router>
         <WalletPage />
       </Router>
+      </Provider>
     );
 
     const headerElement = screen.getByText('Trade');
@@ -35,9 +39,11 @@ describe('WalletPage', () => {
   });
   it('should render the header, side navigation, footer, and wallet body', () => {
     render(
+      <Provider store={store}>
       <Router>
         <WalletPage />
       </Router>
+      </Provider>
     );
 
     const headerElement = screen.getByText('CASH DEPOSIT');

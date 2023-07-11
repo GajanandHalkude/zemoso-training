@@ -5,6 +5,8 @@ import '@testing-library/jest-dom'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import axios from 'axios'
+import { Provider } from "react-redux";
+import store from "../../../services/store";
 
 jest.mock('axios');
 
@@ -14,7 +16,10 @@ test('fetches the watchlist', async () => {
 
   let component:any;
   act(() => {
-    component = render(<BrowserRouter><DashboardPage /></BrowserRouter>);
+    component = render(
+      <Provider store={store}>
+    <BrowserRouter><DashboardPage /></BrowserRouter>
+    </Provider>)
   });
 
 });
@@ -26,9 +31,11 @@ jest.mock('react-apexcharts', () => ({
 
 const renderDashboard = () => {
   render(
+    <Provider store={store}>
     <BrowserRouter>
       <DashboardPage />
     </BrowserRouter>
+    </Provider>
   )
 }
 
