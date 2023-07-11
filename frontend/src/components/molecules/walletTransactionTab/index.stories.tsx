@@ -22,4 +22,5 @@ Transaction.args = {
     marketCap:'900',
     date:new Date("2023-06-15"),
     chiplabel:'Purchased',
+    symbol:'BTC'
 }

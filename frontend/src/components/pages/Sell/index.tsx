@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { MuiTypography, menuItems, pictures } from "../../../constants";
+import { MuiTypography, buyTransactionType, constFee1000, deliveryDrop, instantTime, menuItems, paymentMethodTitle, pictures, variantTypePayment } from "../../../constants";
 import { addTransaction, fetchAllCrtptoCurrenices, fetchWallet, updateWallet } from "../../../services/index";
 import Header from "../../molecules/Header";
 import Footer from "../../molecules/footer";
@@ -104,18 +104,18 @@ const Sell = () => {
             <MuiTypography variant='subtitle1' text={'Sell Crypto'} sx={{fontSize:'20px', color:theme.palette.textColor.highEmphasis}} />
             <BuyCurrency coin={coindId} currenciesData={currenciesData} />
             <AccountDetails
-              variant="payment"
-              title="Payment Method"
-              transactionType="sell"
+              variant={variantTypePayment}
+              title={paymentMethodTitle}
+              transactionType={buyTransactionType}
               balance={walletQuantity}
               icon={pictures[coindId]}
               coinType={bitcoindetails?.name}
               price={bitcoindetails?.price}
-              fee="1000"
+              fee={constFee1000}
               wallet={true}
-              coin={`${bitcoindetails?.name} ${bitcoindetails?.symbol.toUpperCase}`}
-              instantTime="Instant"
-              deliveryTitle="Select speed delivery"
+              coin={`${bitcoindetails?.name} ${bitcoindetails?.symbol.toUpperCase()}`}
+              instantTime={instantTime}
+              deliveryTitle={deliveryDrop}
               handleChange={handleChange}
               coinSymbol={bitcoindetails?.symbol.toUpperCase()}
             />
@@ -125,7 +125,8 @@ const Sell = () => {
               type="sell"
               btcValue={quantity ? quantity : 0}
               onClick={handleClick}
-              setTotal={settotal}   />
+              setTotal={settotal} symbol={bitcoindetails?.symbol.toUpperCase()} 
+              name={bitcoindetails?.name}/>
           </Stack>
         </Stack>
       </DashBoardTemplate>

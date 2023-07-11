@@ -16,6 +16,8 @@ export const SellSummaryCard = Template.bind({})
 SellSummaryCard.args = {
   type: "sell",
   btcValue: 0.023451,
+  symbol:'BTC',
+  name:'Bitcoin'
 };
 
 export const BuySummaryCard = Template.bind({});
@@ -23,4 +25,6 @@ export const BuySummaryCard = Template.bind({});
 BuySummaryCard.args = {
   type: "buy",
   btcValue: 0.023451,
+  name:'Bitcoin',
+  symbol:'BTC'
 };

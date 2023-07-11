@@ -6,11 +6,15 @@ export default {
   component: PaymentSummaryStepper,
 } as ComponentMeta<typeof PaymentSummaryStepper>;
 
-const Template: ComponentStory<typeof PaymentSummaryStepper> = () => (
+const Template: ComponentStory<typeof PaymentSummaryStepper> = (args) => (
   <div>
-    <PaymentSummaryStepper />
+    <PaymentSummaryStepper {...args} />
   </div>
 );
 
 export const TransactionStepperStory = Template.bind({})
+TransactionStepperStory.args = {
+  symbol:'BTC',
+  name:'Bitcoin'
+};
 

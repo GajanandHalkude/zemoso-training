@@ -119,18 +119,18 @@ const DetailsScrennBody = () => {
   const location = useLocation();
   const { coindId } = location.state as CurrencylocationState ;
   const [watchListId, setWatchListId] = useState<string>("");
-  const [isAddedToWatchList, setIsAddedToWatchList] = useState(false);
+  const [isAddedToWatchList, setIsAddedToWatchList] = useState<boolean>(false);
   const [cryptoCurrency, setCryptoCurrency] = useState<CryptoCurrency>({
     id: "",
     name: "",
     symbol: "",
     icon: "",
-    price: 18000,
-    marketCap: 1531564,
-    totalSupply: 44125366,
-    availableSupply: 85122,
-    priceChange: 8.2,
-    volume: 5245661,
+    price: 0,
+    marketCap: 0,
+    totalSupply: 0,
+    availableSupply: 0,
+    priceChange: 0,
+    volume: 0,
   });
   const [graphData, setGraphData] = useState<number[]>([])
   const [transaction, setTransaction] = useState<Transaction[]>([]);
@@ -205,7 +205,7 @@ const DetailsScrennBody = () => {
       totalPrice = totalPrice + data.price;
   });
     
-    return `${totalValue} BTC (${formatCurrency.format(totalPrice)})`
+    return `${totalValue.toLocaleString('en-US', {maximumFractionDigits:2})} BTC (${formatCurrency.format(totalPrice)})`
     
   }
   return (
@@ -317,19 +317,20 @@ const DetailsScrennBody = () => {
             </SearchBox>
             <StyledGridTransactions data-testid="styledGridTransactions">
               {transaction?.map((data: any) => (
-                <WalletTransactionTab
-                  data-testid="WalletTransactionTab"
-                  key={data.id}
-                  currencyLogo={getCurrencyLogo(data.status)}
-                  currencyName={cryptoCurrency.name}
-                  userDescription={`from ${data.from}`}
-                  currency={data.quantity}
-                  marketCap={data.price}
-                  date={data.transactionDateTime}
-                  chiplabel={
-                    data.transactionType === "buy" ? "Purchased" : "Sold"
-                  }
-                />
+              <WalletTransactionTab
+              data-testid="WalletTransactionTab"
+              key={data.id}
+              currencyLogo={getCurrencyLogo(data.status)}
+              currencyName={cryptoCurrency.name}
+              userDescription={`from ${data.from}`}
+              currency={data.transactionType === "sell" ? `-${data.quantity}` : `+${data.quantity}`}
+              marketCap={data.transactionType === "sell" ? `-$${data.price}` : `+$${data.price}`}
+              date={data.transactionDateTime}
+              chiplabel={
+                data.transactionType === "buy" ? "Purchased" : "Sold"
+              }
+              symbol={data.symbol}
+            />
               ))}
             </StyledGridTransactions>
           </Box>

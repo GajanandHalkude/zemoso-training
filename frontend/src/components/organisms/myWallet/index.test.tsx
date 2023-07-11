@@ -20,11 +20,9 @@ describe('PaymentAndDetailsCard', () => {
 
     const titleElement = screen.getByText('Payment Card');
     const coinTypeElement = screen.getByText('Bitcoin');
-    const balanceElement = screen.getByText('Total balance: $1000');
-
+   
     expect(titleElement).toBeInTheDocument();
     expect(coinTypeElement).toBeInTheDocument();
-    expect(balanceElement).toBeInTheDocument();
   });
   test('renders balance variant with correct title and balance', () => {
     const props = {

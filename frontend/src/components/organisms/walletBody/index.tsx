@@ -223,7 +223,7 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
           <MuiTypography
             data-testid="typography-component"
             sx={{ color: theme.palette.textColor.highEmphasis }}
-            text={`$ ${balanceSum}`}
+            text={`$ ${balanceSum.toLocaleString('en-US', {maximumFractionDigits:2})}`}
             variant="subtitle1"
           />
         </StyledBoxTotalBalance>
@@ -276,13 +276,13 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
           <WalletTransactionTab
             key={data.cryptoId}
             currencyLogo={getCurrencyLogo(data.status)}
-            currencyName={`Received ${data.symbol}`}
+            currencyName={`Received ${data.symbol.toUpperCase()}`}
             userDescription={`from ${data.from}`}
-            currency={data.quantity}
-            marketCap={data.price}
+            currency={data.transactionType === "sell" ? `-${data.quantity}` : `+${data.quantity}`}
+            marketCap={data.transactionType === "sell" ? `-$${data.price}` : `+$${data.price}`}
             date={new Date(data.transactionDateTime)}
             chiplabel={data.transactionType === "sell" ? "Sold" : "Purchase"}
-          
+            symbol={data.symbol}
           />
         ))}
       </StyledGridTransactons>

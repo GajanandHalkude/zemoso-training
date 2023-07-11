@@ -69,6 +69,7 @@ const AccountDetails = ({
             instantTime={instantTime}
             fee={fee}
             title={deliveryTitle}
+            symbol={coinSymbol}
           />
         </AccountDetailsContainer>
       </React.Fragment>

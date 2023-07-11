@@ -37,27 +37,28 @@ const SignUp = () => {
   };
           
   const handleSignUp = async () => {
-    const { signupemail, signupfullName, signuppassword } = formData;
-    
-    try {
-      const userExists = await getUserByEmail(signupemail);
-  
-      if (userExists.length !== 0) {
-        setSignUpMessage("User already exists");
-      } else {
-        await addUser(signupemail, signupfullName, signuppassword);
+    const { signupemail, signupfullName, signuppassword } = formData;  
+    getUserByEmail(signupemail)
+      .then((userExists) => {
+        if (userExists.length !== 0) {
+          setSignUpMessage("User already exists");
+        } else {
+          return addUser(signupemail, signupfullName, signuppassword);
+        }
+      })
+      .then(() => {
         setSignUpMessage("User added successfully..please login");
-      }
-      
-      setFormData({
-        signuppassword: "",
-        signupemail: "",
-        signupfullName: "",
+        setFormData({
+          signuppassword: "",
+          signupemail: "",
+          signupfullName: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Error occurred while signing up:", error);
       });
-    } catch (error) {
-      console.error("Error occurred while signing up:", error);
-    }
   };
+  
   
   const navigate = useNavigate();
 
@@ -97,7 +98,7 @@ const SignUp = () => {
           width="512px"
           value={formData.signupemail}
           onChange={(value) => handleInputChange("signupemail", value)}
-          placeholder="saiprabhu.dandanayak@zemosolabs.com"
+          placeholder="you@company.com"
           isPassword={false}
         />
       </Box>
@@ -112,7 +113,7 @@ const SignUp = () => {
         <CustomTextField
           isPassword
           onChange={(value) => handleInputChange("signuppassword", value)}
-          placeholder="Password"
+          placeholder="Create Password"
           width="512px"
           value={formData.signuppassword}
         />

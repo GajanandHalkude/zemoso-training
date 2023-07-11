@@ -88,7 +88,7 @@ const DashboardPage = () => {
                 <Grid container direction="row">
                     <Grid item xs={6}>
                     <StyledBox>
-                        <MuiTypography text='Watchlist' variant="subtitle1" />
+                        <MuiTypography text='Watchlist' fontWeight='bold' variant="subtitle1" />
                         <ImageComponent src={Partition} height="auto" width="auto" />
                         <StyledBox gap="9px" cursor={true} data-testid='discover-assets-button'
                             onClick={() => {navigate("/trade")}}>

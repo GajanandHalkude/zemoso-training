@@ -14,6 +14,7 @@ interface PortfolioProps {
   marketCap: React.ReactNode;
   date: Date;
   chiplabel: string;
+  symbol:string;
 }
 
 const StyledBox = styled(Box)({
@@ -61,7 +62,8 @@ const WalletTransactionTab = ({
   currency,
   marketCap,
   date,
-  chiplabel
+  chiplabel,
+  symbol
 }: PortfolioProps) => {
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
     day: "numeric",
@@ -112,12 +114,12 @@ const WalletTransactionTab = ({
       <RightPart>
         <MuiTypography
           variant="body1"
-          text={`+${currency} BTC`}
+          text={`${currency} ${symbol.toUpperCase()}`}
           sx={{ color: theme.palette.textColor.highEmphasis}}
         />
         <MuiTypography
           variant="body1"
-          text={`+$${marketCap}`}
+          text={`${marketCap}`}
           sx={{ color: theme.palette.textColor.mediumEmphasis, fontSize:"14px"}}
         />
       </RightPart>

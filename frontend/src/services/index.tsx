@@ -79,7 +79,7 @@ export const addWatchList = async (coin: string) => {
 
 export const addUser = async (email: string, name: string, password: string) => {
   try {
-    const response = await axios.post(`${url}/user`, {
+    const response = await axios.post(`${url}/users`, {
       email: email,
       name: name,
       password: password,
@@ -90,7 +90,6 @@ export const addUser = async (email: string, name: string, password: string) => 
     throw error;
   }
 };
-
 
 export const resetUserPassword = async (password:string) => {
   await axios

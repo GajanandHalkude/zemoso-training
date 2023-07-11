@@ -156,7 +156,7 @@ const WatchlistCard: React.FC<WatchlistCardProps> = ({ image, name, price, handl
                 image={profit ? GreenIncresingTrend : DecreasingTrend}
                 imageHeight={"9px"}
                 imageWidth={"9px"}
-                text={isPositiveChange ? `+${change}.%` : `${change}.%`}
+                text={isPositiveChange ? `+${change}%` : `${change}%`}
                 textVariant="overline"
                 textColor={
                   profit

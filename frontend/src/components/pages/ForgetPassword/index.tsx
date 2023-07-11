@@ -3,6 +3,7 @@ import SignInTemplate, { AuthTemplateProp } from "../../templates/SignIn";
 import ForgetPasswordComponent from "../../organisms/ForgetPassword";
 import Image from "../../../../public/assets/images/SignInImage.svg";
 import { useNavigate } from "react-router-dom";
+import ImageComponent from "../../atoms/Image";
 
 const ForgetPasswordpage = () => {
 
@@ -17,7 +18,7 @@ const ForgetPasswordpage = () => {
     };
 
   const authTemplateProps: AuthTemplateProp = {
-    img: Image,
+    img: <ImageComponent src={Image} data-testid="image" />,
     body: !isCodeSent ? (
       <ForgetPasswordComponent
         label="Email"

@@ -16,6 +16,8 @@ interface SummaryCardProps {
   onClick: (arg: any) => void;
   amount?: number;
   setTotal?: (total: number) => void;
+  symbol:string;
+  name:string;
 }
 const StyledBox = styled(Box)({
   width: "527px",
@@ -89,7 +91,9 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
   price,
   onClick,
   amount,
-  setTotal
+  setTotal,
+  symbol,
+  name
 
 }) => {
   price = price ? price : dollarValue;
@@ -110,12 +114,12 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
           />
         </Grid>
         <Grid item xs={12}>
-          <TypographyComponent variant="h6" text={`${btcValue} BTC`} />
+          <TypographyComponent variant="h6" text={`${btcValue} ${symbol}`} />
         </Grid>
         <Grid item xs={12}>
           <TypographyComponent
             variant="body1"
-            text={`1BTC = ${formatCurrency.format(price)}`}
+            text={`1${symbol} = ${formatCurrency.format(price)}`}
             style={typographyStyle}
             sx={{fontSize:"14px"}}
           />
@@ -123,12 +127,12 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
       </TypographyGrid>
 
       <StepperBox>
-        <PaymentSummaryStepper />
+        <PaymentSummaryStepper symbol={symbol} name={name} />
       </StepperBox>
 
       <TotalBox spacing={2} direction={"column"}>
         {renderOrderSummary(
-          `${btcValue} BTC`,
+          `${btcValue} ${symbol}`,
           formatCurrency.format(amount),
           "330px",
           false

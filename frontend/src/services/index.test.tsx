@@ -133,7 +133,7 @@ describe("API Test", () => {
     jest.spyOn(axios, 'post').mockResolvedValueOnce({ data: userData });
   
     await addUser(email, name, password);
-    expect(axios.post).toHaveBeenCalledWith(`${url}/user`, userData);
+    expect(axios.post).toHaveBeenCalledWith(`${url}/users`, userData);
   });
 
   it("resets a user password", async () => {

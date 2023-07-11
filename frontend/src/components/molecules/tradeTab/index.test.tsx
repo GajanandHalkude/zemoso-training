@@ -35,7 +35,7 @@ describe("TradeTab", () => {
     const changeTextElement = screen.getByTestId('change-text');
     const changeText = changeTextElement.textContent;
 
-    expect(changeText).toMatch(/\+0\.05\.%/i);
+    expect(changeText).toMatch(/\+0\.05%/i);
   });
 
   test('displays negative change without a "+" sign', () => {
@@ -53,7 +53,7 @@ describe("TradeTab", () => {
     const changeTextElement = screen.getByTestId('change-text');
     const changeText = changeTextElement.textContent;
 
-    expect(changeText).toMatch(/\-0\.1\.%/i);
+    expect(changeText).toMatch(/\-0\.1%/i);
     
   });
 

@@ -4,7 +4,7 @@ import PaymentSummaryStepper from "./index";
 import '@testing-library/jest-dom'
 
 it('should renders the crypto card', async () => {
-  render(<PaymentSummaryStepper />);
+  render(<PaymentSummaryStepper symbol={'BTC'} name={'Bitcoin'} />);
   const wrapper = screen.getByTestId('summary-stepper')
   expect(wrapper).toBeInTheDocument()
 })

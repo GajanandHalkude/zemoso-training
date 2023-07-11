@@ -1,9 +1,8 @@
 import React from "react";
 import { Box } from "@mui/material";
-import ImageComponent from "../../atoms/Image";
 
 export interface AuthTemplateProp {
-  img: string;
+  img: React.ReactNode;
   body: React.ReactNode;
 }
 
@@ -20,7 +19,7 @@ const SignInTemplate = ({ body, img }: AuthTemplateProp) => {
       sx={{ overflowX: "hidden", overflowY: "hidden" }} 
     >
       <Box>
-        <ImageComponent src={img} data-testid="image" />
+        {img}
       </Box>
       {body}
     </Box>

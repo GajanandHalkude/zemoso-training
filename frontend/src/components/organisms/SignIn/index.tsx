@@ -74,7 +74,7 @@ const SignInCard = () => {
           onChange={(value) => handleInputChange("email", value)}
           width="512px"
           value={formData.email}
-          placeholder="saiprabhu.dandanayak@zemosolabs.com"
+          placeholder="you@company.com"
           isPassword={false}
         />
       </Box>
@@ -92,7 +92,7 @@ const SignInCard = () => {
           onChange={(value) => handleInputChange("password", value)}
           isPassword
           value={formData.password}
-          placeholder="Password"
+          placeholder="Enter Password"
         />
       </Box>
       <Box display="flex" >

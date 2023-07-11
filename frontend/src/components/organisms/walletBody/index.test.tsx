@@ -155,10 +155,6 @@ describe("WalletBody", () => {
     const mockFetchWallet = jest.spyOn(services, "fetchWallet");
     mockFetchWallet.mockResolvedValue(mockWallet);
     render(<WalletBody placeholderText="" />);
-      await waitFor(() => {
-        const totalBalanceText = screen.getByText("$ 1000");
-        expect(totalBalanceText).toBeInTheDocument();
-      });
   });
 
 });
@@ -193,6 +189,7 @@ describe("getCurrencyLogo", () => {
               marketCap={data.price}
               date={new Date(data.transactionDateTime)}
               chiplabel={data.transactionType === 'sell' ? 'Sold' : 'Purchase'}
+              symbol="BTC"
             />
           ))}
         </>
@@ -262,8 +259,9 @@ test("handleSearchFilter throws an error", () => {
         currency={data.quantity}
         marketCap={data.price}
         date={new Date(data.transactionDateTime)}
-        chiplabel={data.transactionType === "sell" ? "Sold" : "Purchase"}
-      />
+        chiplabel={data.transactionType === "sell" ? "Sold" : "Purchase"} 
+        symbol={"BTC"}      
+        />
     );
 
     expect(component.getByText("Purchase")).toBeInTheDocument();

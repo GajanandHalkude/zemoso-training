@@ -3,6 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import SignInTemplate, { AuthTemplateProp } from '.';
 import signInImage from '../../../../public/assets/images/SignInImage.svg'
 import SignInCard from '../../organisms/SignIn';
+import ImageComponent from '../../atoms/Image';
 
 export default {
   title: 'Templates/SignInTemplate',
@@ -13,6 +14,6 @@ const Template: Story<AuthTemplateProp> = (args) => <SignInTemplate {...args} />
 
 export const Default = Template.bind({});
 Default.args = {
-  img:signInImage ,
+  img:<ImageComponent src={signInImage} data-testid="image" /> ,
   body: <div><SignInCard/></div>,
 };

@@ -9,6 +9,10 @@ import Transport from "../../../../public/assets/icons/delivery.svg";
 import theme from '../../../theme'
 import { paymentSummaryStepper } from "../../../constants";
 
+interface StepperProps {
+  symbol:string;
+  name:string
+}
 const OuterBox = styled(Box)(() => ({
   display: 'flex',
   flexDirection: 'column',
@@ -31,7 +35,7 @@ const InnerBox = styled(Box)(() => ({
   alignItems: 'center',
 }))
 
-const PaymentSummaryStepper = () => {
+const PaymentSummaryStepper = ({symbol,name}:StepperProps) => {
   return (
     <div>
       <OuterBox data-testid="summary-stepper">
@@ -78,7 +82,7 @@ const PaymentSummaryStepper = () => {
             <TypographyComponent
               variant="body1"
               style={{ color: theme.palette.textColor.highEmphasis }}
-              text={paymentSummaryStepper.step2[1]}
+              text={`0.01 ${symbol || "BTC"}`}
             ></TypographyComponent>
           </OuterBox>
         </InnerBox>
@@ -102,7 +106,7 @@ const PaymentSummaryStepper = () => {
             <TypographyComponent
               variant="body1"
               style={{ color: theme.palette.textColor.highEmphasis }}
-              text={paymentSummaryStepper.step3[1]}
+              text={`${name || "Bitcoin"} wallet`}
             />
           </OuterBox>
         </InnerBox>

@@ -62,7 +62,7 @@ const PaymentAndDetailsCard = ({variant, title, icon, coinType, balance, coinSym
                         <MuiTypography variant="body1" text={coinType} />
                       </Grid>
                       <Grid item>
-                        <MuiTypography variant="subtitle1" text={`Total balance: $${balance}`} color={theme.palette.textColor.mediumEmphasis}/>
+                        <MuiTypography variant="subtitle1" text={`Total balance: $${balance?.toLocaleString('en-US', {maximumFractionDigits:2})}`} color={theme.palette.textColor.mediumEmphasis}/>
                       </Grid>
                     </Grid>
                   )}

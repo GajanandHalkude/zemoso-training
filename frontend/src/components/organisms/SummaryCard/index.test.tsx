@@ -8,7 +8,7 @@ const handleChange = jest.fn()
 it('renders buy summary card correctly', () => {
     const tree = renderer
       .create(
-        <SummaryCard type="buy" btcValue={0.023451} onClick={handleChange} />
+        <SummaryCard type="buy" btcValue={0.023451} onClick={handleChange} symbol={'BTC'} name={'Bitcoin'} />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -17,7 +17,7 @@ it('renders buy summary card correctly', () => {
 it('renders sell summary card correctly', () => {
     const tree = renderer
       .create(
-        <SummaryCard type="sell" btcValue={0.023451} onClick={handleChange} />
+        <SummaryCard type="sell" btcValue={0.023451} onClick={handleChange} symbol={'BTC'} name={'Bitcoin'} />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -26,7 +26,7 @@ it('renders sell summary card correctly', () => {
 describe("Organisms/SummaryCard", () => {
   test("Renders sell card correctly", () => {
     render(
-      <SummaryCard type="sell" btcValue={0.023451} onClick={handleChange} />
+      <SummaryCard type="sell" btcValue={0.023451} onClick={handleChange} symbol={'BTC'} name={'Bitcoin'} />
     );
     expect(screen.getByRole("heading")).toHaveTextContent("0.023451 BTC");
     expect(screen.getAllByRole("img")).toHaveLength(8);
@@ -35,7 +35,7 @@ describe("Organisms/SummaryCard", () => {
 
   test("Renders buy card correctly", () => {
     render(
-      <SummaryCard type="buy" btcValue={0.023451} onClick={handleChange} />
+      <SummaryCard type="buy" btcValue={0.023451} onClick={handleChange} symbol={'BTC'} name={'Bitcoin'} />
     );
     expect(screen.getByRole("heading")).toHaveTextContent("0.023451 BTC");
     expect(screen.getAllByRole("img")).toHaveLength(8);

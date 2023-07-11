@@ -52,7 +52,16 @@ exports[`renders home template correctly 1`] = `
               tabIndex={0}
             >
               <div
+                aria-label="Dashboard"
+                aria-labelledby={null}
                 className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                data-mui-internal-clone-element={true}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
               >
                 <div>
                   <img
@@ -69,6 +78,9 @@ exports[`renders home template correctly 1`] = `
                   />
                 </div>
               </div>
+              <span
+                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </a>
           </li>
           <li
@@ -98,7 +110,16 @@ exports[`renders home template correctly 1`] = `
               tabIndex={0}
             >
               <div
+                aria-label="My Portfolio"
+                aria-labelledby={null}
                 className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                data-mui-internal-clone-element={true}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
               >
                 <div>
                   <img
@@ -115,6 +136,9 @@ exports[`renders home template correctly 1`] = `
                   />
                 </div>
               </div>
+              <span
+                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </div>
           </li>
           <li
@@ -144,7 +168,16 @@ exports[`renders home template correctly 1`] = `
               tabIndex={0}
             >
               <div
+                aria-label="My Portfolio"
+                aria-labelledby={null}
                 className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                data-mui-internal-clone-element={true}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
               >
                 <div>
                   <img
@@ -161,6 +194,9 @@ exports[`renders home template correctly 1`] = `
                   />
                 </div>
               </div>
+              <span
+                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </div>
           </li>
           <li
@@ -190,7 +226,16 @@ exports[`renders home template correctly 1`] = `
               tabIndex={0}
             >
               <div
+                aria-label="My Portfolio"
+                aria-labelledby={null}
                 className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                data-mui-internal-clone-element={true}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
               >
                 <div>
                   <img
@@ -207,6 +252,9 @@ exports[`renders home template correctly 1`] = `
                   />
                 </div>
               </div>
+              <span
+                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </div>
           </li>
           <li
@@ -237,7 +285,16 @@ exports[`renders home template correctly 1`] = `
               tabIndex={0}
             >
               <div
+                aria-label="LogOut"
+                aria-labelledby={null}
                 className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+                data-mui-internal-clone-element={true}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
               >
                 <div>
                   <img
@@ -254,6 +311,9 @@ exports[`renders home template correctly 1`] = `
                   />
                 </div>
               </div>
+              <span
+                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </a>
           </li>
         </ul>
@@ -313,6 +373,9 @@ exports[`renders home template correctly 1`] = `
                   type="button"
                 >
                   SELL
+                  <span
+                    className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <div
@@ -339,6 +402,9 @@ exports[`renders home template correctly 1`] = `
                   type="button"
                 >
                   BUY
+                  <span
+                    className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
                 </button>
               </div>
             </div>
@@ -472,6 +538,9 @@ exports[`renders home template correctly 1`] = `
               type="button"
             >
               Need Help
+              <span
+                className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
             </button>
           </div>
         </div>

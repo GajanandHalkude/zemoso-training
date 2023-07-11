@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import { styled } from '@mui/system';
 import ImageComponent from '../../atoms/Image';
 import Logo from '../../../../public/assets/images/logo.svg';
@@ -16,6 +16,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { useAuth0 } from '@auth0/auth0-react';
+import { URL_DOMAIN } from '../../../constants';
 
 const StyledGrid = styled(Box)(() => ({
   width: '80px',
@@ -44,7 +45,7 @@ const SideNavComponent = () => {
   const { logout } = useAuth0();
 
   const handleLogout = () => {
-    logout({ logoutParams: { returnTo: window.location.origin } })
+    logout({ logoutParams: { returnTo:`${URL_DOMAIN}`} })
   };
   
   const location = useLocation();
@@ -58,13 +59,17 @@ const SideNavComponent = () => {
           {iconsList.map((icon, index) => {
             if (index === 0) {
               const iconComponent = isActive ? (
+                <Tooltip title="Dashboard" arrow>
                 <ListItemIcon>
                   <IconComponent src={DashboardActive} width="32px" height="32px" />
                 </ListItemIcon>
+                </Tooltip>
               ) : (
+                <Tooltip title="Dashboard" arrow>
                 <ListItemIcon>
                   <IconComponent src={icon} width="32px" height="32px" />
                 </ListItemIcon>
+                </Tooltip>
               );
 
               return (
@@ -77,10 +82,12 @@ const SideNavComponent = () => {
             } else if (index === iconsList.length - 1) {
               return (
                 <ListItem key={icon} disablePadding style={{ margin: '14px' }}>
-                  <ListItemButton className="list-item-button" component={Link} to="/signin">
+                  <ListItemButton className="list-item-button" component={Link} to="/signin" onClick={handleLogout}>
+                  <Tooltip title="LogOut" arrow>
                     <ListItemIcon>
                       <IconComponent src={icon} width="32px" height="32px" />
                     </ListItemIcon>
+                    </Tooltip>
                   </ListItemButton>
                 </ListItem>
               );
@@ -88,9 +95,11 @@ const SideNavComponent = () => {
               return (
                 <ListItem key={icon} disablePadding style={{ margin: '14px' }}>
                   <ListItemButton className="list-item-button">
+                  <Tooltip title={"My Portfolio"} arrow>
                     <ListItemIcon>
                       <IconComponent src={icon} width="32px" height="32px" />
                     </ListItemIcon>
+                    </Tooltip>
                   </ListItemButton>
                 </ListItem>
               );

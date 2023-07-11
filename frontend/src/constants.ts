@@ -19,7 +19,9 @@ import SocialLogin from "../src/components/molecules/socialLogin";
 import moment from 'moment'
 
 export const url = "https://bc92-ms.zebc61.ml"
+export const URL_DOMAIN = "https://bc92-fe.zebc61.ml/";
 export { ButtonComponent, CustomTextField, MuiTypography, SocialLogin };
+export const UsdName="USD Coin (Cash)"
 
  export const socialLoginOptions = [
   { src: Google, text: "Google" },
@@ -27,6 +29,13 @@ export { ButtonComponent, CustomTextField, MuiTypography, SocialLogin };
   { src: Microsoft, text: "Microsoft" },
 ];
 
+export const deliveryDrop = "Select speed delivery";
+export const constFee10= "10";
+export const constFee1000= "1000";
+export const instantTime = "Instant"
+export const buyTransactionType = "buy"
+export const paymentMethodTitle = "Payment Method";
+export const variantTypePayment = "payment"
 
 export const menuItems = [
     { text: "Dashboard" },

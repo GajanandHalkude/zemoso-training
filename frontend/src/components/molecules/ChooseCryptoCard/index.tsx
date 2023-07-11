@@ -24,7 +24,7 @@ const Image = styled('img')({
 
 const ChooseCrypto: React.FC<Props> = (props) => {
   const { selected, image, name } = props
-  const value = Intl.NumberFormat('en-US').format(props.value)
+  const value = Intl.NumberFormat('en-US',{minimumFractionDigits: 2,maximumFractionDigits: 2}).format(props.value)
   const MyComponent = styled(Box)({
     border: selected ? `2px solid #0052FF` : '',
     borderRadius: '4px',

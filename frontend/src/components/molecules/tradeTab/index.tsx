@@ -76,7 +76,7 @@ const TradeTab = ({
       />
       <MuiTypography
         variant="body2"
-        text={isPositiveChange ? `+${change}.%` : `${change}.%`}
+        text={isPositiveChange ? `+${change}%` : `${change}%`}
         sx={{ color: isPositiveChange ? theme.palette.primary.success500 : theme.palette.loss.borderColor }}
         data-testid="change-text"
       />

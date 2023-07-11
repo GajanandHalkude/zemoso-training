@@ -163,7 +163,7 @@ exports[`renders buy summary card correctly 1`] = `
                 }
               }
             >
-              0.001 BTC
+              0.01 BTC
             </p>
           </div>
         </div>
@@ -514,7 +514,7 @@ exports[`renders sell summary card correctly 1`] = `
                 }
               }
             >
-              0.001 BTC
+              0.01 BTC
             </p>
           </div>
         </div>

@@ -4,7 +4,7 @@ import DashBoardTemplate from "../../templates/DashBoardTemplate";
 import Header from "../../molecules/Header";
 import SideNavComponent from "../../molecules/sideNavbar";
 import Footer from "../../molecules/footer";
-import { menuItems,MuiTypography,Wallet } from "../../../constants";
+import { buyTransactionType, constFee10, deliveryDrop, instantTime, menuItems,MuiTypography,paymentMethodTitle,UsdName,variantTypePayment,Wallet } from "../../../constants";
 import { Stack } from "@mui/material";
 import BuyCurrency from "../../organisms/BuyCurrency";
 import AccountDetails from "../../organisms/AccountDetails";
@@ -130,18 +130,18 @@ const Purchase = () => {
             <MuiTypography variant='subtitle1' text={'Buy Crypto'} sx={{fontSize:'20px', color:theme.palette.textColor.highEmphasis}} />
             <BuyCurrency currenciesData={currenciesData} coin={coindId} />
             <AccountDetails
-              variant="payment"
-              title="Payment Method"
-              transactionType="buy"
+              variant={variantTypePayment}
+              title={paymentMethodTitle}
+              transactionType={buyTransactionType}
               balance={wallet ? wallet.balance : 0}
               icon={rupee}
-              coinType={bitcoindetails?.name}
+              coinType={UsdName}
               price={bitcoindetails?.price}
-              fee="10"
+              fee={constFee10}
               wallet={true}
-              coin={`${bitcoindetails?.name} ${bitcoindetails?.symbol.toUpperCase}`}
-              instantTime="Instant"
-              deliveryTitle="Select speed delivery"
+              coin={`${bitcoindetails?.name} ${bitcoindetails?.symbol.toUpperCase()}`}
+              instantTime={instantTime}
+              deliveryTitle={deliveryDrop}
               handleChange={handleChange}
               coinSymbol={bitcoindetails?.symbol.toUpperCase()}
             />
@@ -151,8 +151,8 @@ const Purchase = () => {
               type="buy"
               btcValue={quantity ? quantity : 0}
               onClick={handleClick}
-              setTotal={setTotal}
-            />
+              setTotal={setTotal} symbol={bitcoindetails?.symbol.toUpperCase()} 
+              name={bitcoindetails?.name}  />
           </Stack>
         </Stack>
       </DashBoardTemplate>
