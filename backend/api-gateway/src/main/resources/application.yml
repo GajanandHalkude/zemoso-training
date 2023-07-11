@@ -6,6 +6,16 @@ spring:
     name: API-GATEWAY
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
       routes:
         - id: USER-SERVICE
           uri: lb://USER-SERVICE
