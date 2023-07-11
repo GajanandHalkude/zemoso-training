@@ -7,4 +7,5 @@ CREATE TABLE IF NOT EXISTS `minet`.`transaction` (
     `quantity` DECIMAL(18, 2),
     `date` DATE,
     `status` VARCHAR(50),
+    `transaction_person` VARCHAR(50)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;

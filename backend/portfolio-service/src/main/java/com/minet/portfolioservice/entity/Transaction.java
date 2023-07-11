@@ -39,4 +39,7 @@ public class Transaction {
 
     @Column(name = "status")
     private String status;
+
+    @Column(name = "transaction_person")
+    private String transactionPerson;
 }

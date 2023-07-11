@@ -65,7 +65,8 @@ CREATE TABLE transaction (
     symbol VARCHAR(10),
     quantity DECIMAL(18, 2),
     date DATE,
-    status VARCHAR(50)
+    status VARCHAR(50),
+    transaction_person VARCHAR(50)
 );
 CREATE TABLE user_wallet (
 	id INT PRIMARY KEY AUTO_INCREMENT,
