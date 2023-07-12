@@ -74,6 +74,7 @@ class UserTransactionsControllerTest {
                 .quantity(0.2)
                 .date(LocalDateTime.now())
                 .status("success")
+                .transactionPerson("sai")
                 .build();
 
         secondTransaction = Transaction.builder()
@@ -85,6 +86,7 @@ class UserTransactionsControllerTest {
                 .quantity(0.1)
                 .date(LocalDateTime.now())
                 .status("success")
+                .transactionPerson("sai")
                 .build();
     }
 
@@ -125,6 +127,7 @@ class UserTransactionsControllerTest {
                 .quantity(1.2)
                 .date(LocalDateTime.now())
                 .status("success")
+                .transactionPerson("sai")
                 .build();
 
         Mockito.when(userTransactionsController.saveUserTransactions(1, newTransactionDto)).thenReturn(newTransactionDto);

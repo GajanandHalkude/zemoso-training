@@ -24,6 +24,7 @@ class TransactionTest {
         newTransaction.setStatus("success");
         newTransaction.setSymbol("BTC");
         newTransaction.setDate(dateTime);
+        newTransaction.setTransactionPerson("sai");
 
         assertThat(newTransaction).isNotNull();
         assertThat(newTransaction.getDate()).isEqualTo(dateTime);
@@ -34,8 +35,9 @@ class TransactionTest {
         assertThat(newTransaction.getSymbol()).isEqualTo("BTC");
         assertThat(newTransaction.getStatus()).isEqualTo("success");
         assertThat(newTransaction.getCurrencyId()).isEqualTo("bitcoin");
+        assertThat(newTransaction.getTransactionPerson()).isEqualTo("sai");
 
-        Transaction transaction = new Transaction(1,"bitcoin","sell","BTC",3456.54,1.2,dateTime,"success");
+        Transaction transaction = new Transaction(1,"bitcoin","sell","BTC",3456.54,1.2,dateTime,"success","sai");
 
         assertThat(transaction).isNotNull();
         assertThat(transaction.getDate()).isEqualTo(dateTime);
@@ -46,5 +48,6 @@ class TransactionTest {
         assertThat(transaction.getSymbol()).isEqualTo("BTC");
         assertThat(transaction.getStatus()).isEqualTo("success");
         assertThat(transaction.getCurrencyId()).isEqualTo("bitcoin");
+        assertThat(transaction.getTransactionPerson()).isEqualTo("sai");
     }
 }

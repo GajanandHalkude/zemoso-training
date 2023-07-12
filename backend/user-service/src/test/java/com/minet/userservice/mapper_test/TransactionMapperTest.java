@@ -44,6 +44,7 @@ class TransactionMapperTest {
                 .quantity(0.2)
                 .date(LocalDateTime.now())
                 .status("success")
+                .transactionPerson("sai")
                 .build();
 
         secondTransaction = Transaction.builder()
@@ -55,6 +56,7 @@ class TransactionMapperTest {
                 .quantity(0.1)
                 .date(LocalDateTime.now())
                 .status("success")
+                .transactionPerson("sai")
                 .build();
 
         firstTransactionDto = TransactionDto.builder()
@@ -66,6 +68,7 @@ class TransactionMapperTest {
                 .quantity(0.2)
                 .date(LocalDateTime.now())
                 .status("success")
+                .transactionPerson("sai")
                 .build();
 
         secondTransactionDto = TransactionDto.builder()
@@ -77,6 +80,7 @@ class TransactionMapperTest {
                 .quantity(0.1)
                 .date(LocalDateTime.now())
                 .status("success")
+                .transactionPerson("sai")
                 .build();
     }
 

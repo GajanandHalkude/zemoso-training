@@ -24,6 +24,7 @@ class TransactionDtoTest {
         newTransaction.setStatus("success");
         newTransaction.setSymbol("BTC");
         newTransaction.setDate(dateTime);
+        newTransaction.setTransactionPerson("sai");
 
         assertThat(newTransaction).isNotNull();
         assertThat(newTransaction.getDate()).isEqualTo(dateTime);
@@ -34,8 +35,9 @@ class TransactionDtoTest {
         assertThat(newTransaction.getSymbol()).isEqualTo("BTC");
         assertThat(newTransaction.getStatus()).isEqualTo("success");
         assertThat(newTransaction.getCurrencyId()).isEqualTo("bitcoin");
+        assertThat(newTransaction.getTransactionPerson()).isEqualTo("sai");
 
-        TransactionDto transactionDto = new TransactionDto(1, "bitcoin", "sell", "BTC", 3456.54, 1.2, dateTime, "success");
+        TransactionDto transactionDto = new TransactionDto(1, "bitcoin", "sell", "BTC", 3456.54, 1.2, dateTime, "success","sai");
 
         assertThat(transactionDto).isNotNull();
         assertThat(transactionDto.getDate()).isEqualTo(dateTime);
@@ -46,7 +48,8 @@ class TransactionDtoTest {
         assertThat(transactionDto.getSymbol()).isEqualTo("BTC");
         assertThat(transactionDto.getStatus()).isEqualTo("success");
         assertThat(transactionDto.getCurrencyId()).isEqualTo("bitcoin");
+        assertThat(transactionDto.getTransactionPerson()).isEqualTo("sai");
 
-        TransactionDto.builder().id(1).price(5000).quantity(1).symbol("BTC").date(dateTime).status("success").currencyId("bitcoing").build();
+        TransactionDto.builder().id(1).price(5000).quantity(1).symbol("BTC").date(dateTime).status("success").currencyId("bitcoing").transactionPerson("sai").build();
     }
 }

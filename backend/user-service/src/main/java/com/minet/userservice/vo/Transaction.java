@@ -17,4 +17,5 @@ public class Transaction {
     private double quantity;
     private LocalDateTime date;
     private String status;
+    private String transactionPerson;
 }
