@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,9 +24,13 @@ public class CryptoServiceImplementation implements CryptoServiceInterface {
     @Override
     public List<CryptoCurrencyDto> getAllCurrencies() {
         List<CryptoCurrency> cryptoCurrency = cryptoCurrencyRepository.findAll();
-        return cryptoCurrency.stream()
+
+        List<CryptoCurrencyDto> sortedCurrencies = cryptoCurrency.stream()
                 .map(currency -> modelMapper.map(currency, CryptoCurrencyDto.class))
+                .sorted(Comparator.comparing(CryptoCurrencyDto::getPrice).reversed())
                 .collect(Collectors.toList());
+
+        return sortedCurrencies;
     }
     @Override
     public CryptoCurrencyDto getCurrencyById(String id) {
