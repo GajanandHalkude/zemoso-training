@@ -3,6 +3,7 @@ package com.minet.portfolioservice.controllertests;
 import java.util.*;
 
 import com.minet.portfolioservice.controller.TransactionController;
+import com.minet.portfolioservice.dto.TransactionDto;
 import com.minet.portfolioservice.entity.Transaction;
 import com.minet.portfolioservice.service.MapperService;
 import com.minet.portfolioservice.service.TransactionService;
@@ -120,5 +121,92 @@ class TransactionControllerTest {
         // Assert
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         verify(transactionService, times(1)).findByCurrencyId(currencyId);
+    }
+    @Test
+    void testAddNewTransaction_Exception() {
+        // Prepare mock data
+        TransactionDto transactionDto = new TransactionDto();
+        // Set transactionDto properties
+
+        // Mock the mapperService behavior to throw an exception
+        when(mapperService.convertToEntity(transactionDto)).thenThrow(new RuntimeException("Some exception occurred."));
+
+        // Call the addNewTransaction method and assert the exception
+        assertThrows(ResponseStatusException.class, () -> transactionController.addNewTransaction(transactionDto));
+    }
+
+    @Test
+    void testAddNewTransaction_Success() {
+        // Prepare mock data
+        TransactionDto transactionDto = new TransactionDto();
+        // Set transactionDto properties
+
+        Transaction mockTransaction = new Transaction();
+        // Set mockTransaction properties
+
+        // Mock the mapperService behavior
+        when(mapperService.convertToEntity(transactionDto)).thenReturn(mockTransaction);
+        when(mapperService.convertToDto(mockTransaction)).thenReturn(transactionDto);
+
+        // Mock the transactionService behavior
+        when(transactionService.addNewTransaction(mockTransaction)).thenReturn(mockTransaction);
+
+        // Call the addNewTransaction method
+        TransactionDto result = transactionController.addNewTransaction(transactionDto);
+
+        // Assert the result
+        assertEquals(transactionDto, result);
+    }
+    @Test
+    void testFindByCurrencyId_ValidCurrencyIdWithoutTransactions_NotFound() {
+        // Prepare mock data
+        String currencyId = "USD";
+
+        // Mock the transactionService behavior
+        when(transactionService.findByCurrencyId(currencyId)).thenReturn(new ArrayList<>());
+
+        // Call the findByCurrencyId method
+        ResponseEntity<List<Transaction>> result = transactionController.findByCurrencyId(currencyId);
+
+        // Assert the result
+        assertEquals(HttpStatus.NOT_FOUND, result.getStatusCode());
+    }
+
+    @Test
+    void testFindByCurrencyId_Exception() {
+        // Prepare mock data
+        String currencyId = "USD";
+
+        // Mock the transactionService behavior to throw an exception
+        when(transactionService.findByCurrencyId(currencyId)).thenThrow(new RuntimeException("Some exception occurred."));
+
+        // Call the findByCurrencyId method and assert the exception
+        assertThrows(ResponseStatusException.class, () -> transactionController.findByCurrencyId(currencyId));
+    }
+
+    @Test
+    void testGetTransactions_Exception() {
+        // Mock the transactionService behavior to throw an exception
+        when(transactionService.findAllTransactions()).thenThrow(new RuntimeException("Some exception occurred."));
+
+        // Call the getTransactions method and assert the exception
+        assertThrows(ResponseStatusException.class, () -> transactionController.getTransactions());
+    }
+
+    @Test
+    void testGetTransactionById_ExistingId_Success() {
+        // Prepare mock data
+        int existingId = 1;
+        Transaction mockTransaction = new Transaction();
+        // Set mockTransaction properties
+
+        // Mock the transactionService behavior
+        when(transactionService.findTransactionById(existingId)).thenReturn(Optional.of(mockTransaction));
+
+        // Call the getTransactionById method
+        Transaction result = transactionController.getTransactionById(existingId);
+
+        // Assert the result
+        assertEquals(mockTransaction, result);
     }
 }

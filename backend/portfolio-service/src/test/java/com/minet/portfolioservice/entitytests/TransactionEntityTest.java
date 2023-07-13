@@ -24,6 +24,7 @@ class TransactionEntityTest {
         newTransaction.setStatus("success");
         newTransaction.setSymbol("BTC");
         newTransaction.setDate(dateTime);
+        newTransaction.setTransactionPerson("Uday");
 
         assertThat(newTransaction).isNotNull();
         assertThat(newTransaction.getDate()).isEqualTo(dateTime);
@@ -34,5 +35,6 @@ class TransactionEntityTest {
         assertThat(newTransaction.getSymbol()).isEqualTo("BTC");
         assertThat(newTransaction.getStatus()).isEqualTo("success");
         assertThat(newTransaction.getCurrencyId()).isEqualTo("bitcoin");
+        assertThat(newTransaction.getTransactionPerson()).isEqualTo("Uday");
     }
 }
