@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Wallet, Transaction, url} from '../constants'
 export const fetchAllCrtptoCurrenices = async () => {
   return await axios
-    .get(`${url}/cryptocurrency`)
+    .get(`${url}/currency`)
     .then((response) => response.data)
     .catch((error) => {
       throw error;
@@ -11,7 +11,7 @@ export const fetchAllCrtptoCurrenices = async () => {
 
 export const fetchCrtptoCurrenicyById = async (id: string) => {
   return await axios
-    .get(`${url}/cryptocurrency/${id}`)
+    .get(`${url}/currency/${id}`)
     .then((response) => response.data)
     .catch((error) => {
       throw error;
@@ -20,7 +20,7 @@ export const fetchCrtptoCurrenicyById = async (id: string) => {
 
 export const fetchWallet = async (id: string) => {
   return await axios
-    .get(`${url}/wallet/${id}`)
+    .get(`${url}/users/1/wallets/${id}`)
     .then((response) => response.data)
     .catch((error) => {
       throw error;
@@ -29,7 +29,7 @@ export const fetchWallet = async (id: string) => {
 
 export const updateWallet = async (id: string, wallet: Wallet) => {
   return await axios
-    .patch(`${url}/wallet/${id}`, { ...wallet })
+    .patch(`${url}/users/1/wallets/${id}`, { ...wallet })
     .catch((error) => {
       throw error;
     });
@@ -37,23 +37,23 @@ export const updateWallet = async (id: string, wallet: Wallet) => {
 
 export const fetchTransactions = async () => {
   return await axios
-    .get(`${url}/transactions/`)
+    .get(`${url}/users/1/transactions/`)
     .then((response) => response.data)
     .catch((error) => {
       throw error;
     });
 }
 
-export const addTransaction = async (transaction: Transaction) => {
+export const addTransaction = async (transaction: any) => {
       await axios
-        .post(`${url}/transactions/`, { ...transaction })
+        .post(`${url}/users/1/transactions/`, { ...transaction })
         .catch((error) => {
           throw error
         })
 }
 export const fetchWatchList = async () => {
   return await axios
-    .get(`${url}/watchlist/`)
+    .get(`${url}/users/1/watchlist`)
     .then((response) => response.data)
     .catch((error) => {
       throw error;
@@ -62,7 +62,7 @@ export const fetchWatchList = async () => {
 
 export const removeWatchList = async (coin_id: string) => {
   return await axios
-    .delete(`${url}/watchlist/${coin_id}`)
+    .delete(`${url}/users/1/watchlist/${coin_id}`)
     .then((response) => response.data)
     .catch((error) => {
       throw error;
@@ -71,7 +71,7 @@ export const removeWatchList = async (coin_id: string) => {
 
 export const addWatchList = async (coin: string) => {
   await axios
-    .post(`${url}/watchlist/`, { id:coin })
+    .post(`${url}/users/1/watchlist`,coin,{headers: {"Content-Type": "text/plain"}})
     .catch((error) => {
       throw error;
     });
@@ -79,10 +79,11 @@ export const addWatchList = async (coin: string) => {
 
 export const addUser = async (email: string, name: string, password: string) => {
   try {
-    const response = await axios.post(`${url}/users`, {
+    const response = await axios.post(`${url}/users/`, {
       email: email,
       name: name,
       password: password,
+      avatar:"avatar"
     });
 
     return response.data;
@@ -93,7 +94,7 @@ export const addUser = async (email: string, name: string, password: string) => 
 
 export const resetUserPassword = async (password:string) => {
   await axios
-    .patch(`${url}/users/1`, { password: password })
+    .patch(`${url}/users/1/reset-password`,password,{headers: {"Content-Type": "text/plain"}})
     .catch((error) => {
       throw error;
     });
@@ -101,7 +102,7 @@ export const resetUserPassword = async (password:string) => {
 
 export const getUserByEmail = async (email: string) => {
   return await axios
-    .get(`${url}/users?email=${email}`)
+    .get(`${url}/users/email/${email}`)
     .then((response) => response.data)
     .catch((error) => {
       throw error;

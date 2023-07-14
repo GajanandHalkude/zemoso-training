@@ -18,7 +18,7 @@ import MuiTypography from "../src/components/atoms/typography";
 import SocialLogin from "../src/components/molecules/socialLogin";
 import moment from 'moment'
 
-export const url = "https://bc92-ms.zebc61.ml"
+export const url = "https://bc92-be.zebc61.ml/api/v1"
 export const URL_DOMAIN = "https://bc92-fe.zebc61.ml/";
 export { ButtonComponent, CustomTextField, MuiTypography, SocialLogin };
 export const UsdName="USD Coin (Cash)"
@@ -32,8 +32,9 @@ export const UsdName="USD Coin (Cash)"
 export const deliveryDrop = "Select speed delivery";
 export const constFee10= "10";
 export const constFee1000= "1000";
-export const instantTime = "Instant"
+export const instantTime = "2-5"
 export const buyTransactionType = "buy"
+export const sellTransactionType = "sell"
 export const paymentMethodTitle = "Payment Method";
 export const variantTypePayment = "payment"
 
@@ -72,9 +73,9 @@ export const formatCurrency = new Intl.NumberFormat('en-US', {
 })
 
 export const paymentSummaryStepper = {
-  step1: ["Payment method", "Visa credit ...8845"],
+  step1: ["Payment method", "Visa credit ...8845", "Paying through", "Bitcoin wallet"],
   step2: ["Delivery fees", "0.001 BTC"],
-  step3: ["Deposit to", "Bitcoin wallet"],
+  step3: ["Deposit to", "Bitcoin wallet","Rupee Coin"],
 };
 
 export const dollarValue = 3406069.54;
@@ -163,19 +164,18 @@ export interface Wallet {
   id: string;
   name: string;
   balance: number;
-  avg_value: number;
-  invested_amount: number;
+  avgValue: number;
+  investedAmount: number;
 }
 export interface Transaction {
-  // id: number;
-  cryptoId: string;
-  transactionDateTime: string;
+  currencyId: string;
+  date: Date;
   quantity: number;
   symbol: string;
-  transactionType: string;
+  type: string;
   price: number;
   status: string;
-  from: string;
+  transactionPerson: string;
 }
 
 export const currencies = [
@@ -379,7 +379,7 @@ export const BitcoinWatchListBar = [
 export const Graphcategories = ['Jun 8', 'Jun 15', 'Jun 22', 'Jun 30', 'Jul 7', 'Jul 13']
 export const GraphData = [40, 43, 45, 42, 44, 46]
 export const GraphData1 = [34, 54, 23, 90, 12, 34]
-export const formatDate = (date: string) => {
+export const formatDate = (date: Date) => {
   return moment(date, 'YYYY-MM-DD').format('LL').split(',')[0]
 }
 export const RECENT_TRANSACTIONS = "Recent Transactions"

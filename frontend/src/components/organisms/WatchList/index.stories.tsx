@@ -13,7 +13,7 @@ const Template: Story<WatchlistCardProps> = (args) => <WatchlistCard {...args} /
 export const Profit = Template.bind({});
 Profit.args = {
   image:Bitcoin,
-  name: 'BitCoins',
+  name: 'BitCoin',
   price: '74.41',
   change: 2.5,
   profit:true,
@@ -23,7 +23,7 @@ Profit.args = {
 export const Loss = Template.bind({});
 Loss.args = {
   image:Bitcoin,
-  name: 'BitCoins',
+  name: 'BitCoin',
   price: '74.41',
   change: 2.5,
   width:"63%"

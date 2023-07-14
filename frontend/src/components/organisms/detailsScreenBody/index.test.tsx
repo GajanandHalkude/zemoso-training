@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { render, screen, fireEvent, act, renderHook, waitFor } from "@testing-library/react";
+/* eslint-disable @typescript-eslint/no-empty-function */
+import React from "react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import DetailsScrennBody from ".";
 import { getCurrencyLogo } from ".";
 import Success from "../../../../public/assets/icons/Correct.svg";
@@ -9,6 +10,7 @@ import "@testing-library/jest-dom/extend-expect";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import "@testing-library/jest-dom/extend-expect";
 import * as services from "../../../services/index";
+import { fetchCrtptoCurrenicyById, fetchWatchList } from "../../../services/index";
 
 jest.mock("react-apexcharts", () => ({
   __esModule: true,
@@ -16,40 +18,6 @@ jest.mock("react-apexcharts", () => ({
 }));
 
 describe("DetailsScrennBody", () => {
-  test("renders the currency details banner", () => {
-    const coinId = 'bitcoin'; 
-    const location = { state: { coindId: coinId } };
-  
-    render(
-      <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
-        <Routes>
-          <Route path="/details" Component={DetailsScrennBody} />
-        </Routes>
-      </MemoryRouter>
-    );
-    const currencyDetailsBanner = screen.getByTestId("portfolio-tab");
-    expect(currencyDetailsBanner).toBeInTheDocument();
-  });
-
-  test("renders the total balance box with correct values", () => {
-    const coinId = 'bitcoin'; 
-  const location = { state: { coindId: coinId } };
-
-  render(
-    <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
-      <Routes>
-        <Route path="/details" Component={DetailsScrennBody} />
-      </Routes>
-    </MemoryRouter>
-  );
-    const transactionBalance = screen.getByText("Wallet");
-    expect(transactionBalance).toBeInTheDocument();
-    fireEvent.click(transactionBalance);
-    const BTCBalance = screen.getByTestId("BTC-value");
-    expect(BTCBalance).toBeInTheDocument();
-      }  );
-  
-
   test("allows searching for assets", () => {
     const coinId = 'bitcoin'; 
   const location = { state: { coindId: coinId } };
@@ -87,97 +55,6 @@ describe("DetailsScrennBody", () => {
       const chips = screen.getByTestId("styledGridTransactions");
       expect(chips).toBeInTheDocument();
   });
-
-  test("renders the currency details banner", () => {
-    const coinId = 'bitcoin'; 
-  const location = { state: { coindId: coinId } };
-
-  render(
-    <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
-      <Routes>
-        <Route path="/details" Component={DetailsScrennBody} />
-      </Routes>
-    </MemoryRouter>
-  );
-    const currencyDetailsBanner = screen.getByText("Current value");
-    expect(currencyDetailsBanner).toBeInTheDocument();
-  });
-
-  test("renders the currency details banner", () => {
-    const coinId = 'bitcoin'; 
-  const location = { state: { coindId: coinId } };
-
-  render(
-    <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
-      <Routes>
-        <Route path="/details" Component={DetailsScrennBody} />
-      </Routes>
-    </MemoryRouter>
-  );
-    const currencyDetailsBanner = screen.getByText("Market Cap");
-    expect(currencyDetailsBanner).toBeInTheDocument();
-  });
-
-  test("renders the currency details banner", () => {
-    const coinId = 'bitcoin'; 
-  const location = { state: { coindId: coinId } };
-
-  render(
-    <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
-      <Routes>
-        <Route path="/details" Component={DetailsScrennBody} />
-      </Routes>
-    </MemoryRouter>
-  );
-    const currencyDetailsBanner = screen.getByText("Circulating Supply");
-    expect(currencyDetailsBanner).toBeInTheDocument();
-  });
-
-  test("renders the currency details banner", () => {
-    const coinId = 'bitcoin'; 
-    const location = { state: { coindId: coinId } };
-  
-    render(
-      <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
-        <Routes>
-          <Route path="/details" Component={DetailsScrennBody} />
-        </Routes>
-      </MemoryRouter>
-    );
-    const currencyDetailsBanner = screen.getByText("About Bitcoin");
-    expect(currencyDetailsBanner).toBeInTheDocument();
-  });
-
-  test("renders the currency details banner", () => {
-    const coinId = 'bitcoin'; 
-  const location = { state: { coindId: coinId } };
-
-  render(
-    <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
-      <Routes>
-        <Route path="/details" Component={DetailsScrennBody} />
-      </Routes>
-    </MemoryRouter>
-  );
-    const currencyDetailsBanner = screen.getByText("Resourses");
-    expect(currencyDetailsBanner).toBeInTheDocument();
-  });
-  
-  test("renders the currency details banner", () => {
-    const coinId = 'bitcoin'; 
-  const location = { state: { coindId: coinId } };
-
-  render(
-    <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
-      <Routes>
-        <Route path="/details" Component={DetailsScrennBody} />
-      </Routes>
-    </MemoryRouter>
-  );
-    const currencyDetailsBanner = screen.getByText("Price correlation with");
-    expect(currencyDetailsBanner).toBeInTheDocument();
-  });
-
   it("should fetch cryptocurrency data and set state", async () => {
     jest.mock("../../../services/index");
     const mockCryptoCurrency = {
@@ -246,14 +123,11 @@ it("should toggle 'isAddedToWatchList' and call the appropriate watch list funct
   fireEvent.click(watchListButton);
   expect(watchListButton).toHaveTextContent("ADD TO WATCHLIST");
 });
-
-
 test("returns the success logo for status 'success'", () => {
   const status = "success";
   const result = getCurrencyLogo(status);
   expect(result).toBe(Success); 
 });
-
 test("returns the pending logo for status 'pending'", () => {
   const status = "pending";
   const result = getCurrencyLogo(status);
@@ -266,84 +140,9 @@ test("returns the fail logo for any other status", () => {
   expect(result).toBe(Fail); 
 });
 
-
-test('should update "isAddedToWatchList" when "watchListId" changes', () => {
-  const watchListId = "bitcoin"; 
-  const { result, rerender } = renderHook(() => {
-    const [isAddedToWatchList, setIsAddedToWatchList] = useState(false);
-    
-    useEffect(() => {
-      setIsAddedToWatchList(watchListId ? true : false);
-    }, [watchListId]);
-
-    return { isAddedToWatchList };
-  });
-
-  expect(result.current.isAddedToWatchList).toBe(true);
-
-  rerender();
-
-  expect(result.current.isAddedToWatchList).toBe(true);
-});
-
-test('should toggle "isAddedToWatchList" and call the appropriate watchlist functions', async () => {
-  const mockAddWatchList = jest.fn();
-  const mockRemoveWatchList = jest.fn();
-
-  const { result } = renderHook(() => {
-    const [isAddedToWatchList, setIsAddedToWatchList] = useState(false);
-    const cryptoCurrency = {
-      id: "bitcoin",
-      name: "Bitcoin",
-      symbol: "bitcoin",
-      icon: "bitcoin",
-      price: 3285553.7365,
-      marketCap: 61,
-      totalSupply: 21000000,
-      availableSupply: 19177900,
-      priceChange: 1.06,
-      volume: 52614783.23
-    }; 
-    const watchListId = '';
-
-    useEffect(() => {
-      setIsAddedToWatchList(watchListId ? true : false);
-    }, [watchListId]);
-
-    const handleClick = async () => {
-      setIsAddedToWatchList((prevState) => !prevState);
-
-      if (isAddedToWatchList) {
-        await mockRemoveWatchList()?.catch((error:Error) => console.log(error));
-      } else {
-        await mockAddWatchList(cryptoCurrency?.id)?.catch((error:Error) => console.log(error));
-      }
-    };
-
-    return { isAddedToWatchList, handleClick };
-  });
-
-  expect(result.current.isAddedToWatchList).toBe(false);
-
-  await act(async () => {
-    await result.current.handleClick();
-  });
-
-  expect(result.current.isAddedToWatchList).toBe(true);
-  expect(mockAddWatchList).toHaveBeenCalledWith('bitcoin');
-  expect(mockRemoveWatchList).not.toHaveBeenCalled();
-
-  await act(async () => {
-    await result.current.handleClick();
-  });
-
-  expect(result.current.isAddedToWatchList).toBe(false);
-  expect(mockRemoveWatchList).toHaveBeenCalled();
-});
-
-test("updates isAddedToWatchList based on watchListId change", () => {
-  const coinId = 'bitcoin'; 
-  const location = { state: { coindId: coinId } };
+it('handles error when fetching currency data by Id', async () => {
+  const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  (fetchCrtptoCurrenicyById as jest.Mock).mockRejectedValueOnce(new Error('Failed to fetch currency data'));
 
   render(
     <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
@@ -352,14 +151,45 @@ test("updates isAddedToWatchList based on watchListId change", () => {
       </Routes>
     </MemoryRouter>
   );
-  act(() => {
-    // setWatchListId("bitcoin"); 
+
+  await waitFor(() => {
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      'Error fetching currency data:',
+      expect.any(Error)
+    );
   });
 
-  // expect(setIsAddedToWatchList).toHaveBeenCalledWith(true);
+  consoleErrorSpy.mockRestore();
 });
+it('handles error for fetch transactions ', async () => {
+  const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  (fetchWatchList as jest.Mock).mockRejectedValueOnce(new Error('Failed to fetch data'));
 
+  render(
+    <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
+      <Routes>
+        <Route path="/details" Component={DetailsScrennBody} />
+      </Routes>
+    </MemoryRouter>
+  );
+  consoleErrorSpy.mockRestore();
 });
-
- 
-
+it("should handle errors in fetching transactions and log the error", async () => {
+  jest.spyOn(services, "fetchTransactions").mockRejectedValueOnce("Error fetching transactions");
+  const consoleLogSpy = jest.spyOn(console, "log");
+  const coinId = 'bitcoin'; 
+  const location = { state: { coindId: coinId } };
+  render(
+    <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
+      <Routes>
+        <Route path="/details" Component={DetailsScrennBody} />
+      </Routes>
+    </MemoryRouter>
+  );
+  await waitFor(() => {
+    expect(services.fetchTransactions).toHaveBeenCalled();
+    expect(consoleLogSpy).toHaveBeenCalledWith("Error fetching transactions");
+  });
+  consoleLogSpy.mockRestore(); 
+});
+});

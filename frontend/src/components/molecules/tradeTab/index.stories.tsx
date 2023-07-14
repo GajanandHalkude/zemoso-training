@@ -20,6 +20,6 @@ Bitcoin.args = {
     cryptoCoinName:"Bitcoin",
     shortNameOfCoin:"BTC",
     price:"3,253,553.73",
-    change:'+1.06',
+    change:'1.06',
     marketCap:'60.1',
 }

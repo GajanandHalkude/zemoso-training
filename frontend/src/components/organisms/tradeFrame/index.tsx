@@ -73,8 +73,12 @@ const TradeFrame = () => {
   function getWatchlist() {
     fetchWatchList()
     .then((res) => {
-      setWatchList(res)
+      const result = res.map((value:string) => ({
+        id:value
+      }));
+      setWatchList(result)
     })
+    
   }
   useEffect(() => {
     getCurrency();

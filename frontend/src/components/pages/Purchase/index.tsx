@@ -42,8 +42,8 @@ const Purchase = () => {
       id: coindId,
       name: "Bitcoin",
       balance: 1,
-      avg_value: 16000,
-      invested_amount: 16000
+      avgValue: 0,
+      investedAmount: 0
   });
 
   useEffect(() => {
@@ -51,9 +51,9 @@ const Purchase = () => {
       try {
         const currenciesData = await fetchAllCrtptoCurrenices();
         setCurrenciesData(currenciesData);
-        const walletData = await fetchWallet("cash");
+        const walletData = await fetchWallet("1");
         setWallet(walletData);
-        const cryptoWalletData = await fetchWallet(coindId)
+        const cryptoWalletData = await fetchWallet(coindId === 'bitcoin' ? '2' : '3')
         setCryptoWallet(cryptoWalletData)
       } catch (error) {
         console.error("Error fetching currency data:", error);
@@ -72,21 +72,21 @@ const Purchase = () => {
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString('en-US');
   const Transaction =  {
-    "cryptoId":coindId,
-    "transactionDateTime": formattedDate,
+    "currencyId":coindId,
+    "date": new Date(),
     "quantity":quantity,
     "symbol": bitcoindetails?.symbol,
-    "transactionType": "buy",
+    "type": "buy",
     "price":total ,
     "status": "success",
-    "from": "SaiPrabhu"
+    "transactionPerson": "SaiPrabhu"
   }
   const handleCashWallet = (price: number, quantity: number) => {
     const updatedWallet = wallet
     if (updatedWallet) {
       const amount = parseFloat((price * quantity + 1000).toFixed(2))
       updatedWallet.balance = updatedWallet.balance - amount
-      updatedWallet.invested_amount = updatedWallet.invested_amount - amount
+      updatedWallet.investedAmount = updatedWallet.investedAmount - amount
       updateWallet(wallet?.id,updatedWallet)
     }
   }
@@ -95,11 +95,11 @@ const Purchase = () => {
     if (updatedCryptoWallet) {
       const amount = parseFloat((price * quantity + 1000).toFixed(2))
       updatedCryptoWallet.balance = updatedCryptoWallet.balance + quantity
-      updatedCryptoWallet.invested_amount =
-        updatedCryptoWallet.invested_amount + amount
+      updatedCryptoWallet.investedAmount =
+        updatedCryptoWallet.investedAmount + amount
       if (updatedCryptoWallet.balance) {
-        updatedCryptoWallet.avg_value =
-          updatedCryptoWallet.invested_amount / updatedCryptoWallet.balance
+        updatedCryptoWallet.avgValue =
+          updatedCryptoWallet.investedAmount / updatedCryptoWallet.balance
       }
       updateWallet(cryptoWallet?.id,updatedCryptoWallet)
     }

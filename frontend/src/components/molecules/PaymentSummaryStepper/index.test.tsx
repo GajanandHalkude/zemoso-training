@@ -8,3 +8,17 @@ it('should renders the crypto card', async () => {
   const wrapper = screen.getByTestId('summary-stepper')
   expect(wrapper).toBeInTheDocument()
 })
+it('should render the stepper component with correct data', () => {
+  const symbol = 'BTC';
+  const name = 'Bitcoin';
+  const type = 'sell';
+
+  const { getByText } = render(
+    <PaymentSummaryStepper symbol={symbol} name={name} type={type} />
+  );
+  expect(getByText('Delivery fees')).toBeInTheDocument(); 
+  expect(getByText('Deposit to')).toBeInTheDocument(); 
+  expect(getByText(`0.01 ${symbol}`)).toBeInTheDocument();
+  expect(getByText('Rupee Coin')).toBeInTheDocument();
+  expect(getByText(`${name} wallet`)).toBeInTheDocument();
+});

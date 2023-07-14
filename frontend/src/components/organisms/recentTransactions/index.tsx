@@ -12,14 +12,13 @@ import IconComponent from '../../atoms/icon'
 
 interface RecentTransactionsProps {
     id: number
-    cryptoId: string
-    transactionDateTime: string
+    currencyId: string
+    date: Date
     quantity: string
     symbol: string
-    transactionType: string
+    type: string
     price: number
     status: string
-    remarks: string
 }
 
 const StyledGrid = styled(Grid)(() => ({
@@ -71,11 +70,11 @@ interface RecentTransactionsComponentProps {
 const RecentTransactionsComponent = ({recentTransactions}: RecentTransactionsComponentProps) => {
 
 
-const getDate=(date: string | number | Date)=>{    
+const getDate=(date: Date | number )=>{    
   const formattedDate = new Date(date).toLocaleDateString("en-US", {
-    day: "numeric",
+    year: "numeric",
     month: "short",
-    year: "numeric"
+    day: "numeric"
   });
   const month = formattedDate.split(" ")[0];
   const day = formattedDate.split(" ")[1].replace(",", "");
@@ -95,11 +94,11 @@ const getDate=(date: string | number | Date)=>{
         </StyledEmptyTransactionBox>
       ) : (
       recentTransactions.map((transaction,index) => (
-        <StyledTransactionBox data-testid={`transaction-${index}`} key={transaction.cryptoId+transaction.transactionDateTime}>
+        <StyledTransactionBox data-testid={`transaction-${index}`} key={transaction.currencyId+transaction.date}>
           <MuiTypography
             variant="body1"
             color={theme.palette.textColor.highEmphasis}
-            text={getDate(transaction.transactionDateTime)}
+            text={getDate(transaction.date)}
             sx={{marginBottom:'8px',fontSize:"14px"}}
           />
           <TransactionStyle>
@@ -109,11 +108,11 @@ const getDate=(date: string | number | Date)=>{
                 imageWidth="44px"
                 textVariant="body1"
                 textColor={theme.palette.textColor.highEmphasis}
-                text={transaction.cryptoId}
+                text={transaction.currencyId}
                 subText={
                   <ChipItem
                     label={
-                      transaction.transactionType === 'buy'
+                      transaction.type === 'buy'
                         ? 'Purchased'
                         : 'Sold'
                     }
@@ -126,7 +125,7 @@ const getDate=(date: string | number | Date)=>{
                 <MuiTypography
                 variant="body1"
                 text={`${
-                    transaction.transactionType === 'buy' ? '+' : '-'
+                    transaction.type === 'buy' ? '+' : '-'
                   }${transaction.quantity} ${
                     transaction.symbol.toUpperCase()
                   }`}
@@ -135,7 +134,7 @@ const getDate=(date: string | number | Date)=>{
                 <MuiTypography
                 variant="body2"
                 text={`${
-                    transaction.transactionType === 'buy' ? '-' : '+'
+                    transaction.type === 'buy' ? '-' : '+'
                   }${formatCurrency.format(transaction.price)}`}
                 sx={{ color: theme.palette.textColor.mediumEmphasis,fontSize:"14px"}}
                 />

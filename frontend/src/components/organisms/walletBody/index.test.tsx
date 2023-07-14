@@ -115,7 +115,7 @@ describe("WalletBody", () => {
     render(<WalletBody placeholderText="" />);
 
     await waitFor(() => {
-      expect(mockFetchWallet).toHaveBeenCalledWith("cash");
+      expect(mockFetchWallet).toHaveBeenCalledWith("1");
       expect(mockfetchTransactions).toHaveBeenCalled();
     });
   });

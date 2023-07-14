@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { MuiTypography, buyTransactionType, constFee1000, deliveryDrop, instantTime, menuItems, paymentMethodTitle, pictures, variantTypePayment } from "../../../constants";
+import { MuiTypography, constFee1000, deliveryDrop, instantTime, menuItems, paymentMethodTitle, pictures, sellTransactionType, variantTypePayment } from "../../../constants";
 import { addTransaction, fetchAllCrtptoCurrenices, fetchWallet, updateWallet } from "../../../services/index";
 import Header from "../../molecules/Header";
 import Footer from "../../molecules/footer";
@@ -40,7 +40,7 @@ const Sell = () => {
         const currenciesData = await fetchAllCrtptoCurrenices();
         setCurrenciesData(currenciesData);
   
-        const walletQuantity = await fetchWallet("bitcoin");
+        const walletQuantity = await fetchWallet(coindId === 'bitcoin' ? '2' : '3');
         setWalletQuantity(walletQuantity.balance);
       } catch (error) {
         console.error("Error fetching currency data:", error);
@@ -52,38 +52,36 @@ const Sell = () => {
   const handleChange = (event: any) => {
     setQuantity(event);
   };
-  const currentDate = new Date();
-  const formattedDate = currentDate.toLocaleDateString('en-US');
   const navigate = useNavigate();
   const bitcoindetails = currenciesData.find((item) => item.id === coindId) as CryptoCurrency
   const NewTransactionData =  {
-    "cryptoId":coindId,
-    "transactionDateTime": formattedDate,
+    "currencyId":coindId,
+    "date": new Date(),
     "quantity":quantity,
     "symbol":bitcoindetails?.symbol,
-    "transactionType": "sell",
+    "type": "sell",
     "price":Total ,
     "status": "success",
-    "from": "lakshmi"
+    "transactionPerson": "lakshmi"
   }
   
   const handleClick = () => {
     if(walletQuantity>=quantity){
     const remainingQuantity = walletQuantity - quantity;
-    fetchWallet("cash").then((wallet) => {
+    fetchWallet("1").then((wallet) => {
       wallet.balance = wallet.balance + Total - 1000
-      wallet.invested_amount = wallet.invested_amount + Total - 1000
-      updateWallet("cash", wallet)
+      wallet.investedAmount = wallet.investedAmount + Total - 1000
+      updateWallet("1", wallet)
     })
-    fetchWallet(coindId).then((wallet) => {
+    fetchWallet(coindId === 'bitcoin' ? '2' : '3').then((wallet) => {
       wallet.balance = wallet.balance - quantity
-      wallet.invested_amount = wallet.invested_amount - Total + 1000
-      wallet.avgValue = wallet.invested_amount / wallet.balance
+      wallet.investedAmount = wallet.investedAmount - Total + 1000
+      wallet.avgValue = wallet.investedAmount / wallet.balance
       if (wallet.balance === 0) {
-        wallet.invested_amount = 0
+        wallet.investedAmount = 0
         wallet.avgValue=0
       }
-      updateWallet(coindId, wallet)
+      updateWallet(coindId === 'bitcoin' ? '2' : '3', wallet)
     })
     addTransaction(NewTransactionData)
     setWalletQuantity(remainingQuantity)}
@@ -106,7 +104,7 @@ const Sell = () => {
             <AccountDetails
               variant={variantTypePayment}
               title={paymentMethodTitle}
-              transactionType={buyTransactionType}
+              transactionType={sellTransactionType}
               balance={walletQuantity}
               icon={pictures[coindId]}
               coinType={bitcoindetails?.name}

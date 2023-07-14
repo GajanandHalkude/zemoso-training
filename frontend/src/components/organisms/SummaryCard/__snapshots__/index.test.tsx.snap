@@ -441,7 +441,7 @@ exports[`renders sell summary card correctly 1`] = `
                 }
               }
             >
-              Payment method
+              Paying through
             </p>
             <p
               className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
@@ -452,7 +452,7 @@ exports[`renders sell summary card correctly 1`] = `
                 }
               }
             >
-              Visa credit ...8845
+              Bitcoin wallet
             </p>
           </div>
         </div>
@@ -576,7 +576,7 @@ exports[`renders sell summary card correctly 1`] = `
                 }
               }
             >
-              Bitcoin wallet
+              Rupee Coin
             </p>
           </div>
         </div>

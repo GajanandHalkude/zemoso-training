@@ -38,23 +38,22 @@ const SignInCard = () => {
    
     const { email, password } = formData;
      getUserByEmail(email).then((response) => {
-      const dataArray = response;  
-       if(dataArray.length===0){
-        setSignInMessage("user doesnot exists")
-       }
-       else if(dataArray[0].password!==password){
+      const dataArray = response;
+       if(dataArray.password!==password){
         setSignInMessage("password doesnot match")
        }
        else{
         dispatch(login());
         setSignInMessage("");
-    navigate("/dashboard");
+        navigate("/dashboard");
        }
        setFormData({
         password: "",
         email:""
       });
-      });
+      }).catch(() => {
+        setSignInMessage("user doesnot exists")
+      })
   };
   
   const navigate = useNavigate();

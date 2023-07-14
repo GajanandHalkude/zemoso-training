@@ -96,6 +96,7 @@ const CurrencyDetailsBanner = ({
                 shortNameOfCoin={data.shortName}
                 value={`${data.value?.toLocaleString('en-US', {maximumFractionDigits:2})}`}
                 totalPercentage={data.percentage}
+                isbanner={true}
               />
             </Box>
           ))}

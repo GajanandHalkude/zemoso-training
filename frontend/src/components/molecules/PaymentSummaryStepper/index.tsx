@@ -11,7 +11,8 @@ import { paymentSummaryStepper } from "../../../constants";
 
 interface StepperProps {
   symbol:string;
-  name:string
+  name:string;
+  type?:string
 }
 const OuterBox = styled(Box)(() => ({
   display: 'flex',
@@ -35,7 +36,7 @@ const InnerBox = styled(Box)(() => ({
   alignItems: 'center',
 }))
 
-const PaymentSummaryStepper = ({symbol,name}:StepperProps) => {
+const PaymentSummaryStepper = ({symbol,name,type}:StepperProps) => {
   return (
     <div>
       <OuterBox data-testid="summary-stepper">
@@ -52,13 +53,13 @@ const PaymentSummaryStepper = ({symbol,name}:StepperProps) => {
             <TypographyComponent
               variant="body1"
               style={{ color: theme.palette.textColor.mediumEmphasis }}
-              text={paymentSummaryStepper.step1[0]}
+              text={type == "sell" ? paymentSummaryStepper.step1[2] : paymentSummaryStepper.step1[0]}
               sx={{fontSize:"14px"}}
             />
             <TypographyComponent
               variant="body1"
               style={{ color: theme.palette.textColor.highEmphasis }}
-              text={paymentSummaryStepper.step1[1]}
+              text={type == "sell" ? `${name || "Bitcoin"} wallet` : paymentSummaryStepper.step1[1]}
             />
           </OuterBox>
         </InnerBox>
@@ -106,7 +107,7 @@ const PaymentSummaryStepper = ({symbol,name}:StepperProps) => {
             <TypographyComponent
               variant="body1"
               style={{ color: theme.palette.textColor.highEmphasis }}
-              text={`${name || "Bitcoin"} wallet`}
+              text={type == "sell" ? paymentSummaryStepper.step3[2] : `${name || "Bitcoin"} wallet`}
             />
           </OuterBox>
         </InnerBox>

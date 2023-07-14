@@ -5,27 +5,25 @@ import RecentTransactionsComponent from '.'
 
 const reacentTransaction = [
   {
-    "id": 1,
-    "cryptoId": "bitcoin",
-    "transactionDateTime": "2022-06-14",
-    "quantity": "1",
-    "symbol": "BTC",
-    "transactionType": "sell",
-    "price": 18707.31,
-    "status": "success",
-    "remarks": "Transaction success"
+    id: 1,
+    currencyId: 'bitcoin',
+    date: new Date('2022-06-14'),
+    quantity: '1',
+    symbol: 'BTC',
+    type: 'sell',
+    price: 18707.31,
+    status: 'success',
   },
   {
-    "id": 2,
-    "cryptoId": "bitcoin",
-    "transactionDateTime": "2022-06-14",
-    "quantity": "0.5",
-    "symbol": "BTC",
-    "transactionType": "buy",
-    "price": 13000,
-    "status": "success",
-    "remarks": "Transaction success"
-  }
+    id: 2,
+    currencyId: 'bitcoin',
+    date: new Date('2022-06-14'),
+    quantity: '0.5',
+    symbol: 'BTC',
+    type: 'buy',
+    price: 13000,
+    status: 'fail'
+  },
 ]
 
 it('should renders the recent transactions', () => {
@@ -77,15 +75,14 @@ describe('RecentTransactionsComponent', () => {
     const recentTransactions = [
       {
         id: 1,
-        cryptoId: 'BTC',
-        transactionDateTime: '2023-06-01T09:30:00Z',
-        quantity: '0.5',
+        currencyId: 'bitcoin',
+        date: new Date('2022-06-14'),
+        quantity: '1',
         symbol: 'BTC',
-        transactionType: 'buy',
-        price: 50000,
+        type: 'sell',
+        price: 18707.31,
         status: 'success',
-        remarks: '',
-      },
+      }
     ];
     const { getByTestId } = render(
       <RecentTransactionsComponent recentTransactions={recentTransactions} />
@@ -100,15 +97,14 @@ describe('RecentTransactionsComponent', () => {
     const recentTransactions = [
       {
         id: 1,
-        cryptoId: 'BTC',
-        transactionDateTime: '2023-06-01T09:30:00Z',
-        quantity: '0.7',
+        currencyId: 'bitcoin',
+        date: new Date('2022-06-14'),
+        quantity: '1',
         symbol: 'BTC',
-        price: 60000,
-        transactionType: 'sell',
-        status: 'failed',
-        remarks: '',
-      },
+        type: 'sell',
+        price: 18707.31,
+        status: 'success',
+      }
     ];
     const { getByTestId } = render(
       <RecentTransactionsComponent recentTransactions={recentTransactions} />

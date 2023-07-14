@@ -17,6 +17,7 @@ interface PortfolioProps {
   borderRadius?: string | number;
   variant?:any
   sx?:React.CSSProperties,
+  isbanner?:boolean
 }
 
 const StyledBox = styled(Box)({
@@ -52,6 +53,7 @@ const PortfolioTab = ({
   icon,
   cryptoCoinName,
   shortNameOfCoin,
+  isbanner
 }: PortfolioProps) => {
   return (
     <StyledBox data-testid="typography-component">
@@ -79,8 +81,8 @@ const PortfolioTab = ({
           />
           <MuiTypography alignItems={'flex-end'} justifyContent={'flex-end'}
             variant="body2"
-            text={`+${totalPercentage}%`}
-            sx={{ color: theme.palette.primary.success500 }}
+            text={isbanner ? `${totalPercentage}%` : `+${totalPercentage}%`}
+            sx={{ color: isbanner ? "#7D7D89" : theme.palette.primary.success500 }}
           /> 
         </Styled2>
     

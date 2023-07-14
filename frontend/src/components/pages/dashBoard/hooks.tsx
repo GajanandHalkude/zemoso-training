@@ -1,6 +1,7 @@
 /* eslint-disable prefer-const */
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { url } from '../../../constants'
 interface WatchlistDataProps {
     id: string
     image: string
@@ -8,41 +9,38 @@ interface WatchlistDataProps {
     symbol: string
     change: number
   }
-  
  interface DashboardPortfolioProps {
     typeOfInvestment: string
     percentChange: number
     investmentValue: number
   }
-  
  interface PortfolioCoinProps extends WatchlistDataProps {
     investedAmount: number
   }
-  
  interface TransactionsProps {
     id: number
-    cryptoId: string
-    transactionDateTime: string
+    currencyId: string
+    date: Date,
     quantity: string
     symbol: string
-    transactionType: string
+    type: string
     price: number
     status: string
-    remarks: string
   }
 export const useWatchlistHook = () => {
   const [watchlistData, setWatchlistData] = useState<WatchlistDataProps[]>([])
 
   const setData = async () => {
     try {
-  const watchlistResponse = await axios.get('https://bc92-ms.zebc61.ml/watchlist');
-  const watchlistData = watchlistResponse.data;
+  const watchlistResponse = await axios.get(`${url}/users/1/watchlist`);
+  const watchlistData = watchlistResponse.data.map((value:string) => ({
+    id:value
+  }));
   const newCoins: WatchlistDataProps[] = [];
-  console.log(newCoins)
-
+  
   const coinDataPromises = watchlistData.map(async (coinData: any) => {
     try {
-      const response = await axios.get(`https://bc92-ms.zebc61.ml/cryptocurrency/${coinData.id}`);
+      const response = await axios.get(`${url}/currency/${coinData.id}`);
       const cryptoData = response.data;
       const tempWatchData = {
         id: cryptoData.id,
@@ -62,8 +60,6 @@ export const useWatchlistHook = () => {
   const coinDataArray = await Promise.all(coinDataPromises);
   const filteredCoinDataArray = coinDataArray.filter((coinData) => coinData !== null);
   newCoins.push(...filteredCoinDataArray);
-  // console.log(filteredCoinDataArray)
-  // console.log(newCoins)
   setWatchlistData(newCoins);
   
 } catch{}
@@ -94,29 +90,32 @@ export const usePortfolioGraphHook = (coin: string) => {
   const setData = async () => {
     try {
       await axios
-        .get('https://bc92-ms.zebc61.ml/wallet/cash')
+        .get(`${url}/users/1/wallets/`)
         .then(async (response: any) => {
           const data = response.data
           let tempInvestment = 0
-          //console.log(data)
-            tempInvestment += data.invested_amount
+          for (let coinData of data) {
+            tempInvestment += coinData.investedAmount
+            if (coinData.currencyId === coin) {
               await axios
-                .get(`https://bc92-ms.zebc61.ml/cryptocurrency/${coin}`)
+                .get(`${url}/currency/${coin}`)
                 .then((response: any) => {
                   const responseData = response.data
                   const tempCoinInvestment: DashboardPortfolioProps = {
                     typeOfInvestment: responseData.name,
                     percentChange: responseData.priceChange,
-                    investmentValue: data.invested_amount,
+                    investmentValue: coinData.investedAmount,
                   }
                   setCoinInvestment(tempCoinInvestment)
                 })
+              }
           const tempTotalInvestment: DashboardPortfolioProps = {
             typeOfInvestment: 'Total investment',
             percentChange: +1.2,
             investmentValue: tempInvestment,
           }
           setTotalInvestment(tempTotalInvestment)
+        }
         })
     } catch {}
   }
@@ -140,34 +139,45 @@ export const usePortfolioCoinsandWalletHook = () => {
   const setData = async () => {
     try {
       await axios
-        .get('https://bc92-ms.zebc61.ml/wallet/cash')
+        .get(`${url}/users/1/wallets/1`)
         .then(async (response: any) => {
           let data = response.data
           setCashWallet(data.balance)
         })
           const newCoins: PortfolioCoinProps[] = [...portfolioCoins]
-          await axios
-            .get('https://bc92-ms.zebc61.ml/wallet/bitcoin')
-            .then(async (response: any) => {
-              let coinData = response.data
-              console.log(coinData)
-              await axios
-              .get(`https://bc92-ms.zebc61.ml/cryptocurrency/${coinData.id}`)
-              .then((response: any) => {
-                const tempData = response.data
-                const tempCoin: PortfolioCoinProps = {
-                  id: tempData.id,
-                  image: tempData.icon,
-                  name: tempData.name,
-                  symbol: tempData.symbol,
-                  investedAmount: coinData.invested_amount || 0,
-                  change: isNaN(tempData.priceChange) ? 0 : tempData.priceChange,
-                }
-                newCoins.push(tempCoin)
-              })
-          
+          const response1 = await axios.get(`${url}/users/1/wallets/2`);
+          const coinData1 = response1.data;
+          const response2 = await axios.get(`${url}/users/1/wallets/3`);
+          const coinData2 = response2.data;
+      
+          const [currencyResponse1, currencyResponse2] = await Promise.all([
+            axios.get(`${url}/currency/${coinData1.currencyId}`),
+            axios.get(`${url}/currency/${coinData2.currencyId}`)
+          ]);
+      
+          const tempData1 = currencyResponse1.data;
+          const tempData2 = currencyResponse2.data;
+      
+          const tempCoin1: PortfolioCoinProps = {
+            id: tempData1.id,
+            image: tempData1.icon,
+            name: tempData1.name,
+            symbol: tempData1.symbol,
+            investedAmount: coinData1.investedAmount || 0,
+            change: isNaN(tempData1.priceChange) ? 0 : tempData1.priceChange,
+          };
+      
+          const tempCoin2: PortfolioCoinProps = {
+            id: tempData2.id,
+            image: tempData2.icon,
+            name: tempData2.name,
+            symbol: tempData2.symbol,
+            investedAmount: coinData2.investedAmount || 0,
+            change: isNaN(tempData2.priceChange) ? 0 : tempData2.priceChange,
+          };
+          newCoins.push(tempCoin1)
+          newCoins.push(tempCoin2)
           setPortfolioCoins(newCoins)
-            })
             
     } catch {}
   }
@@ -187,7 +197,7 @@ export const useRecentTransactionsHook = () => {
   const setData = async () => {
     try {
       await axios
-        .get('https://bc92-ms.zebc61.ml/transactions')
+        .get(`${url}/users/1/transactions/`)
         .then((response: any) => {
           const data = response.data
           let tempTransactions: TransactionsProps[] = [...recentTransactions]
@@ -211,7 +221,6 @@ export const useRecentTransactionsHook = () => {
 
 export const useGraphDataHook = (id: string) => {
   const [graphData, setGraphData] = useState<number[]>([])
-
   const setData = async () => {
     try {
       await axios

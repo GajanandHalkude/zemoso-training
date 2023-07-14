@@ -64,14 +64,16 @@ const TabsComponent = ({label1, label2,body1,body2, width}:TabsProps) => {
       },
       minHeight: '37px !important',
       width: width,
+      display: 'flex',
+      gap: '50px',
       borderBottom: `1px solid ${theme.palette.greyColors.grey100}`,
     })
   
   return (
     <StyledBox data-testid="tabs" id="tabs">
       <StyledTabs value={value} onChange={handleChange}>
-        <Tab label={label1} {...a11yProps(0)} defaultChecked={true}  style={{ textTransform: 'none' }}/>
-        <Tab label={label2} {...a11yProps(1)} style={{ textTransform: 'none' }}/>
+        <Tab label={label1} {...a11yProps(0)} defaultChecked={true}  style={{ textTransform: 'none', fontSize:'18px',  }}/>
+        <Tab label={label2} {...a11yProps(1)} style={{ textTransform: 'none', fontSize:'18px', margin: '0px 26px', }}/>
       </StyledTabs>
 
       <TabPanel value={value} index={0} >

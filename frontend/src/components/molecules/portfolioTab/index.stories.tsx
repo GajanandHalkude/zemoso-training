@@ -36,7 +36,7 @@ Bitcoin.args = {
 export const Etherium = Template.bind({});
 Etherium.args = {
     icon:etherium,
-    cryptoCoinName:"Etherium",
+    cryptoCoinName:"Ethereum",
     shortNameOfCoin:"ETH",
     value:0.00,
     totalPercentage:0.00,

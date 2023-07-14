@@ -127,7 +127,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
       </TypographyGrid>
 
       <StepperBox>
-        <PaymentSummaryStepper symbol={symbol} name={name} />
+        <PaymentSummaryStepper type={type}  symbol={symbol} name={name} />
       </StepperBox>
 
       <TotalBox spacing={2} direction={"column"}>

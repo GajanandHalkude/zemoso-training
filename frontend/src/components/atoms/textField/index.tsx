@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { TextField, IconButton, InputAdornment } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import EyeOn from "../../../../public/assets/icons/eye.svg";
+import EyeOff from "../../../../public/assets/icons/Vector.svg";
+import IconComponent from '../icon';
 
 interface TextFieldProps {
   placeholder?: string;
@@ -53,7 +55,11 @@ const CustomTextField: React.FC<TextFieldProps> = ({
         endAdornment: isPassword && (
           <InputAdornment position="end">
             <IconButton onClick={handleTogglePasswordVisibility} edge="end">
-              {showPassword ? <VisibilityOff /> : <Visibility />}
+              {showPassword ? (
+                <IconComponent height={"19.41px"} width={"20px"} src={EyeOff}  />
+              ) : (
+                <IconComponent height={"19.41px"} width={"20px"} src={EyeOn} />
+              )}
             </IconButton>
           </InputAdornment>
         ),

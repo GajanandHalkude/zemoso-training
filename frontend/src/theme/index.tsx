@@ -236,7 +236,7 @@ const theme = createTheme({
     },
     timeLine: {
       fillColor: '#00177A',
-      borderColor: '#ECECF7',
+      borderColor: '#CCE3FF',
     },
     chipColors: {
       main: 'rgba(247, 147, 26, 0.2)',

@@ -16,25 +16,23 @@ RecentTransactions.args = {
   recentTransactions: [
     {
       id: 1,
-      cryptoId: 'bitcoin',
-      transactionDateTime: '2022-06-14',
+      currencyId: 'bitcoin',
+      date: new Date('2022-06-14'),
       quantity: '1',
       symbol: 'BTC',
-      transactionType: 'sell',
+      type: 'sell',
       price: 18707.31,
       status: 'success',
-      remarks: 'Transaction success',
     },
     {
       id: 2,
-      cryptoId: 'bitcoin',
-      transactionDateTime: '2022-06-14',
+      currencyId: 'bitcoin',
+      date: new Date('2022-06-14'),
       quantity: '0.5',
       symbol: 'BTC',
-      transactionType: 'buy',
+      type: 'buy',
       price: 13000,
-      status: 'fail',
-      remarks: 'Transaction success',
+      status: 'fail'
     },
   ],
 }

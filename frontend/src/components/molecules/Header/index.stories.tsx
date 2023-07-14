@@ -17,7 +17,7 @@ const Template: Story<IHeaderProps> = (args) => <Header {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  pageName: 'Home',
+  pageName: 'Dashboard',
   displayButtons:true
 };
 

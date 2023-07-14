@@ -25,7 +25,7 @@ Default.args = {
 
 export const Password = Template.bind({});
 Password.args = {
-  placeholder: "Password",
+  placeholder: "Enter Password",
   value: "",
   onChange: (value: string) => console.log(value),
   isPassword: true,

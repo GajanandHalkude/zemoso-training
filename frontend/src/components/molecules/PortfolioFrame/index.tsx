@@ -19,8 +19,8 @@ const PortfolioFrame: React.FC<PortfolioFrameProps> = ({mainText,subText}) => {
       <Grid item xs={7} display="flex" justifyContent="end">
         <IconWithTypography
           image={InfoIcon}
-          imageHeight={"20px"}
-          imageWidth={"20px"}
+          imageHeight={"30px"}
+          imageWidth={"30px"}
           text={subText}
           iconandtextgap={"10px"}
           textVariant={"body2"}

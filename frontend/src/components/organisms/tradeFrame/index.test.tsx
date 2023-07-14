@@ -111,6 +111,7 @@ describe('TradeFrame', () => {
   });
   test('calls addWatchList function when star button is clicked', async () => {
     (fetchWatchList as jest.Mock).mockResolvedValue(watchListData);
+    (addWatchList as jest.Mock).mockResolvedValue(watchListData);
     render(<BrowserRouter><TradeFrame /></BrowserRouter>);
 
     await waitFor(() => {

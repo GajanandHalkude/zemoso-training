@@ -121,9 +121,8 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
         
      }).catch((error) => {
      console.log(error);
-   });
-        
-   fetchWallet("cash")
+   });  
+   fetchWallet("1")
    .then((res) => {
      setbalanceSum(res.balance);
    })
@@ -138,9 +137,10 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
   const handleDropdownChange = (value: string) => {
     setSelectedPeriod(value);
   };
-
+  
   const filteredTransactions = transaction.filter((data) => {
-    const transactionDateTime = new Date(data.transactionDateTime);
+    
+    const transactionDateTime = new Date(data.date);
 
     switch (selectedPeriod) {
       case "1H":
@@ -274,14 +274,14 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
       <StyledGridTransactons >
         {filteredTransactions.map((data) => (
           <WalletTransactionTab
-            key={data.cryptoId}
+            key={data.currencyId}
             currencyLogo={getCurrencyLogo(data.status)}
             currencyName={`Received ${data.symbol.toUpperCase()}`}
-            userDescription={`from ${data.from}`}
-            currency={data.transactionType === "sell" ? `-${data.quantity}` : `+${data.quantity}`}
-            marketCap={data.transactionType === "sell" ? `-$${data.price}` : `+$${data.price}`}
-            date={new Date(data.transactionDateTime)}
-            chiplabel={data.transactionType === "sell" ? "Sold" : "Purchase"}
+            userDescription={`From ${data.transactionPerson}`}
+            currency={data.type === "sell" ? `-${data.quantity}` : `+${data.quantity}`}
+            marketCap={data.type === "sell" ? `-$${data.price.toFixed(2)}` : `+$${data.price.toFixed(2)}`}
+            date={new Date(data.date)}
+            chiplabel={data.type === "sell" ? "Sold" : "Purchased"}
             symbol={data.symbol}
           />
         ))}

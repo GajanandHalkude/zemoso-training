@@ -225,7 +225,7 @@ const AmountDetailsCardComponent = ({
             backgroundColor={"none"}
             variant="outlined"
             onClick={() => handleClick()}
-            text={transactionType == "buy" ? "Buy Max" : "Sell Max"}
+            text={transactionType == "buy" ? "Buy max" : "Sell max"}
           />
         </StyledInnerBox>
         <StyledBox>

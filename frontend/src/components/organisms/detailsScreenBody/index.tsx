@@ -176,12 +176,11 @@ const DetailsScrennBody = () => {
   const isthereInWatchlist = (data:any,id:any) =>{
     let isthere = false;
 
-    data.map((d:any)=>{
-      if(d.id === id){
+    data.map((coinId:any)=>{
+      if(coinId === id){
         isthere = true
       }
     })
-
     return isthere
  }
 
@@ -196,7 +195,7 @@ const DetailsScrennBody = () => {
     }
   };
   const totalBalance = ()=>{
-    const purchaseTransaction = transaction?.filter((data) => data.transactionType === "buy");
+    const purchaseTransaction = transaction?.filter((data) => data.type === "buy");
 
     let totalValue = 0;
     let totalPrice = 0;
@@ -322,12 +321,12 @@ const DetailsScrennBody = () => {
               key={data.id}
               currencyLogo={getCurrencyLogo(data.status)}
               currencyName={cryptoCurrency.name}
-              userDescription={`from ${data.from}`}
-              currency={data.transactionType === "sell" ? `-${data.quantity}` : `+${data.quantity}`}
-              marketCap={data.transactionType === "sell" ? `-$${data.price}` : `+$${data.price}`}
-              date={data.transactionDateTime}
+              userDescription={`From ${data.transactionPerson}`}
+              currency={data.type === "sell" ? `-${data.quantity}` : `+${data.quantity}`}
+              marketCap={data.type === "sell" ? `-$${data.price}` : `+$${data.price}`}
+              date={data.date}
               chiplabel={
-                data.transactionType === "buy" ? "Purchased" : "Sold"
+                data.type === "buy" ? "Purchased" : "Sold"
               }
               symbol={data.symbol}
             />

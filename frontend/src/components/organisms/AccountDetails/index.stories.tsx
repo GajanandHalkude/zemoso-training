@@ -25,7 +25,7 @@ BuyTransaction.args = {
   fee: "10",
   wallet: true,
   coin: "Bitcoin BTC",
-  instantTime: "Instant",
+  instantTime: "2-5",
   deliveryTitle: "Select speed delivery",
   handleChange: (quantity, amount) => {
     quantity + amount;

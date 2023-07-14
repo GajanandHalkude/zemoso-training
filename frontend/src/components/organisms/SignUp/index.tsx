@@ -40,25 +40,17 @@ const SignUp = () => {
     const { signupemail, signupfullName, signuppassword } = formData;  
     getUserByEmail(signupemail)
       .then((userExists) => {
-        if (userExists.length !== 0) {
-          setSignUpMessage("User already exists");
-        } else {
-          return addUser(signupemail, signupfullName, signuppassword);
-        }
-      })
-      .then(() => {
+        setSignUpMessage("User already exists with this email");
+      }).catch((error) => {
+        addUser(signupemail, signupfullName, signuppassword);
         setSignUpMessage("User added successfully..please login");
         setFormData({
           signuppassword: "",
           signupemail: "",
           signupfullName: "",
         });
-      })
-      .catch((error) => {
-        console.error("Error occurred while signing up:", error);
       });
   };
-  
   
   const navigate = useNavigate();
 

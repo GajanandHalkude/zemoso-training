@@ -17,7 +17,7 @@ const Template:ComponentStory<typeof PasswordSuccesful> = (args)=>(
 
 export const PasswordResetSuccessful = Template.bind({});
 PasswordResetSuccessful.args = {
-    heading:"Password Reset successful",
-    subtitle:"Click on the button below to proceed login",
+    heading:"Password reset successful",
+    subtitle:"Click on button below to proceed to login",
     icon:tick,
 }
