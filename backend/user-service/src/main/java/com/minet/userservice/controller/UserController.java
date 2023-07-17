@@ -1,12 +1,16 @@
 package com.minet.userservice.controller;
 
+import com.minet.userservice.config.JwtGeneratorInterface;
+import com.minet.userservice.dto.LoginUserDTO;
 import com.minet.userservice.dto.UserDto;
 import com.minet.userservice.entity.User;
+import com.minet.userservice.exception.UserNotFoundException;
 import com.minet.userservice.mapper.UserMapper;
 import com.minet.userservice.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -25,6 +29,9 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private JwtGeneratorInterface jwtGenerator;
+
 
     @GetMapping("/")
     public List<UserDto> getAllUsers() {
@@ -40,7 +47,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("/register/")
     public UserDto saveUser(@RequestBody UserDto userDto) {
         try {
             log.info(" >>> INSIDE UserController: adding user");
@@ -80,6 +87,24 @@ public class UserController {
             userService.resetUserPassword(userId, newPassword);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No user found for given id: " + userId);
+        }
+    }
+
+    @PostMapping("/login/")
+    public ResponseEntity<?> loginUser(@RequestBody LoginUserDTO loginUserDTO) {
+        try {
+            log.info(">>>>>>>inside login User");
+            if(loginUserDTO.getEmail() == null || loginUserDTO.getPassword() == null) {
+
+                throw new UserNotFoundException("UserName or Password is Empty");
+            }
+            User userData = userService.getUserByEmail(loginUserDTO.getEmail());
+            if(userData == null){
+                throw new UserNotFoundException("UserName or Password is Invalid");
+            }
+            return new ResponseEntity<>(jwtGenerator.generateToken(loginUserDTO), HttpStatus.OK);
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }
 }

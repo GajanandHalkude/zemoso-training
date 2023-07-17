@@ -5,6 +5,11 @@ wallet.url: http://localhost:9004/api/v1/wallet/
 transaction.url: http://localhost:9003/api/v1/transactions/
 
 spring:
+  security:
+    jwt:
+      token:
+        secret-key: secret123
+        expire-length: 300000
   application:
     name: USER-SERVICE
 

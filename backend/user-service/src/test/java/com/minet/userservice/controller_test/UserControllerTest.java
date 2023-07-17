@@ -1,16 +1,21 @@
 package com.minet.userservice.controller_test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.minet.userservice.config.JwtGeneratorInterface;
 import com.minet.userservice.controller.UserController;
 import com.minet.userservice.dao.UserRepository;
+import com.minet.userservice.dto.LoginUserDTO;
 import com.minet.userservice.dto.UserDto;
 import com.minet.userservice.entity.User;
+import com.minet.userservice.exception.UserNotFoundException;
 import com.minet.userservice.mapper.UserMapper;
 import com.minet.userservice.service.UserService;
 import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +23,19 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(UserController.class)
@@ -51,6 +58,9 @@ class UserControllerTest {
 
     @MockBean
     private UserService userService;
+
+    @MockBean
+    private JwtGeneratorInterface jwtGenerator;
     @Autowired
     private UserController userController;
     private User firstUser;
@@ -113,7 +123,7 @@ class UserControllerTest {
 
         Mockito.when(userController.saveUser(newUserDto)).thenReturn(newUserDto);
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/v1/users/")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/api/v1/users/register/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newUserDto));
@@ -125,7 +135,7 @@ class UserControllerTest {
 
         Mockito.when(userController.saveUser(newUserDto)).thenThrow(new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to add user"));
 
-        MockMvcRequestBuilders.post("/api/v1/users/")
+        MockMvcRequestBuilders.post("/api/v1/users/register/")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON)
                 .content(this.mapper.writeValueAsString(newUserDto));
@@ -195,6 +205,31 @@ class UserControllerTest {
                 .content(this.mapper.writeValueAsString(userDto2));
         mockMvc.perform(mockRequest)
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    void testLoginUser_NullEmailOrPassword() {
+        LoginUserDTO loginUserDTO = new LoginUserDTO();
+        loginUserDTO.setEmail(null);
+        loginUserDTO.setPassword(null);
+        ResponseEntity<?> response = userController.loginUser(loginUserDTO);
+        assertEquals(HttpStatus.CONFLICT, response.getStatusCode());
+        assertEquals("UserName or Password is Empty", response.getBody());
+        verify(userService, never()).getUserByEmail(anyString());
+        verify(jwtGenerator, never()).generateToken(any());
+    }
+
+    @Test
+    void testLoginUser_InvalidCredentials() throws UserNotFoundException {
+        LoginUserDTO loginUserDTO = new LoginUserDTO();
+        loginUserDTO.setEmail("test@example.com");
+        loginUserDTO.setPassword("password");
+        when(userService.getUserByEmail(loginUserDTO.getEmail())).thenReturn(null);
+        ResponseEntity<?> response = userController.loginUser(loginUserDTO);
+        assertEquals(HttpStatus.CONFLICT, response.getStatusCode());
+        assertEquals("UserName or Password is Invalid", response.getBody());
+        verify(userService, times(1)).getUserByEmail(loginUserDTO.getEmail());
+        verify(jwtGenerator, never()).generateToken(any());
     }
 
 
