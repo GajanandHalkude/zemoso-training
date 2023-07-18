@@ -5,6 +5,8 @@ import IconComponent from "../../atoms/icon";
 import { styled } from "@mui/system";
 import { useAuth0 } from "@auth0/auth0-react";
 import theme from "../../../theme";
+import { loginUser } from "../../../services";
+import {email,password} from '../../../constants'
 
 interface SocialLoginProps {
     text:string,
@@ -29,6 +31,11 @@ const SocialLogin = ({text,src}:SocialLoginProps) => {
     const { loginWithRedirect } = useAuth0();
 
   const handleLogin = () => {
+    loginUser(email, password)
+    .then((response) => {
+    localStorage.setItem("accessToken",response.token)
+    localStorage.setItem("isLoggedIn","true");
+    })
     loginWithRedirect();
   };
   

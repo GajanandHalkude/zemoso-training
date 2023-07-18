@@ -72,6 +72,9 @@ export const formatCurrency = new Intl.NumberFormat('en-US', {
   currency: 'USD',
 })
 
+export const email="john123@gmail.com";
+export const password="Testing@123";
+
 export const paymentSummaryStepper = {
   step1: ["Payment method", "Visa credit ...8845", "Paying through", "Bitcoin wallet"],
   step2: ["Delivery fees", "0.001 BTC"],

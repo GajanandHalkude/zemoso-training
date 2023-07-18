@@ -1,8 +1,10 @@
 import React from "react";
-import { render, screen , fireEvent } from "@testing-library/react";
+import { render, screen , fireEvent, waitFor } from "@testing-library/react";
 import SocialLogin from "./index";
 import { useAuth0 } from "@auth0/auth0-react";
 import '@testing-library/jest-dom';
+import * as services from "../../../services/index";
+
 
 jest.mock("@auth0/auth0-react", () => ({
   useAuth0: jest.fn(),
@@ -39,5 +41,23 @@ describe("SocialLogin", () => {
     fireEvent.click(socialLoginElement);
 
     expect(loginWithRedirect).toHaveBeenCalledTimes(1);
+  });
+  it("should set accessToken and isLoggedIn in localStorage on login ", async () => {
+    const mockSetItem = jest.spyOn(Storage.prototype, "setItem");
+    const mockloginUser = jest.spyOn(services, "loginUser");
+    const loginWithRedirect = jest.fn();
+    (useAuth0 as jest.Mock).mockReturnValue({
+      loginWithRedirect,
+    });
+    mockloginUser.mockResolvedValue({ token: "token" });
+
+    render(<SocialLogin text="Login" src="icon.png" />);
+    const socialLoginElement = screen.getByTestId("socialIconComponent");
+
+    fireEvent.click(socialLoginElement);
+    await waitFor(() =>
+      expect(mockSetItem).toHaveBeenCalledWith("accessToken", "token")
+    );
+    expect(mockSetItem).toHaveBeenCalledWith("isLoggedIn", "true");
   });
 });
