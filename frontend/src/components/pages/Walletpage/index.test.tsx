@@ -10,18 +10,16 @@ import Fail from '../../../../public/assets/images/t-fail.svg';
 import Pending from '../../../../public/assets/images/t-pending.svg';
 import WalletBody, { getCurrencyLogo } from '../../organisms/walletBody';
 import WalletTransactionTab from '../../molecules/walletTransactionTab';
-import * as services from "../../../services/index";
-import { Provider } from "react-redux";
-import store from "../../../services/store";
+import * as services from "../../../services/index"
 
 describe('WalletPage', () => {
   it('should render the header, side navigation, footer, and wallet body', () => {
     render(
-      <Provider store={store}>
+  
       <Router>
         <WalletPage />
       </Router>
-      </Provider>
+
     );
 
     const headerElement = screen.getByText('Trade');
@@ -39,11 +37,11 @@ describe('WalletPage', () => {
   });
   it('should render the header, side navigation, footer, and wallet body', () => {
     render(
-      <Provider store={store}>
+    
       <Router>
         <WalletPage />
       </Router>
-      </Provider>
+
     );
 
     const headerElement = screen.getByText('CASH DEPOSIT');
@@ -115,8 +113,8 @@ describe("WalletBody", () => {
     const placeholderText = "Search";
     const handleDropdownChangeMock = jest.fn();
     render(
+   
       <WalletBody
-        
         placeholderText={placeholderText}
         handleDropdownChange={handleDropdownChangeMock}
       />
@@ -127,17 +125,21 @@ describe("WalletBody", () => {
     const placeholderText = "Search";
     const handleSearchFilterMock = jest.fn();
     render(
+  
       <WalletBody
         placeholderText={placeholderText}
         handleSearchFilter={handleSearchFilterMock}
       />
+
     );
   });
 });
 
 describe("WalletBody", () => {
   test("renders without errors", () => {
-    render(<WalletBody placeholderText=""  />);
+    render(  
+    <WalletBody placeholderText=""  />
+ );
   });
 
   test("displays the correct total balance", () => {
@@ -151,16 +153,18 @@ describe("WalletBody", () => {
     };
     const mockFetchCrtptoCurrenicyById = jest.spyOn(services, "fetchWallet");
     mockFetchCrtptoCurrenicyById.mockResolvedValue(mockWallet);
-    render(
+    render( 
       <WalletBody
         placeholderText={"Search all Assests"}
       />
+    
     );
   });
 
   test("renders the buttons with the correct text", () => {
     render(
       <WalletBody placeholderText={"Search all Assests"} />
+
     );
     const cashDepositButton = screen.getByText("CASH DEPOSIT");
     const withdrawalButton = screen.getByText("WITHDRAWAL");
@@ -169,8 +173,9 @@ describe("WalletBody", () => {
   });
 
   test("renders component with search field", () => {
-    const { getByPlaceholderText } = render(
+    const { getByPlaceholderText } = render( 
       <WalletBody placeholderText={"Search all Assests"} />
+
     );
     const searchField = getByPlaceholderText("Search all Assests");
     expect(searchField).toBeInTheDocument();
@@ -188,6 +193,7 @@ describe("WalletBody", () => {
         placeholderText={placeholderText}
         handleDropdownChange={handleDropdownChangeMock}
       />
+
     );
   });
 
@@ -199,6 +205,7 @@ describe("WalletBody", () => {
         placeholderText={placeholderText}
         handleSearchFilter={handleSearchFilterMock}
       />
+   
     );
   });
 });

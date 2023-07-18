@@ -4,8 +4,7 @@ import '@testing-library/jest-dom/extend-expect'
 import CurrencyDetails from ".";
 import {MemoryRouter, BrowserRouter as Router } from "react-router-dom";
 import { CurrencylocationState } from "../Sell";
-import { Provider } from "react-redux";
-import store from "../../../services/store";
+
 jest.mock("react-apexcharts", () => ({
     __esModule: true,
     default: () => <div data-testid="graph-component" />,
@@ -16,42 +15,41 @@ jest.mock("react-apexcharts", () => ({
 describe("CurrencyDetails Component", () => {
   it("should render without errors", () => {
     render(
-      <Provider store={store}>
+    
     <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
     <CurrencyDetails />
   </MemoryRouter>
-   </Provider>);
+);
   });
 });
 
 describe("DashBoardTemplate Component", () => {
   it("should render without errors", () => {
     render(
-      <Provider store={store}>
+    
     <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
     <CurrencyDetails />
   </MemoryRouter>
-  </Provider>);
+ );
   });
 
   it("should render the Header component correctly", () => {
     const { getByText } = render(
-      <Provider store={store}>
+     
     <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
     <CurrencyDetails />
   </MemoryRouter>
-  </Provider>);
+);
     const headerElement = getByText("Trade");
     expect(headerElement).toBeInTheDocument();
   });
 
   it("should render the SideNavComponent component correctly", () => {
     const { getByTestId } = render(
-      <Provider store={store}>
+     
       <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
       <CurrencyDetails />
     </MemoryRouter>
-    </Provider>
     );
     const sideNavElement = getByTestId("sideNav");
     expect(sideNavElement).toBeInTheDocument();
@@ -59,11 +57,10 @@ describe("DashBoardTemplate Component", () => {
 
   it("should render the Footer component correctly", () => {
     const { getByText } = render(
-      <Provider store={store}>
+     
     <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
     <CurrencyDetails />
-  </MemoryRouter>
-  </Provider>);
+  </MemoryRouter>);
     const footerElement = getByText("NEED HELP");
     expect(footerElement).toBeInTheDocument();
   });
@@ -71,11 +68,10 @@ describe("DashBoardTemplate Component", () => {
 
 describe("DetailsScrennBody Component", () => {
   it("should render without errors", () => {
-    render(  <Provider store={store}>
+    render( 
     <MemoryRouter initialEntries={[{ pathname: '/details', state: mockProps }]}>
     <CurrencyDetails />
-  </MemoryRouter>
-  </Provider>);
+  </MemoryRouter>);
   });
   
 });

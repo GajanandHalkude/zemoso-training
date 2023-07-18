@@ -27,7 +27,6 @@ import ImageComponent from '../../atoms/Image'
 import WatchlistCard from '../../organisms/WatchList'
 import PaymentAndDetailsCard from '../../organisms/myWallet'
 import { useNavigate } from 'react-router-dom'
-
 const PortfolioTypographyBox = styled(Grid)({
   paddingBottom: '14px',
 })
@@ -154,7 +153,7 @@ const DashboardPage = () => {
                             image={pictures[value.image]}
                             name={value.name}
                             change={value.change}
-                            profit={value.change >0 ? true : false}
+                            profit={value.change >0}
                             price={value.symbol}
                             width='63%'
                             />
@@ -169,7 +168,7 @@ const DashboardPage = () => {
                                 name={watchlistData[lastIndex].name}
                                 change={watchlistData[lastIndex].change}
                                 price={watchlistData[lastIndex].symbol}
-                                profit={watchlistData[lastIndex].change > 0 ? true : false}
+                                profit={watchlistData[lastIndex].change > 0}
                                 width='205%'
                             />
                     )}
@@ -228,7 +227,7 @@ const DashboardPage = () => {
             investmentValue2={coinInvestment.investmentValue}
             typeOfInvestment2={coinInvestment.typeOfInvestment}
             percentChange2={coinInvestment.percentChange}
-            isEmptyState={totalInvestment.investmentValue === 0 ? true : false}
+            isEmptyState={totalInvestment.investmentValue === 0}
           />
           </StyledGraph>
         </Box>

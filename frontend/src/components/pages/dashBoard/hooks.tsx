@@ -2,6 +2,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { url } from '../../../constants'
+import { getHeader } from '../../../services/Headers'
 interface WatchlistDataProps {
     id: string
     image: string
@@ -32,7 +33,8 @@ export const useWatchlistHook = () => {
 
   const setData = async () => {
     try {
-  const watchlistResponse = await axios.get(`${url}/users/1/watchlist`);
+      const headers = getHeader();
+  const watchlistResponse = await axios.get(`${url}/users/1/watchlist`,{headers});
   const watchlistData = watchlistResponse.data.map((value:string) => ({
     id:value
   }));
@@ -88,9 +90,10 @@ export const usePortfolioGraphHook = (coin: string) => {
   )
 
   const setData = async () => {
-    try {
+    try {   
+       const headers = getHeader();
       await axios
-        .get(`${url}/users/1/wallets/`)
+        .get(`${url}/users/1/wallets/`,{headers})
         .then(async (response: any) => {
           const data = response.data
           let tempInvestment = 0
@@ -138,16 +141,17 @@ export const usePortfolioCoinsandWalletHook = () => {
 
   const setData = async () => {
     try {
+      const headers = getHeader();
       await axios
-        .get(`${url}/users/1/wallets/1`)
+        .get(`${url}/users/1/wallets/1`,{headers})
         .then(async (response: any) => {
           let data = response.data
           setCashWallet(data.balance)
         })
           const newCoins: PortfolioCoinProps[] = [...portfolioCoins]
-          const response1 = await axios.get(`${url}/users/1/wallets/2`);
+          const response1 = await axios.get(`${url}/users/1/wallets/2`,{headers});
           const coinData1 = response1.data;
-          const response2 = await axios.get(`${url}/users/1/wallets/3`);
+          const response2 = await axios.get(`${url}/users/1/wallets/3`,{headers});
           const coinData2 = response2.data;
       
           const [currencyResponse1, currencyResponse2] = await Promise.all([
@@ -196,8 +200,9 @@ export const useRecentTransactionsHook = () => {
 
   const setData = async () => {
     try {
+      const headers = getHeader();
       await axios
-        .get(`${url}/users/1/transactions/`)
+        .get(`${url}/users/1/transactions/`,{headers})
         .then((response: any) => {
           const data = response.data
           let tempTransactions: TransactionsProps[] = [...recentTransactions]

@@ -9,7 +9,6 @@ import { pictures } from "../../../constants";
 import theme from "../../../theme";
 import { usePortfolioCoinsandWalletHook } from "../../pages/dashBoard/hooks";
 
-
 const StyledGrid = styled(Grid)({
     overflowY: 'scroll',
     '&::-webkit-scrollbar': { width: '0.3rem' },
@@ -67,7 +66,6 @@ const MyPortfolioOrg = ()=>
                     </Grid>
                 </StyledGridHeader>
             </Grid>
-
             <StyledGrid gap={3} data-testid="styled-grid" maxHeight="12rem" item>
                 {portfolioCoins.map((data) => {
                 const symbol = data.symbol ? data.symbol.toUpperCase() : '';

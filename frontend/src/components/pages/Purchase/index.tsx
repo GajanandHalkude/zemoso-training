@@ -12,7 +12,6 @@ import SummaryCard from "../../organisms/SummaryCard";
 import rupee from "../../../../public/assets/icons/rupee.svg"
 import { useLocation, useNavigate } from "react-router-dom";
 import theme from "../../../theme";
-
 export interface CryptoCurrency {
   id: string
   name: string
@@ -28,12 +27,9 @@ export interface CryptoCurrency {
 export interface CurrencylocationState {
   coindId: string
 }
-
-
 const Purchase = () => {
   const location = useLocation();
   const { coindId } = location.state as CurrencylocationState ;
-
   const [quantity, setQuantity] = useState(0);
   const [currenciesData, setCurrenciesData] = useState<CryptoCurrency[]>([])
   const [total, setTotal] = useState(0)

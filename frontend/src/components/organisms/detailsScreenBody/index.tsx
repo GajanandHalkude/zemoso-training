@@ -28,7 +28,6 @@ import {
   removeWatchList,
 } from "../../../services/index";
 import { useLocation } from "react-router-dom";
-
 const TotalBalanceBox = styled(Box)(() => ({
   backgroundColor: theme.palette.greyColors.grey50,
   display: "flex",
@@ -138,11 +137,10 @@ const DetailsScrennBody = () => {
     fetchCrtptoCurrenicyById(coindId)
       .then((res) => {
         setCryptoCurrency(res);
-        fetchWatchList()
-          .then(async (data) => {
+        fetchWatchList().then(async (data: any) => {
             isthereInWatchlist(data,res.id) ? setWatchListId(res.id) : setWatchListId("");
           })
-          .catch((error) => console.log(error));
+          .catch((error: any) => console.log(error));
       })
       .catch((error) => {
         console.error("Error fetching currency data:", error);
@@ -340,4 +338,3 @@ const DetailsScrennBody = () => {
 };
 
 export default DetailsScrennBody;
-

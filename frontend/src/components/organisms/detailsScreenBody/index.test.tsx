@@ -90,6 +90,7 @@ describe("DetailsScrennBody", () => {
         <Route path="/details" Component={DetailsScrennBody} />
       </Routes>
     </MemoryRouter>
+
   );
 
     await waitFor(() => {
@@ -144,7 +145,7 @@ it('handles error when fetching currency data by Id', async () => {
   const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   (fetchCrtptoCurrenicyById as jest.Mock).mockRejectedValueOnce(new Error('Failed to fetch currency data'));
 
-  render(
+  render( 
     <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
       <Routes>
         <Route path="/details" Component={DetailsScrennBody} />
@@ -166,6 +167,7 @@ it('handles error for fetch transactions ', async () => {
   (fetchWatchList as jest.Mock).mockRejectedValueOnce(new Error('Failed to fetch data'));
 
   render(
+  
     <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
       <Routes>
         <Route path="/details" Component={DetailsScrennBody} />
@@ -180,6 +182,7 @@ it("should handle errors in fetching transactions and log the error", async () =
   const coinId = 'bitcoin'; 
   const location = { state: { coindId: coinId } };
   render(
+   
     <MemoryRouter initialEntries={[{ pathname: '/details', state: location }]}>
       <Routes>
         <Route path="/details" Component={DetailsScrennBody} />

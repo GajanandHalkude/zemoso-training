@@ -113,8 +113,7 @@ export const getCurrencyLogo = (status: string) => {
 const WalletBody = ({ placeholderText }: WalletBodyProps) => {
   const [transaction, setTransactions] = useState<Transaction[]>([]);
   const [selectedPeriod, setSelectedPeriod] = useState("ALL");
-  const[balanceSum,setbalanceSum]=useState(0)
-
+  const[balanceSum,setbalanceSum]=useState(0);
   useEffect(() => {
     fetchTransactions().then((response)=>{
          setTransactions(response);
@@ -139,7 +138,6 @@ const WalletBody = ({ placeholderText }: WalletBodyProps) => {
   };
   
   const filteredTransactions = transaction.filter((data) => {
-    
     const transactionDateTime = new Date(data.date);
 
     switch (selectedPeriod) {

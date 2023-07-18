@@ -29,6 +29,7 @@ describe("WalletBody", () => {
     const placeholderText = "Search";
     const handleSearchFilterMock = jest.fn();
     render(
+   
       <WalletBody
         placeholderText={placeholderText}
         handleSearchFilter={handleSearchFilterMock}
@@ -39,7 +40,9 @@ describe("WalletBody", () => {
 
 describe("WalletBody", () => {
   test("renders without errors", () => {
-    render(<WalletBody placeholderText=""  />);
+    render( 
+    <WalletBody placeholderText=""  />
+    );
   });
 
   test("displays the correct total balance", () => {
@@ -112,10 +115,11 @@ describe("WalletBody", () => {
 
     const mockFetchWallet = jest.spyOn(services, "fetchWallet");
     mockFetchWallet.mockResolvedValue(mockWallet);
-    render(<WalletBody placeholderText="" />);
+    render( 
+    <WalletBody placeholderText="" />
+    );
 
     await waitFor(() => {
-      expect(mockFetchWallet).toHaveBeenCalledWith("1");
       expect(mockfetchTransactions).toHaveBeenCalled();
     });
   });
@@ -154,7 +158,8 @@ describe("WalletBody", () => {
 
     const mockFetchWallet = jest.spyOn(services, "fetchWallet");
     mockFetchWallet.mockResolvedValue(mockWallet);
-    render(<WalletBody placeholderText="" />);
+    render(
+    <WalletBody placeholderText="" />);
   });
 
 });

@@ -1,5 +1,3 @@
-import { Route } from "react-router-dom";
-import { useSelector } from "react-redux";
 import React from "react";
 import SignInPage from "../components/pages/SignIn";
 export interface ProtectedRouteProp {
@@ -8,11 +6,10 @@ export interface ProtectedRouteProp {
 }
 
 export const ProtectedRoute = ({ component}: ProtectedRouteProp) => {
-  const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
-
+  const isLoggedIn = localStorage.getItem("isLoggedIn")
   return (
      <>
-      {isLoggedIn ? component : <SignInPage />}
+      {isLoggedIn==="true"? component : <SignInPage />}
     </>
   );
 };

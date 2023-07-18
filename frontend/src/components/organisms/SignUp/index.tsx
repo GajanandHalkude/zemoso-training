@@ -5,7 +5,6 @@ import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin ,isEmailVa
 import { addUser, getUserByEmail } from "../../../services";
 import { useNavigate } from "react-router-dom";
 
-
 const SyledButtonComponent = styled(ButtonComponent)(() => ({
   borderRadius: "4px",
   padding: "0px 16px 0px 16px",
@@ -20,7 +19,6 @@ const SyledButtonComponent = styled(ButtonComponent)(() => ({
 }));
 
 const SignUp = () => {
-
   const [formData, setFormData] = useState({
     signuppassword: "",
     signupfullName: "",

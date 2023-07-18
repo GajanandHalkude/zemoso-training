@@ -1,12 +1,17 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState } from "react";
 import { Box, Grid, styled } from "@mui/material";
-import { getUserByEmail } from "../../../services";
-import { ButtonComponent, CustomTextField, MuiTypography, SocialLogin ,isEmailValid, isPasswordValid ,socialLoginOptions} from "../../../constants";
-import { useNavigate } from 'react-router-dom';
-import { login } from "../../../services/reduxhook";
-import { useDispatch } from "react-redux";
-
+import { getUserByEmail, loginUser } from "../../../services";
+import {
+  ButtonComponent,
+  CustomTextField,
+  MuiTypography,
+  SocialLogin,
+  isEmailValid,
+  isPasswordValid,
+  socialLoginOptions,
+} from "../../../constants";
+import { useNavigate } from "react-router-dom";
 const SyledButtonComponent = styled(ButtonComponent)(() => ({
   borderRadius: "4px",
   padding: "0px 16px 0px 16px",
@@ -20,12 +25,11 @@ const SyledButtonComponent = styled(ButtonComponent)(() => ({
   },
 }));
 const SignInCard = () => {
-  const dispatch = useDispatch();
+ 
   const [formData, setFormData] = useState({
     password: "",
     email: "",
   });
-
   const [signInMessage, setSignInMessage] = useState("");
   const handleInputChange = (fieldName: string, value: string) => {
     setFormData((prevFormData) => ({
@@ -33,32 +37,32 @@ const SignInCard = () => {
       [fieldName]: value,
     }));
   };
-
-   const handleSignIn = async () => {
-   
-    const { email, password } = formData;
-     getUserByEmail(email).then((response) => {
-      const dataArray = response;
-       if(dataArray.password!==password){
-        setSignInMessage("password doesnot match")
-       }
-       else{
-        dispatch(login());
-        setSignInMessage("");
-        navigate("/dashboard");
-       }
-       setFormData({
-        password: "",
-        email:""
-      });
-      }).catch(() => {
-        setSignInMessage("user doesnot exists")
-      })
-  };
-  
   const navigate = useNavigate();
-
-  const isSignInEnabled = isPasswordValid(formData.password) && isEmailValid(formData.email);
+  const handleSignIn = async () => {
+    const { email, password } = formData;
+    loginUser(email, password)
+      .then((response) => {
+      localStorage.setItem("accessToken",response.token)
+        getUserByEmail(email).then((res) => {
+          if (res.password !== password) {
+            setSignInMessage("password does not match");
+          } else {
+           localStorage.setItem("isLoggedIn","true")
+            setSignInMessage("");
+            navigate("/dashboard");
+          }
+          setFormData({
+            password: "",
+            email: "",
+          });
+        });
+      })
+      .catch(() => {
+        setSignInMessage("user does not exists");
+      });
+  };
+  const isSignInEnabled =
+    isPasswordValid(formData.password) && isEmailValid(formData.email);
 
   return (
     <Box display="flex" flexDirection="column" paddingTop="50px" gap="30px">
@@ -74,7 +78,7 @@ const SignInCard = () => {
           <MuiTypography variant="body1" text="Email" />
         </Grid>
         <CustomTextField
-        data-testid="email-input"
+          data-testid="email-input"
           onChange={(value) => handleInputChange("email", value)}
           width="512px"
           value={formData.email}
@@ -99,8 +103,15 @@ const SignInCard = () => {
           placeholder="Enter Password"
         />
       </Box>
-      <Box display="flex" >
-        <a href="#"  style={{ textDecoration: "none" }} onClick={() => navigate("/forgetpassword")}> <MuiTypography variant="body2" text="Forget Password" /></a>
+      <Box display="flex">
+        <a
+          href="#"
+          style={{ textDecoration: "none" }}
+          onClick={() => navigate("/forgetpassword")}
+        >
+          {" "}
+          <MuiTypography variant="body2" text="Forget Password" />
+        </a>
       </Box>
       <Box display="flex">
         <SyledButtonComponent
@@ -110,17 +121,20 @@ const SignInCard = () => {
           text="Sign In"
           disabled={!isSignInEnabled}
           variant="contained"
-         onClick={ () => {handleSignIn();
-        }}
+          onClick={() => {
+            handleSignIn();
+          }}
         />
       </Box>
       {signInMessage && (
         <Box display="flex" justifyContent="space-between" marginLeft="180px">
           <p
             style={{
-              color: signInMessage.includes("Password does not match") || signInMessage.includes("User does not exist")
-                ? "green"
-                : "red",
+              color:
+                signInMessage.includes("Password does not match") ||
+                signInMessage.includes("User does not exist")
+                  ? "red"
+                  : "red",
             }}
           >
             {signInMessage}
@@ -146,7 +160,11 @@ const SignInCard = () => {
       </Box>
       <Box display="flex">
         <MuiTypography variant="body2" text="Doesn't have an account?" />
-        <a href="#" style={{ marginLeft: "10px", textDecoration: "none"}} onClick={() => navigate("/signup")}>
+        <a
+          href="#"
+          style={{ marginLeft: "10px", textDecoration: "none" }}
+          onClick={() => navigate("/signup")}
+        >
           Signup
         </a>
       </Box>

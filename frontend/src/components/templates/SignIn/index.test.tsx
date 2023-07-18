@@ -6,8 +6,6 @@ import SignInCard from '../../organisms/SignIn';
 import '@testing-library/jest-dom/extend-expect';
 import { BrowserRouter } from 'react-router-dom';
 import ImageComponent from "../../atoms/Image";
-import { Provider } from "react-redux";
-import store from "../../../services/store";
 
 describe('SignInTemplate', () => {
   const testImg = <ImageComponent src={Image} data-testid="image" />;
@@ -15,11 +13,11 @@ describe('SignInTemplate', () => {
 
   test('renders SignInTemplate component with provided props', () => {
     render(
-      <Provider store={store}>
+      
       <BrowserRouter>
       <SignInTemplate img={testImg} body={testBody} />
       </BrowserRouter>
-      </Provider>
+ 
     );
     const imageElement = screen.getByTestId('image');
     expect(imageElement).toBeInTheDocument();
@@ -28,11 +26,10 @@ describe('SignInTemplate', () => {
 
   test('renders SignInTemplate component with custom styles', () => {
     render(
-      <Provider store={store}>
+     
       <BrowserRouter>
         <SignInTemplate img={testImg} body={testBody}/>
       </BrowserRouter>
-      </Provider>
     );
     const signInCardElement = screen.getByTestId('signin-card');
     expect(signInCardElement).toHaveStyle('display: flex');

@@ -14,7 +14,6 @@ import Emptystar from "../../../../public/assets/images/watchlistEmptystar.svg";
 import Switch from "../../../../public/assets/icons/switch.svg";
 import { addWatchList, fetchAllCrtptoCurrenices, fetchWatchList, removeWatchList } from '../../../services';
 import { useNavigate } from 'react-router-dom';
-
 const StyledBox = styled(Box)({
   color: theme.palette.structural.main,
   display: 'flex',

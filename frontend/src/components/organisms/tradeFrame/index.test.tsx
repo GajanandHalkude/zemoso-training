@@ -55,31 +55,57 @@ describe('TradeFrame', () => {
     (fetchWatchList as jest.Mock).mockResolvedValue(watchListData);
   });
   test('renders TradeFrame component', () => {
-    render(<BrowserRouter><TradeFrame /></BrowserRouter>);
+    render(
+    
+    <BrowserRouter>
+    <TradeFrame />
+    </BrowserRouter>
+ 
+    );
     expect(screen.getByTestId('trade-frame')).toBeInTheDocument();
   });
   test('updates search data when input value changes', () => {
-    render(<BrowserRouter><TradeFrame /></BrowserRouter>);
+    render(
+      <BrowserRouter>
+      <TradeFrame />
+      </BrowserRouter>
+    );
     const searchInput = screen.getByPlaceholderText('Search all assets')  as HTMLInputElement;
     fireEvent.change(searchInput, { target: { value: 'bitcoin' } });
     expect(searchInput.value).toBe('bitcoin');
   });
 
   test('calls addWatchList function when star button is clicked', async () => {
-    render(<BrowserRouter><TradeFrame /></BrowserRouter>);
+    render(
+      <BrowserRouter>
+      <TradeFrame />
+      </BrowserRouter>
+    );
     const starButton = screen.getAllByRole('button', { name: "icon" })[0];
     fireEvent.click(starButton);
   });
   test('Change descending order to ascending order in trade table', async () => {
-    render(<BrowserRouter><TradeFrame /></BrowserRouter>);
+    render(
+      <BrowserRouter>
+      <TradeFrame />
+      </BrowserRouter>
+    );
     await waitFor(() => {
       const marketCapButton = screen.getByTestId('market-cap-button')
       fireEvent.click(marketCapButton)
     })
-    render(<BrowserRouter><TradeFrame /></BrowserRouter>);
+    render(
+      <BrowserRouter>
+      <TradeFrame />
+      </BrowserRouter>
+    );
   })
   test('Select and unselect watch', async () => {
-    await render(<BrowserRouter><TradeFrame /></BrowserRouter>);
+    await render(
+      <BrowserRouter>
+      <TradeFrame />
+      </BrowserRouter>
+    );
 
     setTimeout(async () => {
       await waitFor(async () => {
@@ -92,7 +118,11 @@ describe('TradeFrame', () => {
       })
     }, 2000)
 
-    await render(<BrowserRouter><TradeFrame /></BrowserRouter>);
+    await render(
+      <BrowserRouter>
+      <TradeFrame />
+      </BrowserRouter>
+    );
 
     setTimeout(async () => {
       await waitFor(async () => {
@@ -112,7 +142,11 @@ describe('TradeFrame', () => {
   test('calls addWatchList function when star button is clicked', async () => {
     (fetchWatchList as jest.Mock).mockResolvedValue(watchListData);
     (addWatchList as jest.Mock).mockResolvedValue(watchListData);
-    render(<BrowserRouter><TradeFrame /></BrowserRouter>);
+    render(
+      <BrowserRouter>
+      <TradeFrame />
+      </BrowserRouter>
+    );
 
     await waitFor(() => {
       const watchListSelectedButton = screen.getAllByTestId('selected-watch')[0]

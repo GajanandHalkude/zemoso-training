@@ -7,8 +7,6 @@ import SideNavComponent from "../../molecules/sideNavbar";
 import WalletBody from "../../organisms/walletBody";
 
 const WalletPage = () => {
-
-  
   const header = <Header pageName={"Trade"} displayButtons={true} />;
   const footer = <Footer menuItems={menuItems} buttonLabel="Need Help" data-testid="footer" />;
   const sideNav = <SideNavComponent data-testid="sideNav" />;

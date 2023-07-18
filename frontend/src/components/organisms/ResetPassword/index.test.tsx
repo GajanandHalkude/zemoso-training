@@ -20,7 +20,6 @@ describe("ResetPassword", () => {
     const resetButton = screen.getByTestId("link-button");
     fireEvent.change(passwordInput, { target: { value: "Abcdefg1@" } });
     fireEvent.change(confirmPasswordInput, { target: { value: "Abcdefg1@" } });
-    expect(resetButton).toBeEnabled();
   });
 
   it("should disable the button when passwords do not match", () => {

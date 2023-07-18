@@ -84,7 +84,8 @@ const Sell = () => {
       updateWallet(coindId === 'bitcoin' ? '2' : '3', wallet)
     })
     addTransaction(NewTransactionData)
-    setWalletQuantity(remainingQuantity)}
+    setWalletQuantity(remainingQuantity)
+  }
     navigate('/paymentsuccess', {
       state: { totalBalance:quantity, tradeType: 'SELL CRYPTO', cointype:'BTC'  },
     })
@@ -132,4 +133,4 @@ const Sell = () => {
   );
 };
 
-export default Sell;
+export default Sell
