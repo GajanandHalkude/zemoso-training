@@ -36,8 +36,7 @@ public class UserController {
     public List<UserDto> getAllUsers() {
         try {
             log.info(" >>> INSIDE UserController: get all users");
-            List<UserDto> users = userService.getAllUsers();
-            return users;
+            return userService.getAllUsers();
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No users found");
         }
@@ -69,8 +68,7 @@ public class UserController {
     public UserDto getUserByEmail(@PathVariable String email) {
         try {
             log.info(" >>> INSIDE UserController: getting user by email");
-            UserDto user = userService.getUserByEmail(email);
-            return user;
+            return userService.getUserByEmail(email);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No user found for given email: " + email);
         }

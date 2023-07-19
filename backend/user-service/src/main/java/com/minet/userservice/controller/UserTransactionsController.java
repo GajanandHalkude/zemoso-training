@@ -1,6 +1,5 @@
 package com.minet.userservice.controller;
 
-import com.minet.userservice.vo.Transaction;
 import com.minet.userservice.dto.TransactionDto;
 import com.minet.userservice.entity.User;
 import com.minet.userservice.mapper.TransactionMapper;
@@ -12,9 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @RestController
 @Slf4j
@@ -34,8 +32,7 @@ public class UserTransactionsController {
     public List<TransactionDto> getAllUserTransactions(@PathVariable int userId) {
         try {
             log.info(" >>> INSIDE UserTransactionsController: getting all transactions");
-            List<TransactionDto> transactions = userTransactionService.getAllTransactionsForUser(userId);
-            return transactions;
+            return userTransactionService.getAllTransactionsForUser(userId);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Transactions found");
         }
@@ -57,8 +54,7 @@ public class UserTransactionsController {
     public TransactionDto getUserTransactionsById(@PathVariable int userId, @PathVariable int transactionId) {
         try {
             log.info(" >>> INSIDE UserTransactionsController: getting transactions by transaction id");
-            TransactionDto transaction = userTransactionService.getTransactionForUserByTransactionId(userId, transactionId);
-            return transaction;
+            return userTransactionService.getTransactionForUserByTransactionId(userId, transactionId);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No user transaction found for given id" + userId);
         }

@@ -13,9 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @RestController
 @Slf4j
@@ -38,8 +37,7 @@ public class UserWalletController {
     public List<WalletDto> getAllUserWallets(@PathVariable int userId) {
         try {
             log.info(" >>> INSIDE UserWalletController: getAllUserWallets");
-            List<WalletDto> userWallets = userWalletService.getAllWalletForUser(userId);
-            return userWallets;
+            return userWalletService.getAllWalletForUser(userId);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No wallets found");
         }
