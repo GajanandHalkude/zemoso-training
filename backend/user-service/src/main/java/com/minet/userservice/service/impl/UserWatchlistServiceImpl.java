@@ -3,7 +3,7 @@ package com.minet.userservice.service.impl;
 import com.minet.userservice.dao.UserWatchlistRepository;
 import com.minet.userservice.entity.User;
 import com.minet.userservice.entity.UserWatchlist;
-import com.minet.userservice.exception.WatchlistNotFoundException;
+import com.minet.userservice.exception.WatchlistException;
 import com.minet.userservice.service.UserWatchlistService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +27,9 @@ public class UserWatchlistServiceImpl implements UserWatchlistService {
             userWatchlist.setCurrencyId(cryptoId);
             UserWatchlist userWatchlist1 = userWatchlistRepository.save(userWatchlist);
             return userWatchlist1.getCurrencyId();
-        } catch (WatchlistNotFoundException e) {
+        } catch (WatchlistException e) {
             log.error("Cannot add to watchlist");
-            throw new WatchlistNotFoundException("Cannot add to watchlist");
+            throw new WatchlistException("Cannot add to watchlist");
         }
     }
 
@@ -37,7 +37,7 @@ public class UserWatchlistServiceImpl implements UserWatchlistService {
     public String deleteWatchlist(int userId, String cryptoId) {
         UserWatchlist userWatchlist = userWatchlistRepository.findByUserIdAndCurrencyId(userId, cryptoId);
         if (userWatchlist == null) {
-            throw new WatchlistNotFoundException("Watchlist not found for given id");
+            throw new WatchlistException("Watchlist not found for given id");
         } else {
             userWatchlistRepository.delete(userWatchlist);
             return "Successfully removed from watchlist";
@@ -50,9 +50,9 @@ public class UserWatchlistServiceImpl implements UserWatchlistService {
         try {
             List<UserWatchlist> userWatchlist = userWatchlistRepository.findByUserId(userId);
             return userWatchlist.stream().map(watchlist -> watchlist.getCurrencyId().replaceAll("\"", "")).collect(Collectors.toList());
-        } catch (WatchlistNotFoundException e) {
+        } catch (WatchlistException e) {
             log.error("Cannot find watchlist");
-            throw new WatchlistNotFoundException("Cannot find watchlist");
+            throw new WatchlistException("Cannot find watchlist");
         }
     }
 }

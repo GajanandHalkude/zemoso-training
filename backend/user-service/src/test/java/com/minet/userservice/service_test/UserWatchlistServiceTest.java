@@ -3,7 +3,7 @@ package com.minet.userservice.service_test;
 import com.minet.userservice.dao.UserWatchlistRepository;
 import com.minet.userservice.entity.User;
 import com.minet.userservice.entity.UserWatchlist;
-import com.minet.userservice.exception.WatchlistNotFoundException;
+import com.minet.userservice.exception.WatchlistException;
 import com.minet.userservice.service.UserWatchlistService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -48,8 +48,8 @@ class UserWatchlistServiceTest {
         String string = userWatchlistService.saveWatchlist(user,"bitcoin");
         assertEquals("bitcoin",string);
 
-        Mockito.when(userWatchlistRepository.save(Mockito.any())).thenThrow(new WatchlistNotFoundException("unable to add"));
-        Exception exception = assertThrows(WatchlistNotFoundException.class, () -> {
+        Mockito.when(userWatchlistRepository.save(Mockito.any())).thenThrow(new WatchlistException("unable to add"));
+        Exception exception = assertThrows(WatchlistException.class, () -> {
             userWatchlistService.saveWatchlist(user,"bitcoin");
         });
         assertEquals("Cannot add to watchlist", exception.getMessage());
@@ -64,7 +64,7 @@ class UserWatchlistServiceTest {
 
         Mockito.when(userWatchlistRepository.findByUserIdAndCurrencyId(1,"bitcoin")).thenReturn(null);
 
-        Exception exception = assertThrows(WatchlistNotFoundException.class, () -> {
+        Exception exception = assertThrows(WatchlistException.class, () -> {
             userWatchlistService.deleteWatchlist(1,"bitcoin");
         });
         assertEquals("Watchlist not found for given id", exception.getMessage());
@@ -79,8 +79,8 @@ class UserWatchlistServiceTest {
         List<String> string = userWatchlistService.getWatchlistForUser(1);
         assertEquals(1,string.size());
 
-        Mockito.when(userWatchlistRepository.findByUserId(1)).thenThrow(new WatchlistNotFoundException("not found"));
-        Exception exception = assertThrows(WatchlistNotFoundException.class, () -> {
+        Mockito.when(userWatchlistRepository.findByUserId(1)).thenThrow(new WatchlistException("not found"));
+        Exception exception = assertThrows(WatchlistException.class, () -> {
             userWatchlistService.getWatchlistForUser(1);
         });
         assertEquals("Cannot find watchlist", exception.getMessage());

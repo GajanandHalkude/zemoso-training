@@ -4,7 +4,7 @@ import com.minet.userservice.config.JwtGeneratorInterface;
 import com.minet.userservice.dto.LoginUserDTO;
 import com.minet.userservice.dto.UserDto;
 import com.minet.userservice.entity.User;
-import com.minet.userservice.exception.UserNotFoundException;
+import com.minet.userservice.exception.UserException;
 import com.minet.userservice.mapper.UserMapper;
 import com.minet.userservice.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -13,9 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @RestController
 @Slf4j
@@ -37,11 +36,8 @@ public class UserController {
     public List<UserDto> getAllUsers() {
         try {
             log.info(" >>> INSIDE UserController: get all users");
-            List<User> users = userService.getAllUsers();
-            log.info(users.toString());
-            return users.stream()
-                    .map(userMapper::convertToUserDTO)
-                    .collect(Collectors.toList());
+            List<UserDto> users = userService.getAllUsers();
+            return users;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No users found");
         }
@@ -52,7 +48,7 @@ public class UserController {
         try {
             log.info(" >>> INSIDE UserController: adding user");
             User user = userMapper.convertToUser(userDto);
-            return userMapper.convertToUserDTO(userService.saveUser(user));
+            return userService.saveUser(user);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to add user");
         }
@@ -73,8 +69,8 @@ public class UserController {
     public UserDto getUserByEmail(@PathVariable String email) {
         try {
             log.info(" >>> INSIDE UserController: getting user by email");
-            User user = userService.getUserByEmail(email);
-            return userMapper.convertToUserDTO(user);
+            UserDto user = userService.getUserByEmail(email);
+            return user;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No user found for given email: " + email);
         }
@@ -96,14 +92,14 @@ public class UserController {
             log.info(">>>>>>>inside login User");
             if(loginUserDTO.getEmail() == null || loginUserDTO.getPassword() == null) {
 
-                throw new UserNotFoundException("UserName or Password is Empty");
+                throw new UserException("UserName or Password is Empty");
             }
-            User userData = userService.getUserByEmail(loginUserDTO.getEmail());
+            UserDto userData = userService.getUserByEmail(loginUserDTO.getEmail());
             if(userData == null){
-                throw new UserNotFoundException("UserName or Password is Invalid");
+                throw new UserException("UserName or Password is Invalid");
             }
             return new ResponseEntity<>(jwtGenerator.generateToken(loginUserDTO), HttpStatus.OK);
-        } catch (UserNotFoundException e) {
+        } catch (UserException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
         }
     }

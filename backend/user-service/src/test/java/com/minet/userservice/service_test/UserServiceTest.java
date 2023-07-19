@@ -2,7 +2,8 @@ package com.minet.userservice.service_test;
 
 import com.minet.userservice.dao.UserRepository;
 import com.minet.userservice.entity.User;
-import com.minet.userservice.exception.UserNotFoundException;
+import com.minet.userservice.exception.UserException;
+import com.minet.userservice.mapper.UserMapper;
 import com.minet.userservice.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -27,6 +28,9 @@ class UserServiceTest {
     UserService userService;
 
     @MockBean
+    UserMapper userMapper;
+
+    @MockBean
     UserRepository userRepository;
 
     private User firstUser;
@@ -48,7 +52,7 @@ class UserServiceTest {
         when(userRepository.findById(2)).thenReturn(Optional.of(firstUser));
         userService.getUserById(2);
         when(userRepository.findById(2)).thenReturn(Optional.empty());
-        assertThrows(UserNotFoundException.class, () -> {
+        assertThrows(UserException.class, () -> {
             userService.getUserById(2);
         });
     }
@@ -61,7 +65,7 @@ class UserServiceTest {
         int length = userService.getAllUsers().size();
         assertEquals(1,length);
         when(userRepository.findAll()).thenReturn(users);
-        assertThrows(UserNotFoundException.class, () -> {
+        assertThrows(UserException.class, () -> {
             userService.getAllUsers();
         });
     }
@@ -71,8 +75,8 @@ class UserServiceTest {
     void testsaveUSer(){
         when(userRepository.save(firstUser)).thenReturn(firstUser);
         userService.saveUser(firstUser);
-        when(userRepository.save(firstUser)).thenThrow(new UserNotFoundException("Unable to add"));
-        assertThrows(UserNotFoundException.class, () -> {
+        when(userRepository.save(firstUser)).thenThrow(new UserException("Unable to add"));
+        assertThrows(UserException.class, () -> {
             userService.saveUser(firstUser);
         });
     }
@@ -83,7 +87,7 @@ class UserServiceTest {
         when(userRepository.findByEmail("abc@gmail.com")).thenReturn((firstUser));
         userService.getUserByEmail("abc@gmail.com");
         when(userRepository.findByEmail("abc@gmail.com")).thenReturn(null);
-        assertThrows(UserNotFoundException.class, () -> {
+        assertThrows(UserException.class, () -> {
             userService.getUserByEmail("abc@gmail.com");
         });
     }

@@ -9,6 +9,7 @@ import com.minet.userservice.service.UserTransactionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -33,16 +34,15 @@ public class UserTransactionsController {
     public List<TransactionDto> getAllUserTransactions(@PathVariable int userId) {
         try {
             log.info(" >>> INSIDE UserTransactionsController: getting all transactions");
-            List<Transaction> transactions = userTransactionService.getAllTransactionsForUser(userId);
-            return transactions.stream()
-                    .map(transactionMapper::convertToDto)
-                    .collect(Collectors.toList());
+            List<TransactionDto> transactions = userTransactionService.getAllTransactionsForUser(userId);
+            return transactions;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Transactions found");
         }
     }
 
     @PostMapping("/{userId}/transactions")
+    @Transactional(rollbackFor = Exception.class)
     public TransactionDto saveUserTransactions(@PathVariable int userId, @RequestBody TransactionDto transactionDto) {
         try {
             log.info(" >>> INSIDE UserTransactionsController: adding transactions");
@@ -57,8 +57,8 @@ public class UserTransactionsController {
     public TransactionDto getUserTransactionsById(@PathVariable int userId, @PathVariable int transactionId) {
         try {
             log.info(" >>> INSIDE UserTransactionsController: getting transactions by transaction id");
-            Transaction transaction = userTransactionService.getTransactionForUserByTransactionId(userId, transactionId);
-            return transactionMapper.convertToDto(transaction);
+            TransactionDto transaction = userTransactionService.getTransactionForUserByTransactionId(userId, transactionId);
+            return transaction;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No user transaction found for given id" + userId);
         }

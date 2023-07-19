@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -37,16 +38,15 @@ public class UserWalletController {
     public List<WalletDto> getAllUserWallets(@PathVariable int userId) {
         try {
             log.info(" >>> INSIDE UserWalletController: getAllUserWallets");
-            List<Wallet> userWallets = userWalletService.getAllWalletForUser(userId);
-            return userWallets.stream()
-                    .map(walletMapper::convertToWalletDTO)
-                    .collect(Collectors.toList());
+            List<WalletDto> userWallets = userWalletService.getAllWalletForUser(userId);
+            return userWallets;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No wallets found");
         }
     }
 
     @PostMapping("/{userId}/wallets")
+    @Transactional(rollbackFor = Exception.class)
     public WalletDto saveUserWallet(@PathVariable int userId, @RequestBody WalletDto walletDto) {
         try {
             log.info(" >>> INSIDE UserWalletController: saveUserWallet");
@@ -58,6 +58,7 @@ public class UserWalletController {
     }
 
     @PatchMapping("/{userId}/wallets/{walletId}")
+    @Transactional(rollbackFor = Exception.class)
     public WalletDto updateUserWallet(@PathVariable int userId,@PathVariable int walletId, @RequestBody WalletDto walletDto) {
         try {
             log.info(" >>> INSIDE UserWalletController: updateUserWallet");

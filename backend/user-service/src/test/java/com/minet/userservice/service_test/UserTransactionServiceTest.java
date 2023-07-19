@@ -3,7 +3,8 @@ package com.minet.userservice.service_test;
 import com.minet.userservice.dao.UserTransactionRepository;
 import com.minet.userservice.entity.User;
 import com.minet.userservice.entity.UserTransaction;
-import com.minet.userservice.exception.TransactionNotFoundException;
+import com.minet.userservice.exception.TransactionException;
+import com.minet.userservice.mapper.TransactionMapper;
 import com.minet.userservice.service.UserTransactionService;
 import com.minet.userservice.vo.Transaction;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,6 +32,8 @@ class UserTransactionServiceTest {
     @MockBean
     UserTransactionRepository userTransactionRepository;
 
+    @MockBean
+    TransactionMapper transactionMapper;
     @MockBean
     RestTemplate restTemplate;
 
@@ -72,7 +75,7 @@ class UserTransactionServiceTest {
     @Test
     void testGetAllTransactionsForUser() {
         Mockito.when(userTransactionRepository.findByUserId(1)).thenReturn(Stream.of(userTransaction).collect(Collectors.toList()));
-        Exception exception = assertThrows(TransactionNotFoundException.class, () -> {
+        Exception exception = assertThrows(TransactionException.class, () -> {
             userTransactionService.getAllTransactionsForUser(1);
         });
         assertEquals("Transactions not found", exception.getMessage());
@@ -83,7 +86,7 @@ class UserTransactionServiceTest {
 
 
         Mockito.when(userTransactionRepository.findByUserId(1)).thenReturn(new ArrayList<>());
-        Exception exception1 = assertThrows(TransactionNotFoundException.class, () -> {
+        Exception exception1 = assertThrows(TransactionException.class, () -> {
             userTransactionService.getAllTransactionsForUser(1);
         });
         assertEquals("Transactions not found", exception1.getMessage());
@@ -96,8 +99,8 @@ class UserTransactionServiceTest {
         Mockito.when(restTemplate.getForObject(transactionUrl + userTransaction.getTransactionId(), Transaction.class)).thenReturn(transaction);
         userTransactionService.getTransactionForUserByTransactionId(1,1);
 
-        Mockito.when(restTemplate.getForObject(transactionUrl + userTransaction.getTransactionId(), Transaction.class)).thenThrow(new TransactionNotFoundException("not found"));
-        Exception exception = assertThrows(TransactionNotFoundException.class, () -> {
+        Mockito.when(restTemplate.getForObject(transactionUrl + userTransaction.getTransactionId(), Transaction.class)).thenThrow(new TransactionException("not found"));
+        Exception exception = assertThrows(TransactionException.class, () -> {
             userTransactionService.getTransactionForUserByTransactionId(1,1);
         });
         assertEquals("Transaction not found with id: 1",exception.getMessage());
@@ -107,7 +110,7 @@ class UserTransactionServiceTest {
     @Test
     void testSaveTransaction() {
         Mockito.when(restTemplate.postForObject(transactionUrl, transaction, Transaction.class)).thenReturn(null);
-        Exception exception = assertThrows(TransactionNotFoundException.class, () -> {
+        Exception exception = assertThrows(TransactionException.class, () -> {
             userTransactionService.saveTransaction(user,transaction);
         });
         assertEquals("Unable to add a  transaction",exception.getMessage());

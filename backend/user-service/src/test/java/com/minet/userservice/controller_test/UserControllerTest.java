@@ -7,7 +7,7 @@ import com.minet.userservice.dao.UserRepository;
 import com.minet.userservice.dto.LoginUserDTO;
 import com.minet.userservice.dto.UserDto;
 import com.minet.userservice.entity.User;
-import com.minet.userservice.exception.UserNotFoundException;
+import com.minet.userservice.exception.UserException;
 import com.minet.userservice.mapper.UserMapper;
 import com.minet.userservice.service.UserService;
 import org.hamcrest.Matchers;
@@ -173,14 +173,14 @@ class UserControllerTest {
         Mockito.when(userController.getUserByEmail("test2@gmail.com")).thenReturn(secondUserDto);
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/api/v1/users/6")
+                        .get("/api/v1/users/email/test2@gmail.com")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
         Mockito.when(userController.getUserByEmail("test6@gmail.com")).thenThrow(new ResponseStatusException(HttpStatus.NOT_FOUND, "No user found for given email: test6@gmail.com"));
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/api/v1/users/6")
+                        .get("/api/v1/users/email/test6@gmail.com")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -220,7 +220,7 @@ class UserControllerTest {
     }
 
     @Test
-    void testLoginUser_InvalidCredentials() throws UserNotFoundException {
+    void testLoginUser_InvalidCredentials() throws UserException {
         LoginUserDTO loginUserDTO = new LoginUserDTO();
         loginUserDTO.setEmail("test@example.com");
         loginUserDTO.setPassword("password");

@@ -1,9 +1,11 @@
 package com.minet.userservice.service_test;
 
 import com.minet.userservice.dao.UserWalletRepository;
+import com.minet.userservice.dto.WalletDto;
 import com.minet.userservice.entity.User;
 import com.minet.userservice.entity.UserWallet;
-import com.minet.userservice.exception.WalletNotFoundException;
+import com.minet.userservice.exception.WalletException;
+import com.minet.userservice.mapper.WalletMapper;
 import com.minet.userservice.service.UserWalletService;
 import com.minet.userservice.vo.Wallet;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,6 +31,9 @@ class UserWalletServiceTest {
     private String walletUrl;
     @MockBean
     RestTemplate restTemplate;
+
+    @MockBean
+    private WalletMapper walletMapper;
 
     @MockBean
     UserWalletRepository userWalletRepository;
@@ -69,11 +74,11 @@ class UserWalletServiceTest {
     void testGetAllWalletForUser(){
         Mockito.when(userWalletRepository.findByUserId(1)).thenReturn(Stream.of(userWallet).collect(Collectors.toList()));
         Mockito.when(restTemplate.getForObject(walletUrl + userWallet.getWalletId(), Wallet.class)).thenReturn(wallet);
-        List<Wallet> walletList = userWalletService.getAllWalletForUser(1);
+        List<WalletDto> walletList = userWalletService.getAllWalletForUser(1);
         assertEquals(1,walletList.size());
 
         Mockito.when(restTemplate.getForObject(walletUrl + userWallet.getWalletId(), Wallet.class)).thenReturn(null);
-        Exception exception = assertThrows(WalletNotFoundException.class, () -> {
+        Exception exception = assertThrows(WalletException.class, () -> {
             userWalletService.getAllWalletForUser(1);
         });
         assertEquals("wallets not found", exception.getMessage());
@@ -88,7 +93,7 @@ class UserWalletServiceTest {
         assertNotNull(wallet1);
 
         Mockito.when(restTemplate.getForObject(walletUrl + userWallet.getWalletId(), Wallet.class)).thenReturn(null);
-        Exception exception = assertThrows(WalletNotFoundException.class, () -> {
+        Exception exception = assertThrows(WalletException.class, () -> {
             userWalletService.getWalletForUserByWalletId(1,1);
         });
         assertEquals("wallet not found",exception.getMessage());
@@ -102,7 +107,7 @@ class UserWalletServiceTest {
         assertNotNull(wallet);
 
         Mockito.when(restTemplate.postForObject(walletUrl, wallet, Wallet.class)).thenReturn(null);
-        Exception exception = assertThrows(WalletNotFoundException.class, () -> {
+        Exception exception = assertThrows(WalletException.class, () -> {
             userWalletService.saveWallet(user,wallet);
         });
         assertEquals("Wallet not found",exception.getMessage());
@@ -116,7 +121,7 @@ class UserWalletServiceTest {
         assertNotNull(wallet);
 
         Mockito.when(restTemplate.patchForObject(walletUrl + 1, wallet, Wallet.class)).thenReturn(null);
-        Exception exception = assertThrows(WalletNotFoundException.class, () -> {
+        Exception exception = assertThrows(WalletException.class, () -> {
             userWalletService.updateWallet(wallet,1);
         });
         assertEquals("updating wallet failed",exception.getMessage());
