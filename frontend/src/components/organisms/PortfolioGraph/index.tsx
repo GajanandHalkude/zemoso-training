@@ -165,9 +165,10 @@ const PortfolioGraphComponent = ({
               </StyledInnerBox>
               <PortfolioValueTypographyComponent
                 isInDashBoardPage={dashboardPage}
-                investmentValue={investmentValue2 ? investmentValue2 : 0.0}
-                typeOfInvestment={typeOfInvestment2 ? typeOfInvestment2 : ""}
-                percentChange={percentChange2 ? percentChange2 : 0.0}
+                investmentValue={investmentValue2 ?? 0.0}
+                typeOfInvestment={typeOfInvestment2 ?? ""}
+                percentChange={percentChange2 ?? 0.0}
+                
                 width="186px"
               />
             </React.Fragment>

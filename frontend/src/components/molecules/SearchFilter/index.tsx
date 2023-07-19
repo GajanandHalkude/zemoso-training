@@ -105,7 +105,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
       filter={filter}
       InputProps={{
         // eslint-disable-next-line @typescript-eslint/no-empty-function
-        endAdornment: renderEndAdornment(filter, handleClick ? handleClick : () => {}),
+        endAdornment: renderEndAdornment(filter, handleClick ?? (() => {})),
       }}
       data-testid='search-bar'
       backgroundColor={backgroundColor}

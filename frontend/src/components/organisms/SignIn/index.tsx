@@ -25,7 +25,6 @@ const SyledButtonComponent = styled(ButtonComponent)(() => ({
   },
 }));
 const SignInCard = () => {
- 
   const [formData, setFormData] = useState({
     password: "",
     email: "",
@@ -42,12 +41,12 @@ const SignInCard = () => {
     const { email, password } = formData;
     loginUser(email, password)
       .then((response) => {
-      localStorage.setItem("accessToken",response.token)
+        localStorage.setItem("accessToken", response.token);
         getUserByEmail(email).then((res) => {
           if (res.password !== password) {
-            setSignInMessage("password does not match");
+            setSignInMessage("Password does not match");
           } else {
-           localStorage.setItem("isLoggedIn","true")
+            localStorage.setItem("isLoggedIn", "true");
             setSignInMessage("");
             navigate("/dashboard");
           }
@@ -58,8 +57,12 @@ const SignInCard = () => {
         });
       })
       .catch(() => {
-        setSignInMessage("user does not exists");
+        setSignInMessage("User does not exist");
       });
+    setFormData({
+      password: "",
+      email: "",
+    });
   };
   const isSignInEnabled =
     isPasswordValid(formData.password) && isEmailValid(formData.email);
@@ -85,7 +88,13 @@ const SignInCard = () => {
           placeholder="you@company.com"
           isPassword={false}
         />
+        {signInMessage.includes("User does not exist") && (
+          <Box display="flex" marginLeft="10px">
+            <p style={{ color: "red", marginTop: "5px" }}>{signInMessage}</p>
+          </Box>
+        )}
       </Box>
+
       <Box
         sx={{ "& > :not(style) + :not(style)": { marginTop: "5px" } }}
         display="flex"
@@ -102,15 +111,20 @@ const SignInCard = () => {
           value={formData.password}
           placeholder="Enter Password"
         />
+        {signInMessage.includes("Password does not match") && (
+          <Box display="flex" marginLeft="10px">
+            <p style={{ color: "red", marginTop: "5px" }}>{signInMessage}</p>
+          </Box>
+        )}
       </Box>
+
       <Box display="flex">
         <a
           href="#"
           style={{ textDecoration: "none" }}
           onClick={() => navigate("/forgetpassword")}
         >
-          {" "}
-          <MuiTypography variant="body2" text="Forget Password" />
+          <MuiTypography variant="body2" text="Forgot Password" />
         </a>
       </Box>
       <Box display="flex">
@@ -126,22 +140,6 @@ const SignInCard = () => {
           }}
         />
       </Box>
-      {signInMessage && (
-        <Box display="flex" justifyContent="space-between" marginLeft="180px">
-          <p
-            style={{
-              color:
-                signInMessage.includes("Password does not match") ||
-                signInMessage.includes("User does not exist")
-                  ? "red"
-                  : "red",
-            }}
-          >
-            {signInMessage}
-          </p>
-        </Box>
-      )}
-
       <Box display="flex" alignItems="center" width={"512px"}>
         <Box flex="1" borderBottom="2px solid #E8E8F7" />
         <Box mx={1}>
@@ -159,7 +157,7 @@ const SignInCard = () => {
         ))}
       </Box>
       <Box display="flex">
-        <MuiTypography variant="body2" text="Doesn't have an account?" />
+        <MuiTypography variant="body2" text="Don't have an account?" />
         <a
           href="#"
           style={{ marginLeft: "10px", textDecoration: "none" }}

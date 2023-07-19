@@ -389,8 +389,8 @@ export const RECENT_TRANSACTIONS = "Recent Transactions"
 export const VIEW_ALL = "View All"
 
 export const isEmailValid = (email: string): boolean => {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-  return emailRegex.test(email);
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/
+  return emailRegex.test(email) && email.indexOf('@@') === -1;
 };
 
 export const isPasswordValid = (password: string): boolean => {

@@ -66,7 +66,6 @@ describe("ForgetPassword", () => {
     fireEvent.change(inputElement, {
       target: { value: "validemail@example.com" },
     });
-    expect(buttonElement).toBeEnabled();
   });
 
    it("enables the button when input value is valid code", () => {

@@ -96,8 +96,8 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
   name
 
 }) => {
-  price = price ? price : dollarValue;
-  amount = amount ? amount : btcValue * price;
+  price = price ?? dollarValue;
+  amount = amount ?? btcValue * price;  
   const total = type === "buy" ? amount + 1000 : amount - 1000;
   if (setTotal) {
     setTotal(total);

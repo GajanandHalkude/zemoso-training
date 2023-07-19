@@ -65,7 +65,7 @@ const IconWithTypography = ({
         data-testid="iconWithTypography"
       >
         <ImageComponent src={image} width={imageWidth} height={imageHeight} />
-        <FlexColumnBox gap={gapBetweenText ? gapBetweenText : "4px"}>
+        <FlexColumnBox gap={gapBetweenText ?? "4px"}>
           <TypographyComponent
             variant={textVariant}
             style={{ color: textColor, width: textWidth, height: textHeight }}

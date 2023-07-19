@@ -32,7 +32,7 @@ const CurrencySelection = () => {
             label={data.name}
             chipType="squared"
             chipColor={data.color}
-            selected={index === 0 ? true : false}
+            selected={index === 0}
           />
         </Grid>
       );

@@ -36,9 +36,9 @@ const CustomTextField: React.FC<TextFieldProps> = ({
   };
 
   const textFieldStyle = {
-    width: width ? width : "100%",
-    height: height ? height : 40,
-    borderRadius: borderRadius?borderRadius:"8px"
+    width: width ?? "100%",
+    height: height ?? 40,
+    borderRadius: borderRadius ?? "8px",    
   };
 
   return (

@@ -168,7 +168,7 @@ const DetailsScrennBody = () => {
   
 
   useEffect(() => {
-    setIsAddedToWatchList(watchListId ? true : false);
+    setIsAddedToWatchList(!!watchListId);
   }, [watchListId]);
 
   const isthereInWatchlist = (data:any,id:any) =>{

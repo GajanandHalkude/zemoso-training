@@ -71,7 +71,7 @@ const BuyCurrency: React.FC<ChooseCurrencyProps> = ({currenciesData,coin}: Choos
                     image={pictures[currency.icon]}
                     name={currency.name}
                     value={currency.price}
-                    selected={currency.id===coin?true:false}
+                    selected={currency.id === coin}
                   />
                 </Grid>
               );

@@ -41,7 +41,7 @@ const DashBoardTemplate: React.FC<DashBoardTemplateProps> = ({
       <StyledSideNav>{sideNav}</StyledSideNav>
       <RightContainer container direction="column">
         <StyledHeader item>{header}</StyledHeader>
-        <StyledChildren item paddingTop={paddingTop ? paddingTop : "0px"}>
+        <StyledChildren item paddingTop={paddingTop ?? "0px"} >
           {children}
         </StyledChildren>
         {footer}
