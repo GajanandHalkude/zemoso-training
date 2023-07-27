@@ -1,68 +1,68 @@
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-Light.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Light.otf) format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-LightItalic.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Lightitalic.otf) format('truetype');
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-Regular.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Regular.otf) format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-RegularItalic.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Regular-Italic.otf) format('truetype');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-Medium.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Medium.otf) format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-Bold.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Bold.otf) format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-BoldItalic.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Bold-Italic.otf) format('truetype');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-MediumItalic.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Medium-italic.otf) format('truetype');
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-Black.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Black.otf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Gerebra';
-  src: url(../public/Fonts/Gerebra-BlackItalic.otf) format('truetype');
+  font-family: 'Gerbera';
+  src: url(../public/Fonts/Gerbera-Black-italic.otf) format('truetype');
   font-weight: normal;
   font-style: italic;
 }
