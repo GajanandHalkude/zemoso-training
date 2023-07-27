@@ -5,12 +5,12 @@ module.exports = {
     '^.+\\.(js|ts|tsx)?$': 'ts-jest',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       'jest-transform-stub',
-    '\\.(yaml)$': 'jest-raw-loader',
+    '\\.(yaml)$': 'jest-raw-loader'
   },
   transformIgnorePatterns: ['node_modules/(?!@prekari/core-ui)'],
   moduleNameMapper: {
     '\\.scss$': 'identity-obj-proxy',
-    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@components/(.*)$': '<rootDir>/src/components/$1'
   },
   roots: ['<rootDir>'],
   testRegex: '(/tests/jest/.*|(\\.|/)(test|spec))\\.(ts|tsx)$',
@@ -22,5 +22,6 @@ module.exports = {
     '<rootDir>/src/Services/Api.ts',
     '<rootDir>/src/App.tsx',
     '<rootDir>/src/index.tsx',
-  ],
+    '<rootDir>/src/themes/index.ts'
+  ]
 }
