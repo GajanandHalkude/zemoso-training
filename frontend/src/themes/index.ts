@@ -65,9 +65,9 @@ declare module '@mui/material/Typography' {
 const theme = createTheme({
   palette: {
     primary: {
-      100: '#E4D6FF',
-      300: '#9764FF',
-      500: '#7633FF'
+      light: '#E4D6FF',
+      main: '#9764FF',
+      dark: '#7633FF',
     },
     text: {
       highEmphasis: '#141414',
@@ -159,9 +159,21 @@ const theme = createTheme({
       fontWeight: '400',
       fontStyle: 'normal',
       lineHeight: '13.3px',
-      textDecorationLine: 'underline'
+      textDecorationLine: 'underline',
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: { 
+        borderRadius: '56px' ,
+        alignItems:'center',
+        gap:'10px',
+        textTransform:'none'  
+      }
+      }
     }
-  }
+  },
 })
 
 export default theme
