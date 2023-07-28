@@ -4,8 +4,6 @@
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 import { createTheme } from '@mui/material/styles'
 
-export const defaultTheme = createTheme()
-
 declare module '@mui/material/styles' {
   interface TypeText {
     highEmphasis?: string
@@ -67,28 +65,55 @@ declare module '@mui/material/Typography' {
 const theme = createTheme({
   palette: {
     primary: {
-      '100': '#E4D6FF',
-      '300': '#9764FF',
-      '500': '#7633FF',
+      100: '#E4D6FF',
+      300: '#9764FF',
+      500: '#7633FF'
     },
     text: {
       highEmphasis: '#141414',
       mediumEmphasis: '#77767A',
-      lowEmphasis: '#9F9DA3',
+      lowEmphasis: '#9F9DA3'
     },
     structuralColors: {
       background: '#F8F9FA',
       white: '#FFFFFF',
       hoverColor: '#F3F2F5',
-      buttonHover: '#F4EFFF',
+      buttonHover: '#F4EFFF'
     },
     Greys: {
       stroke: '#E4E4E5',
       icon1: '#141414',
-      icon2: '#A5A8AC',
-    },
+      icon2: '#A5A8AC'
+    }
   },
-
+  components: {
+    MuiRadio: {
+      styleOverrides: {
+        root: {
+          '&$checked': {
+            color: '#7633FF'
+          }
+        }
+      }
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#E4E4E5'
+            },
+            '&:hover fieldset': {
+              borderColor: '#E4E4E5'
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#E4E4E5'
+            }
+          }
+        }
+      }
+    }
+  },
   typography: {
     fontFamily: ['Gerbera'].join(','),
     h1: {
@@ -96,21 +121,21 @@ const theme = createTheme({
       fontSize: '24px',
       fontWeight: '400',
       fontStyle: 'normal',
-      lineHeight: '40px',
+      lineHeight: '40px'
     },
     body1: {
       fontFamily: 'Gerbera',
       fontSize: '21px',
       fontWeight: '400',
       fontStyle: 'normal',
-      lineHeight: '32px',
+      lineHeight: '32px'
     },
     body2: {
       fontFamily: 'Gerbera',
       fontSize: '17px',
       fontWeight: '400',
       fontStyle: 'normal',
-      lineHeight: '24px',
+      lineHeight: '24px'
     },
 
     body3: {
@@ -118,14 +143,14 @@ const theme = createTheme({
       fontSize: '16px',
       fontWeight: '400',
       fontStyle: 'normal',
-      lineHeight: '24px',
+      lineHeight: '24px'
     },
     caption: {
       fontFamily: 'Gerbera',
       fontSize: '14px',
       fontWeight: '400',
       fontStyle: 'normal',
-      lineHeight: '21',
+      lineHeight: '21'
     },
 
     link: {
@@ -134,9 +159,9 @@ const theme = createTheme({
       fontWeight: '400',
       fontStyle: 'normal',
       lineHeight: '13.3px',
-      textDecorationLine: 'underline',
-    },
-  },
+      textDecorationLine: 'underline'
+    }
+  }
 })
 
 export default theme
