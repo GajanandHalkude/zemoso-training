@@ -2,6 +2,7 @@
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 /* eslint-disable @typescript-eslint/no-empty-interface */
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
+import { inputLabelClasses } from '@mui/material'
 import { createTheme } from '@mui/material/styles'
 
 declare module '@mui/material/styles' {
@@ -99,6 +100,10 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
+          [`.${inputLabelClasses.root}`]: {
+            fontWeight: '400'
+          },
+          borderRadius: '8px',
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
               borderColor: '#E4E4E5'
