@@ -67,7 +67,7 @@ const theme = createTheme({
     primary: {
       light: '#E4D6FF',
       main: '#9764FF',
-      dark: '#7633FF',
+      dark: '#7633FF'
     },
     text: {
       highEmphasis: '#141414',
@@ -110,6 +110,16 @@ const theme = createTheme({
               borderColor: '#E4E4E5'
             }
           }
+        }
+      }
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '56px',
+          alignItems: 'center',
+          gap: '10px',
+          textTransform: 'none'
         }
       }
     }
@@ -159,21 +169,9 @@ const theme = createTheme({
       fontWeight: '400',
       fontStyle: 'normal',
       lineHeight: '13.3px',
-      textDecorationLine: 'underline',
-    },
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: { 
-        borderRadius: '56px' ,
-        alignItems:'center',
-        gap:'10px',
-        textTransform:'none'  
-      }
-      }
+      textDecorationLine: 'underline'
     }
-  },
+  }
 })
 
 export default theme
