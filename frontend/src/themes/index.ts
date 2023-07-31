@@ -160,7 +160,7 @@ const theme = createTheme({
       fontSize: '14px',
       fontWeight: '400',
       fontStyle: 'normal',
-      lineHeight: '21'
+      lineHeight: '21px'
     },
 
     link: {
