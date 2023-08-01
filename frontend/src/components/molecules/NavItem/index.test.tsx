@@ -3,11 +3,14 @@ import { render } from '@testing-library/react'
 import NavItem, { type NavItemProps } from '.'
 import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
+import theme from '../../../themes'
 
 describe('NavItem Component', () => {
   const defaultProps: NavItemProps = {
     itemText: 'Home',
-    iconSrc: '/path/to/home-icon.svg'
+    iconSrc: '/path/to/home-icon.svg',
+    sx: { color: theme.palette.primary.dark },
+    variant: 'caption'
   }
 
   test('renders without errors', () => {
