@@ -1,9 +1,9 @@
-import { Card, CardContent, Stack, styled } from '@mui/material'
+import { Card, CardContent, Stack, styled, type CardProps } from '@mui/material'
 import React from 'react'
 import theme from '../../../themes'
 import TypographyComponent from '../../atoms/Typography'
 
-interface AccountCardPropType {
+interface AccountCardPropType extends CardProps {
   icon: React.ReactNode
   title: string
   description: string
