@@ -120,12 +120,12 @@ const theme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
-        root: {
-          borderRadius: '56px',
-          alignItems: 'center',
-          gap: '10px',
-          textTransform: 'none'
-        }
+        root: { 
+        borderRadius: '56px' ,
+        alignItems:'center',
+        gap:'10px',
+        textTransform:'none'  
+      }
       }
     }
   },
@@ -174,9 +174,9 @@ const theme = createTheme({
       fontWeight: '400',
       fontStyle: 'normal',
       lineHeight: '13.3px',
-      textDecorationLine: 'underline'
-    }
-  }
+      textDecorationLine: 'underline',
+    },
+  },
 })
 
 export default theme
