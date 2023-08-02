@@ -31,7 +31,7 @@ const MobileCountryCode = ({
   ...props
 }: MobileCountryCodeProps): React.JSX.Element => {
   const onChnageHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    onChange(e.target?.value)
+    onChange(e.target.value)
   }
   return (
     <StyledTextField
