@@ -56,11 +56,11 @@ const Dropdown = ({
         }}
         input={<OutlinedInput />}
       >
-        <MenuItem disabled value={'default'}>
+        <MenuItem sx={{ width }} disabled value={'default'}>
           {placeholder}
         </MenuItem>
         {values.map(({ value, component }: Content) => (
-          <MenuItem key={value} value={value}>
+          <MenuItem sx={{ width }} key={value} value={value}>
             {component}
           </MenuItem>
         ))}
