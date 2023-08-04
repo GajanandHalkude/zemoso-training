@@ -184,7 +184,8 @@ const theme = createTheme({
       lineHeight: '13.3px',
       textDecorationLine: 'underline'
     }
-  }
+  },
+  spacing: 4
 })
 
 export default theme
