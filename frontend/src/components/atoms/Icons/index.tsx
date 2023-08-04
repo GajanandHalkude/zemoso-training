@@ -8,15 +8,17 @@ interface IconProps {
   height?: string
   clickHandler?: () => void
 }
-const Icons = (props: IconProps): React.JSX.Element => {
+const Icons = ({
+  src,
+  alt,
+  width,
+  height,
+  clickHandler,
+  ...props
+}: IconProps): React.JSX.Element => {
   return (
-    <Box onClick={props.clickHandler} sx={{ cursor: 'pointer' }}>
-      <img
-        src={`${props.src}`}
-        alt={props.alt}
-        width={props.width}
-        height={props.height}
-      />
+    <Box onClick={clickHandler} sx={{ cursor: 'pointer' }} {...props}>
+      <img src={src} alt={alt} width={width} height={height} />
     </Box>
   )
 }
