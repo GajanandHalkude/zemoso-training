@@ -1,0 +1,41 @@
+def search(keyword):
+    all_words = [keyword]
+    for entry in Thesaurus:
+        if keyword == entry.word:
+            for word in entry.synonyms:
+                all_words.append(word)
+            break
+    for search_word in all_words:
+        count = 0
+        for document in Corpus:
+            for word in document:
+                if search_word == word:
+                    count += 1
+        print(search_word, count)
+
+input = "sad"
+output = search(input) # invoke the method using a test input
+print(output) # prints the output of the function
+# do not remove this line!
+
+output:
+
+sad 4
+upset 2
+depressed 2
+unhappy 0
+None
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+For input="happy"
+
+output:
+
+happy 16
+glad 2
+pleased 2
+delighted 2
+joyous 1
+None
+
+
+............

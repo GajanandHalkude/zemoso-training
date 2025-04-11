@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="container1">
+            <h2>Tables</h2>
+            <input type="text" placeholder="Search table" id="myTable" onkeyup="searchFun()">
+            <div class="tables">
+ 
+                <div class="table" id="0" onClick="popup(event)">
+                    <h3>Table-1 </h3>
+                    <h4>Rs:<span class="rs">0</span> | Total Items:<span class="items">0</span></h4>
+                    <p class=".item"></p>
+                </div>
+
+                <div class="table" id="1" onClick="popup(event)">
+                    <h3>Table-2 </h3>
+                    <h4>Rs:<span class="rs">0</span> | Total Items:<span class="items">0</span></h4>
+                </div>
+
+                <div class="table" id="2" onClick="popup(event)">
+                    <h3>Table-3 </h3>
+                    <h4>Rs:<span class="rs">0</span> | Total Items:<span class="items">0</span></h4>
+                </div>
+                
+                <div class="modal" >
+                    <caption></caption>
+                    <table>
+                    
+                     <!-- <tr id="modal-content">
+                
+                        
+                      </tr> -->
+                    </table>
+                </div>
+                  
+
+         
+                
+           
+            </div>
+        </div>
+
+        <div class="container2">
+            <h2 >Menu</h2>
+            <input type="text" placeholder="Search by menu..by course...by food" id="myMenu" onkeyup="menuFun()">
+            <div class="products">
+                <div class="product"  draggable="true" id="0">
+                    
+                    <h3>Veg Biryani</h3>
+                    <p >Main Course</p>
+                    <h5>Price:<span class="price">200</span></h5>
+                </div>
+                <div class="product"  draggable="true" id="1">
+                    
+                    <h3>Chicken Biryani</h3>
+                    <p >Main Course</p>
+                    <h5>Price:<span class="price">300</span></h5>
+                </div>
+                <div class="product"  draggable="true" id="2" >
+                    
+                    <h3>Mutton Biryani</h3>
+                    <p >Main Course</p>
+                    <h5>Price:<span class="price">400</span></h5>
+                </div>
+                <div class="product"  draggable="true" id="3">
+                   
+                    <h3>French fries</h3>
+                    <p>Beverages</p>
+                    <h5>Price:<span class="price">180</span></h5>
+                </div>
+                <div class="product"  draggable="true" id="4" >  
+                   
+                    <h3>Apple juice</h3>
+                    <p>Beverages</p>
+                    <h5>Price:<span class="price">80</span></h5>
+                </div>
+                <div class="product"  draggable="true" id="5">
+                    
+                    <h3>Lemon Tea</h3>
+                    <p>Beverages</p>
+                    <h5>Price:<span class="price">40</span></h5>
+                </div>
+                <div class="product" draggable="true" id="6">
+                    
+                    <h3>Noodles</h3>
+                    <p>Staple food</p>
+                    <h5>Price:<span class="price">170</span></h5>
+                </div>
+                <div class="product"  draggable="true" id="7">
+                    
+                    <h3>Parotha</h3>
+                    <p>Staple food</p>
+                    <h5>Price:<span class="price">160</span></h5>
+                </div>
+                <div class="product"  draggable="true"  id="8">     
+                    
+                    <h3>Sandwich</h3>
+                    <p>lunch food</p>
+                    <h5>Price:<span class="price">220</span></h5>
+                </div>
+                <div class="product"  draggable="true"  id="9">
+                    
+                    <h3>Cake</h3>
+                    <p >dessert</p>
+                    <h5>Price:<span class="price">275</span></h5>
+                </div>
+                <div class="product"  draggable="true" id="10" >
+                   
+                    <h3>Biscuits</h3>
+                    <p >dessert</p>
+                    <h5>Price:<span class="price">95</span></h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
