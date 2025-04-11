@@ -1,0 +1,63 @@
+//Create a simple application which displays two counts:Local Score, Session Score and a button to increment these counts. Local score must persist in Local Storage and Ses//sion score must persist in Session Storage and must reset on closing the session.
+
+//Submit the github link with your code
+
+
+<html>
+<head>
+	<title>storage Score Counter</title>
+</head>
+<body>
+	<h1>Score Counter</h1>
+	<p style="color:blueviolet">Local Score: <span id="local-score">0</span></p>
+	<p style="color:darkgreen">Session Score: <span id="session-score">0</span></p>
+	<button onclick="incrementScores()" style="background-color: aqua;">Increment Scores</button>
+	<button onclick="resetLocal()" style="background-color: goldenrod;">Reset Local</button>
+    <button onclick="resetSession()" style="background-color:cornflowerblue;">Reset Session</button>
+
+	<script>
+		// Retrieve local score from local storage
+		let localScore = localStorage.getItem("local-score");
+		document.getElementById("local-score").innerHTML = localScore;
+		
+
+		// Increment local score and update local storage
+		function incrementLocalScore() {
+			localScore++;
+			localStorage.setItem("local-score", localScore);
+			document.getElementById("local-score").innerHTML = localScore;
+		}
+
+		// Retrieve session score from session storage
+		let sessionScore = sessionStorage.getItem("session-score");
+		document.getElementById("session-score").innerHTML = sessionScore;
+
+		// Increment session score and update session storage
+		function incrementSessionScore() {
+			sessionScore++;
+			sessionStorage.setItem("session-score", sessionScore);
+			document.getElementById("session-score").innerHTML = sessionScore;
+		}
+
+		// Increment both local and session scores
+		function incrementScores() {
+			incrementLocalScore();
+			incrementSessionScore();
+		}
+
+		//Reset both local and session scores to 0
+
+		function resetLocal() {
+			localStorage.removeItem("local-score");
+			localScore = 0;
+			document.getElementById("local-score").innerHTML = localScore;
+        }
+        
+        function resetSession() {
+            sessionStorage.removeItem("session-score");
+            sessionScore = 0;
+            document.getElementById("session-score").innerHTML = sessionScore;
+        }
+	</script>
+</body>
+</html>
